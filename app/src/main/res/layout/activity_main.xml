@@ -1,13 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.lanou.xuhaijia.enjoylife.MainActivity">
+    android:orientation="vertical"
+    tools:context=".activity.MainActivity">
 
-</RelativeLayout>
+    <FrameLayout
+        android:id="@+id/activity_main_fl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#d1d1d1"/>
+
+    <RadioGroup
+        android:id="@+id/activity_main_rg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/activity_main_music_rb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/selector_music"
+            android:gravity="center"
+            android:text=" 独立音乐"
+            android:textColor="@drawable/selector_font"
+            android:textSize="11dp"/>
+        <RadioButton
+            android:id="@+id/activity_main_news_rb"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/selector_news"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="新闻"
+            android:textSize="11dp"
+            android:textColor="@drawable/selector_font"/>
+        <RadioButton
+            android:id="@+id/activity_main_travel_rb"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/selector_travel"
+            android:gravity="center"
+            android:text="旅行"
+            android:textColor="@drawable/selector_font"
+            android:textSize="11dp"/>
+
+
+
+        <RadioButton
+            android:id="@+id/activity_main_picture_rb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/selector_picture"
+            android:gravity="center"
+            android:text="画报"
+            android:drawablePadding="3dp"
+            android:textColor="@drawable/selector_font"
+            android:textSize="11dp"/>
+
+        <RadioButton
+            android:id="@+id/activity_main_welfare_rb"
+            android:drawableTop="@drawable/selector_welfare"
+            android:drawablePadding="3dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:text="福利"
+            android:textColor="@drawable/selector_font"
+            android:textSize="11dp"/>
+
+        <RadioButton
+            android:id="@+id/activity_main_myself_rb"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/selector_myself"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:text="个人"
+            android:textColor="@drawable/selector_font"
+            android:textSize="11dp"/>
+    </RadioGroup>
+
+
+</LinearLayout>
