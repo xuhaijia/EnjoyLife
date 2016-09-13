@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--小青的Activity-->
+        <activity android:name=".travel.search.TravelSearchAty"/>
     </application>
 
 </manifest>
