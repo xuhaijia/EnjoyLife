@@ -21,7 +21,7 @@ public final class UrlValues {
 
 
     // 画报
-
+    public static final String PICTURE_ALL_URL = "http://design.zuimeia.com/api/v1/articles/daily/simple/?";
 
 
     // 福利

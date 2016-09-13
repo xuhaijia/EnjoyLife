@@ -4,17 +4,11 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.lanou.xuhaijia.enjoylife.R;
 import com.lanou.xuhaijia.enjoylife.base.BaseFragment;
-import com.lanou.xuhaijia.enjoylife.base.NetTool;
-import com.lanou.xuhaijia.enjoylife.picture.bean.PictureBean;
-import com.lanou.xuhaijia.enjoylife.picture.bean.UrlBean;
-import com.lanou.xuhaijia.enjoylife.tools.CommonAdapter;
-import com.lanou.xuhaijia.enjoylife.tools.CommonViewHolder;
 import com.redbooth.SlidingDeck;
 import com.wirelesspienetwork.overview.misc.Utilities;
 import com.wirelesspienetwork.overview.model.OverviewAdapter;
@@ -64,7 +58,7 @@ public class PictureFragment extends BaseFragment implements View.OnClickListene
         }
 
 
-//        mNetTool.getData(UrlBean.PICTURE_ALL_URL, PictureBean.class, new NetTool.NetInterface<PictureBean>() {
+//        mNetTool.getData(, PictureBean.class, new NetTool.NetInterface<PictureBean>() {
 //            @Override
 //            public void onSuccess(PictureBean pictureBean) {
 //                Log.d("PictureFragment", "pictureBean:" + pictureBean);
