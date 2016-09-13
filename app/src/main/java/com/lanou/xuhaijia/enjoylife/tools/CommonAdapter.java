@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.lanou.xuhaijia.enjoylife.picture.bean.PictureBean;
+
 import java.util.List;
 
 /**
@@ -22,6 +24,8 @@ public abstract class CommonAdapter<T> extends BaseAdapter{
         this.convertViewId = convertViewId;
         mLayoutInflater =LayoutInflater.from(context);
     }
+
+
 
     @Override
     public int getCount() {
