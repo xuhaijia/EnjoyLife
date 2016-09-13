@@ -56,6 +56,9 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
             case R.id.activity_main_myself_rb:
                 fragmentTransaction.replace(R.id.activity_main_fl  , new MyselfFragment());
                 break;
+            default:
+                break;
         }
+        fragmentTransaction.commit();
     }
 }

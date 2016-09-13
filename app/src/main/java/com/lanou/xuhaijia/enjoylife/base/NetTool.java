@@ -41,7 +41,7 @@ public class NetTool {
                 final Gson gson =  new Gson();
                 //
                 String data = response.body().string();
-                if (response.body().string().startsWith("{\"")) {
+                if (data.startsWith("{\"")) {
                     t = gson.fromJson(data, clazz);
                 } else {
                     int start = data.indexOf("{\"");
