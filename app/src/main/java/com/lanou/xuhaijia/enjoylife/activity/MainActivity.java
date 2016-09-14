@@ -57,5 +57,6 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                 fragmentTransaction.replace(R.id.activity_main_fl  , new MyselfFragment());
                 break;
         }
+
     }
 }

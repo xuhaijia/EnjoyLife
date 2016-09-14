@@ -1,4 +1,4 @@
-package com.lanou.xuhaijia.enjoylife.news.fragment;
+package com.lanou.xuhaijia.enjoylife.news.beautyarticle;
 
 import com.lanou.xuhaijia.enjoylife.R;
 import com.lanou.xuhaijia.enjoylife.base.BaseFragment;

@@ -1,4 +1,4 @@
-package com.lanou.xuhaijia.enjoylife.news.NewsAdapter;
+package com.lanou.xuhaijia.enjoylife.news;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -21,8 +21,8 @@ public class NewsMainAdapter extends FragmentPagerAdapter {
     public void setFreagments(ArrayList<Fragment> freagments) {
         this.freagments = freagments;
         arraylist.add("头条");
-        arraylist.add("娱乐");
         arraylist.add("体育");
+        arraylist.add("娱乐");
         arraylist.add("美文");
     }
 
