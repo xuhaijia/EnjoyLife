@@ -27,7 +27,7 @@ package com.lanou.xuhaijia.enjoylife.news;
  */
 public class URLValues {
 
-    public static final String NEWS_TOUTIAO = "";
+    public static final String NEWS_TOUTIAO = "http://c.3g.163.com/nc/article/headline/T1348647909107/0-20.html";
     public static final String NEWS_PF = "";
     public static final String NEWS_YULE = "";
     public static final String NEWS_YULE_FRONT = "";
