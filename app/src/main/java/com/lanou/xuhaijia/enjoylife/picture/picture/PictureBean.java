@@ -1,4 +1,4 @@
-package com.lanou.xuhaijia.enjoylife.picture.bean;
+package com.lanou.xuhaijia.enjoylife.picture.picture;
 
 import java.util.List;
 

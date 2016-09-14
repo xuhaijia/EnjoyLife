@@ -6,8 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import com.lanou.xuhaijia.enjoylife.picture.bean.PictureBean;
-
 import java.util.List;
 
 /**

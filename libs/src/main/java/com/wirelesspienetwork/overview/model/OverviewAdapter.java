@@ -17,6 +17,7 @@
 package com.wirelesspienetwork.overview.model;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.ViewGroup;
 
 import com.wirelesspienetwork.overview.misc.OverviewConfiguration;
@@ -119,7 +120,7 @@ public abstract class OverviewAdapter<VH extends ViewHolder, Model extends Objec
     /**
      * This method is expected to populate the view in vh with the model in vh.
      */
-    public abstract void onBindViewHolder(VH vh);
+    public abstract void onBindViewHolder(VH vh );
 
     public final int getNumberOfItems() {
         return mItems.size();
