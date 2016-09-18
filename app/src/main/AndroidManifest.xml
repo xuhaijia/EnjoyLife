@@ -26,6 +26,9 @@
 
         <!--静雯的Activity-->
         <activity android:name=".picture.details.DetailsActivity"/>
+        <activity android:name=".travel.selectcity.CitySelectAty"/>
+        <activity android:name=".travel.attractions.AttractionsAty"/>
+
     </application>
 
 </manifest>
