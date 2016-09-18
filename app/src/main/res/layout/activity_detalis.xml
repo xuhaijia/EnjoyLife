@@ -1,6 +1,343 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    >
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="15dp"
+                android:alpha="0.6"
+                android:src="@mipmap/Unknown" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="15dp"
+                    android:alpha="0.5"
+                    android:src="@drawable/shape_ellipse" />
+
+                <TextView
+                    android:id="@+id/activity_details_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="55dp"
+                    android:layout_marginTop="18dp"
+                    android:text="12333333"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/activity_details_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/activity_details_author"
+                    android:layout_marginRight="55dp"
+                    android:layout_marginTop="1dp"
+                    android:text="纽约"
+                    android:textColor="#ffffff" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/fragment_picture_item_avatar"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="19dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@mipmap/mm" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="标题"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="标题"
+            android:textColor="#737272"
+            android:textSize="15dp" />
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/mm" />
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <LinearLayout
+
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:background="#dedede"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/fragment_picture_item_sign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:gravity="center"
+                    android:text="1111111111"
+                    android:textColor="#080808"
+                    android:textSize="15dp"
+                    />
+
+
+                <TextView
+                    android:id="@+id/fragment_picture_item_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="标题"
+                    android:textColor="#898585"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/fragment_picture_item_title_sub"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="小标题"
+                    android:textColor="#545454"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/mm"
+                app:civ_border_color="#dedede"
+                app:civ_border_width="2dp"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="300dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="#000000"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="成为最美作者"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:textColor="#000000"/>
+        <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="有你自己的独特品牌?"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textColor="#515050"/>
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="希望分享给大家,找到品味相投的伙伴?"
+            android:layout_marginTop="1dp"
+            android:layout_gravity="center"
+            android:textColor="#515050"/>
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="这里就是你的发布台?"
+            android:layout_marginTop="1dp"
+            android:layout_gravity="center"
+            android:textColor="#515050"/>
+        <Button
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="#000000"
+            android:text="申请成为作者"
+            android:textColor="#ffffff"/>
+        <Button
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="#000000"
+            android:text="分享这篇文章"
+            android:textColor="#ffffff"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#000000"
+            android:layout_marginTop="30dp"
+            android:textColor="#ffffff"
+            android:text="设计师 and 作品"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:gravity="center"
+            android:orientation="vertical">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/mm"
+                app:civ_border_color="#dedede"
+                app:civ_border_width="2dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:text="1111111111"
+                android:textColor="#080808"
+                android:textSize="15dp"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="标题"
+                android:textColor="#898585"
+                android:textSize="12dp" />
+
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="+ 关注"
+                android:textColor="#ffffff"
+                android:textSize="14dp"
+                android:background="#000000"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1111111111111111"
+                android:layout_marginTop="10dp"
+                />
+        </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#000000">
+            <Button
+                android:layout_centerHorizontal="true"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:text="查看所有商品"
+                android:textColor="#000000"
+                android:layout_marginTop="10dp"
+                android:background="#ffffff"/>
+            <TextView
+                android:id="@+id/activity_details_pinglun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:text="评论"
+                android:textSize="15dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_alignParentBottom="true"
+                />
+            <TextView
+                android:layout_marginBottom="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@id/activity_details_pinglun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="11"
+                android:textColor="#ffffff"
+                />
+
+        </RelativeLayout>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </ListView>
+
+
+        <!--<LinearLayout-->
+            <!--android:background="#000000"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_width="300dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--&gt;-->
+            <!--<ImageView-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content" -->
+                <!--android:src="@mipmap/mm"-->
+                <!--android:layout_marginRight="2dp"/>-->
+            <!--<ImageView-->
+                <!--android:layout_marginLeft="2dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@mipmap/mm"/>-->
+        <!--</LinearLayout>-->
+
+    </LinearLayout>
+</ScrollView>

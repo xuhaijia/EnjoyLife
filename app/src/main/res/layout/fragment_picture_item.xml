@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#342cc2">
+    android:background="#342cc2"
+    android:id="@+id/fragment_picture_item_layout">
 
     <LinearLayout
         android:layout_width="400dp"
@@ -73,7 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="25dp"
-            android:src="@mipmap/mm" />
+            android:src="@mipmap/mm"/>
     </LinearLayout>
 
     <de.hdodenhof.circleimageview.CircleImageView
