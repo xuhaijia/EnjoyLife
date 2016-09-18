@@ -66,11 +66,9 @@ public class TravelFragment extends BaseFragment implements View.OnClickListener
         mNetTool.getData(UrlValues.TRAVEL_IMGER_INITALIZE, TravelFragmentBean.class, new NetTool.NetInterface<TravelFragmentBean>() {
             @Override
             public void onSuccess(TravelFragmentBean travelFragmentBean) {
-                Glide.with(getActivity()).load(travelFragmentBean.getPlace().getCover()).into(ivBackGround);
+                Glide.with(mContext).load(travelFragmentBean.getPlace().getCover()).into(ivBackGround);
                 tvCH.setText(travelFragmentBean.getPlace().getName_cn());
                 tvEnglish.setText(travelFragmentBean.getPlace().getName());
-
-
 
             }
 
