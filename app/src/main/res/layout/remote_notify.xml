@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#000000"
+              android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/remote_notify_icon"
+        android:layout_margin="10dp"
+        android:src="@mipmap/enjoy_life"
+        android:layout_width="60dp"
+        android:layout_height="60dp"/>
+
+    <TextView
+        android:id="@+id/remote_notify_songname"
+        android:text="歌名"
+        android:layout_toRightOf="@+id/remote_notify_icon"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="17dp"
+        android:singleLine="true"
+        android:textColor="#ffffff"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/remote_notify_playnow"
+        android:layout_marginTop="3dp"
+        android:layout_below="@+id/remote_notify_songname"
+        android:layout_alignLeft="@+id/remote_notify_songname"
+        android:textColor="#ffffff"
+        android:text="正在播放"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <ImageView
+        android:id="@+id/remote_notify_close"
+        android:gravity="end"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:src="@mipmap/music_notify_close"
+        android:layout_width="30dp"
+        android:layout_height="30dp"/>
+    <ImageView
+        android:id="@+id/remote_notify_playorstop"
+        android:gravity="end"
+        android:layout_toLeftOf="@+id/remote_notify_close"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:src="@mipmap/music_notify_play"
+        android:layout_width="30dp"
+        android:layout_height="30dp"/>
+
+
+</RelativeLayout>

@@ -51,19 +51,19 @@ public class MusicFragment extends BaseFragment implements RadioGroup.OnCheckedC
         switch (i) {
             case R.id.fragment_music_hot_single:
                 trigonSingle.setVisibility(View.VISIBLE);
-                trigonMusician.setVisibility(View.GONE);
-                trigonSearch.setVisibility(View.GONE);
+                trigonMusician.setVisibility(View.INVISIBLE);
+                trigonSearch.setVisibility(View.INVISIBLE);
                 fragmentTransaction.replace(R.id.fragment_music_fl , new HotSingleFragment());
                 break;
             case R.id.fragment_music_hot_musician:
-                trigonSingle.setVisibility(View.GONE);
+                trigonSingle.setVisibility(View.INVISIBLE);
                 trigonMusician.setVisibility(View.VISIBLE);
-                trigonSearch.setVisibility(View.GONE);
+                trigonSearch.setVisibility(View.INVISIBLE);
                 fragmentTransaction.replace(R.id.fragment_music_fl , new HotMusicianFragment());
                 break;
             case R.id.fragment_music_type_search:
-                trigonSingle.setVisibility(View.GONE);
-                trigonMusician.setVisibility(View.GONE);
+                trigonSingle.setVisibility(View.INVISIBLE);
+                trigonMusician.setVisibility(View.INVISIBLE);
                 trigonSearch.setVisibility(View.VISIBLE);
                 fragmentTransaction.replace(R.id.fragment_music_fl , new TypeSearchFragment());
                 break;

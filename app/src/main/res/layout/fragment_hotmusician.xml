@@ -3,5 +3,11 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
+    <com.lanou.xuhaijia.enjoylife.tools.MyListView
+        android:id="@+id/fragment_hotmusician_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff">
 
+    </com.lanou.xuhaijia.enjoylife.tools.MyListView>
 </LinearLayout>

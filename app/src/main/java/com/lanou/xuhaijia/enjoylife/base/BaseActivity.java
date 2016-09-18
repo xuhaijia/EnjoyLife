@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import com.lanou.xuhaijia.enjoylife.R;
+
 
 /**
  * Created by 徐海佳 on 16/8/31.
@@ -13,10 +15,11 @@ import android.view.View;
  */
 public abstract class BaseActivity extends AppCompatActivity {
     protected NetTool mNetTool;//网络请求的工具类
-
+    protected boolean skip = false;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         mNetTool = new NetTool();
         if (setLayout() != 0) {
             setContentView(setLayout());//绑定布局
@@ -45,5 +48,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
     }
 }
