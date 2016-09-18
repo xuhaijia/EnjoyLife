@@ -8,34 +8,25 @@ import java.util.List;
 public class HeanLineBean {
 
     /**
-     * postid : PHOT2327M000100A
-     * hasCover : false
-     * hasHead : 1
-     * replyCount : 1263
-     * hasImg : 1
-     * digest :
-     * hasIcon : false
-     * docid : 9IG74V5H00963VRO_C0TMGCAUbjzhounaupdateDoc
-     * title : 纽约果粉们备躺椅 等待iPhone 7
-     * order : 1
-     * priority : 345
-     * lmodify : 2016-09-14 08:47:04
-     * boardid : photoview_bbs
-     * ads : [{"title":"在售楼盘五证皆无 建设地仍是一片平房","tag":"photoset","imgsrc":"http://cms-bucket.nosdn.127.net/fbb383c061134edfb460051be846b6a320160914084103.jpeg","subtitle":"","url":"00AP0001|2197749"},{"title":"沙特麦加圣城朝觐 \u201c天网\u201d密切监控","tag":"photoset","imgsrc":"http://cms-bucket.nosdn.127.net/5f09f366887a4c0ebae193271dcc08fa20160914082829.jpeg","subtitle":"","url":"00AO0001|2197733"},{"title":"中俄海军陆战队举行首轮联合训练","tag":"photoset","imgsrc":"http://cms-bucket.nosdn.127.net/5d39c384e85d4d8c9329026ab53f823c20160914074333.jpeg","subtitle":"","url":"00AN0001|2197715"},{"title":"昂山素季访英 会见英首相特雷莎·梅","tag":"photoset","imgsrc":"http://cms-bucket.nosdn.127.net/e380ea222d464aa380a25afdc223209520160914082124.jpeg","subtitle":"","url":"00AO0001|2197732"},{"title":"孟加拉国一服装厂爆炸 遇难者升至31人","tag":"photoset","imgsrc":"http://cms-bucket.nosdn.127.net/8ec9e8e3bc884869aed7324cdbfc58f020160914080100.jpeg","subtitle":"","url":"00AO0001|2197730"}]
-     * photosetID : 00AO0001|2197750
-     * template : normal1
-     * votecount : 1026
-     * skipID : 00AO0001|2197750
-     * alias : Top News
-     * skipType : photoset
-     * cid : C1348646712614
-     * hasAD : 1
-     * imgextra : [{"imgsrc":"http://cms-bucket.nosdn.127.net/c53a38b939934c80b3fded378f94130820160914084603.jpeg"},{"imgsrc":"http://cms-bucket.nosdn.127.net/f1e1bc7967a347ba8be18809393d8e8a20160914084604.jpeg"}]
-     * source : 网易原创
-     * ename : androidnews
-     * imgsrc : http://cms-bucket.nosdn.127.net/247d2299724041d9a58ffc40430a376b20160914084601.jpeg
-     * tname : 头条
-     * ptime : 2016-09-14 08:39:04
+     * postid : C17VSI0F00014PRF
+     * url_3w : http://news.163.com/16/0918/08/C17VSI0F00014PRF.html
+     * votecount : 234
+     * replyCount : 0
+     * skipID : S1451880983492
+     * ltitle : 回顾习近平如何谈中国人民抗日战争
+     * digest : 【编前语】85年前的今天，日本军国主义悍然发动九一八事变，激起中国人民的奋勇抵抗。九一八事变成为中国人民抗日战争的起点，并揭开了世界反法西斯战争的序幕。新华网“
+     * skipType : special
+     * url : http://3g.163.com/news/16/0918/08/C17VSI0F00014PRF.html
+     * specialID : S1451880983492
+     * docid : C17VSI0F00014PRF
+     * title : 回顾习近平如何谈中国人民抗日战争
+     * source : 新华网
+     * priority : 315
+     * lmodify : 2016-09-18 09:51:38
+     * boardid : news_guonei8_bbs
+     * subtitle :
+     * imgsrc : http://cms-bucket.nosdn.127.net/66460d53282242f5805966112567c75c20160918094149.jpeg
+     * ptime : 2016-09-18 08:35:25
      */
 
     private List<T1348647909107Bean> T1348647909107;
@@ -50,45 +41,24 @@ public class HeanLineBean {
 
     public static class T1348647909107Bean {
         private String postid;
-        private boolean hasCover;
-        private int hasHead;
+        private String url_3w;
+        private int votecount;
         private int replyCount;
-        private int hasImg;
+        private String skipID;
+        private String ltitle;
         private String digest;
-        private boolean hasIcon;
+        private String skipType;
+        private String url;
+        private String specialID;
         private String docid;
         private String title;
-        private int order;
+        private String source;
         private int priority;
         private String lmodify;
         private String boardid;
-        private String photosetID;
-        private String template;
-        private int votecount;
-        private String skipID;
-        private String alias;
-        private String skipType;
-        private String cid;
-        private int hasAD;
-        private String source;
-        private String ename;
+        private String subtitle;
         private String imgsrc;
-        private String tname;
         private String ptime;
-        /**
-         * title : 在售楼盘五证皆无 建设地仍是一片平房
-         * tag : photoset
-         * imgsrc : http://cms-bucket.nosdn.127.net/fbb383c061134edfb460051be846b6a320160914084103.jpeg
-         * subtitle :
-         * url : 00AP0001|2197749
-         */
-
-        private List<AdsBean> ads;
-        /**
-         * imgsrc : http://cms-bucket.nosdn.127.net/c53a38b939934c80b3fded378f94130820160914084603.jpeg
-         */
-
-        private List<ImgextraBean> imgextra;
 
         public String getPostid() {
             return postid;
@@ -98,20 +68,20 @@ public class HeanLineBean {
             this.postid = postid;
         }
 
-        public boolean isHasCover() {
-            return hasCover;
+        public String getUrl_3w() {
+            return url_3w;
         }
 
-        public void setHasCover(boolean hasCover) {
-            this.hasCover = hasCover;
+        public void setUrl_3w(String url_3w) {
+            this.url_3w = url_3w;
         }
 
-        public int getHasHead() {
-            return hasHead;
+        public int getVotecount() {
+            return votecount;
         }
 
-        public void setHasHead(int hasHead) {
-            this.hasHead = hasHead;
+        public void setVotecount(int votecount) {
+            this.votecount = votecount;
         }
 
         public int getReplyCount() {
@@ -122,12 +92,20 @@ public class HeanLineBean {
             this.replyCount = replyCount;
         }
 
-        public int getHasImg() {
-            return hasImg;
+        public String getSkipID() {
+            return skipID;
         }
 
-        public void setHasImg(int hasImg) {
-            this.hasImg = hasImg;
+        public void setSkipID(String skipID) {
+            this.skipID = skipID;
+        }
+
+        public String getLtitle() {
+            return ltitle;
+        }
+
+        public void setLtitle(String ltitle) {
+            this.ltitle = ltitle;
         }
 
         public String getDigest() {
@@ -138,12 +116,28 @@ public class HeanLineBean {
             this.digest = digest;
         }
 
-        public boolean isHasIcon() {
-            return hasIcon;
+        public String getSkipType() {
+            return skipType;
         }
 
-        public void setHasIcon(boolean hasIcon) {
-            this.hasIcon = hasIcon;
+        public void setSkipType(String skipType) {
+            this.skipType = skipType;
+        }
+
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
+
+        public String getSpecialID() {
+            return specialID;
+        }
+
+        public void setSpecialID(String specialID) {
+            this.specialID = specialID;
         }
 
         public String getDocid() {
@@ -162,12 +156,12 @@ public class HeanLineBean {
             this.title = title;
         }
 
-        public int getOrder() {
-            return order;
+        public String getSource() {
+            return source;
         }
 
-        public void setOrder(int order) {
-            this.order = order;
+        public void setSource(String source) {
+            this.source = source;
         }
 
         public int getPriority() {
@@ -194,84 +188,12 @@ public class HeanLineBean {
             this.boardid = boardid;
         }
 
-        public String getPhotosetID() {
-            return photosetID;
+        public String getSubtitle() {
+            return subtitle;
         }
 
-        public void setPhotosetID(String photosetID) {
-            this.photosetID = photosetID;
-        }
-
-        public String getTemplate() {
-            return template;
-        }
-
-        public void setTemplate(String template) {
-            this.template = template;
-        }
-
-        public int getVotecount() {
-            return votecount;
-        }
-
-        public void setVotecount(int votecount) {
-            this.votecount = votecount;
-        }
-
-        public String getSkipID() {
-            return skipID;
-        }
-
-        public void setSkipID(String skipID) {
-            this.skipID = skipID;
-        }
-
-        public String getAlias() {
-            return alias;
-        }
-
-        public void setAlias(String alias) {
-            this.alias = alias;
-        }
-
-        public String getSkipType() {
-            return skipType;
-        }
-
-        public void setSkipType(String skipType) {
-            this.skipType = skipType;
-        }
-
-        public String getCid() {
-            return cid;
-        }
-
-        public void setCid(String cid) {
-            this.cid = cid;
-        }
-
-        public int getHasAD() {
-            return hasAD;
-        }
-
-        public void setHasAD(int hasAD) {
-            this.hasAD = hasAD;
-        }
-
-        public String getSource() {
-            return source;
-        }
-
-        public void setSource(String source) {
-            this.source = source;
-        }
-
-        public String getEname() {
-            return ename;
-        }
-
-        public void setEname(String ename) {
-            this.ename = ename;
+        public void setSubtitle(String subtitle) {
+            this.subtitle = subtitle;
         }
 
         public String getImgsrc() {
@@ -282,96 +204,12 @@ public class HeanLineBean {
             this.imgsrc = imgsrc;
         }
 
-        public String getTname() {
-            return tname;
-        }
-
-        public void setTname(String tname) {
-            this.tname = tname;
-        }
-
         public String getPtime() {
             return ptime;
         }
 
         public void setPtime(String ptime) {
             this.ptime = ptime;
-        }
-
-        public List<AdsBean> getAds() {
-            return ads;
-        }
-
-        public void setAds(List<AdsBean> ads) {
-            this.ads = ads;
-        }
-
-        public List<ImgextraBean> getImgextra() {
-            return imgextra;
-        }
-
-        public void setImgextra(List<ImgextraBean> imgextra) {
-            this.imgextra = imgextra;
-        }
-
-        public static class AdsBean {
-            private String title;
-            private String tag;
-            private String imgsrc;
-            private String subtitle;
-            private String url;
-
-            public String getTitle() {
-                return title;
-            }
-
-            public void setTitle(String title) {
-                this.title = title;
-            }
-
-            public String getTag() {
-                return tag;
-            }
-
-            public void setTag(String tag) {
-                this.tag = tag;
-            }
-
-            public String getImgsrc() {
-                return imgsrc;
-            }
-
-            public void setImgsrc(String imgsrc) {
-                this.imgsrc = imgsrc;
-            }
-
-            public String getSubtitle() {
-                return subtitle;
-            }
-
-            public void setSubtitle(String subtitle) {
-                this.subtitle = subtitle;
-            }
-
-            public String getUrl() {
-                return url;
-            }
-
-            public void setUrl(String url) {
-                this.url = url;
-            }
-        }
-
-        public static class ImgextraBean {
-            private String imgsrc;
-
-            public String getImgsrc() {
-                return imgsrc;
-            }
-
-            public void setImgsrc(String imgsrc) {
-                this.imgsrc = imgsrc;
-            }
         }
     }
 }
