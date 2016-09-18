@@ -1,4 +1,4 @@
-package com.lanou.xuhaijia.enjoylife.travel.search;/*
+package com.lanou.xuhaijia.enjoylife.travel.attractions.listattraction;/*
                    _ooOoo_
                   o8888888o
                   88" . "88
@@ -20,51 +20,27 @@ package com.lanou.xuhaijia.enjoylife.travel.search;/*
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
             佛祖保佑       永无BUG
 /**
- * Created by 常久青 on 16/9/13.
+ * Created by 常久青 on 16/9/18.
  */
-
-import android.view.View;
-import android.widget.TextView;
 
 import com.lanou.xuhaijia.enjoylife.R;
 import com.lanou.xuhaijia.enjoylife.base.BaseActivity;
 
-public class TravelSearchAty extends BaseActivity implements View.OnClickListener {
-    public static final String TAG = "TAG_TravelSearchAty";
+public class LIstAttractionAty extends BaseActivity {
+    public static final String TAG = "TAG_LIstAttractionAty";
 
     @Override
     protected int setLayout() {
-        return R.layout.activity_travel_search;
-
-
+        return R.layout.activity_travel_attraction_list;
     }
 
     @Override
     protected void initView() {
 
-        TextView tvCanel = bindView(R.id.activity_travel_search_textview_cancel);
-        tvCanel.setOnClickListener(this);
     }
 
     @Override
     protected void initData() {
-
-    }
-
-    @Override
-    public void onClick(View v) {
-
-
-        switch (v.getId()) {
-
-            case R.id.activity_travel_search_textview_cancel:
-
-                finish();
-
-                break;
-
-
-        }
 
     }
 }

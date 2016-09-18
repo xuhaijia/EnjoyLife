@@ -19,6 +19,8 @@
 
         <!--小青的Activity-->
         <activity android:name=".travel.search.TravelSearchAty"/>
+        <activity android:name=".travel.selectcity.CitySelectAty"/>
+        <activity android:name=".travel.attractions.AttractionsAty"/>
     </application>
 
 </manifest>

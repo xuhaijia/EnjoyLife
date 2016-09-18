@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
+
+
+        <ImageView
+            android:id="@+id/item_travel_attentions_listview_imager"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:background="@android:color/holo_orange_dark"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/item_travel_attentions_listview_textview_ch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/item_travel_attentions_listview_imager"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/item_travel_attentions_listview_imager"
+            android:text="大皇宫"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/item_travel_attentions_listview_textview_english"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_travel_attentions_listview_textview_ch"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/item_travel_attentions_listview_imager"
+            android:text="english" />
+
+        <RatingBar
+            android:id="@+id/item_travel_attentions_listview_ratingbar"
+            style="@style/myRatingBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_travel_attentions_listview_textview_english"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/item_travel_attentions_listview_imager"
+
+            android:isIndicator="true"
+            android:numStars="5"
+            android:stepSize="0.1" />
+
+        <TextView
+            android:id="@+id/item_travel_attentions_listview_textview_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/item_travel_attentions_listview_ratingbar"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/item_travel_attentions_listview_ratingbar"
+            android:text="8.5分" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray">
+
+        <TextView
+            android:id="@+id/item_travel_attentions_listview_textview_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:lines="3"
+            android:text="姓名" />
+
+    </RelativeLayout>
+</LinearLayout>
