@@ -21,6 +21,9 @@
 
         <!--小青的Activity-->
         <activity android:name=".travel.search.TravelSearchAty"/>
+
+        <!--静雯的Activity-->
+        <activity android:name=".picture.details.DetailsActivity"/>
     </application>
 
 </manifest>

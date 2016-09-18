@@ -12,7 +12,7 @@ import com.lanou.xuhaijia.enjoylife.music.MusicFragment;
 import com.lanou.xuhaijia.enjoylife.music.playnotify.PlayService;
 import com.lanou.xuhaijia.enjoylife.myself.MyselfFragment;
 import com.lanou.xuhaijia.enjoylife.news.NewsFragment;
-import com.lanou.xuhaijia.enjoylife.picture.fragment.PictureFragment;
+import com.lanou.xuhaijia.enjoylife.picture.picture.PictureFragment;
 import com.lanou.xuhaijia.enjoylife.travel.TravelFragment;
 import com.lanou.xuhaijia.enjoylife.welfare.WelfareFragment;
 
