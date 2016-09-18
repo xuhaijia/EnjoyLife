@@ -19,6 +19,8 @@
         <activity android:name=".music.hotmusician.HotMusicianActivity"/>
         <service android:name=".music.playnotify.PlayService"/>
 
+        <!--国冰冰 -->
+        <activity android:name=".news.headline.HeadLinesContentActivity"/>
         <!--小青的Activity-->
         <activity android:name=".travel.search.TravelSearchAty"/>
 

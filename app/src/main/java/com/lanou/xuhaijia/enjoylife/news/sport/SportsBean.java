@@ -1,72 +1,59 @@
-package com.lanou.xuhaijia.enjoylife.news.headline;
+package com.lanou.xuhaijia.enjoylife.news.sport;
 
 import java.util.List;
 
 /**
  * Created by 国冰冰 on 16/9/14.
  */
-public class HeanLineBean {
+public class SportsBean {
+
 
     /**
-     * postid : C17VSI0F00014PRF
-     * url_3w : http://news.163.com/16/0918/08/C17VSI0F00014PRF.html
-     * votecount : 234
-     * replyCount : 0
-     * skipID : S1451880983492
-     * ltitle : 回顾习近平如何谈中国人民抗日战争
-     * digest : 【编前语】85年前的今天，日本军国主义悍然发动九一八事变，激起中国人民的奋勇抵抗。九一八事变成为中国人民抗日战争的起点，并揭开了世界反法西斯战争的序幕。新华网“
-     * skipType : special
-     * url : http://3g.163.com/news/16/0918/08/C17VSI0F00014PRF.html
-     * specialID : S1451880983492
-     * docid : C17VSI0F00014PRF
-     * title : 回顾习近平如何谈中国人民抗日战争
-     * source : 新华网
-     * priority : 315
-     * lmodify : 2016-09-18 09:51:38
-     * boardid : news_guonei8_bbs
+     * url_3w : http://sports.163.com/16/0918/16/C18S6DSO00051C8L.html
+     * postid : C18S6DSO00051C8L
+     * votecount : 485
+     * replyCount : 519
+     * ltitle : 杨超声破门遭意外断腿 铲球之人曾同是恒大队友
+     * digest : 网易体育9月18日报道：9月18日15点30分，武汉卓尔客场与梅州客家的中甲第27轮比赛在五华县体育场进行。由于卓尔面临保级压力，因此比赛进行得十分激烈。当比赛
+     * url : http://3g.163.com/sports/16/0918/16/C18S6DSO00051C8L.html
+     * docid : C18S6DSO00051C8L
+     * title : 杨超声破门遭意外断腿 铲球之人曾同是恒大队友
+     * source : 网易体育
+     * priority : 198
+     * lmodify : 2016-09-18 17:16:31
+     * imgsrc : http://cms-bucket.nosdn.127.net/dcc9ac09e9a641b4920dd37af6dc42c520160918165257.png
      * subtitle :
-     * imgsrc : http://cms-bucket.nosdn.127.net/66460d53282242f5805966112567c75c20160918094149.jpeg
-     * ptime : 2016-09-18 08:35:25
+     * boardid : sports_bbs
+     * ptime : 2016-09-18 16:50:08
      */
 
-    private List<T1348647909107Bean> T1348647909107;
+    private List<T1348649079062Bean> T1348649079062;
 
-    public List<T1348647909107Bean> getT1348647909107() {
-        return T1348647909107;
+    public List<T1348649079062Bean> getT1348649079062() {
+        return T1348649079062;
     }
 
-    public void setT1348647909107(List<T1348647909107Bean> T1348647909107) {
-        this.T1348647909107 = T1348647909107;
+    public void setT1348649079062(List<T1348649079062Bean> T1348649079062) {
+        this.T1348649079062 = T1348649079062;
     }
 
-    public static class T1348647909107Bean {
-        private String postid;
+    public static class T1348649079062Bean {
         private String url_3w;
+        private String postid;
         private int votecount;
         private int replyCount;
-        private String skipID;
         private String ltitle;
         private String digest;
-        private String skipType;
         private String url;
-        private String specialID;
         private String docid;
         private String title;
         private String source;
         private int priority;
         private String lmodify;
-        private String boardid;
-        private String subtitle;
         private String imgsrc;
+        private String subtitle;
+        private String boardid;
         private String ptime;
-
-        public String getPostid() {
-            return postid;
-        }
-
-        public void setPostid(String postid) {
-            this.postid = postid;
-        }
 
         public String getUrl_3w() {
             return url_3w;
@@ -74,6 +61,14 @@ public class HeanLineBean {
 
         public void setUrl_3w(String url_3w) {
             this.url_3w = url_3w;
+        }
+
+        public String getPostid() {
+            return postid;
+        }
+
+        public void setPostid(String postid) {
+            this.postid = postid;
         }
 
         public int getVotecount() {
@@ -92,14 +87,6 @@ public class HeanLineBean {
             this.replyCount = replyCount;
         }
 
-        public String getSkipID() {
-            return skipID;
-        }
-
-        public void setSkipID(String skipID) {
-            this.skipID = skipID;
-        }
-
         public String getLtitle() {
             return ltitle;
         }
@@ -116,28 +103,12 @@ public class HeanLineBean {
             this.digest = digest;
         }
 
-        public String getSkipType() {
-            return skipType;
-        }
-
-        public void setSkipType(String skipType) {
-            this.skipType = skipType;
-        }
-
         public String getUrl() {
             return url;
         }
 
         public void setUrl(String url) {
             this.url = url;
-        }
-
-        public String getSpecialID() {
-            return specialID;
-        }
-
-        public void setSpecialID(String specialID) {
-            this.specialID = specialID;
         }
 
         public String getDocid() {
@@ -180,12 +151,12 @@ public class HeanLineBean {
             this.lmodify = lmodify;
         }
 
-        public String getBoardid() {
-            return boardid;
+        public String getImgsrc() {
+            return imgsrc;
         }
 
-        public void setBoardid(String boardid) {
-            this.boardid = boardid;
+        public void setImgsrc(String imgsrc) {
+            this.imgsrc = imgsrc;
         }
 
         public String getSubtitle() {
@@ -196,12 +167,12 @@ public class HeanLineBean {
             this.subtitle = subtitle;
         }
 
-        public String getImgsrc() {
-            return imgsrc;
+        public String getBoardid() {
+            return boardid;
         }
 
-        public void setImgsrc(String imgsrc) {
-            this.imgsrc = imgsrc;
+        public void setBoardid(String boardid) {
+            this.boardid = boardid;
         }
 
         public String getPtime() {

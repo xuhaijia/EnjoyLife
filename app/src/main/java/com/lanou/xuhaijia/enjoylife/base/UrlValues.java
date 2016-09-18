@@ -26,6 +26,11 @@ public final class UrlValues {
     public static final String MUSIC_CARE_SONG_END = "&cb=%24.setp(0.5162793209310621)&app_name=music_artist&version=52&user_id=150964751&token=6fc4214eea&expire=1489024922&_=1473487579154";
 
     // 新闻
+    public static final String NEWS_HEADLINE = "http://c.3g.163.com/nc/article/headline/T1348647909107/0-20.html";
+    public static final String NEWS_PE = "http://c.3g.163.com/nc/article/list/T1348649079062/0-20.html";
+    public static final String NEWS_RECREATION = "http://c.3g.163.com/nc/article/list/T1348648517839/0-20.html";
+    public static final String NEWS_YULE_FRONT = "";
+    public static final String NEWS_YULE_BEHIND = "";
 
 
 

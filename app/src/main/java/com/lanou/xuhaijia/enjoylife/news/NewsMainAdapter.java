@@ -20,7 +20,7 @@ public class NewsMainAdapter extends FragmentPagerAdapter {
 
     public void setFreagments(ArrayList<Fragment> freagments) {
         this.freagments = freagments;
-        arraylist.add("头条");
+        arraylist.add("精选");
         arraylist.add("体育");
         arraylist.add("娱乐");
         arraylist.add("美文");
