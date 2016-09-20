@@ -79,6 +79,25 @@ public class RecreationBean {
         private String subtitle;
         private String imgsrc;
         private String ptime;
+        private String skipType;
+        private String skipID;
+
+        public String getSkipType() {
+            return skipType;
+        }
+
+        public void setSkipType(String skipType) {
+            this.skipType = skipType;
+        }
+
+        public String getSkipID() {
+            return skipID;
+        }
+
+        public void setSkipID(String skipID) {
+            this.skipID = skipID;
+        }
+
         /**
          * title : 敢穿我只服金大姐！金卡戴珊透视装出街
          * tag : photoset

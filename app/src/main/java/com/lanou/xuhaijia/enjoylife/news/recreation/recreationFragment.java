@@ -1,6 +1,7 @@
 package com.lanou.xuhaijia.enjoylife.news.recreation;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -24,6 +25,7 @@ import java.util.ArrayList;
  * Created by 国冰冰 on 16/9/13.
  */
 public class RecreationFragment extends BaseFragment {
+    private String url;
     private ListView mListView;
 
     @Override
@@ -54,12 +56,41 @@ public class RecreationFragment extends BaseFragment {
                 mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        if (i != 0){
-                            Intent intent = new Intent(getContext(), HeadLinesContentActivity.class);
-                            String url = recreationBean.getT1348648517839().get(i).getUrl_3w();
-                            intent.putExtra("headline",url);
-                            startActivity(intent);
+                        if (i != 0) {
+
+                            if ("photoset".equals(recreationBean.getT1348648517839().get(i).getSkipType())) {
+
+                                Log.e("HeadlinesFragment", "图片  1");
+                                String head = UrlValues.NEWS_FRONT;
+                                String Pos = i + "";
+                                Log.d("HeadlinesFragment", recreationBean.getT1348648517839().get(i).getSkipID() + "拼接");
+                                String a = recreationBean.getT1348648517839().get(i).getSkipID();
+                                String setid = a.substring(9,a.length());
+                                String cannilt = a.substring(4,8);
+                                String photoUrl = head + Pos + UrlValues.NEWS_between + setid + UrlValues.NEWS_BEHIND + cannilt;
+
+                                url = photoUrl;
+                            } else {
+                                Log.d("HeadlinesFragment", "文字" + "2");
+                                Log.d("HeadlinesFragment",recreationBean.getT1348648517839().get(i).getUrl() + "网址");
+                                url = recreationBean.getT1348648517839().get(i).getUrl_3w();
+
+                            }
+
+                        }else if (i == 0){
+
+                            String head = UrlValues.NEWS_FRONT;
+                            String Pos = i + "";
+                            String a = recreationBean.getT1348648517839().get(i).getSkipID();
+                            String setid = a.substring(9,a.length());
+                            String cannilt = a.substring(4,8);
+                            String photoUrl = head + Pos + UrlValues.NEWS_between + setid + UrlValues.NEWS_BEHIND + cannilt;
+                            url = photoUrl;
                         }
+                        Intent intent = new Intent(getContext(), HeadLinesContentActivity.class);
+                        intent.putExtra("headline", url);
+                        startActivity(intent);
+
                     }
                 });
                     mListView.setAdapter(new CommonAdapter<RecreationBean.T1348648517839Bean>(arrayList, mContext, R.layout.item_news_sport) {

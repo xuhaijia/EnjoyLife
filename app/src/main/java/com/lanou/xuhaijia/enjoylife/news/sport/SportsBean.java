@@ -54,6 +54,24 @@ public class SportsBean {
         private String subtitle;
         private String boardid;
         private String ptime;
+        private String skipType;
+        private String skipID;
+
+        public String getSkipType() {
+            return skipType;
+        }
+
+        public void setSkipType(String skipType) {
+            this.skipType = skipType;
+        }
+
+        public String getSkipID() {
+            return skipID;
+        }
+
+        public void setSkipID(String skipID) {
+            this.skipID = skipID;
+        }
 
         public String getUrl_3w() {
             return url_3w;
