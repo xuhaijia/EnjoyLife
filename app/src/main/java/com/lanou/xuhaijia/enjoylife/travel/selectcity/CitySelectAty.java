@@ -66,7 +66,8 @@ public class CitySelectAty extends BaseActivity implements View.OnClickListener 
 
                 lvCity.setAdapter(new CommonAdapter<CitySelectAtyBean.ContinentsBean>(citySelectAtyBean.getContinents(), CitySelectAty.this, R.layout.item_city_select_aty) {
                     @Override
-                    public void setData(CitySelectAtyBean.ContinentsBean continentsBean, CommonViewHolder viewHolder) {
+                    public void setData(CitySelectAtyBean.ContinentsBean continentsBean,
+                                        CommonViewHolder viewHolder, int position) {
 
                         viewHolder.setText(R.id.item_travel_city_select_aty_text, continentsBean.getName_cn());
 

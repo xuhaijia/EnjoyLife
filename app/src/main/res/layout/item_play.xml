@@ -1,12 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="200dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-              android:orientation="vertical">
     <ImageView
-        android:src="@mipmap/ic_launcher"
+        android:id="@+id/item_play_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_margin="10dp"
-        android:layout_width="50dp"
-        android:layout_height="50dp"/>
+        android:src="@mipmap/enjoy_life"/>
+
+    <TextView
+        android:id="@+id/item_play_songs_name"
+        android:layout_width="200dp"
+        android:singleLine="true"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/item_play_icon"
+        android:layout_toRightOf="@+id/item_play_icon"
+        android:text="songs name"
+        android:textColor="#ffffff"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/item_play_songs_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_play_songs_name"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/item_play_icon"
+        android:text="time"
+        android:textColor="#ffffff"
+        android:textSize="12dp"/>
+    <ImageView
+        android:id="@+id/item_play_playorstop"
+        android:src="@mipmap/music_notify_stop"
+        android:layout_toLeftOf="@+id/item_play_next"
+        android:layout_alignTop="@+id/item_play_songs_name"
+        android:layout_margin="10dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"/>
+    <ImageView
+        android:id="@+id/item_play_next"
+        android:src="@mipmap/music_play_next"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/item_play_songs_name"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"/>
 </RelativeLayout>

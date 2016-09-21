@@ -65,7 +65,8 @@ public class SportsFragment extends BaseFragment {
                 });
                 mListView.setAdapter(new CommonAdapter<SportsBean.T1348649079062Bean>(beanArrayList, getContext(), R.layout.item_news_sport) {
                     @Override
-                    public void setData(SportsBean.T1348649079062Bean t1348649079062Bean, CommonViewHolder viewHolder) {
+                    public void setData(SportsBean.T1348649079062Bean t1348649079062Bean, CommonViewHolder viewHolder
+                            , int position) {
                         viewHolder.setText(R.id.item_news_sport_tv, t1348649079062Bean.getTitle());
                         viewHolder.setImage(R.id.item_news_sport_img, t1348649079062Bean.getImgsrc(), getContext());
                         viewHolder.setText(R.id.item_news_sport_source, t1348649079062Bean.getSource());

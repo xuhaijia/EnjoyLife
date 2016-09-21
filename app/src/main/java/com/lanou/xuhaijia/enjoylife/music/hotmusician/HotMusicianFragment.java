@@ -1,7 +1,6 @@
 package com.lanou.xuhaijia.enjoylife.music.hotmusician;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -9,6 +8,7 @@ import com.lanou.xuhaijia.enjoylife.R;
 import com.lanou.xuhaijia.enjoylife.base.BaseFragment;
 import com.lanou.xuhaijia.enjoylife.base.NetTool;
 import com.lanou.xuhaijia.enjoylife.base.UrlValues;
+import com.lanou.xuhaijia.enjoylife.music.hotmusiciandetails.HotMusicianActivity;
 import com.lanou.xuhaijia.enjoylife.tools.CommonAdapter;
 import com.lanou.xuhaijia.enjoylife.tools.CommonViewHolder;
 import com.lanou.xuhaijia.enjoylife.tools.MyListView;
@@ -36,9 +36,10 @@ public class HotMusicianFragment extends BaseFragment{
             @Override
             public void onSuccess(final HotMusicianBean hotMusicianBean) {
 
-                lv.setAdapter(new CommonAdapter<HotMusicianBean.ArtistsBean>(hotMusicianBean.getArtists(), mContext , R.layout.item_hotmusician) {
+                lv.setAdapter(new CommonAdapter<HotMusicianBean.ArtistsBean>(hotMusicianBean.getArtists()
+                        , mContext , R.layout.item_hotmusician) {
                     @Override
-                    public void setData(HotMusicianBean.ArtistsBean artistsBean, CommonViewHolder viewHolder) {
+                    public void setData(HotMusicianBean.ArtistsBean artistsBean, CommonViewHolder viewHolder , int position) {
                         viewHolder.setText(R.id.item_hotmusician_name , artistsBean.getName());
                         viewHolder.setText(R.id.item_hotmusician_style , artistsBean.getStyle());
                         viewHolder.setText(R.id.item_hotmusician_care , artistsBean.getFollower() + "人关注");

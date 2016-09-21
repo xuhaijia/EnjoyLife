@@ -37,6 +37,7 @@ public class CommonViewHolder extends RecyclerView.ViewHolder{
         }
         return viewHolder;
     }
+
     public static CommonViewHolder getHolder(LayoutInflater inflater, int id, ViewGroup parent) {
         View view = inflater.inflate(id, parent, false);
         CommonViewHolder viewHolder = new CommonViewHolder(view);

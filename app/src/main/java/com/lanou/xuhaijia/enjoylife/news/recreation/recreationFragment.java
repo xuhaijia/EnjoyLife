@@ -64,7 +64,8 @@ public class RecreationFragment extends BaseFragment {
                 });
                     mListView.setAdapter(new CommonAdapter<RecreationBean.T1348648517839Bean>(arrayList, mContext, R.layout.item_news_sport) {
                         @Override
-                        public void setData(RecreationBean.T1348648517839Bean t1348648517839Bean, CommonViewHolder viewHolder) {
+                        public void setData(RecreationBean.T1348648517839Bean t1348648517839Bean
+                                , CommonViewHolder viewHolder, int position) {
                             viewHolder.setText(R.id.item_news_sport_tv, t1348648517839Bean.getTitle());
                             viewHolder.setText(R.id.item_news_sport_source, t1348648517839Bean.getSource());
                             viewHolder.setText(R.id.item_news_sport_replycont, t1348648517839Bean.getReplyCount() + "人跟帖");

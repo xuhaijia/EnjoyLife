@@ -8,14 +8,16 @@ public final class UrlValues {
     // 音乐
     public static final String MUSIC_HOT_SINGLE = "https://music.douban.com/api/artist/chart?type=song&cb=%24.setp(0.45684256171807647)&app_name=music_artist&version=52&user_id=150964751&token=6fc4214eea&expire=1489024922&_=1473475059075";
     public static final String MUSIC_HOT_MUSICIAN = "https://music.douban.com/api/artist/chart?type=artist&cb=%24.setp(0.11327802087180316)&app_name=music_artist&version=52&user_id=150964751&token=6fc4214eea&expire=1489024922&_=1473475059081";
-    public static final String MUSIC_TYPE_SEARCH = "https://music.douban.com/api/artist/search?q=&cb=%24.setp(0.6899591605179012)&app_name=music_artist&version=52&user_id=150964751&token=6fc4214eea&expire=1489024922&_=1473475059076";
+    public static final String MUSIC_TYPE_SEARCH = "https://music.douban.com/api/artist/search?q=%25E6%2588%2591&cb=%24.setp(0.9167326588649303)&app_name=music_artist&version=52&user_id=150964751&token=6fc4214eea&expire=1489024922&_=1473475059085";
+
+    public static final String MUSIC_SEARCH_BYID_START = "https://music.douban.com/api/artist/genre?gid=";
+    public static final String MUSIC_SEARCH_BYID_END = "&type=artist&sortby=hot&cb=%24.setp(0.9941302437800914)&app_name=music_artist&version=52&_=1474264683933";
+
+    public static final String MUSIC_SEARCH_START = "https://music.douban.com/api/artist/search?q=";
+    public static final String MUSIC_SEARCH_END = "&cb=%24.setp(0.3023930210620165)&app_name=music_artist&version=52&_=1474264683937";
 
     public static final String MUSIC_CARE_ACTIVITY_START = "https://music.douban.com/api/artist/artist_event?id=";
     public static final String MUSIC_CARE_ACTIVITY_END = "&cb=%24.setp(0.4713750318624079)&app_name=music_artist&version=52&token=6fc4214eea&expire=1489024922&_=1473475059104";
-
-
-    public static final String MUSIC_CARE_TRENDS_START = "https://music.douban.com/api/artist/artist_update?id=";
-    public static final String MUSIC_CARE_TRENDS_END = "&cb=%24.setp(0.6893533570691943)&app_name=music_artist&version=52&user_id=150964751&token=6fc4214eea&expire=1489024922&_=1473475059109";
 
     public static final String MUSIC_CARE_PHOTO_START = "https://music.douban.com/api/artist/artist_album?id=";
     public static final String MUSIC_CARE_PHOTO_END = "&cb=%24.setp(0.24206765461713076)&app_name=music_artist&version=52&user_id=150964751&token=6fc4214eea&expire=1489024922&_=1473475059116";
@@ -23,8 +25,14 @@ public final class UrlValues {
     public static final String MUSIC_CARE_MESSAGE_START = "https://music.douban.com/api/artist/artist_board?id=";
     public static final String MUSIC_CARE_MESSAGE_END = "&cb=%24.setp(0.2982795466668904)&app_name=music_artist&version=52&user_id=150964751&token=6fc4214eea&expire=1489024922&_=1473475059117";
 
-    public static final String MUSIC_CARE_SONG_START = "https://music.douban.com/api/artist/artist_playlist?id=";
-    public static final String MUSIC_CARE_SONG_END = "&cb=%24.setp(0.5162793209310621)&app_name=music_artist&version=52&user_id=150964751&token=6fc4214eea&expire=1489024922&_=1473487579154";
+    public static final String MUSIC_CARE_SONGS_START = "https://music.douban.com/api/artist/artist_playlist?id=";
+    public static final String MUSIC_CARE_SONGS_END = "&cb=%24.setp(0.5162793209310621)&app_name=music_artist&version=52&user_id=150964751&token=6fc4214eea&expire=1489024922&_=1473487579154";
+
+    public static final String MUSIC_SONGS_IN_START = "https://music.douban.com/api/artist/songs?id=";
+    public static final String MUSIC_SONGS_IN_END = "&cb=%24.setp(0.09684648201800883)&app_name=music_artist&version=52&user_id=150964751&token=6fc4214eea&expire=1489024922&_=1473487579158";
+
+    public static final String MUSIC_PHOTO_IN_START = "https://music.douban.com/api/artist/photos?id=";
+    public static final String MUSIC_PHOTO_IN_END = "&cate=albumcover&limit=15&cb=%24.setp(0.628224239917472)&app_name=music_artist&version=52&user_id=150964751&token=f8606041e9&expire=1489830153&_=1474283196468";
 
 
     // 新闻

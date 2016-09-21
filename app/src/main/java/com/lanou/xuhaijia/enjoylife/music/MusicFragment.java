@@ -9,8 +9,10 @@ import android.widget.RadioGroup;
 import com.lanou.xuhaijia.enjoylife.R;
 import com.lanou.xuhaijia.enjoylife.base.BaseFragment;
 import com.lanou.xuhaijia.enjoylife.music.hotmusician.HotMusicianFragment;
+import com.lanou.xuhaijia.enjoylife.music.hotmusiciandetails.Musician;
 import com.lanou.xuhaijia.enjoylife.music.hotsingle.HotSingleFragment;
 import com.lanou.xuhaijia.enjoylife.music.typesearch.TypeSearchFragment;
+import com.lanou.xuhaijia.enjoylife.tools.DBTool;
 
 /**
  * Created by 徐海佳 on 16/9/13.

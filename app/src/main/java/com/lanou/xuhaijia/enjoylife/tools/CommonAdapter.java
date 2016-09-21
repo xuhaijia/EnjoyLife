@@ -44,9 +44,11 @@ public abstract class CommonAdapter<T> extends BaseAdapter{
     public View getView(int i, View view, ViewGroup viewGroup) {
         CommonViewHolder commonViewHolder = CommonViewHolder.getHolder(
                 view ,mLayoutInflater ,convertViewId ,viewGroup);
-        setData(beanList.get(i), commonViewHolder);
+        setData(beanList.get(i), commonViewHolder, i);
         return commonViewHolder.getConvertView();
     }
 
-    public abstract void setData(T t , CommonViewHolder viewHolder);
+
+    public abstract void setData(T t , CommonViewHolder viewHolder , int position);
+
 }

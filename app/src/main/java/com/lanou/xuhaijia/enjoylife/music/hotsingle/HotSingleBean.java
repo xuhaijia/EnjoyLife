@@ -21,6 +21,20 @@ public class HotSingleBean {
      */
 
     private List<SongsBean> songs;
+    /**
+     * name : 「我是个年轻人我心情不太好」
+     * id : 191657525
+     */
+
+    private PlaylistBean playlist;
+    /**
+     * playlist : {"name":"「我是个年轻人我心情不太好」 ","id":"191657525"}
+     * artist_id : 101781
+     * artist_name : 放肆的肆
+     */
+
+    private String artist_id;
+    private String artist_name;
 
     public List<SongsBean> getSongs() {
         return songs;
@@ -28,6 +42,30 @@ public class HotSingleBean {
 
     public void setSongs(List<SongsBean> songs) {
         this.songs = songs;
+    }
+
+    public PlaylistBean getPlaylist() {
+        return playlist;
+    }
+
+    public void setPlaylist(PlaylistBean playlist) {
+        this.playlist = playlist;
+    }
+
+    public String getArtist_id() {
+        return artist_id;
+    }
+
+    public void setArtist_id(String artist_id) {
+        this.artist_id = artist_id;
+    }
+
+    public String getArtist_name() {
+        return artist_name;
+    }
+
+    public void setArtist_name(String artist_name) {
+        this.artist_name = artist_name;
     }
 
     public static class SongsBean {
@@ -120,6 +158,27 @@ public class HotSingleBean {
 
         public void setWidget_id(String widget_id) {
             this.widget_id = widget_id;
+        }
+    }
+
+    public static class PlaylistBean {
+        private String name;
+        private String id;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
         }
     }
 }

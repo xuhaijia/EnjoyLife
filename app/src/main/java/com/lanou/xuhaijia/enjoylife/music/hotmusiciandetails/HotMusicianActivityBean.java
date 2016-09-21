@@ -1,4 +1,4 @@
-package com.lanou.xuhaijia.enjoylife.music.hotmusician;
+package com.lanou.xuhaijia.enjoylife.music.hotmusiciandetails;
 
 import com.google.gson.annotations.SerializedName;
 

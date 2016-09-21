@@ -1,8 +1,11 @@
-package com.lanou.xuhaijia.enjoylife.music.hotmusician;
+package com.lanou.xuhaijia.enjoylife.music.hotmusiciandetails;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -12,11 +15,12 @@ import com.lanou.xuhaijia.enjoylife.R;
 import com.lanou.xuhaijia.enjoylife.base.BaseActivity;
 import com.lanou.xuhaijia.enjoylife.base.NetTool;
 import com.lanou.xuhaijia.enjoylife.base.UrlValues;
+import com.lanou.xuhaijia.enjoylife.tools.DBTool;
 
 /**
  * Created by 徐海佳 on 16/9/17.
  */
-public class HotMusicianActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
+public class HotMusicianActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener, View.OnClickListener {
 
     private TextView titleTv;
     private TextView nameTv;
@@ -24,6 +28,9 @@ public class HotMusicianActivity extends BaseActivity implements RadioGroup.OnCh
     private TextView memberTv;
     private TextView careTv;
     private ImageView iconIv;
+    private String id;
+    private Intent intent;
+    private ImageView collectionIV;
 
     @Override
     protected int setLayout() {
@@ -34,12 +41,16 @@ public class HotMusicianActivity extends BaseActivity implements RadioGroup.OnCh
     protected void initView() {
         overridePendingTransition(R.anim.push_left_in,
                 R.anim.push_left_out);
+        intent = getIntent();
+        id = intent.getStringExtra("id");
         titleTv = bindView(R.id.activity_hotmusician_title);
         nameTv = bindView(R.id.activity_hotmusician_name);
         styleTv = bindView(R.id.activity_hotmusician_type);
         memberTv = bindView(R.id.activity_hotmusician_member);
         careTv = bindView(R.id.activity_hotmusician_care);
         iconIv = bindView(R.id.activity_hotmusician_icon);
+        collectionIV = bindView(R.id.activity_hotmusician_collection);
+        collectionIV.setOnClickListener(this);
         RadioGroup radioGroup = bindView(R.id.activity_hotmusician_rg);
         radioGroup.setOnCheckedChangeListener(this);
         radioGroup.check(R.id.activity_hotmusician_songs);
@@ -47,8 +58,7 @@ public class HotMusicianActivity extends BaseActivity implements RadioGroup.OnCh
 
     @Override
     protected void initData() {
-        Intent intent = getIntent();
-        String id = intent.getStringExtra("id");
+
         mNetTool.getData(UrlValues.MUSIC_CARE_ACTIVITY_START + id + UrlValues.MUSIC_CARE_ACTIVITY_END
                 , HotMusicianActivityBean.class, new NetTool.NetInterface<HotMusicianActivityBean>() {
                     @Override
@@ -73,26 +83,31 @@ public class HotMusicianActivity extends BaseActivity implements RadioGroup.OnCh
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        LvFragment lvFragment = new LvFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("id" , id );
         switch (i) {
             case R.id.activity_hotmusician_songs:
-                fragmentTransaction.replace(R.id.activity_hotmusician_fl , new SongsFragment());
+                bundle.putString("type" , "songs");
+                fragmentTransaction.replace(R.id.activity_hotmusician_fl , lvFragment);
                 break;
             case R.id.activity_hotmusician_activity:
-                fragmentTransaction.replace(R.id.activity_hotmusician_fl , new SongsFragment());
+                bundle.putString("type" , "activity");
+                fragmentTransaction.replace(R.id.activity_hotmusician_fl , lvFragment);
                 break;
             case R.id.activity_hotmusician_photo:
-                fragmentTransaction.replace(R.id.activity_hotmusician_fl , new SongsFragment());
-                break;
-            case R.id.activity_hotmusician_trends:
-                fragmentTransaction.replace(R.id.activity_hotmusician_fl , new SongsFragment());
+                bundle.putString("type" , "photo");
+                fragmentTransaction.replace(R.id.activity_hotmusician_fl , lvFragment);
                 break;
             case R.id.activity_hotmusician_message:
-                fragmentTransaction.replace(R.id.activity_hotmusician_fl , new SongsFragment());
+                bundle.putString("type" , "message");
+                fragmentTransaction.replace(R.id.activity_hotmusician_fl , lvFragment);
                 break;
             default:
                 break;
 
         }
+        lvFragment.setArguments(bundle);
         fragmentTransaction.commit();
     }
 
@@ -102,5 +117,13 @@ public class HotMusicianActivity extends BaseActivity implements RadioGroup.OnCh
         overridePendingTransition(R.anim.page_in,
                 R.anim.page_out);
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.activity_hotmusician_collection:
+                break;
+        }
     }
 }

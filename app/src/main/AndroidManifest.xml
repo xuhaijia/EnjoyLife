@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".music.hotmusician.HotMusicianActivity"/>
+        <activity android:name=".music.hotmusiciandetails.HotMusicianActivity"/>
+        <activity android:name=".music.songsin.SongsInActivity"/>
+        <activity android:name=".music.photoin.PhotoInActivity"/>
         <service android:name=".music.playnotify.PlayService"/>
 
         <!--国冰冰 -->

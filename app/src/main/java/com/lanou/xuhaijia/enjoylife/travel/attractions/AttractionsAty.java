@@ -68,7 +68,8 @@ public class AttractionsAty extends BaseActivity {
 
                 lvAttractionAty.setAdapter(new CommonAdapter<AttractionAtyBean.ListBean>(attractionAtyBean.getList(), AttractionsAty.this, R.layout.item_travel_attractions_listview) {
                     @Override
-                    public void setData(AttractionAtyBean.ListBean listBean, CommonViewHolder viewHolder) {
+                    public void setData(AttractionAtyBean.ListBean listBean
+                            , CommonViewHolder viewHolder, int position) {
                         viewHolder.setText(R.id.item_travel_attentions_listview_textview_ch, listBean.getName_cn());
 
                         viewHolder.setText(R.id.item_travel_attentions_listview_textview_english, listBean.getName());

@@ -72,7 +72,8 @@ public class HeadlinesFragment extends BaseFragment {
 
                 mListView.setAdapter(new CommonAdapter<HeanLineBean.T1348647909107Bean>(arrayList, mContext, R.layout.item_news_headline) {
                     @Override
-                    public void setData(final HeanLineBean.T1348647909107Bean t1348647909107Bean, CommonViewHolder viewHolder) {
+                    public void setData(final HeanLineBean.T1348647909107Bean t1348647909107Bean
+                            , CommonViewHolder viewHolder, int position) {
                         viewHolder.setText(R.id.item_news_headline_tv, t1348647909107Bean.getTitle());
                         viewHolder.setImage(R.id.item_news_headline_img, t1348647909107Bean.getImgsrc(), getContext());
                         viewHolder.setText(R.id.item_news_headline_source, t1348647909107Bean.getSource());
