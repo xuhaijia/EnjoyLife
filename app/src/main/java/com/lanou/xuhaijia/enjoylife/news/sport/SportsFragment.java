@@ -1,6 +1,7 @@
 package com.lanou.xuhaijia.enjoylife.news.sport;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -25,6 +26,7 @@ import java.util.ArrayList;
  */
 public class SportsFragment extends BaseFragment {
     private ListView mListView;
+    String url;
 
     @Override
     protected int setLayout() {
@@ -56,11 +58,41 @@ public class SportsFragment extends BaseFragment {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         if (i != 0) {
-                            String url = sportsBean.getT1348649079062().get(i).getUrl_3w();
-                            Intent intent = new Intent(getContext(), HeadLinesContentActivity.class);
-                            intent.putExtra("headline", url);
-                            startActivity(intent);
+
+                            if ("photoset".equals(sportsBean.getT1348649079062().get(i).getSkipType())) {
+
+                                Log.e("HeadlinesFragment", "图片  1");
+                                String head = UrlValues.NEWS_FRONT;
+                                String Pos = i + "";
+                                Log.d("HeadlinesFragment", sportsBean.getT1348649079062().get(i).getSkipID() + "拼接");
+                                String a = sportsBean.getT1348649079062().get(i).getSkipID();
+                                String setid = a.substring(9,a.length());
+                                String cannilt = a.substring(4,8);
+                                String photoUrl = head + Pos + UrlValues.NEWS_between + setid + UrlValues.NEWS_BEHIND + cannilt;
+
+                                url = photoUrl;
+                            } else {
+                                Log.d("HeadlinesFragment", "文字" + "2");
+                                Log.d("HeadlinesFragment", sportsBean.getT1348649079062().get(i).getUrl() + "网址");
+                                url = sportsBean.getT1348649079062().get(i).getUrl_3w();
+
+                            }
+
+                        }else if (i == 0){
+
+                            String head = UrlValues.NEWS_FRONT;
+                            String Pos = i + "";
+                            String a = sportsBean.getT1348649079062().get(i).getSkipID();
+                            String setid = a.substring(9,a.length());
+                            String cannilt = a.substring(4,8);
+                            String photoUrl = head + Pos + UrlValues.NEWS_between + setid + UrlValues.NEWS_BEHIND + cannilt;
+                            url = photoUrl;
                         }
+                        Intent intent = new Intent(getContext(), HeadLinesContentActivity.class);
+                        intent.putExtra("headline", url);
+                        startActivity(intent);
+
+
                     }
                 });
                 mListView.setAdapter(new CommonAdapter<SportsBean.T1348649079062Bean>(beanArrayList, getContext(), R.layout.item_news_sport) {

@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<ListView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbars="none"
-    android:id="@+id/fragment_news_heanline_lv"></ListView>
+    android:orientation="vertical">
+
+    <com.lanou.xuhaijia.enjoylife.news.MySwipeRefreshLayout
+        android:id="@+id/fragment_news_refrshlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/fragment_news_heanline_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"></ListView>
+    </com.lanou.xuhaijia.enjoylife.news.MySwipeRefreshLayout>
 </LinearLayout>

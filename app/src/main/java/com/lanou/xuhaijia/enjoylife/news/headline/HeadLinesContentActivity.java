@@ -3,6 +3,7 @@ package com.lanou.xuhaijia.enjoylife.news.headline;
 import android.content.Intent;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import com.lanou.xuhaijia.enjoylife.R;
 import com.lanou.xuhaijia.enjoylife.base.BaseActivity;
@@ -30,6 +31,9 @@ public class HeadLinesContentActivity extends BaseActivity {
         Intent intent = getIntent();
         url = intent.getStringExtra("headline");
         webView.getSettings().setJavaScriptEnabled(true);
+        if ("".equals(intent.getStringExtra("headline"))){
+            Toast.makeText(this, "网址好像有问题 稍后重试吧", Toast.LENGTH_SHORT).show();
+        }
         webView.loadUrl(url);
         webView.setWebViewClient(new WebViewClient(){
             @Override

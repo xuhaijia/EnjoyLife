@@ -44,10 +44,10 @@ public class HeanLineBean {
         private String url_3w;
         private int votecount;
         private int replyCount;
-        private String skipID;
         private String ltitle;
         private String digest;
         private String skipType;
+        private String skipID;
         private String url;
         private String specialID;
         private String docid;
