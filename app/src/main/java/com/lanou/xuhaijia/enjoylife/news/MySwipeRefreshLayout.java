@@ -21,7 +21,6 @@ import com.lanou.xuhaijia.enjoylife.R;
  * 上拉加载  下拉刷新
  */
 public class MySwipeRefreshLayout extends SwipeRefreshLayout implements AbsListView.OnScrollListener {
-
     /**
      * 滑动到最下面时的上拉操作
      */
@@ -72,7 +71,7 @@ public class MySwipeRefreshLayout extends SwipeRefreshLayout implements AbsListV
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
 
         mListViewFooter = LayoutInflater.from(context).inflate(
-               R.layout.msrl_pull_up_refresh, null, false);
+                R.layout.msrl_pull_up_refresh, null, false);
 
     }
 

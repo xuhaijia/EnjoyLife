@@ -1,5 +1,6 @@
 package com.lanou.xuhaijia.enjoylife.news;
 
+import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.design.widget.TabLayout;
@@ -39,6 +40,8 @@ public class NewsFragment extends BaseFragment {
         newsMainAdapter.setFreagments(fragmentArrayList);
         viewPager.setAdapter(newsMainAdapter);
         tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setSelectedTabIndicatorColor(Color.RED);
+        tabLayout.setTabTextColors(Color.GRAY,Color.RED);
 
 
 

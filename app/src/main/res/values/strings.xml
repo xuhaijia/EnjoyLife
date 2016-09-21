@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">EnjoyLife</string>
+    <string name="load">加载</string>
 </resources>
