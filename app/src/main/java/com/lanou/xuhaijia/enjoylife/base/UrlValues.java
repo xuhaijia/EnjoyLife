@@ -44,8 +44,9 @@ public final class UrlValues {
     public static final String TRAVEL_CITY_SELECT = "http://www.koubeilvxing.com/countrys?lang=zh";
 
     // 画报
-    public static final String PICTURE_ALL_URL = "http://design.zuimeia.com/api/v1/articles/daily/simple/?";
-
+    public static final String PICTURE_ALL_URL = "http://design.zuimeia.com/api/v1/articles/daily/simple/?app_version=2.2.4&device_id=086b6e6707d0ef6f3656d1a3621894b23c350107&device_name=iPhone&package_name=com.zuimeia.ZUIRanking&page=1&page_size=20&platform=iphone&resolution=%7B750%2C%201334%7D&system_version=9.3.3";
+    public static final String PIVTURE_DETAILS_STAER_URL = "http://design.zuimeia.com/api/v1/article/";
+    public static final String PIVTURE_DETAILS_END_URL = "/?app_version=2.2.4&device_id=086b6e6707d0ef6f3656d1a3621894b23c350107&device_name=iPhone&package_name=com.zuimeia.ZUIRanking&platform=iphone&resolution=%7B750%2C%201334%7D&system_version=9.3.3";
 
     // 福利
 

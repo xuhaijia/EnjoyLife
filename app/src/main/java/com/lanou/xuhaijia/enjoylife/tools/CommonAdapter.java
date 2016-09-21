@@ -6,6 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.lanou.xuhaijia.enjoylife.base.NetTool;
+import com.lanou.xuhaijia.enjoylife.picture.details.DetailsBean;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,6 +26,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter{
         this.convertViewId = convertViewId;
         mLayoutInflater =LayoutInflater.from(context);
     }
+
 
 
 
