@@ -105,7 +105,6 @@ public class HeadlinesFragment extends BaseFragment {
                             @Override
                             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                                 if (i != 0) {
-
                                     if ("photoset".equals(heanLineBean.getT1348647909107().get(i).getSkipType())) {
                                         //图片
                                         String head = UrlValues.NEWS_FRONT;
