@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.bumptech.glide.Glide;
 import com.lanou.xuhaijia.enjoylife.R;
 import com.lanou.xuhaijia.enjoylife.base.BaseFragment;
@@ -52,17 +53,17 @@ public class PictureFragment extends BaseFragment {
     protected void initData() {
         overview.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
 
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(Intent.ACTION_SCREEN_OFF);
-        filter.addAction(SearchManager.INTENT_GLOBAL_SEARCH_ACTIVITY_CHANGED);
+//        IntentFilter filter = new IntentFilter();
+//        filter.addAction(Intent.ACTION_SCREEN_OFF);
+//        filter.addAction(SearchManager.INTENT_GLOBAL_SEARCH_ACTIVITY_CHANGED);
 
-        try {
-            Utilities.setShadowProperty("ambientRatio", String.valueOf(1.5f));
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Utilities.setShadowProperty("ambientRatio", String.valueOf(1.5f));
+//        } catch (IllegalAccessException e) {
+//            e.printStackTrace();
+//        } catch (InvocationTargetException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Override
@@ -101,16 +102,17 @@ public class PictureFragment extends BaseFragment {
                 viewHolder.itemView.setBackgroundColor(viewHolder.model);
                 mNetTool.getData(UrlValues.PICTURE_ALL_URL, PictureBean.class, new NetTool.NetInterface<PictureBean>() {
                     @Override
-                    public void onSuccess(PictureBean pictureBean) {
-                        int i = viewHolder.getPosition();
+                    public void onSuccess(final PictureBean pictureBean) {
+                        final int i = viewHolder.getPosition();
 
-                        urlAdd = pictureBean.getData().getArticles().get(i).getId();
                         layout = (RelativeLayout) viewHolder.itemView.findViewById(R.id.fragment_picture_item_layout);
                         layout.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Intent intent = new Intent(getActivity(),DetailsActivity.class);
-                                intent.putExtra("ID",urlAdd);
+                                Intent intent = new Intent(getActivity(), DetailsActivity.class);
+                                int pos = viewHolder.getPosition();
+                                urlAdd = pictureBean.getData().getArticles().get(pos).getId();
+                                intent.putExtra("ID", String.valueOf(urlAdd));
                                 startActivity(intent);
                             }
                         });
@@ -119,11 +121,11 @@ public class PictureFragment extends BaseFragment {
                         sign = (TextView) viewHolder.itemView.findViewById(R.id.fragment_picture_item_sign);
                         image = (ImageView) viewHolder.itemView.findViewById(R.id.fragment_picture_item_image);
                         avatar = (ImageView) viewHolder.itemView.findViewById(R.id.fragment_picture_item_avatar);
-                        title.setText(pictureBean.getData().getArticles().get(19 - i).getTitle());
-                        titleSub.setText(pictureBean.getData().getArticles().get(19 - i).getSub_title());
-                        sign.setText(pictureBean.getData().getArticles().get(19 - i).getAuthor().getSign());
-                        Glide.with(MyApp.getContext()).load(pictureBean.getData().getArticles().get(19 - i).getImage_url()).into(image);
-                        Glide.with(MyApp.getContext()).load(pictureBean.getData().getArticles().get(19 - i).getAuthor().getAvatar_url()).into(avatar);
+                        title.setText(pictureBean.getData().getArticles().get(i).getTitle());
+                        titleSub.setText(pictureBean.getData().getArticles().get(i).getSub_title());
+                        sign.setText(pictureBean.getData().getArticles().get( i).getAuthor().getSign());
+                        Glide.with(MyApp.getContext()).load(pictureBean.getData().getArticles().get(i).getImage_url()).into(image);
+                        Glide.with(MyApp.getContext()).load(pictureBean.getData().getArticles().get(i).getAuthor().getAvatar_url()).into(avatar);
                     }
 
                     @Override
