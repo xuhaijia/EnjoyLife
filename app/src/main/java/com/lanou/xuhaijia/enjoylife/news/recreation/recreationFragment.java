@@ -77,7 +77,8 @@ public class RecreationFragment extends BaseFragment {
                         }
                         commonAdapter = new CommonAdapter<RecreationBean.T1348648517839Bean>(arrayList, mContext, R.layout.item_news_headline) {
                             @Override
-                            public void setData(final RecreationBean.T1348648517839Bean t1348648517839Bean, CommonViewHolder viewHolder) {
+                            public void setData(final RecreationBean.T1348648517839Bean t1348648517839Bean
+                                    , CommonViewHolder viewHolder , int position) {
                                 viewHolder.setText(R.id.item_news_headline_tv, t1348648517839Bean.getTitle());
                                 viewHolder.setImage(R.id.item_news_headline_img, t1348648517839Bean.getImgsrc(), getContext());
                                 viewHolder.setText(R.id.item_news_headline_source, t1348648517839Bean.getSource());
@@ -194,7 +195,7 @@ public class RecreationFragment extends BaseFragment {
 
                     }
                 });
-<<<<<<< HEAD
+
                     mListView.setAdapter(new CommonAdapter<RecreationBean.T1348648517839Bean>(arrayList, mContext, R.layout.item_news_sport) {
                         @Override
                         public void setData(RecreationBean.T1348648517839Bean t1348648517839Bean
@@ -205,10 +206,11 @@ public class RecreationFragment extends BaseFragment {
                             viewHolder.setImage(R.id.item_news_sport_img, t1348648517839Bean.getImgsrc(), getContext());
                         }
                     });
-=======
+
                 commonAdapter = new CommonAdapter<RecreationBean.T1348648517839Bean>(arrayList, mContext, R.layout.item_news_sport) {
                     @Override
-                    public void setData(RecreationBean.T1348648517839Bean t1348648517839Bean, CommonViewHolder viewHolder) {
+                    public void setData(RecreationBean.T1348648517839Bean t1348648517839Bean
+                            , CommonViewHolder viewHolder , int position) {
                         viewHolder.setText(R.id.item_news_sport_tv, t1348648517839Bean.getTitle());
                         viewHolder.setText(R.id.item_news_sport_source, t1348648517839Bean.getSource());
                         viewHolder.setText(R.id.item_news_sport_replycont, t1348648517839Bean.getReplyCount() + "人跟帖");
@@ -218,7 +220,7 @@ public class RecreationFragment extends BaseFragment {
                 mListView.setAdapter(commonAdapter);
 
             }
->>>>>>> feature/gbb-0919
+
 
             @Override
             public void onError(String errorMsg) {
