@@ -1,0 +1,311 @@
+package com.lanou.xuhaijia.enjoylife.travel.travlesfragment;
+
+import android.content.Context;
+import android.content.Intent;
+
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.lanou.xuhaijia.enjoylife.R;
+import com.lanou.xuhaijia.enjoylife.base.BaseFragment;
+import com.lanou.xuhaijia.enjoylife.base.NetTool;
+import com.lanou.xuhaijia.enjoylife.base.UrlValues;
+import com.lanou.xuhaijia.enjoylife.tools.Blur;
+import com.lanou.xuhaijia.enjoylife.travel.airmap.AriPlanAty;
+import com.lanou.xuhaijia.enjoylife.travel.attractions.AttractionsAty;
+import com.lanou.xuhaijia.enjoylife.travel.search.TravelSearchAty;
+import com.lanou.xuhaijia.enjoylife.travel.selectcity.CountrySelectAty;
+import com.wevey.selector.dialog.DialogOnClickListener;
+import com.wevey.selector.dialog.NormalAlertDialog;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+
+/**
+ * Created by 徐海佳 on 16/9/13.
+ */
+public class TravelFragment extends BaseFragment implements View.OnClickListener {
+
+    private NormalAlertDialog dialog;
+    private ImageView ivBackGround;
+    private TextView tvCH;
+    private TextView tvEnglish;
+    private String urlId;
+
+    private String urlImager;
+    private SharedPreferences shared;
+
+
+    public TravelFragment() {
+        EventBus.getDefault().register(this
+        );
+    }
+
+    @Override
+    protected int setLayout() {
+        return R.layout.fragment_travel;
+    }
+
+    @Override
+    protected void initView() {
+
+
+        ImageView ivAriPlan = bindView(R.id.travel_fragment_imager_airplane);
+        ivAriPlan.setOnClickListener(this);
+
+        //数据持久化
+        String name = "com.lanou.xuhaijia.enjoylife.SETTING";
+        shared = mContext.getSharedPreferences(name, Context.MODE_PRIVATE);
+
+
+        ivBackGround = bindView(R.id.travel_fragment_imager_background);
+
+        //城市中文
+        tvCH = bindView(R.id.travel_fragment_textview_ch_city);
+        //城市英文
+        tvEnglish = bindView(R.id.travel_fragment_textview_english_city);
+
+
+        //搜索框
+        RelativeLayout rlatSearch = bindView(R.id.travel_fragment_relative_search);
+        //搜索框的点击事件
+        rlatSearch.setOnClickListener(this);
+
+        ImageView ivPosition = bindView(R.id.travel_fragment_imager_position);
+        ivPosition.setOnClickListener(this);
+
+        ImageView ivAttractions = bindView(R.id.travel_fragment_imager_attractions);
+        ivAttractions.setOnClickListener(this);
+
+
+    }
+
+    @Override
+    protected void initData() {
+
+        Log.d("TravelFragment", "我执行了1");
+        //数据持久化取数据
+        urlId = shared.getString("id", "32556");
+
+        if (urlId == null) {
+            urlImager = UrlValues.TRAVEL_IMGER_INITALIZE;
+
+        } else {
+            urlImager = UrlValues.TRAVEL_IMGER_HEAD + urlId;
+        }
+        mNetTool.getData(urlImager, TravelFragmentBean.class, new NetTool.NetInterface<TravelFragmentBean>() {
+            @Override
+            public void onSuccess(TravelFragmentBean travelFragmentBean) {
+//                Glide.with(mContext).load(travelFragmentBean.getPlace().getCover()).into(ivBackGround);
+
+                MyAsyncTask myAsyncTask = new MyAsyncTask();
+                myAsyncTask.execute(travelFragmentBean.getPlace().getCover());
+
+
+                tvCH.setText(travelFragmentBean.getPlace().getName_cn());
+                tvEnglish.setText(travelFragmentBean.getPlace().getName());
+
+            }
+
+            @Override
+            public void onError(String errorMsg) {
+
+            }
+        });
+
+
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+
+            case R.id.travel_fragment_imager_airplane:
+                Toast.makeText(mContext, "点击", Toast.LENGTH_SHORT).show();
+                Intent intentAir = new Intent(getActivity(), AriPlanAty.class);
+
+                startActivity(intentAir);
+
+
+                break;
+
+
+            case R.id.travel_fragment_relative_search:
+
+                final Intent intentSearch = new Intent(getActivity(), TravelSearchAty.class);
+
+                startActivity(intentSearch);
+
+                break;
+            case R.id.travel_fragment_imager_position:
+
+
+                Toast.makeText(mContext, "我点击了", Toast.LENGTH_SHORT).show();
+                dialog = new NormalAlertDialog.Builder(mContext)
+                        .setHeight(0.35f)
+                        .setWidth(0.8f)
+                        .setTitleVisible(true)
+                        .setTitleText("口碑旅行是你超聪明的出境有助手")
+                        .setTitleTextColor(R.color.black_light)
+                        .setContentText("请选择一个您最想去的境外城市!")
+                        .setContentTextColor(R.color.black_light)
+                        .setLeftButtonText("暂不切换")
+                        .setLeftButtonTextColor(R.color.gray)
+                        .setRightButtonText("马上穿越")
+                        .setRightButtonTextColor(R.color.black_light)
+                        .setOnclickListener(new DialogOnClickListener() {
+                            @Override
+                            public void clickLeftButton(View view) {
+                                dialog.dismiss();
+                            }
+
+                            @Override
+                            public void clickRightButton(View view) {
+
+
+                                Toast.makeText(mContext, "跳转地图", Toast.LENGTH_SHORT).show();
+
+
+                                Intent intentSelectAty = new Intent(getContext(), CountrySelectAty.class);
+
+
+                                startActivity(intentSelectAty);
+                                dialog.dismiss();
+
+                            }
+                        })
+                        .build();
+
+
+                dialog.show();
+
+
+                break;
+
+            case R.id.travel_fragment_imager_attractions:
+
+                Intent intentAttractions = new Intent(getActivity(), AttractionsAty.class);
+
+                intentAttractions.putExtra("urlId", urlId);
+
+                startActivity(intentAttractions);
+
+
+                break;
+
+
+        }
+
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(getActivity());
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void getData(TravelEventBus travelEventBus) {
+        urlId = travelEventBus.getUrlId();
+        Log.d("TravelFragment", urlId);
+
+
+        //通过数据持久化储存id
+        SharedPreferences.Editor editor = shared.edit();
+        editor.putString("id", urlId);
+        editor.apply();
+
+        urlImager = UrlValues.TRAVEL_IMGER_HEAD + urlId;
+
+        Log.d("TravelFragment", urlImager);
+        Log.d("TravelFragment", "我执行2");
+        mNetTool.getData(urlImager, TravelFragmentBean.class, new NetTool.NetInterface<TravelFragmentBean>() {
+            @Override
+            public void onSuccess(TravelFragmentBean travelFragmentBean) {
+                //   Glide.with(mContext).load(travelFragmentBean.getPlace().getCover()).into(ivBackGround);
+                MyAsyncTask myAsyncTask = new MyAsyncTask();
+                myAsyncTask.execute(travelFragmentBean.getPlace().getCover());
+                tvCH.setText(travelFragmentBean.getPlace().getName_cn());
+                tvEnglish.setText(travelFragmentBean.getPlace().getName());
+
+            }
+
+            @Override
+            public void onError(String errorMsg) {
+
+            }
+        });
+
+
+    }
+
+
+    private class MyAsyncTask extends AsyncTask<String, Integer, Bitmap> {
+
+        private InputStream is;
+        private HttpURLConnection connection;
+        private Bitmap bitmap;
+
+        @Override
+        protected Bitmap doInBackground(String... strings) {
+            String picUrl = strings[0];
+
+            Log.d("MyAsyncTask", picUrl);
+
+            try {
+                URL urlPic = new URL(picUrl);
+                connection = (HttpURLConnection) urlPic.openConnection();
+                is = connection.getInputStream();
+
+                bitmap = BitmapFactory.decodeStream(is);
+
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+
+                try {
+                    is.close();
+                    connection.disconnect();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            Bitmap bitmapOut = Blur.apply(mContext, bitmap, 8);
+            return bitmapOut;
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap bitmap) {
+            super.onPostExecute(bitmap);
+
+            ivBackGround.setImageBitmap(bitmap);
+
+        }
+    }
+}
+
+

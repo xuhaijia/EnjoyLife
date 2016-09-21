@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_margin="2dp"
+    android:layout_height="150dp">
+
+    <ImageView
+
+        android:id="@+id/item_city_select_recycle_aty_imager"
+        android:layout_width="match_parent"
+        android:scaleType="fitXY"
+        android:layout_height="match_parent" />
+
+
+    <TextView
+        android:id="@+id/item_city_select_recycle_aty_textview_cn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/white"
+        android:text="城市"
+        android:textSize="13dp" />
+
+
+    <TextView
+        android:id="@+id/item_city_select_recycle_aty_textview_english"
+        android:layout_width="wrap_content"
+        android:textColor="@android:color/white"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/item_city_select_recycle_aty_textview_cn"
+        android:layout_below="@+id/item_city_select_recycle_aty_textview_cn"
+        android:layout_marginTop="5dp"
+        android:textSize="10dp"
+        android:text="city" />
+
+</RelativeLayout>

@@ -10,6 +10,7 @@
         android:layout_height="40dp">
 
         <ImageView
+            android:id="@+id/activity_attractions_iv_back"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_centerVertical="true"

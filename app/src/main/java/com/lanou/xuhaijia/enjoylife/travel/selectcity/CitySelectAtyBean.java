@@ -20,46 +20,67 @@ package com.lanou.xuhaijia.enjoylife.travel.selectcity;/*
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
             佛祖保佑       永无BUG
 /**
- * Created by 常久青 on 16/9/18.
+ * Created by 常久青 on 16/9/19.
  */
 
 import java.util.List;
 
 public class CitySelectAtyBean {
-    public static final String TAG = "TAG_CitySelectAtyBean";
 
 
     /**
      * ret : 1
-     * continents : [{"id":"32753","type":"continent","continentId":"0","countryId":"0","name":"Asia","name_cn":"亚洲","cover":"","path":"","countrys":[{"id":"1","type":"country","continentId":"32753","countryId":"0","name":"Thailand","name_cn":"泰国","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6d992efaed.jpg@!thumb","capitalId":0},{"id":"22238","type":"country","continentId":"32753","countryId":"0","name":"India","name_cn":"印度","cover":"http://img.koubeilvxing.com/pics/upload/2014-09-30/542a6c0bae9bc.jpg@!thumb","capitalId":0},{"id":"23131","type":"country","continentId":"32753","countryId":"0","name":"Japan","name_cn":"日本","cover":"http://img.koubeilvxing.com/pics/upload/2015-05-13/55532586b131c.jpg@!thumb","capitalId":0},{"id":"23277","type":"country","continentId":"32753","countryId":"0","name":"South Korea","name_cn":"韩国","cover":"http://img.koubeilvxing.com/pics/upload/2015-05-13/55532556374ef.jpg@!thumb","capitalId":0},{"id":"23373","type":"country","continentId":"32753","countryId":"0","name":"Myanmar","name_cn":"缅甸","cover":"http://img.koubeilvxing.com/pics/img/ba/b0/bab0f5818e9788b5761e4802b768e0f4.jpg@!thumb","capitalId":0},{"id":"23427","type":"country","continentId":"32753","countryId":"0","name":"Cambodia","name_cn":"柬埔寨","cover":"http://img.koubeilvxing.com/pics/img/35/12/35126bec6c4b603bb5e5fe6decae9e71.jpg@!thumb","capitalId":0},{"id":"23428","type":"country","continentId":"32753","countryId":"0","name":"Philippines","name_cn":"菲律宾","cover":"http://img.koubeilvxing.com/pics/img/58/d7/58d7c39614b09980b293564cae9f1539.jpg@!thumb","capitalId":0},{"id":"23429","type":"country","continentId":"32753","countryId":"0","name":"Malaysia","name_cn":"马来西亚","cover":"http://img.koubeilvxing.com/pics/img/99/8c/998cf865cc02ecc14b668858b158e0e1.jpg@!thumb","capitalId":0},{"id":"30700","type":"country","continentId":"32753","countryId":"0","name":"Nepal","name_cn":"尼泊尔 ","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/f63067b3bdc4ec34eceeaa3147c6c38a.jpg@!thumb","capitalId":0},{"id":"30701","type":"country","continentId":"32753","countryId":"0","name":"Indonesia","name_cn":"印度尼西亚","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/dbf1ed2103a721509ecf69ad01c29433.jpg@!thumb","capitalId":0},{"id":"30702","type":"country","continentId":"32753","countryId":"0","name":"Vietnam","name_cn":"越南","cover":"http://img.koubeilvxing.com/pics/upload/2014-09-30/542a8737f0a3f.jpg@!thumb","capitalId":0},{"id":"32243","type":"country","continentId":"32753","countryId":"0","name":"Maldives","name_cn":"马尔代夫","cover":"http://img.koubeilvxing.com/pics/img/6f/03/6f0356665d8bd28d2da784b7fd0c6d37.jpg@!thumb","capitalId":"32760"},{"id":"32244","type":"country","continentId":"32753","countryId":"0","name":"Singapore","name_cn":"新加坡","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/5256d9e11d2ea7c9a2e5f1917614a9db.jpg@!thumb","capitalId":"32253"},{"id":"32554","type":"country","continentId":"32753","countryId":"0","name":"Hong Kong","name_cn":"香港","cover":"http://img.koubeilvxing.com/pics/upload/2014-09-30/542a835272ab5.jpg@!thumb","capitalId":"32556"},{"id":"32557","type":"country","continentId":"32753","countryId":"0","name":"Taiwan","name_cn":"台湾","cover":"http://img.koubeilvxing.com/pics/upload/2014-09-30/542a830f97c8b.jpg@!thumb","capitalId":0},{"id":"32603","type":"country","continentId":"32753","countryId":"0","name":"Macau","name_cn":"澳门","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/f8897cfb00735c585cf96c10ef456084.jpg@!thumb","capitalId":"32605"},{"id":"32762","type":"country","continentId":"32753","countryId":"0","name":"Afghanistan","name_cn":"阿富汗","cover":"http://img.koubeilvxing.com/pics/img/f7/ad/f7ad6640c9b99d43ec2acd10c0b99cf3.jpg@!thumb","capitalId":0},{"id":"32763","type":"country","continentId":"32753","countryId":"0","name":"United Arab Emirates","name_cn":"阿联酋","cover":"http://img.koubeilvxing.com/pics/img/00/8f/008f9ab8c56d6a6083a1e3b8317a3466.jpg@!thumb","capitalId":0},{"id":"32764","type":"country","continentId":"32753","countryId":"0","name":"Oman","name_cn":"阿曼","cover":"http://img.koubeilvxing.com/pics/img/36/46/364655900239fb450a21d58ba9d1471d.jpg@!thumb","capitalId":0},{"id":"32765","type":"country","continentId":"32753","countryId":"0","name":"Pakistan","name_cn":"巴基斯坦","cover":"http://img.koubeilvxing.com/pics/img/c9/0a/c90a19020ca79f9cfa2278605ff2e7e8.jpg@!thumb","capitalId":0},{"id":"32766","type":"country","continentId":"32753","countryId":"0","name":"Palestine","name_cn":"巴勒斯坦","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/c0d3c93d042a61375d29743ed4ae0947.jpg@!thumb","capitalId":0},{"id":"32767","type":"country","continentId":"32753","countryId":"0","name":"Bahrain","name_cn":"巴林","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/2b7cf3fe0335b7bd806bc645997c5e26.jpg@!thumb","capitalId":"32995"},{"id":"32768","type":"country","continentId":"32753","countryId":"0","name":"Bhutan","name_cn":"不丹","cover":"http://img.koubeilvxing.com/pics/img/6e/0d/6e0da38bfa8af0c33a75ef5ece8611a9.jpg@!thumb","capitalId":0},{"id":"32769","type":"country","continentId":"32753","countryId":"0","name":"North Korea","name_cn":"朝鲜","cover":"http://img.koubeilvxing.com/pics/img/8f/4d/8f4dbf09bb3987c076d7481ae07aae57.jpg@!thumb","capitalId":0},{"id":"32770","type":"country","continentId":"32753","countryId":"0","name":"East Timor","name_cn":"东帝汶","cover":"http://img.koubeilvxing.com/pics/img/71/3c/713c6369576efd233034d608f82403b1.jpg@!thumb","capitalId":0},{"id":"32771","type":"country","continentId":"32753","countryId":"0","name":"Kazakhstan","name_cn":"哈萨克斯坦","cover":"http://img.koubeilvxing.com/pics/img/ee/a9/eea9881b9a169a41cec46636e53d147a.jpg@!thumb","capitalId":0},{"id":"32772","type":"country","continentId":"32753","countryId":"0","name":"Kyrgyzstan","name_cn":"吉尔吉斯斯坦","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/a3dd5619e26cc9bd170bcb4059fb5fee.jpg@!thumb","capitalId":0},{"id":"32773","type":"country","continentId":"32753","countryId":"0","name":"Qatar","name_cn":"卡塔尔","cover":"http://img.koubeilvxing.com/pics/img/d8/dd/d8dd158441e7de21870077b923b8c5e9.jpg@!thumb","capitalId":"33091"},{"id":"32775","type":"country","continentId":"32753","countryId":"0","name":"Laos","name_cn":"老挝","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/16428c06effd1bed1cdadbaa1659a0ce.jpg@!thumb","capitalId":0},{"id":"32776","type":"country","continentId":"32753","countryId":"0","name":"Lebanon","name_cn":"黎巴嫩","cover":"http://img.koubeilvxing.com/pics/img/ac/f1/acf1f76f39e2a3cc91fc0cfddd9a9b3a.jpg@!thumb","capitalId":0},{"id":"32777","type":"country","continentId":"32753","countryId":"0","name":"Mongolia","name_cn":"蒙古","cover":"http://img.koubeilvxing.com/pics/upload/2015-11-23/5652e0d71fce7.jpg@!thumb","capitalId":0},{"id":"32778","type":"country","continentId":"32753","countryId":"0","name":"Bangladesh","name_cn":"孟加拉国","cover":"http://img.koubeilvxing.com/pics/upload/2015-11-23/5652de33a1e8b.jpeg@!thumb","capitalId":0},{"id":"32779","type":"country","continentId":"32753","countryId":"0","name":"Saudi Arabia","name_cn":"沙特阿拉伯","cover":"http://img.koubeilvxing.com/pics/img/7d/39/7d39477ac6ae48757cc35e964f0f079d.jpg@!thumb","capitalId":0},{"id":"32780","type":"country","continentId":"32753","countryId":"0","name":"Sri Lanka","name_cn":"斯里兰卡","cover":"http://img.koubeilvxing.com/pics/img/b5/fa/b5fa52ffecac139c07d0ae444b454d41.jpg@!thumb","capitalId":0},{"id":"32781","type":"country","continentId":"32753","countryId":"0","name":"Tajikistan","name_cn":"塔吉克斯坦","cover":"http://img.koubeilvxing.com/pics/img/75/4a/754abf5aeaa9ece5fe3b5e2032808923.jpg@!thumb","capitalId":0},{"id":"32783","type":"country","continentId":"32753","countryId":"0","name":"Brunei","name_cn":"文莱","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/6ed2af4fd38c754f0e08cdfbb6b8ab27.jpg@!thumb","capitalId":0},{"id":"32784","type":"country","continentId":"32753","countryId":"0","name":"Uzbekistan","name_cn":"乌兹别克斯坦","cover":"http://img.koubeilvxing.com/pics/img/c9/04/c904877e8c4e6f6ee32041db91290276.jpg@!thumb","capitalId":0},{"id":"32785","type":"country","continentId":"32753","countryId":"0","name":"Syria","name_cn":"叙利亚","cover":"http://img.koubeilvxing.com/pics/img/47/f3/47f39e6665eb1628ed10d0473a784312.jpg@!thumb","capitalId":0},{"id":"32786","type":"country","continentId":"32753","countryId":"0","name":"Yemen","name_cn":"也门","cover":"http://img.koubeilvxing.com/pics/img/cd/44/cd44f2f2ea900093dc4b3a30afaf334c.jpg@!thumb","capitalId":0},{"id":"32787","type":"country","continentId":"32753","countryId":"0","name":"Iraq","name_cn":"伊拉克","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/399962211f20a8c4e43cfbf60c70a8ce.jpg@!thumb","capitalId":0},{"id":"32788","type":"country","continentId":"32753","countryId":"0","name":"Iran","name_cn":"伊朗","cover":"http://img.koubeilvxing.com/pics/img/d7/4e/d74e8613949a1f4ad2ae56312cb8ffb5.jpg@!thumb","capitalId":0},{"id":"32789","type":"country","continentId":"32753","countryId":"0","name":"British Indian Ocean Territory","name_cn":"英属印度洋领地","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/82063a6806a7031bfc61f65e63a16a2b.jpg@!thumb","capitalId":"33481"},{"id":"32790","type":"country","continentId":"32753","countryId":"0","name":"Israel","name_cn":"以色列","cover":"http://img.koubeilvxing.com/pics/img/44/97/4497c14353bb7366654e173f1fb8cdca.jpg@!thumb","capitalId":0},{"id":"32791","type":"country","continentId":"32753","countryId":"0","name":"Jordan","name_cn":"约旦","cover":"http://img.koubeilvxing.com/pics/img/b4/d2/b4d245b2fafa4cec9980c1085d914082.jpg@!thumb","capitalId":0}]},{"id":"32754","type":"continent","continentId":"0","countryId":"0","name":"Europe","name_cn":"欧洲","cover":"","path":"","countrys":[{"id":"22085","type":"country","continentId":"32754","countryId":"0","name":"France","name_cn":"法国","cover":"http://img.koubeilvxing.com/pics/upload/2015-05-13/555323652ff62.jpg@!thumb","capitalId":0},{"id":"22235","type":"country","continentId":"32754","countryId":"0","name":"Italy","name_cn":"意大利","cover":"http://img.koubeilvxing.com/pics/upload/2015-05-13/5553264ad487a.png@!thumb","capitalId":0},{"id":"22236","type":"country","continentId":"32754","countryId":"0","name":"Greece","name_cn":"希腊","cover":"http://img.koubeilvxing.com/pics/img/71/f9/71f9e79aa828015734536cf08403bcca.jpg@!thumb","capitalId":0},{"id":"22240","type":"country","continentId":"32754","countryId":"0","name":"Spain","name_cn":"西班牙","cover":"http://img.koubeilvxing.com/pics/upload/2015-05-13/5552ff7d13d79.jpg@!thumb","capitalId":0},{"id":"22242","type":"country","continentId":"32754","countryId":"0","name":"United Kingdom","name_cn":"英国","cover":"http://img.koubeilvxing.com/pics/upload/2015-05-13/5553211c0eca2.jpg@!thumb","capitalId":0},{"id":"22243","type":"country","continentId":"32754","countryId":"0","name":"Germany","name_cn":"德国","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/9c09e75dc848450bfc9bd05785694edd.jpg@!thumb","capitalId":0},{"id":"24437","type":"country","continentId":"32754","countryId":"0","name":"Belgium","name_cn":"比利时","cover":"http://img.koubeilvxing.com/pics/img/34/99/3499c3409a19cf755bdbf210c3f6b9f0.jpg@!thumb","capitalId":0},{"id":"24438","type":"country","continentId":"32754","countryId":"0","name":"Netherlands","name_cn":"荷兰","cover":"http://img.koubeilvxing.com/pics/img/e5/13/e513d5cf44354f0781386b40b19996a6.jpg@!thumb","capitalId":0},{"id":"24439","type":"country","continentId":"32754","countryId":"0","name":"Sweden","name_cn":"瑞典","cover":"http://img.koubeilvxing.com/pics/img/09/25/0925c27b15a81316ca5b87c3e903eeae.jpg@!thumb","capitalId":0},{"id":"28861","type":"country","continentId":"32754","countryId":"0","name":"Turkey","name_cn":"土耳其","cover":"http://img.koubeilvxing.com/pics/img/09/41/0941c24bb37d03086db1d32d733ab52e.jpg@!thumb","capitalId":0},{"id":"29184","type":"country","continentId":"32754","countryId":"0","name":"Denmark","name_cn":"丹麦","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/1238e13baff276906020f599f8c5fb6a.jpg@!thumb","capitalId":0},{"id":"29240","type":"country","continentId":"32754","countryId":"0","name":"Russia","name_cn":"俄罗斯","cover":"http://img.koubeilvxing.com/pics/img/4e/7c/4e7c4f4d3026f93085dd37852d78a289.jpg@!thumb","capitalId":0},{"id":"30703","type":"country","continentId":"32754","countryId":"0","name":"Austria","name_cn":"奥地利","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/e1ff34c87807e9b97456313c4845c766.jpg@!thumb","capitalId":0},{"id":"31138","type":"country","continentId":"32754","countryId":"0","name":"Czech Republic","name_cn":"捷克共和国","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/559a1402c2f198854de75ffa103977fb.jpg@!thumb","capitalId":0},{"id":"31139","type":"country","continentId":"32754","countryId":"0","name":"Switzerland","name_cn":"瑞士","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/42cf58d450ffd026b9dc47ee78a22ef8.jpg@!thumb","capitalId":0},{"id":"31140","type":"country","continentId":"32754","countryId":"0","name":"Portugal","name_cn":"葡萄牙","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/1fa8be3dfb236fb58c013a3151f12a71.jpg@!thumb","capitalId":0},{"id":"32606","type":"country","continentId":"32754","countryId":"0","name":"Luxembourg","name_cn":"卢森堡","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/65d335bdfe2a141cec554d18d300ea7f.jpg@!thumb","capitalId":0},{"id":"32793","type":"country","continentId":"32754","countryId":"0","name":"Albania","name_cn":"阿尔巴尼亚","cover":"http://img.koubeilvxing.com/pics/img/60/16/6016a1295185843eae447a72c7905b4d.jpg@!thumb","capitalId":0},{"id":"32794","type":"country","continentId":"32754","countryId":"0","name":"Ireland","name_cn":"爱尔兰","cover":"http://img.koubeilvxing.com/pics/img/76/e4/76e49170c7d71abb3c4800728ab3c174.jpg@!thumb","capitalId":0},{"id":"32795","type":"country","continentId":"32754","countryId":"0","name":"Estonia","name_cn":"爱沙尼亚","cover":"http://img.koubeilvxing.com/pics/img/41/97/4197138bea2e5d6ecd0eaccf9a432af0.jpg@!thumb","capitalId":0},{"id":"32796","type":"country","continentId":"32754","countryId":"0","name":"Andorra","name_cn":"安道尔","cover":"http://img.koubeilvxing.com/pics/img/ed/50/ed503a13150e23c076358f8d271a6a73.jpg@!thumb","capitalId":"33577"},{"id":"32797","type":"country","continentId":"32754","countryId":"0","name":"Azerbaijan","name_cn":"阿塞拜疆","cover":"http://img.koubeilvxing.com/pics/img/a3/92/a3927898a5f95d99a032cb8405eb3998.jpg@!thumb","capitalId":0},{"id":"32798","type":"country","continentId":"32754","countryId":"0","name":"Belarus","name_cn":"白俄罗斯","cover":"http://img.koubeilvxing.com/pics/img/be/1c/be1c2d9b55fc2e20bcb2c813ba5cd149.jpg@!thumb","capitalId":0},{"id":"32799","type":"country","continentId":"32754","countryId":"0","name":"Bulgaria","name_cn":"保加利亚","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/537462903d26e7bc408a0baead64d265.jpg@!thumb","capitalId":0},{"id":"32800","type":"country","continentId":"32754","countryId":"0","name":"Iceland","name_cn":"冰岛","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/aa6b7c1f3bb79075350ed45b9675b075.jpg@!thumb","capitalId":0},{"id":"32802","type":"country","continentId":"32754","countryId":"0","name":"Poland","name_cn":"波兰","cover":"http://img.koubeilvxing.com/pics/img/95/07/9507760eba069a7d3d50177ddd38b0aa.jpg@!thumb","capitalId":0},{"id":"32803","type":"country","continentId":"32754","countryId":"0","name":"Faroe Islands","name_cn":"法罗群岛","cover":"http://img.koubeilvxing.com/pics/img/02/fd/02fd3f97fe4428ba79c8e976285b7742.jpg@!thumb","capitalId":0},{"id":"32805","type":"country","continentId":"32754","countryId":"0","name":"Finland","name_cn":"芬兰","cover":"http://img.koubeilvxing.com/pics/img/8f/cf/8fcf94f6f22e7c94de0bdc4938450de2.jpg@!thumb","capitalId":0},{"id":"32806","type":"country","continentId":"32754","countryId":"0","name":"Greenland","name_cn":"格陵兰","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/4ae08bc88979adf68776b123a64ec36c.jpg@!thumb","capitalId":0},{"id":"32807","type":"country","continentId":"32754","countryId":"0","name":"Georgia","name_cn":"格鲁吉亚","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/8b4bde3103321184ceb3ce695c450133.jpg@!thumb","capitalId":0},{"id":"32808","type":"country","continentId":"32754","countryId":"0","name":"Montenegro","name_cn":"黑山","cover":"http://img.koubeilvxing.com/pics/img/8f/b6/8fb6b8841628857711bc52d37b192063.jpg@!thumb","capitalId":0},{"id":"32809","type":"country","continentId":"32754","countryId":"0","name":"Croatia","name_cn":"克罗地亚","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/d73914c2cc025c362b56f5b58c7578fa.jpg@!thumb","capitalId":0},{"id":"32811","type":"country","continentId":"32754","countryId":"0","name":"Latvia","name_cn":"拉脱维亚","cover":"http://img.koubeilvxing.com/pics/img/c7/9a/c79ab18c248462d8f29003aad9903067.jpg@!thumb","capitalId":0},{"id":"32812","type":"country","continentId":"32754","countryId":"0","name":"Liechtenstein","name_cn":"列支敦士登","cover":"http://img.koubeilvxing.com/pics/img/77/da/77da6d97f043c59735625ca1a30b9c1c.jpg@!thumb","capitalId":"33966"},{"id":"32813","type":"country","continentId":"32754","countryId":"0","name":"Lithuania","name_cn":"立陶宛","cover":"http://img.koubeilvxing.com/pics/img/75/2c/752ce04ede2caf2545578465825ca579.jpg@!thumb","capitalId":0},{"id":"32814","type":"country","continentId":"32754","countryId":"0","name":"Romania","name_cn":"罗马尼亚","cover":"http://img.koubeilvxing.com/pics/img/7b/a4/7ba46ddf4e9e6e0c9b3db421a3103916.jpg@!thumb","capitalId":0},{"id":"32815","type":"country","continentId":"32754","countryId":"0","name":"Malta","name_cn":"马耳他","cover":"http://img.koubeilvxing.com/pics/img/22/f6/22f67ea1ec7a6b1c93638ea9bb44b61f.jpg@!thumb","capitalId":0},{"id":"32816","type":"country","continentId":"32754","countryId":"0","name":"Macedonia","name_cn":"马其顿","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/2b79316f82f10aed9933f86a93dde71b.jpg@!thumb","capitalId":0},{"id":"32817","type":"country","continentId":"32754","countryId":"0","name":"Moldova","name_cn":"摩尔多瓦","cover":"http://img.koubeilvxing.com/pics/img/df/6e/df6e4c2b0111c83dd3713ef17e4c10ad.jpg@!thumb","capitalId":0},{"id":"32819","type":"country","continentId":"32754","countryId":"0","name":"Norway","name_cn":"挪威","cover":"http://img.koubeilvxing.com/pics/img/44/e1/44e1e6a8be64acbccddcaa28aed2b017.jpg@!thumb","capitalId":0},{"id":"32820","type":"country","continentId":"32754","countryId":"0","name":"Serbia","name_cn":"塞尔维亚","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/43ca7c2b463c13c7f323d6744c4b4f8a.jpg@!thumb","capitalId":0},{"id":"32821","type":"country","continentId":"32754","countryId":"0","name":"Cyprus","name_cn":"塞浦路斯","cover":"http://img.koubeilvxing.com/pics/img/ea/8a/ea8ad77c4fcc464ca3065a2b6100b283.jpg@!thumb","capitalId":0},{"id":"32823","type":"country","continentId":"32754","countryId":"0","name":"Slovakia","name_cn":"斯洛伐克","cover":"http://img.koubeilvxing.com/pics/img/2b/ae/2baef3b22626c955c976576f75cd9841.jpg@!thumb","capitalId":0},{"id":"32824","type":"country","continentId":"32754","countryId":"0","name":"Slovenia","name_cn":"斯洛文尼亚","cover":"http://img.koubeilvxing.com/pics/img/42/f3/42f3b155633417913c114444bfc756dc.jpg@!thumb","capitalId":0},{"id":"32825","type":"country","continentId":"32754","countryId":"0","name":"Ukraine","name_cn":"乌克兰","cover":"http://img.koubeilvxing.com/pics/img/77/89/7789a7ea2a29eee57ae1b0da752775b6.jpg@!thumb","capitalId":0},{"id":"32827","type":"country","continentId":"32754","countryId":"0","name":"Hungary","name_cn":"匈牙利","cover":"http://img.koubeilvxing.com/pics/img/25/43/2543db6850da51703643c27325abc568.jpg@!thumb","capitalId":0},{"id":"32828","type":"country","continentId":"32754","countryId":"0","name":"Armenia","name_cn":"亚美尼亚","cover":"http://img.koubeilvxing.com/pics/img/5e/86/5e86cf63da62226aa860e940e684bc58.jpg@!thumb","capitalId":0}]},{"id":"32755","type":"continent","continentId":"0","countryId":"0","name":"North America","name_cn":"北美洲","cover":"","path":"","countrys":[{"id":"5040","type":"country","continentId":"32755","countryId":"0","name":"United States","name_cn":"美国","cover":"http://img.koubeilvxing.com/pics/upload/2015-05-13/5553208019b8e.jpg@!thumb","capitalId":0},{"id":"22241","type":"country","continentId":"32755","countryId":"0","name":"Canada","name_cn":"加拿大","cover":"http://img.koubeilvxing.com/pics/img/46/54/4654457737651e25b0a77820befb174e.jpg@!thumb","capitalId":0},{"id":"29745","type":"country","continentId":"32755","countryId":"0","name":"Mexico","name_cn":"墨西哥","cover":"http://img.koubeilvxing.com/pics/upload/2014-09-30/542a73db0c3fa.jpg@!thumb","capitalId":0},{"id":"29746","type":"country","continentId":"32755","countryId":"0","name":"Costa Rica","name_cn":"哥斯达黎加","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/877cbe7e04c3825a9a80d06112d4c6e1.jpg@!thumb","capitalId":0},{"id":"29747","type":"country","continentId":"32755","countryId":"0","name":"Jamaica","name_cn":"牙买加","cover":"http://img.koubeilvxing.com/pics/upload/2014-09-30/542a8563ee2a1.jpg@!thumb","capitalId":0},{"id":"31141","type":"country","continentId":"32755","countryId":"0","name":"Bahamas","name_cn":"巴哈马","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/7684c8f7d289e5ba98d99defe4a842d7.jpg@!thumb","capitalId":0},{"id":"32245","type":"country","continentId":"32755","countryId":"0","name":"Panama","name_cn":"巴拿马","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/7b2dbdbed843cf68d53ea1712cca2ee7.jpg@!thumb","capitalId":0},{"id":"32246","type":"country","continentId":"32755","countryId":"0","name":"Guatemala","name_cn":"危地马拉","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/619411addaf1d5884277a4af24a36f0f.jpg@!thumb","capitalId":0},{"id":"32382","type":"country","continentId":"32755","countryId":"0","name":"Cuba","name_cn":"古巴","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/c82132edc74b8463ea237bc467d68463.jpg@!thumb","capitalId":0},{"id":"32884","type":"country","continentId":"32755","countryId":"0","name":"Anguilla","name_cn":"安圭拉","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/d5ef389563206401fd010e805699d3e3.jpg@!thumb","capitalId":"34877"},{"id":"32886","type":"country","continentId":"32755","countryId":"0","name":"Barbados","name_cn":"巴巴多斯","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/b8d3b73e8bdb996efcb7cf41ae20fd4a.jpg@!thumb","capitalId":0},{"id":"32888","type":"country","continentId":"32755","countryId":"0","name":"Puerto Rico","name_cn":"波多黎各","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/677b6899b61f3f1e94b6c12f7592dad3.jpg@!thumb","capitalId":0},{"id":"32889","type":"country","continentId":"32755","countryId":"0","name":"Belize","name_cn":"伯利兹","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/b246ffb4ac876db2251475c4b17a547e.jpg@!thumb","capitalId":0},{"id":"32890","type":"country","continentId":"32755","countryId":"0","name":"Aruba","name_cn":"阿鲁巴","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/24083bc54429cb53d435fea7dd742a68.jpg@!thumb","capitalId":"34926"},{"id":"32893","type":"country","continentId":"32755","countryId":"0","name":"Dominica","name_cn":"多米尼克","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/3b8eb0c8d4935ebb2392b421be732732.jpg@!thumb","capitalId":0},{"id":"32894","type":"country","continentId":"32755","countryId":"0","name":"Saint Martin","name_cn":"法属圣马丁","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/9c686975817f320a913dd5ccc63944a5.jpg@!thumb","capitalId":"34936"},{"id":"32898","type":"country","continentId":"32755","countryId":"0","name":"Sint Maarten","name_cn":"荷属圣马丁","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/03545d2dd729045a9fc423d47123192a.jpg@!thumb","capitalId":"34963"},{"id":"32899","type":"country","continentId":"32755","countryId":"0","name":"Honduras","name_cn":"洪都拉斯","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/a155e9a407d67b4b36e314cc69e0cbf1.jpg@!thumb","capitalId":0},{"id":"32900","type":"country","continentId":"32755","countryId":"0","name":"Cayman Islands","name_cn":"开曼群岛","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/fa1ddce8e4333e59da09e5dcc786ac45.jpg@!thumb","capitalId":0},{"id":"32905","type":"country","continentId":"32755","countryId":"0","name":"Nicaragua","name_cn":"尼加拉瓜","cover":"http://img.koubeilvxing.com/pics/img/f5/bf/f5bfa68efa5081e7e82f04bbb71ebd87.jpg@!thumb","capitalId":0},{"id":"32907","type":"country","continentId":"32755","countryId":"0","name":"El Salvador","name_cn":"萨尔瓦多","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/0fcbea2ad3b306aa37993f6c4de82bcd.jpg@!thumb","capitalId":0},{"id":"32915","type":"country","continentId":"32755","countryId":"0","name":"Trinidad & Tobago","name_cn":"特立尼达和多巴哥","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/d25aad2855953a02067a5fbfee8d12d0.jpg@!thumb","capitalId":0}]},{"id":"32756","type":"continent","continentId":"0","countryId":"0","name":"South America","name_cn":"南美洲","cover":"","path":"","countrys":[{"id":"29750","type":"country","continentId":"32756","countryId":"0","name":"Argentina","name_cn":"阿根廷","cover":"http://img.koubeilvxing.com/pics/upload/2014-09-30/542a74fc37bb7.jpg@!thumb","capitalId":0},{"id":"29751","type":"country","continentId":"32756","countryId":"0","name":"Brazil","name_cn":"巴西","cover":"http://img.koubeilvxing.com/pics/upload/2014-09-30/542a76a588e5c.jpg@!thumb","capitalId":0},{"id":"29752","type":"country","continentId":"32756","countryId":"0","name":"Peru","name_cn":"秘鲁","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/041db3582546fa8cd5e5973f832a450f.jpg@!thumb","capitalId":0},{"id":"29753","type":"country","continentId":"32756","countryId":"0","name":"Bolivia","name_cn":"玻利维亚","cover":"http://img.koubeilvxing.com/pics/upload/2014-09-30/542a85c4c8586.jpg@!thumb","capitalId":0},{"id":"32918","type":"country","continentId":"32756","countryId":"0","name":"Ecuador","name_cn":"厄瓜多尔","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/797aec60eb5d97de0431f03e7c2995b4.jpg@!thumb","capitalId":0},{"id":"32919","type":"country","continentId":"32756","countryId":"0","name":"French Guiana","name_cn":"法属圭亚那","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/39ab1376056d8c70d275ff1f494b9fe7.jpg@!thumb","capitalId":0},{"id":"32921","type":"country","continentId":"32756","countryId":"0","name":"Colombia","name_cn":"哥伦比亚","cover":"http://img.koubeilvxing.com/pics/img/da/b6/dab6e4c134e5baf9733e84ffb2e80738.jpg@!thumb","capitalId":0},{"id":"32922","type":"country","continentId":"32756","countryId":"0","name":"Guyana","name_cn":"圭亚那","cover":"http://img.koubeilvxing.com/pics/img/1d/22/1d224fdc0c41e2d58c5d0a9b59143c16.jpg@!thumb","capitalId":0},{"id":"32923","type":"country","continentId":"32756","countryId":"0","name":"Suriname","name_cn":"苏里南","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/6f1af40a1107c2958972dabd2fd02ced.jpg@!thumb","capitalId":0},{"id":"32924","type":"country","continentId":"32756","countryId":"0","name":"Venezuela","name_cn":"委内瑞拉","cover":"http://img.koubeilvxing.com/pics/img/f4/02/f4022aa74ee6800ed2d7d2bb9d6e24e3.jpg@!thumb","capitalId":0},{"id":"32925","type":"country","continentId":"32756","countryId":"0","name":"Uruguay","name_cn":"乌拉圭","cover":"http://img.koubeilvxing.com/pics/img/8e/97/8e97702857cb41332ebf118f8bf77982.jpg@!thumb","capitalId":0},{"id":"32926","type":"country","continentId":"32756","countryId":"0","name":"Chile","name_cn":"智利","cover":"http://img.koubeilvxing.com/pics/img/c5/94/c59453ff5f99298d8b195b6ccd55f52c.jpg@!thumb","capitalId":0}]},{"id":"32757","type":"continent","continentId":"0","countryId":"0","name":"Africa","name_cn":"非洲","cover":"","path":"","countrys":[{"id":"22244","type":"country","continentId":"32757","countryId":"0","name":"Egypt","name_cn":"埃及","cover":"http://img.koubeilvxing.com/pics/upload/2015-05-13/555320f79413e.jpg@!thumb","capitalId":0},{"id":"31142","type":"country","continentId":"32757","countryId":"0","name":"South Africa","name_cn":"南非 ","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/f52a305f0bbce38849047cfb259eda30.jpg@!thumb","capitalId":0},{"id":"31143","type":"country","continentId":"32757","countryId":"0","name":"Kenya","name_cn":"肯尼亚","cover":"http://img.koubeilvxing.com/pics/upload/2014-09-30/542a7f132fed5.jpg@!thumb","capitalId":0},{"id":"31144","type":"country","continentId":"32757","countryId":"0","name":"Morocco","name_cn":"摩洛哥","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/eb9614a3f7fb4289a68996d63c2fd7bf.jpg@!thumb","capitalId":0},{"id":"31145","type":"country","continentId":"32757","countryId":"0","name":"Tanzania","name_cn":"坦桑尼亚","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/ea046617e2c07d1c8948b2350b83e56b.jpg@!thumb","capitalId":0},{"id":"32250","type":"country","continentId":"32757","countryId":"0","name":"Mauritius","name_cn":"毛里求斯","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/77b3ad285e1120c7d5bc698d6b76be08.jpg@!thumb","capitalId":0},{"id":"32251","type":"country","continentId":"32757","countryId":"0","name":"Tunisia","name_cn":"突尼斯","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/2afb5bacc34df6d9274aa345417a595b.jpg@!thumb","capitalId":0},{"id":"32830","type":"country","continentId":"32757","countryId":"0","name":"Algeria","name_cn":"阿尔及利亚","cover":"http://img.koubeilvxing.com/pics/img/32/fb/32fbf6ee18f7a3e82a59c0f92cd03725.jpg@!thumb","capitalId":0},{"id":"32831","type":"country","continentId":"32757","countryId":"0","name":"Ethiopia","name_cn":"埃塞俄比亚","cover":"http://img.koubeilvxing.com/pics/img/71/d1/71d1bf188a7c415a7601bb22c43211b0.jpg@!thumb","capitalId":0},{"id":"32832","type":"country","continentId":"32757","countryId":"0","name":"Angola","name_cn":"安哥拉","cover":"http://img.koubeilvxing.com/pics/img/2c/ad/2cad5d459995d0e7561f2cbe13729ec5.jpg@!thumb","capitalId":0},{"id":"32834","type":"country","continentId":"32757","countryId":"0","name":"Somalia","name_cn":"索马里","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/e691ede11107957cfc0f4f281489aa53.jpg@!thumb","capitalId":0},{"id":"32835","type":"country","continentId":"32757","countryId":"0","name":"Benin","name_cn":"贝宁","cover":"http://img.koubeilvxing.com/pics/img/87/83/8783bf50e9efe1b436dde0d25a5805d3.jpg@!thumb","capitalId":0},{"id":"32837","type":"country","continentId":"32757","countryId":"0","name":"Botswana","name_cn":"博茨瓦纳","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/91d102617c00a62a316e32cb8fe626ea.jpg@!thumb","capitalId":0},{"id":"32838","type":"country","continentId":"32757","countryId":"0","name":"Burkina Faso","name_cn":"布基纳法索","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/076e2b0c028ba6b608d29f8a38a625b1.jpg@!thumb","capitalId":0},{"id":"32839","type":"country","continentId":"32757","countryId":"0","name":"Burundi","name_cn":"布隆迪","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/271239d880ba791dc66317511c2114fa.jpg@!thumb","capitalId":0},{"id":"32840","type":"country","continentId":"32757","countryId":"0","name":"Equatorial Guinea","name_cn":"赤道几内亚","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/e375b282e5ae0ded6a21b9a2313e6f0d.jpg@!thumb","capitalId":0},{"id":"32842","type":"country","continentId":"32757","countryId":"0","name":"Togo","name_cn":"多哥","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/c7971345b279ec1c5da7cbc41c2e4aae.jpg@!thumb","capitalId":0},{"id":"32844","type":"country","continentId":"32757","countryId":"0","name":"Gambia","name_cn":"冈比亚","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/7aba8ffa6ff25683863ef9aa463fb53f.jpg@!thumb","capitalId":0},{"id":"32847","type":"country","continentId":"32757","countryId":"0","name":"Ghana","name_cn":"加纳","cover":"http://img.koubeilvxing.com/pics/img/e1/a4/e1a43668871b15b7a7de460210be847f.jpg@!thumb","capitalId":0},{"id":"32848","type":"country","continentId":"32757","countryId":"0","name":"Gabon","name_cn":"加蓬","cover":"http://img.koubeilvxing.com/pics/img/7b/4b/7b4bd8efde72658d46f724c45505eb41.jpg@!thumb","capitalId":0},{"id":"32850","type":"country","continentId":"32757","countryId":"0","name":"Zimbabwe","name_cn":"津巴布韦","cover":"http://img.koubeilvxing.com/pics/img/83/df/83dfea7354906e56706dd5640aea1555.jpg@!thumb","capitalId":0},{"id":"32851","type":"country","continentId":"32757","countryId":"0","name":"Guinea","name_cn":"几内亚","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/baf2f70d422e4740752af6678df6ad8b.jpg@!thumb","capitalId":0},{"id":"32852","type":"country","continentId":"32757","countryId":"0","name":"Guinea Bissau","name_cn":"几内亚比绍","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/7a90929db185ce0648f485f819a2364e.jpg@!thumb","capitalId":0},{"id":"32855","type":"country","continentId":"32757","countryId":"0","name":"Cote Divoire","name_cn":"科特迪瓦","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/8d3fe60174912ed1df139098f54b36c4.jpg@!thumb","capitalId":0},{"id":"32856","type":"country","continentId":"32757","countryId":"0","name":"Lesotho","name_cn":"莱索托","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/29360d41406aa6533be9f1fd96be9d74.jpg@!thumb","capitalId":0},{"id":"32857","type":"country","continentId":"32757","countryId":"0","name":"Liberia","name_cn":"利比里亚","cover":"http://img.koubeilvxing.com/pics/img/b0/b7/b0b7e133dd57da43c053327836799de9.jpg@!thumb","capitalId":0},{"id":"32858","type":"country","continentId":"32757","countryId":"0","name":"Libya","name_cn":"利比亚","cover":"http://img.koubeilvxing.com/pics/img/c0/f6/c0f6b0de159cad5ad257108c046bc65e.jpg@!thumb","capitalId":0},{"id":"32860","type":"country","continentId":"32757","countryId":"0","name":"Rwanda","name_cn":"卢旺达","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/0794b516f054a7f14d0b00bb28bfcf25.jpg@!thumb","capitalId":0},{"id":"32861","type":"country","continentId":"32757","countryId":"0","name":"Madagascar","name_cn":"马达加斯加","cover":"http://img.koubeilvxing.com/pics/img/f5/c4/f5c4f8346b5c0e26fa31f1fa43e80dd4.jpg@!thumb","capitalId":0},{"id":"32862","type":"country","continentId":"32757","countryId":"0","name":"Malawi","name_cn":"马拉维","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/930ed2efca5016c214385645656f45f8.jpg@!thumb","capitalId":0},{"id":"32863","type":"country","continentId":"32757","countryId":"0","name":"Mali","name_cn":"马里","cover":"http://img.koubeilvxing.com/pics/img/f0/a7/f0a7ecb123758a106d6d43dae4a5bfa7.jpg@!thumb","capitalId":0},{"id":"32864","type":"country","continentId":"32757","countryId":"0","name":"Mauritania","name_cn":"毛里塔尼亚","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/75b553f733b926a474355cdec34e4ea8.jpg@!thumb","capitalId":0},{"id":"32866","type":"country","continentId":"32757","countryId":"0","name":"Mozambique","name_cn":"莫桑比克","cover":"http://img.koubeilvxing.com/pics/img/b0/93/b093ea7f7240c17c0d9a2548d01301f9.jpg@!thumb","capitalId":0},{"id":"32867","type":"country","continentId":"32757","countryId":"0","name":"Namibia","name_cn":"纳米比亚","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/feeb2ae1c579a287788f92e5736d3fdc.jpg@!thumb","capitalId":0},{"id":"32868","type":"country","continentId":"32757","countryId":"0","name":"South Sudan","name_cn":"南苏丹","cover":"http://img.koubeilvxing.com/pics/img/e2/0f/e20fa9f0c0f33d6c673fcfb4a4eb3e7e.jpg@!thumb","capitalId":"34739"},{"id":"32870","type":"country","continentId":"32757","countryId":"0","name":"Nigeria","name_cn":"尼日利亚","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/175845e30d6ad963156612c2349a45f3.jpg@!thumb","capitalId":0},{"id":"32872","type":"country","continentId":"32757","countryId":"0","name":"Senegal","name_cn":"塞内加尔","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/732ec041233118b5be4ff5f592f04d3a.jpg@!thumb","capitalId":0},{"id":"32873","type":"country","continentId":"32757","countryId":"0","name":"Seychelles","name_cn":"塞舌尔","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/057fffa8e747adf49fb08ad58b1178b6.jpg@!thumb","capitalId":0},{"id":"32876","type":"country","continentId":"32757","countryId":"0","name":"Swaziland","name_cn":"斯威士兰","cover":"http://img.koubeilvxing.com/pics/img/82/3e/823eb651c98f60177100617dfdf562ef.jpg@!thumb","capitalId":0},{"id":"32877","type":"country","continentId":"32757","countryId":"0","name":"Sudan","name_cn":"苏丹","cover":"http://img.koubeilvxing.com/pics/img/1d/ea/1dea7db8ca7ca8c895e69971e97a5acb.jpg@!thumb","capitalId":0},{"id":"32878","type":"country","continentId":"32757","countryId":"0","name":"Tristan da Cunha","name_cn":"特里斯坦-达库尼亚群岛","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/1a397e0953f4a7a49e60918d5bf95f41.jpg@!thumb","capitalId":"34825"},{"id":"32879","type":"country","continentId":"32757","countryId":"0","name":"Uganda","name_cn":"乌干达","cover":"http://img.koubeilvxing.com/pics/img/e4/e0/e4e04de5e0edd32d4ad093349fec902f.jpg@!thumb","capitalId":0},{"id":"32881","type":"country","continentId":"32757","countryId":"0","name":"Zambia","name_cn":"赞比亚","cover":"http://img.koubeilvxing.com/pics/img/ca/0d/ca0dafb98d9fa94fb0072f95150dbb86.jpg@!thumb","capitalId":0},{"id":"32883","type":"country","continentId":"32757","countryId":"0","name":"Central African Republic","name_cn":"中非共和国","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/c4fe389491d5abc9a952241765565a19.jpg@!thumb","capitalId":0}]},{"id":"32758","type":"continent","continentId":"0","countryId":"0","name":"Oceania","name_cn":"大洋洲","cover":"","path":"","countrys":[{"id":"22237","type":"country","continentId":"32758","countryId":"0","name":"Australia","name_cn":"澳大利亚","cover":"http://img.koubeilvxing.com/pics/upload/2015-05-13/5552c429f014f.jpg@!thumb","capitalId":0},{"id":"22239","type":"country","continentId":"32758","countryId":"0","name":"New Zealand","name_cn":"新西兰","cover":"http://img.koubeilvxing.com/pics/img/cb/78/cb786864e775ec5fa0bd518a69e46201.jpg@!thumb","capitalId":0},{"id":"30698","type":"country","continentId":"32758","countryId":"0","name":"French Polynesia","name_cn":"法属波利尼西亚","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/ebc57025308fb368a7ee0a685971f878.jpg@!thumb","capitalId":0},{"id":"30699","type":"country","continentId":"32758","countryId":"0","name":"Northern Mariana Islands","name_cn":"北马里亚纳群岛邦","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/9be9bb179be54d0862283f0d5d181dd7.jpg@!thumb","capitalId":0},{"id":"32247","type":"country","continentId":"32758","countryId":"0","name":"Fiji","name_cn":"斐济","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/3b3143cefa15e8401155ee6a782ecaf1.jpg@!thumb","capitalId":0},{"id":"32248","type":"country","continentId":"32758","countryId":"0","name":"Guam","name_cn":"关岛","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/406f16657adb8b2d56a17c5e1de213e1.jpg@!thumb","capitalId":0},{"id":"32471","type":"country","continentId":"32758","countryId":"0","name":"Palau","name_cn":"帕劳","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/916201f8e3111d62ca4178f4755b1b56.jpg@!thumb","capitalId":0},{"id":"32928","type":"country","continentId":"32758","countryId":"0","name":"Papua New Guinea","name_cn":"巴布亚新几内亚","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/1d90945af9165160cdb284fbc3e320d6.jpg@!thumb","capitalId":0},{"id":"32932","type":"country","continentId":"32758","countryId":"0","name":"American Samoa","name_cn":"美属萨摩亚","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/6280c458f265a5369713572f9032e0a8.jpg@!thumb","capitalId":0},{"id":"32935","type":"country","continentId":"32758","countryId":"0","name":"Niue","name_cn":"纽埃","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/6313c9eee0f181d248a6519a7f9a849c.jpg@!thumb","capitalId":"35413"},{"id":"32937","type":"country","continentId":"32758","countryId":"0","name":"Samoa","name_cn":"萨摩亚","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/aebc7f42514068240e0593424d00ec31.jpg@!thumb","capitalId":0},{"id":"32938","type":"country","continentId":"32758","countryId":"0","name":"Solomon Islands","name_cn":"所罗门群岛","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/3cb8cb4d8a9bc23589e0ed32371750fd.jpg@!thumb","capitalId":0},{"id":"32939","type":"country","continentId":"32758","countryId":"0","name":"Tonga","name_cn":"汤加","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/e7aa0fc70152f19d825f1318b66a1166.jpg@!thumb","capitalId":0},{"id":"32943","type":"country","continentId":"32758","countryId":"0","name":"Vanuatu","name_cn":"瓦努阿图","cover":"http://img.koubeilvxing.com/pics/img/69/3b/693b488da71e45f017d1443de7dec945.jpg@!thumb","capitalId":0},{"id":"32944","type":"country","continentId":"32758","countryId":"0","name":"New Caledonia","name_cn":"新喀里多尼亚","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/13d8749e4cf64a7a94ceb5313f22e7ac.jpg@!thumb","capitalId":0}]}]
-     * recommendplaces : [{"id":"326","name":"Bangkok","name_cn":"曼谷","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6d992efaed.jpg@!thumb","desc":"佛教之都，包罗万象","info_cn":"","info":""},{"id":"32253","name":"Singapore","name_cn":"新加坡","cover":"http://img.koubeilvxing.com/pics/upload/2014-09-30/542a693a98374.jpg@!thumb","desc":"狮城美港，星洲花园","info_cn":"","info":""},{"id":"19039","name":"New York","name_cn":"纽约","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6d9f979216.jpg@!thumb","desc":"世界金融中心，不尽繁华","info_cn":"","info":""},{"id":"22115","name":"Paris","name_cn":"巴黎","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6da3cc04a9.jpg@!thumb","desc":"光之城，法兰西的心脏与灵魂","info_cn":"","info":""},{"id":"22522","name":"Sydney","name_cn":"悉尼","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6da65275c7.jpg@!thumb","desc":"邂逅在慵懒的海湾","info_cn":"","info":""},{"id":"23128","name":"Cairo","name_cn":"开罗","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6da7e97981.jpg@!thumb","desc":"每一座金字塔都有一千零一个故事","info_cn":"","info":""},{"id":"22951","name":"London","name_cn":"伦敦","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6daa0b5113.jpg@!thumb","desc":"古典与现代完美交融","info_cn":"","info":""},{"id":"22274","name":"Milan","name_cn":"米兰","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6dab907c9a.jpg@!thumb","desc":"艺术之城，时尚之都，歌剧圣地","info_cn":"","info":""},{"id":"22349","name":"Venice","name_cn":"威尼斯","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6dad2bbae8.jpg@!thumb","desc":"因水而生，欧洲最美的客厅","info_cn":"","info":""},{"id":"22820","name":"Barcelona","name_cn":"巴塞罗那","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6daf30f6d9.jpg@!thumb","desc":"足球圣地，世界建筑艺术殿堂","info_cn":"","info":""},{"id":"31235","name":"Prague","name_cn":"布拉格","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6eca4d1993.jpg@!thumb","desc":"千塔之城，金色的布拉格","info_cn":"","info":""},{"id":"23014","name":"Munich","name_cn":"慕尼黑","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6db0fc8878.jpg@!thumb","desc":"爱足球，爱啤酒","info_cn":"","info":""},{"id":"32556","name":"Hong Kong","name_cn":"香港","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6ed01547ec.jpg@!thumb","desc":"东方之珠，购物天堂","info_cn":"","info":""},{"id":"32605","name":"Macau","name_cn":"澳门","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6eb6b54ca8.jpg@!thumb","desc":"400年中西文化磨合，东方赌城","info_cn":"","info":""},{"id":"32593","name":"Taipei","name_cn":"台北","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6db296a6c4.jpg@!thumb","desc":"阿里山，日月潭，赛德克巴莱","info_cn":"","info":""},{"id":"353","name":"Chiang Mai","name_cn":"清迈","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6db42f1606.jpg@!thumb","desc":"泰北明珠，清新文艺的古城","info_cn":"","info":""},{"id":"23369","name":"Seoul","name_cn":"首尔","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6db5b03e2f.jpg@!thumb","desc":"600年古都，时尚与传统交相辉映","info_cn":"","info":""},{"id":"23261","name":"Tokyo","name_cn":"东京","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6db705bec6.jpg@!thumb","desc":"宫崎骏的动画，黑泽明的电影","info_cn":"","info":""},{"id":"9742","name":"Los Angeles","name_cn":"洛杉矶","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6eb96aa3b7.jpg@!thumb","desc":"好莱坞，迪斯尼，湖人队","info_cn":"","info":""},{"id":"9604","name":"San Francisco","name_cn":"旧金山","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6ebf5c0229.jpg@!thumb","desc":"前卫与不羁，嬉皮士的狂欢之城","info_cn":"","info":""},{"id":"22932","name":"Toronto","name_cn":"多伦多","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6dbb6ecc05.jpg@!thumb","desc":"北方好莱坞，城市万花筒","info_cn":"","info":""},{"id":"22324","name":"Rome","name_cn":"罗马","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6dbcf43261.jpg@!thumb","desc":"天使之城，文艺复兴中心","info_cn":"","info":""}]
+     * places : [{"id":"326","type":"city","continentId":"0","countryId":"1","name":"Bangkok","name_cn":"曼谷","lat":"13.7558","lng":"100.506","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6d992efaed.jpg@!thumb","path":"/upload/2015-07-28/55b6d992efaed.jpg","coverPhotoId":"0","photoIds":"63086,63637,63467,64900,60479","info":"优美迷人的热带风光，广博的佛教文化，独有的民间风俗，曼谷的致命吸引力正是以上三者的叠加，加上东西方文化的完美融合、古代和现代化的时空交错，让你慢慢体会精致而又真切泰国生活。\r\n穿黄色袈裟的和尚在曙光初现中沿街托钵，是一幅历久不衰的景象；高耸矗立的大型建筑，强调着城市奇情与超越时空的景致，刻画出曼谷的特殊风味。曼谷的精彩纷呈让人目不暇接，旅行者很难不爱上这里。曼谷是一片集悠久文化建筑、传统水上集市、新兴购物天堂和天然动物乐园为一体的土地。湄南河将曼谷分割为东西两部分。\r\n位于河西的大皇宫周边和暹罗中心商圈是曼谷市内主要的景区，展现了曼谷古老的宗教历史文化和现代时尚热地这两个截然不同的层面。\r\n湄南河西岸排列着国家美术馆、国家博物馆、玉佛寺、大王宫等人文景点，与郑王庙隔河相望，背包客喜爱的考山路和著名的唐人街也离这里不远。\r\n市中心的暹罗和是隆商业中心是曼谷的现代购物区，这里除了有不少商场、美食广场和电影院外，还有灵验的四面佛、五彩的暹罗海洋世界。\r\n传统水上集市和周末集市分别位于市中心的南部和北部，是价廉物美的淘货天地，但需要足够的时间和精力选择性得游玩。\r\n曼谷郊区或周边也有一些值得一去的地方。如果有充裕的时间想感受一下东南亚天然的动物景观，可以去曼谷东北部的野生动物园或离市区更远的北榄鳄鱼湖动物园。\r\n每年11月至次年1月，是泰国中南部的最佳季节，其次是2月和10月。\r\n \r\n 曼谷属于泰国中南部地区，这里绝大部分地区属热带季风气候，各地年平均气温一般为30℃左右。","info_cn":" 曼谷(กรุงเทพมหานคร，读音：KrungthepMahanakhon；也简称กรุงเทพ，读音：Krungthep)，其字面意思即\u201c天使之城\u201d，自1782年起成为\u201c千佛之国\u201d\u2014\u2014泰国的首都。这座城市有着数之不尽的寺庙，处处可见在晨曦中行走化缘的出家人以及保持完好的佛教习俗。然而用\u201c传统\u201d一词来形容曼谷却是远远不够，这里大型购物商场遍布市区、塞车程度全球首屈一指，高端品牌的广告随处可见。繁忙的商业区和安静的小巷交错在一起，文化古迹和现代夜生活区域相邻，西方文化与泰国传统文化在这里相融。曼谷就像一个什锦盘，各种文化元素五颜六色地拼凑在了一起。\r\n\r\n 曼谷位于泰国中部，毗邻泰国湾，整座城市高于海平面仅2米。气候四季如夏，每年4月份泼水节(SongkranFestival，สงกรานต์)期间，气温尤其高，可高达40℃。湄南河(MaeNam/ChaoPhrayaRiver，แม่น้ำเจ้าพระยา)穿城而过，大皇宫、黎明寺、卧佛寺、考山路等著名景点则位于河两岸。作为泰国第一大都市，整个大曼谷市共分为50个区，人口约1500万，然而曼谷的公共交通系统其实并不够完善。尽管2013年起BTS(天轨)、MRT(地铁)的票价大幅上涨，但它们仍是在这个拥堵极为严重的都市的出行首选。\r\n\r\n 除了参观大皇宫、卧佛寺等经典景点之外，旅行者还可在Siam商圈血拼，每年6月和12月还有降价促销；加都加周末市场、Asiatique夜市则是购买手工艺品和当地特产的好地方；考山路是全球各地背包客的聚集地，也是著名的酒吧一条街。\r\n\r\n 在享受美味的泰式冬阴功、木瓜沙拉之后，品尝鲜美的椰汁，再来一个传统泰式按摩，也许你会发现所有的花费还不超过100元人民币。曼谷就是这么一个物美价廉的地方，奢简由己，不管走高端路线还是平民路线，在曼谷你绝对不会亏待到自己。\r\n\r\n 面积: 1568平方公里 人口: 816万人 当地语言: 泰语 电源插座: A 电压: 220V 频率: 50HZ","hotelCount":"1039","restaurantCount":"8536","attractionCount":"484","activityCount":"589","shoppingCount":"325","hotelReviewCount":"854885","restaurantReviewCount":"139360","attractionReviewCount":"158554","activityReviewCount":"33822","shoppingReviewCount":"31017","poiCount":10973,"reviewCount":1217638},{"id":"353","type":"city","continentId":"0","countryId":"1","name":"Chiang Mai","name_cn":"清迈","lat":"18.7903","lng":"98.9817","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6db42f1606.jpg@!thumb","path":"/upload/2015-07-28/55b6db42f1606.jpg","coverPhotoId":"68323","photoIds":"67798,67902,68317,66791,68290","info":"虽然是泰国第二大城市和泰北经济中心，清迈与忙碌喧嚣的曼谷截然不同。这里宁静甜美，是邓丽君最钟爱的城市。作为兰纳王国的故都，清迈散发着迷人的古典气质。气候凉爽，四季百花争艳，是东南亚著名的避暑旅游胜地，被称为\"泰北玫瑰\"。\r\n清迈城内遍布古色古香的寺庙殿堂，白色的墙壁、红色的屋顶、金色的飞檐在阳光下交相辉映，造型独特的泰北式佛塔雄伟而又别致。寺庙中的僧人和当地居民一样谦和友善，乐于和游客讨论一切关于佛教和清迈历史文化的问题。清迈老城区是个整齐的正方形区域，四周护城河环绕。老城内主要景点有：帕邢寺、大佛寺、盼道寺、清曼寺、清迈市立艺术文化中心、三王纪念碑、周日市集。\r\n老城区东面是塔佩门（Tha Pae Gate）、清迈夜市、长康路、瓦落落市场（Talat Warorot）、湄平河，Thanon Moon Muang大街位于东部的护城河沿岸，是廉价住处和餐馆聚集的地方。清迈邮政总局及清迈火车站均是这个方向。\r\n老城区西面是松达门（Suan Dok Gate），松达寺、清迈大学、Th Nimmanhaemin艺术街区、清迈动物园、悟孟寺、清迈夜间动物园、素帖山国家公园等都是往这个方向。\r\n老城区南面是清迈门（Chiang Mai Gate）和松朋门（Suan Prung Gate），周六市集、Sbun-Nga纺织品博物馆、中国领事馆均在此方向。清迈国际机场在老城的西南面。\r\n老城区北面是昌卜克门（Chang Puak Gate），古道寺、界遥寺、清迈国家博物馆、清迈体育馆、Huay Teung Thao水库都是这个方向。10月到次年2月是清迈的旅游旺季。\r\n清迈地处泰北山区，四周群山环抱。在凉爽的季节，也就是11月至3月，清迈府的气候十分怡人，温度适中而且很少下雨，晚上温度则只需要穿上一件外套。其中每年2月到3月，泰北烧山，此期间内空气质量较差。\r\n雨季一般从6月持续到10月，对清迈的影响比对泰国中、南部小一些。雨季空气好，较凉爽，景色美。不过请作好被雨困在室内的准备。另外雨季夜市的生意常被雨水耽搁。也要警惕连续的大雨，易发生山洪暴发、阻断道路的事件，在此期间前往要特别注意天气预报，携带好雨具。","info_cn":" 清迈距曼谷约700公里，是泰北地区第一重镇。作为清迈中心的古城为边长不到两公里的一个正方形，700年前由孟莱王建立，与今中国景洪、老挝琅勃拉邦、缅甸景栋并称兰纳王朝四大城市。14世纪来佛教传入并在此兴盛，\u201c南朝四百八十寺，多少楼台烟雨中\u201d正可以描述这个兰纳古都的雨季。古城内外数百座寺庙密布，如果喜欢，花个三两日漫步其间定能有许多收获。几座缅甸风格的寺庙提醒我们，此地在16世纪时曾被缅甸长期控制。\r\n\r\n 清迈被称为泰北玫瑰，是因其美丽、浪漫，以及淳朴如玫瑰之芬芳沁人心脾的民风。曾吸引邓丽君的魅力源于人，也在于自然。泰北山区海拔和纬度都较泰国其他地区要高一些，气候凉爽，山林葱郁，每年11月至次年2月都是泰国人前来避暑的旺季。古城虽然不大，但近两年来清迈城区正在飞速成长得更像\u201c泰国第二大城市\u201d，仅2013年下半年就建成3家大型商场。很多喜欢清迈原貌的人担心清迈的商业化和城市化，但清迈固有的一种特质似乎并未变化，那便是包容。淳朴人情、自然山林、古城小巷、现代生活\u2026\u2026都还有，只是多了些便利，也少了另一些方便。\r\n\r\n 逛古城可以步行或骑自行车，若是热天，把中午、下午用来懒睡或坐咖啡馆发呆或来个按摩就好。摩托急行不是小城节奏，也会错过很多美好。古城内外的床位房间到四星酒店均不少，各种价位与风格可根据预算、喜好进行选择。\r\n\r\n 面积: 40.216平方公里 人口: 14.8万人 当地语言: 泰语,清迈方言 电源插座: A 电压: 220V 频率: 50HZ","hotelCount":"632","restaurantCount":"2228","attractionCount":"323","activityCount":"342","shoppingCount":"106","hotelReviewCount":"186699","restaurantReviewCount":"57139","attractionReviewCount":"57058","activityReviewCount":"21230","shoppingReviewCount":"5923","poiCount":3631,"reviewCount":328049},{"id":"11","type":"city","continentId":"0","countryId":"1","name":"Phuket","name_cn":"普吉岛","lat":"7.88622","lng":"98.37235","cover":"http://img.koubeilvxing.com/pics/upload/2014-09-23/93cac801.jpg@!thumb","path":"/upload/2014-09-23/93cac801.jpg","coverPhotoId":"60034","photoIds":"59994,60026,66339,65194,65263","info":"宽阔美丽的海滩、洁白无瑕的沙粒、碧绿翡翠的海水，作为印度洋安达曼海上的一颗\"明珠\"，普吉岛无可挑剔。这里欢迎着每一位游客，你来自哪里并不重要，重要的是你来到了普吉岛这个世界村，良好的包容性使普吉岛成为东南亚最具代表性的海岛旅游度假胜地。\r\n在普吉，一年到头人们似乎都在寻找着各种各样狂欢的理由，众多节日和丰富多彩的夜生活是生活的一部分。参与其中，忘记自己过客的身份，享受海岛风情的愉悦和惬意。因此无论单身前往，还是结伴而行，都能在普吉玩得尽兴。\r\n普吉岛是泰国最大的岛屿，大部分游客都聚集在芭东海滩或普吉镇上，这是整个普吉岛的两个中心。一个胜在海岛风光，一个胜在古老的建筑，却都因为有完善的各项服务而得到游客们的青睐。这里遍布海滩和海湾，有以清净著称的卡马拉海滩，有私密性风格的苏林海滩，有经常举行海上运动的珊瑚岛，还有夜生活较丰富的芭东海滩等。岛上还有很多山，游客可以在岛上乘坐出租车和摩托探险，也可以潜水和乘坐游艇出海。普吉岛是泰国最大的岛屿，大部分游客都聚集在芭东海滩或普吉镇上，这是整个普吉岛的两个中心。一个胜在海岛风光，一个胜在古老的建筑，却都因为有完善的各项服务而受到游客的肯定与青睐。\r\n普吉岛占地810平方公里，其呈锯齿形的西海岸上散布着芭东，卡伦和卡塔海滩。其中卡伦海滩和卡塔海滩位于芭东海滩的南部，岛的最南端是有着绝美日落景色的蓬贴海岬，从蓬贴海岬转而往东即可抵达拉崴海滩，可在此租船到附近的岛屿去。\r\n首府普吉镇地处岛的东南部，是一个大港口和商业中心。奈通海滩(Nai Thon)、奈扬海滩(Nai Yang)、麦卡奥海滩(Mai Khao)这三个海滩位于西北部海岸，共同组成了斯里纳斯国家公园，海龟从每年10月末至次年2月在这里产卵。普吉地处热带，属潮湿的热带气候，常夏无冬。每年11月至翌年4月，从11月芭东海滩的狂欢节开始到翌年4月底海鲜节的举行，不仅整个普吉岛都是一片热闹景象，而且天空也呈现温和的阳光，海水湛蓝，波涛温柔，可以舒舒服服地潜一个水，和藏在海水下的美丽珊瑚来个亲密接触，看多彩的热带海鱼游过身边。这段时间是普吉岛的旅游旺季。\r\n4月至9月，即太阳直射赤道时，是普吉的雨季，尤其是5月份，几乎天天降雨。而在这个时候，还会举行标榜苦行主义的素食节，或许，在严酷的烈日之下体味艰难，也是一个不错的选择。","info_cn":" 普吉岛位于泰国南部，是泰国最大的海岛，也是泰国最小的一个府，其丰富的自然资源，使它获得了\u201c珍宝岛\u201d、\u201c金银岛\u201d的美称。普吉岛有深远的历史和文化，被誉为安达曼海的明珠，500多年前是锡矿基地，泰国主要的旅游胜地。岛上海水清澈湛蓝，拥有众多的美丽海滩，主要集中在西部海域，水上活动较为丰富，潜水爱好者更不能错过海底的美丽景致，再加上周边的奇特小岛，每年岛上都会吸引大量的游客。在普吉岛，白天的椰林树影，傍晚的美丽夕阳，夜晚的丰富闹市，或是躺在沙滩椅上无所事事都是一种享受。","hotelCount":"1034","restaurantCount":"1884","attractionCount":"217","activityCount":"425","shoppingCount":"87","hotelReviewCount":"329641","restaurantReviewCount":"48899","attractionReviewCount":"51969","activityReviewCount":"18761","shoppingReviewCount":"6991","poiCount":3647,"reviewCount":456261},{"id":"2","type":"city","continentId":"0","countryId":"1","name":"Ko Samui","name_cn":"苏梅岛","lat":"9.4911","lng":"100.0003","cover":"http://img.koubeilvxing.com/pics/img/cf/7d/cf7d0bb9a56ce4e1991acd4ee06260eb.jpg@!thumb","path":"/img/cf/7d/cf7d0bb9a56ce4e1991acd4ee06260eb.jpg","coverPhotoId":"64909","photoIds":"62104,62110,70108,62119,62113","info":"一片月牙般洁白的沙滩，环抱着被阳光晒得闪闪发光湛蓝的海水，随着波浪轻轻的晃动海面，海水被分出浅蓝至碧绿层次分明的色彩。这就是苏梅岛，海滩众多、水清沙白、景致迷人。苏梅岛最早的居民是150年前从海南来此定居的中国人，世代以种椰子为生。至今，椰树业依然是岛上重要的经济来源之一，每个月要向曼谷运送约200万只椰子。苏梅岛也因此赢得了\u201c椰林海岛\u201d的美名。作为世界级的海滨度假胜地，苏梅岛上的水上运动也是品种繁多。你可以潜水、潜泳、划独木舟、划水，甚至扬帆出海。在感慨苏梅岛海滩的美丽之余，也不要忘了去拜访葱郁的椰树园、沉静的小渔村和美丽的瀑布。\r\n苏梅岛，位于泰国湾的苏梅岛是全国第三大岛，面积247平方公里，距大陆约80公里，周围有80个大小岛屿，但多无人居住，距曼谷南方相隔约560公里。苏梅岛最窄5公里，最宽处21公里。苏梅岛上的干净、狭长白沙滩，是每个人梦想中的热带岛屿仙境。它距苏叻府仅84公里，属于真正的岛屿族群，也是八十多个热带岛屿群中最大的一个，其中只有四个岛屿有人居住。\r\n在我国大部分地区气候寒冷的11月至次年4月，苏梅岛却有着温暖的海水以及和煦的阳光，特别富有吸引力，是这里的最佳旅游时间。其实亚热带地区全年气温波动不大，海风凉爽宜人，和国内一些夏天比较炎热的地区相比更为舒适。值得关注的是降雨和台风，7-9月大部分日子都会下雨，也是台风多发季节，决定去苏梅之前要特别关注热带海洋风暴消息。在岛上也要留意天气变化，如果有大风就取消潜水、出海等水上娱乐项目。","info_cn":" 一片月牙般洁白的沙滩，环抱着被阳光晒得闪闪发光湛蓝的海水，随着波浪轻轻的晃动海面，海水被分出浅蓝至碧绿层次分明的色彩。这就是苏梅岛，海滩众多、水清沙白、景致迷人。苏梅岛最早的居民是150年前从海南来此定居的中国人，世代以种椰子为生。至今，椰树业依然是岛上重要的经济来源之一，每个月要向曼谷运送约200万只椰子。苏梅岛也因此赢得了\u201c椰林海岛\u201d的美名。作为世界级的海滨度假胜地，苏梅岛上的水上运动也是品种繁多。你可以潜水、潜泳、划独木舟、划水，甚至扬帆出海。在感慨苏梅岛海滩的美丽之余，也不要忘了去拜访葱郁的椰树园、沉静的小渔村和美丽的瀑布。","hotelCount":"558","restaurantCount":"854","attractionCount":"68","activityCount":"150","shoppingCount":"35","hotelReviewCount":"137062","restaurantReviewCount":"3347","attractionReviewCount":"11924","activityReviewCount":"7002","shoppingReviewCount":"549","poiCount":1665,"reviewCount":159884},{"id":"515","type":"city","continentId":"0","countryId":"1","name":"Pattaya","name_cn":"芭堤雅","lat":"12.9333","lng":"100.883","cover":"http://img.koubeilvxing.com/pics/img/59/0a/590a243f1971788a3b3ea9bbc76f2881.jpg@!thumb","path":"/img/59/0a/590a243f1971788a3b3ea9bbc76f2881.jpg","coverPhotoId":"0","photoIds":"62020,60733,60734,62027,60644","info":"芭堤雅以阳光、沙滩、海鲜名扬世界，被誉为\"东方夏威夷\"。这里只有10万人口，每年接待游客却达100多万人次，全市90%以上的人口都从事与旅游相关的工作。\r\n长达15公里的海岸线处处水清浪平，来自世界各地的游客悠闲享受着日光浴，滑水、潜水等水上运动也盛行不衰。入夜后，五彩缤纷的烟火装点着芭堤雅的夜空，各种秀场纷纷登场，歌舞厅、夜总会的霓虹灯闪烁耀眼，街道两旁的小酒吧热闹非凡，流行音乐充斥着大街小巷。芭堤雅距泰国首都曼谷有154公里，是世界著名的海滩度假胜地，芭堤雅主要有三个大的海滩：芭堤雅海滩 、乔木提恩海滩（南海滩）、和拉库拉海滩（北海滩），海滩之间被山梁和山崖相隔。\r\n芭堤雅海滩位于市区中北部，是海岸线中沙质最细、海水最清的一段。它也是芭堤雅最热闹的海滩，酒吧、餐馆、旅馆都集中在这里。\r\n乔木提恩海滩距离芭堤雅海滩以南1公里，安静、悠闲，是整个芭堤雅最适合敬仰、度假的海滩。不少西方背包客都更愿意到这里玩冲浪或帆船等水上运动。\r\n信不信由你博物馆、东芭乐园和乔木提恩海滩与分别芭堤雅海滩南北相邻，构成了芭堤雅较为集中的度假区域。\r\n拉库拉海滩（Hat Naklua）是位于芭堤雅海滩以北的小海滩，这儿同样很清静、怡然，不少泰国家庭会选择到此度假。\r\n在芭堤雅以西7公里的近海，有三座漂亮的海岛\u2014\u2014金沙岛，沙美岛和爱琴岛(Ko Krok)，其中金沙岛最漂亮。\r\n每年11月-次年2月是芭堤雅的最佳季节，干燥少雨，平均气温仅为15至18℃左右，各种花卉绚丽多姿。\r\n芭堤雅是个全年型的旅游城市，但是受雨季影响(6月-10月)，降雨较多，属于淡季。11月至来年2月天气较为凉爽，游客也较多。4月因为泼水节的关系，游客也会比较多。当然，芭堤雅最出名的还是人妖表演。如果对此感兴趣，可以在3月前往芭堤雅，一睹选美大赛的盛况。","info_cn":" 芭堤雅Pattaya(Thai:พัทยา)位于泰国湾东海岸，距离首都曼谷约160公里，行车大约需要2小时。历史上的芭堤雅是一个小渔村，直至在越南战争中作战的美国大兵抵达芭堤雅后，芭堤雅便开始向着世界级海滨度假城市的角色而演变。如今芭堤雅以海滩、阳光、度假而闻名全球，享有\u201c东方夏威夷\u201d的美称，再加上五光十色的夜生活、各种休闲活动以及独特的人妖表演，每年吸引了数百万名旅行者。昔日的渔村已被林立的海滨酒店及商场所取代，这里有亚洲最大的海滨商场TheCentralFestivalPattayaBeachMall以及等众多品牌连锁酒店。\r\n\r\n 芭堤雅共分为：芭堤雅北区，芭堤雅南区，芭堤雅中区以及中天区，其中两条主要道路ChomtianRoad和Sukumvit路相平行，还有一条主要道路便是海滩路。\r\n\r\n 除了当地的常住人口之外，芭堤雅还吸引了众多来自欧洲，美国等西方国家的退休人士，芭堤雅的生活节奏缓慢，气候温和，消费低廉，还有一个原因便是泰国移民局对年满50周岁的移民有较为宽松的移民政策，便于退休人士前来度假养老。\r\n\r\n 面积: 22.2平方公里 人口: 10.5万人 当地语言: 泰语 电源插座: A 电压: 220V 频率: 50HZ","hotelCount":"323","restaurantCount":"750","attractionCount":"66","activityCount":"79","shoppingCount":"22","hotelReviewCount":"84106","restaurantReviewCount":"14693","attractionReviewCount":"34515","activityReviewCount":"2294","shoppingReviewCount":"796","poiCount":1240,"reviewCount":136404},{"id":"386","type":"city","continentId":"0","countryId":"1","name":"Hua Hin","name_cn":"华欣","lat":"12.5705","lng":"99.9572","cover":"http://img.koubeilvxing.com/pics/img/80/cc/80cccb7983f7a4a88f436689e17958c9.jpg@!thumb","path":"/img/80/cc/80cccb7983f7a4a88f436689e17958c9.jpg","coverPhotoId":"0","photoIds":"62455,62392,62363,62486,62625","info":"虽然邻近芭堤雅、普吉岛等热闹的度假地，华欣这个小城却出奇的祥和、平静。并非沙滩不够细腻，也不是海水不够清澈，事实上这里是泰国王室和贵族们最钟爱的避暑胜地。历经数代国王的营造，椰林中出现了典雅的行宫和奢华的度假别墅，为原本单纯的海滩风光增添了几许优雅。\r\n华欣的旅游景点有，爱与希望之宫，爱与希望之宫建於拉玛六世（Rama Ⅵ，1910-1925）时期，是一座以1,080支柚木支撑而起的16栋木製高 脚宫殿，这些房舍是由长廊连接在一起，从陆上延伸至海滨。泰国皇室喜用柚木当作建材，爱与希望之宫也是一座柚木建造而成的宫殿。2楼同时展示了拉玛六世的 收藏品及泰国皇族房间的装潢陈设等；康卡沾国家公园，康卡沾国家公园是泰国最大的野生动物保护区，拥有丰富的植物和许多罕见的野生动物。其中400种以上 的鸟类包括巨嘴鸟、绿色阔嘴鸟及大型犀鸟、蛇冠鹰、鸣鸟等生活在被浓密雨林覆盖的溪谷与山丘内；拷龙穴，拷龙穴位于92米高的拷龙山上，此地是七岩所在的 碧差汶里府最重要的一个石窟，里面所供奉的佛像上刻有泰王拉玛五世献给三世及四世的亲笔题字。\r\n华欣一年四季阳光普照，属热带季风气候，全年以炎热天气为主，而每年11月－次年1月是旅游的最佳季节，那是华欣的凉季，月均温度22℃左右，降雨较少，各种花卉盛开，此时景色最美。","info_cn":" 华欣（HuaHin）是很多泰国人来打高尔夫、练习马术的高级度假场所，对于穷游儿则是一个古意浓郁的曾经的皇家火车站以及沿海的那条布满各种奇特小店的巷子，海风微拂，清新自然。\r\n\r\n 当地语言: 泰语","hotelCount":"296","restaurantCount":"580","attractionCount":"42","activityCount":"65","shoppingCount":"21","hotelReviewCount":"72944","restaurantReviewCount":"12283","attractionReviewCount":"9915","activityReviewCount":"1339","shoppingReviewCount":"1164","poiCount":1004,"reviewCount":97645},{"id":"502","type":"city","continentId":"0","countryId":"1","name":"Nonthaburi","name_cn":"暖武里","lat":"13.8333","lng":"100.483","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/2b1d88a74e477c9bf8e33ce8c899c4cb.jpg@!thumb","path":"/upload/2014-12-05/2b1d88a74e477c9bf8e33ce8c899c4cb.jpg","coverPhotoId":"0","photoIds":"","info":"","info_cn":"暖武里 又称挽权\r\n泰国南部城市暖武里府首府在湄南河左岸南距曼谷13公里人口3.24万1980农产品贸易中心有制糖砖瓦等厂公路河道通曼谷等地设有邮电学院\r\n","hotelCount":"20","restaurantCount":"680","attractionCount":"13","activityCount":"0","shoppingCount":"0","hotelReviewCount":"994","restaurantReviewCount":"462","attractionReviewCount":"131","activityReviewCount":"0","shoppingReviewCount":"0","poiCount":713,"reviewCount":1587},{"id":"525","type":"city","continentId":"0","countryId":"1","name":"Phi Phi Island","name_cn":"皮皮岛","lat":"7.73951","lng":"98.7794","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/50e0a4ef1577cfc5fe1cbcaf88c3fcc4.jpg@!thumb","path":"/upload/2014-12-05/50e0a4ef1577cfc5fe1cbcaf88c3fcc4.jpg","coverPhotoId":"0","photoIds":"61882,65167,64999,65176","info":"皮皮岛位于泰国普吉岛东南约20公里处，是由两个主要岛屿组成的姐妹岛，1983年被定为泰国国家公园。皮皮岛是一个深受阳光眷宠的地方，柔软洁白的沙滩和未受污染的自然风貌使它从普吉岛周围的30余个离岛中脱颖而出，成为炙手可热的海滩度假胜地之一。 \r\n北部的大皮皮岛面积约为28平方公里，形状如同一只不规则的哑铃，两头是绿荫覆盖的小山丘，岛中央由两个半月形海湾交汇而成。岛上有渔民居住，建有度假村、饭馆、酒吧和各种娱乐场所。 \r\n南部的小皮皮岛是好莱坞电影《海滩》的拍摄外景地，拥有美丽的海滩，与大皮皮岛相隔约2公里，面积约为6.6平方公里，四周耸立着悬崖峭壁，地势险要，因此罕有人烟,泰国政府为了保护小皮皮岛的生态环境，目前只开放维京洞穴供游人参观。\r\n皮皮岛由大皮皮岛和小皮皮岛组成，小皮皮岛位于大皮皮岛南方约两公里处，通塞湾是皮皮岛的交通枢纽，位于大皮皮岛的中央，著名的观景台也位于大皮皮岛的中央。潜水胜地蚊子岛与竹子岛毗邻，都位于大皮皮岛的北部。小皮皮岛相对大皮皮岛更为僻静，著名的玛雅湾和蓝通海湾都位于小皮皮岛上。\r\n每年11月至次年5月是皮皮岛最佳旅游季节。皮皮岛全年炎热，受季风影响只有雨季和旱季之分。每年11月至次年5月正是旱季，岛上基本不受降雨的影响，海水也特别清澈，人体感觉也比较凉爽舒适。","info_cn":" 皮皮岛位于泰国普吉岛东南约20公里处，是由两个主要岛屿组成的姐妹岛，1983年被定为泰国国家公园。皮皮岛是一个深受阳光眷宠的地方，柔软洁白的沙滩和未受污染的自然风貌使它从普吉岛周围的30余个离岛中脱颖而出，成为炙手可热的海滩度假胜地之一。\r\n\r\n 北部的大皮皮岛面积约为28平方公里，形状如同一只不规则的哑铃，两头是绿荫覆盖的小山丘，岛中央由两个半月形海湾交汇而成。岛上有渔民居住，建有度假村、饭馆、酒吧和各种娱乐场所。\r\n\r\n 南部的小皮皮岛是好莱坞电影《海滩》的拍摄外景地，拥有美丽的海滩，与大皮皮岛相隔约2公里，面积约为6.6平方公里，四周耸立着悬崖峭壁，地势险要，因此罕有人烟。泰国政府为了保护小皮皮岛的生态环境，目前只开放维京洞穴供游人参观。","hotelCount":"115","restaurantCount":"517","attractionCount":"23","activityCount":"21","shoppingCount":"3","hotelReviewCount":"36457","restaurantReviewCount":"877","attractionReviewCount":"5256","activityReviewCount":"993","shoppingReviewCount":"177","poiCount":679,"reviewCount":43760},{"id":"356","type":"city","continentId":"0","countryId":"1","name":"Chiang Rai","name_cn":"清莱","lat":"19.9","lng":"99.8333","cover":"http://img.koubeilvxing.com/pics/img/30/01/3001be18da6ff6505e611fbf519b18ad.jpg@!thumb","path":"/img/30/01/3001be18da6ff6505e611fbf519b18ad.jpg","coverPhotoId":"66775","photoIds":"66578,66600,66777,66514,66537","info":"　　清莱绿树成荫、景色秀丽，是一座宁静简朴的小城。这里是通往北部山区和缅甸、老挝边境的要道，质朴的山地村落、浪漫的湄公河以及神秘的金三角共同构成了清莱的主要景致。\r\n　　清莱是泰国最北部的首府，地处泰国、老挝、缅甸三国交界处，距首都曼谷约900公里。闻名的金三角就坐落在这里。清莱建城于1262年，曾是13世纪朗那王国的国都，当时朗那王国曾盛极一时，关于这一点，从城市规整的布局中即可略见一斑。1786年清莱正式成为泰国的领土。","info_cn":" 清莱（ChiangRai）是泰国最北的府，是一个能立即融入到山区生活、文化的地方，可以在晨雾暮霭中徒步山野之中。同时清莱也是之前臭名昭著的\u201c金三角\u201d，今天你可以在这里了解到历史的沉重与悲伤。\r\n\r\n 当地语言: 泰语","hotelCount":"189","restaurantCount":"361","attractionCount":"45","activityCount":"38","shoppingCount":"13","hotelReviewCount":"22865","restaurantReviewCount":"1822","attractionReviewCount":"8989","activityReviewCount":"553","shoppingReviewCount":"449","poiCount":646,"reviewCount":34678},{"id":"361","type":"city","continentId":"0","countryId":"1","name":"Chon Buri","name_cn":"春武里","lat":"13.3667","lng":"100.983","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/5b5659254b42f69e95fcf92f6e8a4a91.jpg@!thumb","path":"/upload/2014-12-05/5b5659254b42f69e95fcf92f6e8a4a91.jpg","coverPhotoId":"60652","photoIds":"60652,62827,123315,123314,121270","info":"旧名\u201c万佛岁\u201d，又名琼布里(Chonburi，一般华人习称「春武里」，泰文：จังหวัดชลบุรี) 。泰国南部城市，春武里府首府。\r\n在「泰国」中部、曼谷湾东岸。原为渔村，现为工商业城市。人口约有 25 万，大多数是大小盘的商人以及各种工匠。有鱼露、碾米、茨粉等厂。郊区邦逊有海洋科学研究中心。公路西北通曼谷，南达帕塔亚和梭桃邑港。","info_cn":"旧名\u201c万佛岁\u201d，又名琼布里(Chonburi，一般华人习称「春武里」，泰文：จังหวัดชลบุรี) 。泰国南部城市，春武里府首府。\r\n在「泰国」中部、曼谷湾东岸。原为渔村，现为工商业城市。人口约有 25 万，大多数是大小盘的商人以及各种工匠。有鱼露、碾米、茨粉等厂。郊区邦逊有海洋科学研究中心。公路西北通曼谷，南达帕塔亚和梭桃邑港。","hotelCount":"75","restaurantCount":"441","attractionCount":"14","activityCount":"0","shoppingCount":"0","hotelReviewCount":"1664","restaurantReviewCount":"582","attractionReviewCount":"1556","activityReviewCount":"0","shoppingReviewCount":"0","poiCount":530,"reviewCount":3802}]
      */
 
     private int ret;
     /**
-     * id : 32753
-     * type : continent
-     * continentId : 0
-     * countryId : 0
-     * name : Asia
-     * name_cn : 亚洲
-     * cover :
-     * path :
-     * countrys : [{"id":"1","type":"country","continentId":"32753","countryId":"0","name":"Thailand","name_cn":"泰国","cover":"http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6d992efaed.jpg@!thumb","capitalId":0},{"id":"22238","type":"country","continentId":"32753","countryId":"0","name":"India","name_cn":"印度","cover":"http://img.koubeilvxing.com/pics/upload/2014-09-30/542a6c0bae9bc.jpg@!thumb","capitalId":0},{"id":"23131","type":"country","continentId":"32753","countryId":"0","name":"Japan","name_cn":"日本","cover":"http://img.koubeilvxing.com/pics/upload/2015-05-13/55532586b131c.jpg@!thumb","capitalId":0},{"id":"23277","type":"country","continentId":"32753","countryId":"0","name":"South Korea","name_cn":"韩国","cover":"http://img.koubeilvxing.com/pics/upload/2015-05-13/55532556374ef.jpg@!thumb","capitalId":0},{"id":"23373","type":"country","continentId":"32753","countryId":"0","name":"Myanmar","name_cn":"缅甸","cover":"http://img.koubeilvxing.com/pics/img/ba/b0/bab0f5818e9788b5761e4802b768e0f4.jpg@!thumb","capitalId":0},{"id":"23427","type":"country","continentId":"32753","countryId":"0","name":"Cambodia","name_cn":"柬埔寨","cover":"http://img.koubeilvxing.com/pics/img/35/12/35126bec6c4b603bb5e5fe6decae9e71.jpg@!thumb","capitalId":0},{"id":"23428","type":"country","continentId":"32753","countryId":"0","name":"Philippines","name_cn":"菲律宾","cover":"http://img.koubeilvxing.com/pics/img/58/d7/58d7c39614b09980b293564cae9f1539.jpg@!thumb","capitalId":0},{"id":"23429","type":"country","continentId":"32753","countryId":"0","name":"Malaysia","name_cn":"马来西亚","cover":"http://img.koubeilvxing.com/pics/img/99/8c/998cf865cc02ecc14b668858b158e0e1.jpg@!thumb","capitalId":0},{"id":"30700","type":"country","continentId":"32753","countryId":"0","name":"Nepal","name_cn":"尼泊尔 ","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/f63067b3bdc4ec34eceeaa3147c6c38a.jpg@!thumb","capitalId":0},{"id":"30701","type":"country","continentId":"32753","countryId":"0","name":"Indonesia","name_cn":"印度尼西亚","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/dbf1ed2103a721509ecf69ad01c29433.jpg@!thumb","capitalId":0},{"id":"30702","type":"country","continentId":"32753","countryId":"0","name":"Vietnam","name_cn":"越南","cover":"http://img.koubeilvxing.com/pics/upload/2014-09-30/542a8737f0a3f.jpg@!thumb","capitalId":0},{"id":"32243","type":"country","continentId":"32753","countryId":"0","name":"Maldives","name_cn":"马尔代夫","cover":"http://img.koubeilvxing.com/pics/img/6f/03/6f0356665d8bd28d2da784b7fd0c6d37.jpg@!thumb","capitalId":"32760"},{"id":"32244","type":"country","continentId":"32753","countryId":"0","name":"Singapore","name_cn":"新加坡","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/5256d9e11d2ea7c9a2e5f1917614a9db.jpg@!thumb","capitalId":"32253"},{"id":"32554","type":"country","continentId":"32753","countryId":"0","name":"Hong Kong","name_cn":"香港","cover":"http://img.koubeilvxing.com/pics/upload/2014-09-30/542a835272ab5.jpg@!thumb","capitalId":"32556"},{"id":"32557","type":"country","continentId":"32753","countryId":"0","name":"Taiwan","name_cn":"台湾","cover":"http://img.koubeilvxing.com/pics/upload/2014-09-30/542a830f97c8b.jpg@!thumb","capitalId":0},{"id":"32603","type":"country","continentId":"32753","countryId":"0","name":"Macau","name_cn":"澳门","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/f8897cfb00735c585cf96c10ef456084.jpg@!thumb","capitalId":"32605"},{"id":"32762","type":"country","continentId":"32753","countryId":"0","name":"Afghanistan","name_cn":"阿富汗","cover":"http://img.koubeilvxing.com/pics/img/f7/ad/f7ad6640c9b99d43ec2acd10c0b99cf3.jpg@!thumb","capitalId":0},{"id":"32763","type":"country","continentId":"32753","countryId":"0","name":"United Arab Emirates","name_cn":"阿联酋","cover":"http://img.koubeilvxing.com/pics/img/00/8f/008f9ab8c56d6a6083a1e3b8317a3466.jpg@!thumb","capitalId":0},{"id":"32764","type":"country","continentId":"32753","countryId":"0","name":"Oman","name_cn":"阿曼","cover":"http://img.koubeilvxing.com/pics/img/36/46/364655900239fb450a21d58ba9d1471d.jpg@!thumb","capitalId":0},{"id":"32765","type":"country","continentId":"32753","countryId":"0","name":"Pakistan","name_cn":"巴基斯坦","cover":"http://img.koubeilvxing.com/pics/img/c9/0a/c90a19020ca79f9cfa2278605ff2e7e8.jpg@!thumb","capitalId":0},{"id":"32766","type":"country","continentId":"32753","countryId":"0","name":"Palestine","name_cn":"巴勒斯坦","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/c0d3c93d042a61375d29743ed4ae0947.jpg@!thumb","capitalId":0},{"id":"32767","type":"country","continentId":"32753","countryId":"0","name":"Bahrain","name_cn":"巴林","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/2b7cf3fe0335b7bd806bc645997c5e26.jpg@!thumb","capitalId":"32995"},{"id":"32768","type":"country","continentId":"32753","countryId":"0","name":"Bhutan","name_cn":"不丹","cover":"http://img.koubeilvxing.com/pics/img/6e/0d/6e0da38bfa8af0c33a75ef5ece8611a9.jpg@!thumb","capitalId":0},{"id":"32769","type":"country","continentId":"32753","countryId":"0","name":"North Korea","name_cn":"朝鲜","cover":"http://img.koubeilvxing.com/pics/img/8f/4d/8f4dbf09bb3987c076d7481ae07aae57.jpg@!thumb","capitalId":0},{"id":"32770","type":"country","continentId":"32753","countryId":"0","name":"East Timor","name_cn":"东帝汶","cover":"http://img.koubeilvxing.com/pics/img/71/3c/713c6369576efd233034d608f82403b1.jpg@!thumb","capitalId":0},{"id":"32771","type":"country","continentId":"32753","countryId":"0","name":"Kazakhstan","name_cn":"哈萨克斯坦","cover":"http://img.koubeilvxing.com/pics/img/ee/a9/eea9881b9a169a41cec46636e53d147a.jpg@!thumb","capitalId":0},{"id":"32772","type":"country","continentId":"32753","countryId":"0","name":"Kyrgyzstan","name_cn":"吉尔吉斯斯坦","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-08/a3dd5619e26cc9bd170bcb4059fb5fee.jpg@!thumb","capitalId":0},{"id":"32773","type":"country","continentId":"32753","countryId":"0","name":"Qatar","name_cn":"卡塔尔","cover":"http://img.koubeilvxing.com/pics/img/d8/dd/d8dd158441e7de21870077b923b8c5e9.jpg@!thumb","capitalId":"33091"},{"id":"32775","type":"country","continentId":"32753","countryId":"0","name":"Laos","name_cn":"老挝","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/16428c06effd1bed1cdadbaa1659a0ce.jpg@!thumb","capitalId":0},{"id":"32776","type":"country","continentId":"32753","countryId":"0","name":"Lebanon","name_cn":"黎巴嫩","cover":"http://img.koubeilvxing.com/pics/img/ac/f1/acf1f76f39e2a3cc91fc0cfddd9a9b3a.jpg@!thumb","capitalId":0},{"id":"32777","type":"country","continentId":"32753","countryId":"0","name":"Mongolia","name_cn":"蒙古","cover":"http://img.koubeilvxing.com/pics/upload/2015-11-23/5652e0d71fce7.jpg@!thumb","capitalId":0},{"id":"32778","type":"country","continentId":"32753","countryId":"0","name":"Bangladesh","name_cn":"孟加拉国","cover":"http://img.koubeilvxing.com/pics/upload/2015-11-23/5652de33a1e8b.jpeg@!thumb","capitalId":0},{"id":"32779","type":"country","continentId":"32753","countryId":"0","name":"Saudi Arabia","name_cn":"沙特阿拉伯","cover":"http://img.koubeilvxing.com/pics/img/7d/39/7d39477ac6ae48757cc35e964f0f079d.jpg@!thumb","capitalId":0},{"id":"32780","type":"country","continentId":"32753","countryId":"0","name":"Sri Lanka","name_cn":"斯里兰卡","cover":"http://img.koubeilvxing.com/pics/img/b5/fa/b5fa52ffecac139c07d0ae444b454d41.jpg@!thumb","capitalId":0},{"id":"32781","type":"country","continentId":"32753","countryId":"0","name":"Tajikistan","name_cn":"塔吉克斯坦","cover":"http://img.koubeilvxing.com/pics/img/75/4a/754abf5aeaa9ece5fe3b5e2032808923.jpg@!thumb","capitalId":0},{"id":"32783","type":"country","continentId":"32753","countryId":"0","name":"Brunei","name_cn":"文莱","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/6ed2af4fd38c754f0e08cdfbb6b8ab27.jpg@!thumb","capitalId":0},{"id":"32784","type":"country","continentId":"32753","countryId":"0","name":"Uzbekistan","name_cn":"乌兹别克斯坦","cover":"http://img.koubeilvxing.com/pics/img/c9/04/c904877e8c4e6f6ee32041db91290276.jpg@!thumb","capitalId":0},{"id":"32785","type":"country","continentId":"32753","countryId":"0","name":"Syria","name_cn":"叙利亚","cover":"http://img.koubeilvxing.com/pics/img/47/f3/47f39e6665eb1628ed10d0473a784312.jpg@!thumb","capitalId":0},{"id":"32786","type":"country","continentId":"32753","countryId":"0","name":"Yemen","name_cn":"也门","cover":"http://img.koubeilvxing.com/pics/img/cd/44/cd44f2f2ea900093dc4b3a30afaf334c.jpg@!thumb","capitalId":0},{"id":"32787","type":"country","continentId":"32753","countryId":"0","name":"Iraq","name_cn":"伊拉克","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/399962211f20a8c4e43cfbf60c70a8ce.jpg@!thumb","capitalId":0},{"id":"32788","type":"country","continentId":"32753","countryId":"0","name":"Iran","name_cn":"伊朗","cover":"http://img.koubeilvxing.com/pics/img/d7/4e/d74e8613949a1f4ad2ae56312cb8ffb5.jpg@!thumb","capitalId":0},{"id":"32789","type":"country","continentId":"32753","countryId":"0","name":"British Indian Ocean Territory","name_cn":"英属印度洋领地","cover":"http://img.koubeilvxing.com/pics/upload/2014-12-05/82063a6806a7031bfc61f65e63a16a2b.jpg@!thumb","capitalId":"33481"},{"id":"32790","type":"country","continentId":"32753","countryId":"0","name":"Israel","name_cn":"以色列","cover":"http://img.koubeilvxing.com/pics/img/44/97/4497c14353bb7366654e173f1fb8cdca.jpg@!thumb","capitalId":0},{"id":"32791","type":"country","continentId":"32753","countryId":"0","name":"Jordan","name_cn":"约旦","cover":"http://img.koubeilvxing.com/pics/img/b4/d2/b4d245b2fafa4cec9980c1085d914082.jpg@!thumb","capitalId":0}]
-     */
-
-    private List<ContinentsBean> continents;
-    /**
      * id : 326
+     * type : city
+     * continentId : 0
+     * countryId : 1
      * name : Bangkok
      * name_cn : 曼谷
+     * lat : 13.7558
+     * lng : 100.506
      * cover : http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6d992efaed.jpg@!thumb
-     * desc : 佛教之都，包罗万象
-     * info_cn :
-     * info :
+     * path : /upload/2015-07-28/55b6d992efaed.jpg
+     * coverPhotoId : 0
+     * photoIds : 63086,63637,63467,64900,60479
+     * info : 优美迷人的热带风光，广博的佛教文化，独有的民间风俗，曼谷的致命吸引力正是以上三者的叠加，加上东西方文化的完美融合、古代和现代化的时空交错，让你慢慢体会精致而又真切泰国生活。
+     穿黄色袈裟的和尚在曙光初现中沿街托钵，是一幅历久不衰的景象；高耸矗立的大型建筑，强调着城市奇情与超越时空的景致，刻画出曼谷的特殊风味。曼谷的精彩纷呈让人目不暇接，旅行者很难不爱上这里。曼谷是一片集悠久文化建筑、传统水上集市、新兴购物天堂和天然动物乐园为一体的土地。湄南河将曼谷分割为东西两部分。
+     位于河西的大皇宫周边和暹罗中心商圈是曼谷市内主要的景区，展现了曼谷古老的宗教历史文化和现代时尚热地这两个截然不同的层面。
+     湄南河西岸排列着国家美术馆、国家博物馆、玉佛寺、大王宫等人文景点，与郑王庙隔河相望，背包客喜爱的考山路和著名的唐人街也离这里不远。
+     市中心的暹罗和是隆商业中心是曼谷的现代购物区，这里除了有不少商场、美食广场和电影院外，还有灵验的四面佛、五彩的暹罗海洋世界。
+     传统水上集市和周末集市分别位于市中心的南部和北部，是价廉物美的淘货天地，但需要足够的时间和精力选择性得游玩。
+     曼谷郊区或周边也有一些值得一去的地方。如果有充裕的时间想感受一下东南亚天然的动物景观，可以去曼谷东北部的野生动物园或离市区更远的北榄鳄鱼湖动物园。
+     每年11月至次年1月，是泰国中南部的最佳季节，其次是2月和10月。
+
+     曼谷属于泰国中南部地区，这里绝大部分地区属热带季风气候，各地年平均气温一般为30℃左右。
+     * info_cn :  曼谷(กรุงเทพมหานคร，读音：KrungthepMahanakhon；也简称กรุงเทพ，读音：Krungthep)，其字面意思即“天使之城”，自1782年起成为“千佛之国”——泰国的首都。这座城市有着数之不尽的寺庙，处处可见在晨曦中行走化缘的出家人以及保持完好的佛教习俗。然而用“传统”一词来形容曼谷却是远远不够，这里大型购物商场遍布市区、塞车程度全球首屈一指，高端品牌的广告随处可见。繁忙的商业区和安静的小巷交错在一起，文化古迹和现代夜生活区域相邻，西方文化与泰国传统文化在这里相融。曼谷就像一个什锦盘，各种文化元素五颜六色地拼凑在了一起。
+
+     曼谷位于泰国中部，毗邻泰国湾，整座城市高于海平面仅2米。气候四季如夏，每年4月份泼水节(SongkranFestival，สงกรานต์)期间，气温尤其高，可高达40℃。湄南河(MaeNam/ChaoPhrayaRiver，แม่น้ำเจ้าพระยา)穿城而过，大皇宫、黎明寺、卧佛寺、考山路等著名景点则位于河两岸。作为泰国第一大都市，整个大曼谷市共分为50个区，人口约1500万，然而曼谷的公共交通系统其实并不够完善。尽管2013年起BTS(天轨)、MRT(地铁)的票价大幅上涨，但它们仍是在这个拥堵极为严重的都市的出行首选。
+
+     除了参观大皇宫、卧佛寺等经典景点之外，旅行者还可在Siam商圈血拼，每年6月和12月还有降价促销；加都加周末市场、Asiatique夜市则是购买手工艺品和当地特产的好地方；考山路是全球各地背包客的聚集地，也是著名的酒吧一条街。
+
+     在享受美味的泰式冬阴功、木瓜沙拉之后，品尝鲜美的椰汁，再来一个传统泰式按摩，也许你会发现所有的花费还不超过100元人民币。曼谷就是这么一个物美价廉的地方，奢简由己，不管走高端路线还是平民路线，在曼谷你绝对不会亏待到自己。
+
+     面积: 1568平方公里 人口: 816万人 当地语言: 泰语 电源插座: A 电压: 220V 频率: 50HZ
+     * hotelCount : 1039
+     * restaurantCount : 8536
+     * attractionCount : 484
+     * activityCount : 589
+     * shoppingCount : 325
+     * hotelReviewCount : 854885
+     * restaurantReviewCount : 139360
+     * attractionReviewCount : 158554
+     * activityReviewCount : 33822
+     * shoppingReviewCount : 31017
+     * poiCount : 10973
+     * reviewCount : 1217638
      */
 
-    private List<RecommendplacesBean> recommendplaces;
+    private List<PlacesBean> places;
 
     public int getRet() {
         return ret;
@@ -69,43 +90,41 @@ public class CitySelectAtyBean {
         this.ret = ret;
     }
 
-    public List<ContinentsBean> getContinents() {
-        return continents;
+    public List<PlacesBean> getPlaces() {
+        return places;
     }
 
-    public void setContinents(List<ContinentsBean> continents) {
-        this.continents = continents;
+    public void setPlaces(List<PlacesBean> places) {
+        this.places = places;
     }
 
-    public List<RecommendplacesBean> getRecommendplaces() {
-        return recommendplaces;
-    }
-
-    public void setRecommendplaces(List<RecommendplacesBean> recommendplaces) {
-        this.recommendplaces = recommendplaces;
-    }
-
-    public static class ContinentsBean {
+    public static class PlacesBean {
         private String id;
         private String type;
         private String continentId;
         private String countryId;
         private String name;
         private String name_cn;
+        private String lat;
+        private String lng;
         private String cover;
         private String path;
-        /**
-         * id : 1
-         * type : country
-         * continentId : 32753
-         * countryId : 0
-         * name : Thailand
-         * name_cn : 泰国
-         * cover : http://img.koubeilvxing.com/pics/upload/2015-07-28/55b6d992efaed.jpg@!thumb
-         * capitalId : 0
-         */
-
-        private List<CountrysBean> countrys;
+        private String coverPhotoId;
+        private String photoIds;
+        private String info;
+        private String info_cn;
+        private String hotelCount;
+        private String restaurantCount;
+        private String attractionCount;
+        private String activityCount;
+        private String shoppingCount;
+        private String hotelReviewCount;
+        private String restaurantReviewCount;
+        private String attractionReviewCount;
+        private String activityReviewCount;
+        private String shoppingReviewCount;
+        private int poiCount;
+        private int reviewCount;
 
         public String getId() {
             return id;
@@ -155,6 +174,22 @@ public class CitySelectAtyBean {
             this.name_cn = name_cn;
         }
 
+        public String getLat() {
+            return lat;
+        }
+
+        public void setLat(String lat) {
+            this.lat = lat;
+        }
+
+        public String getLng() {
+            return lng;
+        }
+
+        public void setLng(String lng) {
+            this.lng = lng;
+        }
+
         public String getCover() {
             return cover;
         }
@@ -171,137 +206,28 @@ public class CitySelectAtyBean {
             this.path = path;
         }
 
-        public List<CountrysBean> getCountrys() {
-            return countrys;
+        public String getCoverPhotoId() {
+            return coverPhotoId;
         }
 
-        public void setCountrys(List<CountrysBean> countrys) {
-            this.countrys = countrys;
+        public void setCoverPhotoId(String coverPhotoId) {
+            this.coverPhotoId = coverPhotoId;
         }
 
-        public static class CountrysBean {
-            private String id;
-            private String type;
-            private String continentId;
-            private String countryId;
-            private String name;
-            private String name_cn;
-            private String cover;
-            private int capitalId;
-
-            public String getId() {
-                return id;
-            }
-
-            public void setId(String id) {
-                this.id = id;
-            }
-
-            public String getType() {
-                return type;
-            }
-
-            public void setType(String type) {
-                this.type = type;
-            }
-
-            public String getContinentId() {
-                return continentId;
-            }
-
-            public void setContinentId(String continentId) {
-                this.continentId = continentId;
-            }
-
-            public String getCountryId() {
-                return countryId;
-            }
-
-            public void setCountryId(String countryId) {
-                this.countryId = countryId;
-            }
-
-            public String getName() {
-                return name;
-            }
-
-            public void setName(String name) {
-                this.name = name;
-            }
-
-            public String getName_cn() {
-                return name_cn;
-            }
-
-            public void setName_cn(String name_cn) {
-                this.name_cn = name_cn;
-            }
-
-            public String getCover() {
-                return cover;
-            }
-
-            public void setCover(String cover) {
-                this.cover = cover;
-            }
-
-            public int getCapitalId() {
-                return capitalId;
-            }
-
-            public void setCapitalId(int capitalId) {
-                this.capitalId = capitalId;
-            }
-        }
-    }
-
-    public static class RecommendplacesBean {
-        private String id;
-        private String name;
-        private String name_cn;
-        private String cover;
-        private String desc;
-        private String info_cn;
-        private String info;
-
-        public String getId() {
-            return id;
+        public String getPhotoIds() {
+            return photoIds;
         }
 
-        public void setId(String id) {
-            this.id = id;
+        public void setPhotoIds(String photoIds) {
+            this.photoIds = photoIds;
         }
 
-        public String getName() {
-            return name;
+        public String getInfo() {
+            return info;
         }
 
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getName_cn() {
-            return name_cn;
-        }
-
-        public void setName_cn(String name_cn) {
-            this.name_cn = name_cn;
-        }
-
-        public String getCover() {
-            return cover;
-        }
-
-        public void setCover(String cover) {
-            this.cover = cover;
-        }
-
-        public String getDesc() {
-            return desc;
-        }
-
-        public void setDesc(String desc) {
-            this.desc = desc;
+        public void setInfo(String info) {
+            this.info = info;
         }
 
         public String getInfo_cn() {
@@ -312,12 +238,100 @@ public class CitySelectAtyBean {
             this.info_cn = info_cn;
         }
 
-        public String getInfo() {
-            return info;
+        public String getHotelCount() {
+            return hotelCount;
         }
 
-        public void setInfo(String info) {
-            this.info = info;
+        public void setHotelCount(String hotelCount) {
+            this.hotelCount = hotelCount;
+        }
+
+        public String getRestaurantCount() {
+            return restaurantCount;
+        }
+
+        public void setRestaurantCount(String restaurantCount) {
+            this.restaurantCount = restaurantCount;
+        }
+
+        public String getAttractionCount() {
+            return attractionCount;
+        }
+
+        public void setAttractionCount(String attractionCount) {
+            this.attractionCount = attractionCount;
+        }
+
+        public String getActivityCount() {
+            return activityCount;
+        }
+
+        public void setActivityCount(String activityCount) {
+            this.activityCount = activityCount;
+        }
+
+        public String getShoppingCount() {
+            return shoppingCount;
+        }
+
+        public void setShoppingCount(String shoppingCount) {
+            this.shoppingCount = shoppingCount;
+        }
+
+        public String getHotelReviewCount() {
+            return hotelReviewCount;
+        }
+
+        public void setHotelReviewCount(String hotelReviewCount) {
+            this.hotelReviewCount = hotelReviewCount;
+        }
+
+        public String getRestaurantReviewCount() {
+            return restaurantReviewCount;
+        }
+
+        public void setRestaurantReviewCount(String restaurantReviewCount) {
+            this.restaurantReviewCount = restaurantReviewCount;
+        }
+
+        public String getAttractionReviewCount() {
+            return attractionReviewCount;
+        }
+
+        public void setAttractionReviewCount(String attractionReviewCount) {
+            this.attractionReviewCount = attractionReviewCount;
+        }
+
+        public String getActivityReviewCount() {
+            return activityReviewCount;
+        }
+
+        public void setActivityReviewCount(String activityReviewCount) {
+            this.activityReviewCount = activityReviewCount;
+        }
+
+        public String getShoppingReviewCount() {
+            return shoppingReviewCount;
+        }
+
+        public void setShoppingReviewCount(String shoppingReviewCount) {
+            this.shoppingReviewCount = shoppingReviewCount;
+        }
+
+        public int getPoiCount() {
+            return poiCount;
+        }
+
+        public void setPoiCount(int poiCount) {
+            this.poiCount = poiCount;
+        }
+
+        public int getReviewCount() {
+            return reviewCount;
+        }
+
+        public void setReviewCount(int reviewCount) {
+            this.reviewCount = reviewCount;
         }
     }
 }

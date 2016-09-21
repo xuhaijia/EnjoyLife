@@ -23,10 +23,14 @@ package com.lanou.xuhaijia.enjoylife.travel.attractions;/*
  * Created by 常久青 on 16/9/14.
  */
 
+import android.content.Intent;
 import android.util.Log;
+import android.view.View;
 import android.view.ViewDebug;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
+import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
 import com.lanou.xuhaijia.enjoylife.R;
@@ -36,8 +40,10 @@ import com.lanou.xuhaijia.enjoylife.base.UrlValues;
 import com.lanou.xuhaijia.enjoylife.tools.CommonAdapter;
 import com.lanou.xuhaijia.enjoylife.tools.CommonViewHolder;
 
-public class AttractionsAty extends BaseActivity {
+public class AttractionsAty extends BaseActivity implements View.OnClickListener {
     private ListView lvAttractionAty;
+    private String urlAttract;
+
 
     @Override
     protected int setLayout() {
@@ -54,15 +60,27 @@ public class AttractionsAty extends BaseActivity {
         lvAttractionAty = bindView(R.id.activity_attraction_listview);
 
 
+        ImageView ivOut = bindView(R.id.activity_attractions_iv_back);
+        ivOut.setOnClickListener(this);
+
     }
 
     @Override
     protected void initData() {
+        Intent intents = getIntent();
 
+        String id = intents.getStringExtra("urlId");
+        //  Log.d("AttractionsAty", id);
 
+        if (id == null) {
+            urlAttract = UrlValues.TRAVEL_ATTRACTIONS_INITALIZE;
+        } else {
+            urlAttract = UrlValues.TRAVEL_ATTRACTIONS_HEAD + id + UrlValues.TRAVEL_ATTRACTIONS_FOOD;
 
+            Log.d("AttractionsAty111111111", urlAttract);
 
-        mNetTool.getData(UrlValues.TRAVEL_ATTRACTIONS, AttractionAtyBean.class, new NetTool.NetInterface<AttractionAtyBean>() {
+        }
+        mNetTool.getData(urlAttract, AttractionAtyBean.class, new NetTool.NetInterface<AttractionAtyBean>() {
             @Override
             public void onSuccess(AttractionAtyBean attractionAtyBean) {
 
@@ -72,16 +90,18 @@ public class AttractionsAty extends BaseActivity {
                         viewHolder.setText(R.id.item_travel_attentions_listview_textview_ch, listBean.getName_cn());
 
                         viewHolder.setText(R.id.item_travel_attentions_listview_textview_english, listBean.getName());
+                        RelativeLayout rlForName = (RelativeLayout) viewHolder.getConvertView().findViewById(R.id.item_travel_attentions_listview_textview_rl);
+                        if (listBean.getReview() != null) {
+                            String name = listBean.getReview().getAuthor();
+                            String content = listBean.getReview().getComment();
+                            String nameAndContent = name + ":" + content;
 
-
-                        String name = listBean.getReview().getAuthor();
-                        String content = listBean.getReview().getComment();
-
-                        String nameAndContent = name + ":" + content;
-
-                        //评论的文章作者
-                        viewHolder.setText(R.id.item_travel_attentions_listview_textview_name, nameAndContent);
-
+                            //评论的文章作者
+                            rlForName.setVisibility(View.VISIBLE);
+                            viewHolder.setText(R.id.item_travel_attentions_listview_textview_name, nameAndContent);
+                        } else {
+                            rlForName.setVisibility(View.GONE);
+                        }
 
 
                         RatingBar r = (RatingBar) viewHolder.getConvertView().findViewById(R.id.item_travel_attentions_listview_ratingbar);
@@ -90,7 +110,7 @@ public class AttractionsAty extends BaseActivity {
                         float f = Float.parseFloat(listBean.getScore());
                         Log.d("AttractionsAty", "f:" + f);
 
-                        r.setRating(f/2);
+                        r.setRating(f / 2);
 
                         String point = listBean.getScore();
                         String comment = listBean.getReviewCount();
@@ -110,5 +130,20 @@ public class AttractionsAty extends BaseActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()) {
+
+            case R.id.activity_attractions_iv_back:
+
+                finish();
+
+                break;
+
+
+        }
     }
 }
