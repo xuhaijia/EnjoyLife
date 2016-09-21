@@ -47,9 +47,23 @@ public final class UrlValues {
     //先给一个网址 景点的初始化
     public static final String TRAVEL_IMGER_INITALIZE = "http://www.koubeilvxing.com/placeinfo?lang=zh&placeId=32556";
 
-    public static final String TRAVEL_ATTRACTIONS = "http://www.koubeilvxing.com/search?lang=zh&lat=0.000000&lng=0.000000&module=attraction&page=1&placeId=32556&rows=10";
-    //选择城市的URL
+
+    //首页的前缀
+    public static final String TRAVEL_IMGER_HEAD = "http://www.koubeilvxing.com/placeinfo?lang=zh&placeId=";
+
+
+    //景点的初始化
+    public static final String TRAVEL_ATTRACTIONS_INITALIZE = "http://www.koubeilvxing.com/search?lang=zh&lat=0.000000&lng=0.000000&module=attraction&page=1&placeId=32556&rows=10";
+    //景点前缀
+    public static final String TRAVEL_ATTRACTIONS_HEAD = "http://www.koubeilvxing.com/search?lang=zh&lat=0.000000&lng=0.000000&module=attraction&page=1&placeId=";
+    //景点后缀
+    public static final String TRAVEL_ATTRACTIONS_FOOD = "&rows=10";
+    //选择州的URL
     public static final String TRAVEL_CITY_SELECT = "http://www.koubeilvxing.com/countrys?lang=zh";
+    //选择城市前缀 id
+    public static final String TRAVEL_CITY_SELECT_HEAD = "http://www.koubeilvxing.com/places?countryId=";
+    //选择城市的后缀
+    public static final String TRAVEL_CITY_FOOD = "&lang=zh&page=1&rows=10";
 
     // 画报
     public static final String PICTURE_ALL_URL = "http://design.zuimeia.com/api/v1/articles/daily/simple/?app_version=2.2.4&device_id=086b6e6707d0ef6f3656d1a3621894b23c350107&device_name=iPhone&package_name=com.zuimeia.ZUIRanking&page=1&page_size=20&platform=iphone&resolution=%7B750%2C%201334%7D&system_version=9.3.3";

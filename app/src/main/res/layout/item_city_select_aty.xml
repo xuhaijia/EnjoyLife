@@ -1,13 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="wrap_content"
+    android:layout_margin="3dp"
+    android:orientation="vertical">
+
+
+
+
+    <ImageView
+        android:id="@+id/item_city_select_recycle_aty_iv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <TextView
-        android:id="@+id/item_travel_city_select_aty_text"
+        android:id="@+id/item_city_select_recycle_aty_tv_city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="40dp"
-        android:text="城市" />
-</RelativeLayout>
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="8dp"
+        android:singleLine="true"
+        android:text="城市"
+        android:textColor="@android:color/black"
+
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/item_city_select_recycle_aty_tv_going"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="8dp"
+        android:text="去处"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/item_city_select_recycle_aty_tv_estimate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="8dp"
+        android:text="点评"
+        android:textSize="10sp" />
+
+</LinearLayout>

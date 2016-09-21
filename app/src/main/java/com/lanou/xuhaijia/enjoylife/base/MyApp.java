@@ -14,6 +14,8 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Build;
 
+import com.baidu.mapapi.SDKInitializer;
+
 import java.io.File;
 import java.io.FileFilter;
 
@@ -31,6 +33,7 @@ public class MyApp extends Application {
     public void onCreate() {
         super.onCreate();
         mContext = this;
+        SDKInitializer.initialize(this);
 
     }
 
