@@ -10,7 +10,11 @@ import android.text.Html;
 import android.widget.TextView;
 
 import com.lanou.xuhaijia.enjoylife.base.NetTool;
+import com.lanou.xuhaijia.enjoylife.picture.details.ImageStrings;
 
+import org.greenrobot.eventbus.EventBus;
+
+import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 
@@ -22,6 +26,7 @@ public class UrlImageGetter implements Html.ImageGetter {
     TextView container;
     int width;
     private float scaleWidth;
+    private ArrayList<String> strings;
 
     /**
      * @param t
@@ -31,10 +36,18 @@ public class UrlImageGetter implements Html.ImageGetter {
         this.c = c;
         this.container = t;
         width = c.getResources().getDisplayMetrics().widthPixels;
+        strings = new ArrayList<>();
     }
 
     @Override
     public Drawable getDrawable(String source) {
+
+        strings.add(source);
+        //EventBus 传值
+        ImageStrings imageStrings = new ImageStrings();
+        imageStrings.setStrings(strings);
+        EventBus.getDefault().post(imageStrings);
+
         final UrlDrawable urlDrawable = new UrlDrawable();
         NetTool netTool = new NetTool();
         try {
@@ -43,18 +56,18 @@ public class UrlImageGetter implements Html.ImageGetter {
                 public void getBitMap(Bitmap bitmap) {
                     if (bitmap != null){
                         scaleWidth = ((float) width) / bitmap.getWidth();
+                        Matrix matrix = new Matrix();
+                        matrix.postScale(scaleWidth, scaleWidth);
+                        bitmap = Bitmap.createBitmap(bitmap, 0, 0,
+                                bitmap.getWidth(), bitmap.getHeight(),
+                                matrix, true);
+                        urlDrawable.bitmap = bitmap;
+                        urlDrawable.setBounds(0, 0, bitmap.getWidth(),
+                                bitmap.getHeight());
+                        container.invalidate();
+                        container.setText(container.getText());
                     }
 
-                    Matrix matrix = new Matrix();
-                    matrix.postScale(scaleWidth, scaleWidth);
-                    bitmap = Bitmap.createBitmap(bitmap, 0, 0,
-                            bitmap.getWidth(), bitmap.getHeight(),
-                            matrix, true);
-                    urlDrawable.bitmap = bitmap;
-                    urlDrawable.setBounds(0, 0, bitmap.getWidth(),
-                            bitmap.getHeight());
-                    container.invalidate();
-                    container.setText(container.getText());
                 }
             });
         } catch (ExecutionException e) {

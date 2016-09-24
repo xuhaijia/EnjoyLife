@@ -1,73 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ScrollView
+
+    <com.lanou.xuhaijia.enjoylife.picture.details.DetailsScrollView
+        android:id="@+id/details_scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/activity_details_return"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="15dp"
-                    android:alpha="0.6"
-                    android:src="@mipmap/unknown" />
-
-                <ImageView
-                    android:id="@+id/activity_details_ellipse"
-                    android:layout_width="130dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_margin="15dp"
-                    android:alpha="0.5"
-                    android:src="@drawable/shape_ellipse" />
-
-                <TextView
-                    android:id="@+id/activity_details_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="55dp"
-                    android:layout_marginTop="20dp"
-                    android:text="12333333"
-                    android:textColor="#ffffff"
-                    android:textSize="10dp" />
-
-                <TextView
-                    android:id="@+id/activity_details_city"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@id/activity_details_name"
-                    android:layout_marginRight="55dp"
-                    android:text="纽约"
-                    android:textColor="#ffffff"
-                    android:textSize="10dp" />
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/activity_details_name_url"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="19dp"
-                    android:layout_marginTop="20dp"
-                    android:src="@mipmap/mm" />
-
-            </RelativeLayout>
+            android:orientation="vertical"
+            android:paddingTop="80dp">
 
             <TextView
                 android:id="@+id/activity_details_title"
@@ -352,7 +300,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="10dp"
-                    android:layout_toRightOf="@id/activity_details_pinglun"
+                    android:layout_toRightOf="@+id/activity_details_pinglun"
                     android:text="11"
                     android:textColor="#ffffff" />
             </RelativeLayout>
@@ -361,7 +309,7 @@
                 android:id="@+id/activity_details_recycler_view_two"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/activity_details_pinglun"></android.support.v7.widget.RecyclerView>
+                android:layout_below="@+id/activity_details_pinglun"></android.support.v7.widget.RecyclerView>
 
             <TextView
                 android:id="@+id/activity_details_look"
@@ -380,20 +328,22 @@
 
         </LinearLayout>
 
-    </ScrollView>
+    </com.lanou.xuhaijia.enjoylife.picture.details.DetailsScrollView>
 
     <LinearLayout
+        android:background="#ffffff"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
         android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/activity_details_photo"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@mipmap/mm"
             android:layout_gravity="center"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:src="@mipmap/mm" />
 
         <EditText
             android:id="@+id/activity_details_say"
@@ -409,8 +359,8 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:src="@mipmap/duihua"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/duihua" />
 
         <TextView
             android:id="@+id/activity_details_number_two"
@@ -422,8 +372,8 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:src="@mipmap/xin"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:src="@mipmap/xin" />
 
         <TextView
             android:id="@+id/activity_details_like"
@@ -433,13 +383,68 @@
 
         <ImageView
             android:id="@+id/activity_details_more"
-            android:layout_gravity="center"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:src="@mipmap/diandian" />
 
     </LinearLayout>
 
+    <RelativeLayout
+        android:id="@+id/details_relative_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00ffffff">
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/activity_details_return"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            android:alpha="0.6"
+            android:src="@mipmap/unknown" />
+
+        <ImageView
+            android:id="@+id/activity_details_ellipse"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_margin="15dp"
+            android:alpha="0.5"
+            android:src="@drawable/shape_ellipse" />
+
+        <TextView
+            android:id="@+id/activity_details_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="55dp"
+            android:layout_marginTop="20dp"
+            android:text="12333333"
+            android:textColor="#ffffff"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/activity_details_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/activity_details_name"
+            android:layout_marginRight="55dp"
+            android:text="纽约"
+            android:textColor="#ffffff"
+            android:textSize="10dp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/activity_details_name_url"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="19dp"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/mm" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
