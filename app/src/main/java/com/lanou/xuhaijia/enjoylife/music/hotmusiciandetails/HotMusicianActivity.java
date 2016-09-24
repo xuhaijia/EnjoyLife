@@ -1,6 +1,7 @@
 package com.lanou.xuhaijia.enjoylife.music.hotmusiciandetails;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -17,6 +18,8 @@ import com.lanou.xuhaijia.enjoylife.base.NetTool;
 import com.lanou.xuhaijia.enjoylife.base.UrlValues;
 import com.lanou.xuhaijia.enjoylife.tools.DBTool;
 
+import java.io.File;
+
 /**
  * Created by 徐海佳 on 16/9/17.
  */
@@ -31,6 +34,8 @@ public class HotMusicianActivity extends BaseActivity implements RadioGroup.OnCh
     private String id;
     private Intent intent;
     private ImageView collectionIV;
+    private ImageView shareIv;
+    private HotMusicianActivityBean bean;
 
     @Override
     protected int setLayout() {
@@ -50,7 +55,9 @@ public class HotMusicianActivity extends BaseActivity implements RadioGroup.OnCh
         careTv = bindView(R.id.activity_hotmusician_care);
         iconIv = bindView(R.id.activity_hotmusician_icon);
         collectionIV = bindView(R.id.activity_hotmusician_collection);
+        shareIv = bindView(R.id.activity_hotmusician_share);
         collectionIV.setOnClickListener(this);
+        shareIv.setOnClickListener(this);
         RadioGroup radioGroup = bindView(R.id.activity_hotmusician_rg);
         radioGroup.setOnCheckedChangeListener(this);
         radioGroup.check(R.id.activity_hotmusician_songs);
@@ -63,6 +70,7 @@ public class HotMusicianActivity extends BaseActivity implements RadioGroup.OnCh
                 , HotMusicianActivityBean.class, new NetTool.NetInterface<HotMusicianActivityBean>() {
                     @Override
                     public void onSuccess(HotMusicianActivityBean hotMusicianActivityBean) {
+                        bean = hotMusicianActivityBean;
                         titleTv.setText(hotMusicianActivityBean.getName());
                         nameTv.setText(hotMusicianActivityBean.getName());
                         styleTv.setText(hotMusicianActivityBean.getStyle());
@@ -85,23 +93,23 @@ public class HotMusicianActivity extends BaseActivity implements RadioGroup.OnCh
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         LvFragment lvFragment = new LvFragment();
         Bundle bundle = new Bundle();
-        bundle.putString("id" , id );
+        bundle.putString("id", id);
         switch (i) {
             case R.id.activity_hotmusician_songs:
-                bundle.putString("type" , "songs");
-                fragmentTransaction.replace(R.id.activity_hotmusician_fl , lvFragment);
+                bundle.putString("type", "songs");
+                fragmentTransaction.replace(R.id.activity_hotmusician_fl, lvFragment);
                 break;
             case R.id.activity_hotmusician_activity:
-                bundle.putString("type" , "activity");
-                fragmentTransaction.replace(R.id.activity_hotmusician_fl , lvFragment);
+                bundle.putString("type", "activity");
+                fragmentTransaction.replace(R.id.activity_hotmusician_fl, lvFragment);
                 break;
             case R.id.activity_hotmusician_photo:
-                bundle.putString("type" , "photo");
-                fragmentTransaction.replace(R.id.activity_hotmusician_fl , lvFragment);
+                bundle.putString("type", "photo");
+                fragmentTransaction.replace(R.id.activity_hotmusician_fl, lvFragment);
                 break;
             case R.id.activity_hotmusician_message:
-                bundle.putString("type" , "message");
-                fragmentTransaction.replace(R.id.activity_hotmusician_fl , lvFragment);
+                bundle.putString("type", "message");
+                fragmentTransaction.replace(R.id.activity_hotmusician_fl, lvFragment);
                 break;
             default:
                 break;
@@ -124,6 +132,19 @@ public class HotMusicianActivity extends BaseActivity implements RadioGroup.OnCh
         switch (view.getId()) {
             case R.id.activity_hotmusician_collection:
                 break;
+            case R.id.activity_hotmusician_share:
+                shareMsg("选择分享", "Share", "分享" + bean.getName() + "这位歌手");
+                break;
         }
+    }
+
+    public void shareMsg(String activityTitle, String msgTitle, String msgText
+                         ) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_SUBJECT, msgTitle);
+        intent.putExtra(Intent.EXTRA_TEXT, msgText);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(Intent.createChooser(intent, activityTitle));
     }
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@mipmap/refresh_succeed_1" android:duration = "130"></item>
+    <item android:drawable="@mipmap/refresh_succeed_2" android:duration = "130"></item>
+    <item android:drawable="@mipmap/refresh_succeed_3" android:duration = "130"></item>
+    <item android:drawable="@mipmap/refresh_succeed_4" android:duration = "130"></item>
+    <item android:drawable="@mipmap/refresh_succeed_5" android:duration = "130"></item>
+    <item android:drawable="@mipmap/refresh_succeed_6" android:duration = "130"></item>
+    <item android:drawable="@mipmap/refresh_succeed_7" android:duration = "130"></item>
+    <item android:drawable="@mipmap/refresh_succeed_8" android:duration = "130"></item>
+    <item android:drawable="@mipmap/refresh_succeed_9" android:duration = "130"></item>
+    <item android:drawable="@mipmap/refresh_succeed_10" android:duration = "130"></item>
+
+</animation-list>

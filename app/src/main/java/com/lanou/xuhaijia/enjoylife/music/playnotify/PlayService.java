@@ -231,6 +231,7 @@ public class PlayService extends Service {
                     break;
                 case close:
                     mediaPlayer.stop();
+
                     stopSelf();
                     break;
             }

@@ -153,7 +153,7 @@ public class LvFragment extends BaseFragment {
                                     public void setData(SongsBean.MessagesBean messagesBean,
                                                         CommonViewHolder viewHolder, int position) {
                                         viewHolder.setImage(R.id.item_message_icon, messagesBean.getIcon(), mContext);
-                                        viewHolder.setText(R.id.item_message_content, messagesBean.getAuthor() + ":   " +
+                                        viewHolder.setText(R.id.item_message_content, messagesBean.getAuthor() + " :   " +
                                                 messagesBean.getContent());
 
                                     }

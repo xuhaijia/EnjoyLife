@@ -32,8 +32,10 @@ public final class UrlValues {
     public static final String MUSIC_SONGS_IN_END = "&cb=%24.setp(0.09684648201800883)&app_name=music_artist&version=52&user_id=150964751&token=6fc4214eea&expire=1489024922&_=1473487579158";
 
     public static final String MUSIC_PHOTO_IN_START = "https://music.douban.com/api/artist/photos?id=";
-    public static final String MUSIC_PHOTO_IN_END = "&cate=albumcover&limit=15&cb=%24.setp(0.628224239917472)&app_name=music_artist&version=52&user_id=150964751&token=f8606041e9&expire=1489830153&_=1474283196468";
+    public static final String MUSIC_PHOTO_IN_END = "&cate=albumcover&limit=60&cb=%24.setp(0.628224239917472)&app_name=music_artist&version=52&user_id=150964751&token=f8606041e9&expire=1489830153&_=1474283196468";
 
+    public static final String MUSIC_BIGPHOTO_START = "https://music.douban.com/api/artist/photos?id=";
+    public static final String MUSIC_BIGPHOTO_END = "&limit=60&cb=%24.setp(0.9305911193719194)&app_name=music_artist&version=52&user_id=150964751&token=f8606041e9&expire=1489830153&_=1474594018641";
 
     // 新闻
     public static final String NEWS_HEADLINE = "http://c.3g.163.com/nc/article/headline/T1348647909107/0-20.html";
@@ -75,6 +77,7 @@ public final class UrlValues {
     public static final String PIVTURE_DETAILS_END_URL = "/?app_version=2.2.4&device_id=086b6e6707d0ef6f3656d1a3621894b23c350107&device_name=iPhone&package_name=com.zuimeia.ZUIRanking&platform=iphone&resolution=%7B750%2C%201334%7D&system_version=9.3.3";
 
     // 福利
-
-
+    public static final String WELFARE_ALL_URL = "http://gank.io/api/data/福利/20/1";
+    public static final String WELFARE_START_URL = "http://gank.io/api/data/福利/";
+    public static final String WELFARE_END_URL = "/1";
 }

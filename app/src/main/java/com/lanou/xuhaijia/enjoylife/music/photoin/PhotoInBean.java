@@ -1,11 +1,12 @@
 package com.lanou.xuhaijia.enjoylife.music.photoin;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by 徐海佳 on 16/9/19.
  */
-public class PhotoInBean {
+public class PhotoInBean implements Serializable{
 
     /**
      * photos : [{"upload_time":"2011-08-05","photo_id":"1146048446","url":"https://img3.doubanio.com/view/photo/albumcover/public/p1146048446.jpg","uploader_name":"放肆的肆","order":0,"desc":"photo by 跑调先生"},{"upload_time":"2011-08-01","photo_id":"1139815828","url":"https://img1.doubanio.com/view/photo/albumcover/public/p1139815828.jpg","uploader_name":"放肆的肆","order":1,"desc":"@MAO后台。photo by momo"},{"upload_time":"2011-08-01","photo_id":"1139815064","url":"https://img3.doubanio.com/view/photo/albumcover/public/p1139815064.jpg","uploader_name":"放肆的肆","order":2,"desc":"photo by momo"},{"upload_time":"2011-08-01","photo_id":"1139813802","url":"https://img3.doubanio.com/view/photo/albumcover/public/p1139813802.jpg","uploader_name":"放肆的肆","order":3,"desc":"面对空旷的场壳装腔作势地试音。photo by momo"},{"upload_time":"2011-08-01","photo_id":"1139813321","url":"https://img3.doubanio.com/view/photo/albumcover/public/p1139813321.jpg","uploader_name":"放肆的肆","order":4,"desc":"终于在新MAO留下了自己的记号。虽然有点那啥\u2026寒酸。photo by momo"},{"upload_time":"2011-08-01","photo_id":"1139812175","url":"https://img3.doubanio.com/view/photo/albumcover/public/p1139812175.jpg","uploader_name":"放肆的肆","order":5,"desc":"面对空旷的场壳装腔作势地试音。photo by momo"},{"upload_time":"2011-08-01","photo_id":"1137965519","url":"https://img1.doubanio.com/view/photo/albumcover/public/p1137965519.jpg","uploader_name":"放肆的肆","order":6,"desc":"photo by 漫漫兄"},{"upload_time":"2011-08-01","photo_id":"1137965323","url":"https://img3.doubanio.com/view/photo/albumcover/public/p1137965323.jpg","uploader_name":"放肆的肆","order":7,"desc":"photo by 漫漫兄"},{"upload_time":"2011-08-01","photo_id":"1137965100","url":"https://img3.doubanio.com/view/photo/albumcover/public/p1137965100.jpg","uploader_name":"放肆的肆","order":8,"desc":""},{"upload_time":"2011-08-01","photo_id":"1137964809","url":"https://img1.doubanio.com/view/photo/albumcover/public/p1137964809.jpg","uploader_name":"放肆的肆","order":9,"desc":"photo by Lady&amp;Bird"},{"upload_time":"2011-08-01","photo_id":"1137964741","url":"https://img3.doubanio.com/view/photo/albumcover/public/p1137964741.jpg","uploader_name":"放肆的肆","order":10,"desc":"灯光昏暗，lutehole被阴影遮住啦。photo by 漫漫兄"}]
@@ -70,7 +71,7 @@ public class PhotoInBean {
         this.photos = photos;
     }
 
-    public static class PhotosBean {
+    public static class PhotosBean  implements Serializable{
         private String upload_time;
         private String photo_id;
         private String url;
