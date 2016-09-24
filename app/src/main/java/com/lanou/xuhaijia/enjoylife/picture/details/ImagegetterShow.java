@@ -46,12 +46,9 @@ public class ImagegetterShow extends LinkMovementMethod {
     private Class spanClass = null;
 
     public static MovementMethod getInstance(Handler _handler, Class _spanClass) {
-        if (sInstance == null) {
             sInstance = new ImagegetterShow();
             ((ImagegetterShow) sInstance).spanClass = _spanClass;
             ((ImagegetterShow) sInstance).handler = _handler;
-
-        }
         return sInstance;
     }
 

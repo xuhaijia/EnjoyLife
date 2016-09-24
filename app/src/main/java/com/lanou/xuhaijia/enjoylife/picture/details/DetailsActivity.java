@@ -1,18 +1,29 @@
 package com.lanou.xuhaijia.enjoylife.picture.details;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.method.LinkMovementMethod;
 import android.text.style.ImageSpan;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,14 +34,15 @@ import com.lanou.xuhaijia.enjoylife.base.MyApp;
 import com.lanou.xuhaijia.enjoylife.base.NetTool;
 import com.lanou.xuhaijia.enjoylife.base.UrlValues;
 import com.lanou.xuhaijia.enjoylife.picture.imagegetter.HtmlTextView;
-import com.lanou.xuhaijia.enjoylife.tools.CommonAdapter;
 import com.lanou.xuhaijia.enjoylife.tools.CommonViewHolder;
 import com.lanou.xuhaijia.enjoylife.tools.RecycleViewAdapter;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * 　　　　　　　　┏┓　　　┏┓+ +
@@ -92,6 +104,13 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
     private TextView likeTv;
     private EditText say;
     private ImageView more;
+    private LayoutInflater inflater;
+    private ViewPager pager;
+    private RecyclerView recyclerViewPop;
+    private RecyclerPopAdapter recyclerPopAdapter;
+    private DetailsScrollView scrollView;
+    private int searchLayoutTop;
+    private RelativeLayout reLayout;
 
 
     @Override
@@ -127,7 +146,6 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
 
         say = bindView(R.id.activity_details_say);
 
-
         extpandBtn = bindView(R.id.activity_details_btn_expand);
         recoverBtn = bindView(R.id.activity_details_btn_recover);
         recoverBtn.setVisibility(View.GONE);
@@ -141,19 +159,56 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
 
         contentHv = bindView(R.id.activity_details_image_getter);
 
-    }
+        scrollView = bindView(R.id.details_scroll_view);
+        reLayout = bindView(R.id.details_relative_scroll);
 
+    }
+    int b = -1;
+    int a = 1;
     @Override
     protected void initData() {
+        EventBus.getDefault().register(this);
         returnBtn.setOnClickListener(this);
         extpandBtn.setOnClickListener(this);
         recoverBtn.setOnClickListener(this);
         contentHv.setOnClickListener(this);
+
+        scrollView.setOnScrollListener(new DetailsScrollView.OnScrollListener() {
+            @Override
+            public void onScroll(int scrollY) {
+                if (scrollY > 50 && b < 0) {
+                    Log.d("DetailsActivity", "次数");
+                    b = 1;
+                    a = 1;
+                    TranslateAnimation ta = new TranslateAnimation(
+                            0 , 0 , 0 , -200);
+                    ta.setFillAfter(true);
+                    ta.setDuration(1000);
+                    ta.setRepeatCount(0);
+                    reLayout.setAnimation(ta);
+                    reLayout.setVisibility(View.GONE);
+                } else if (scrollY < -50 && a > 0){
+                    b = -1;
+                    a = -1;
+                    TranslateAnimation ta = new TranslateAnimation(
+                            0, 0 , -200 , 0);
+                    ta.setFillAfter(true);
+                    ta.setDuration(1000);
+                    ta.setRepeatCount(0);
+                    reLayout.setAnimation(ta);
+                    reLayout.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
         Intent intent = getIntent();
         String urlAdd = intent.getStringExtra("ID");
-
         String url = UrlValues.PIVTURE_DETAILS_STAER_URL + urlAdd + UrlValues.PIVTURE_DETAILS_END_URL;
-        Log.d("DetailsActivity", url);
+
+
+
+
+
         mNetTool.getData(url, DetailsBean.class, new NetTool.NetInterface<DetailsBean>() {
                     @Override
                     public void onSuccess(DetailsBean detailsBean) {
@@ -169,6 +224,7 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
                         number.setText("(" + detailsBean.getData().getComment_num() + ")");
 //                        numberTwoTv.setText(detailsBean.getData().getComment_num());
 //                        likeTv.setText(detailsBean.getData().getLike_user_num());
+
 
                         String html = detailsBean.getData().getContent();
                         html.trim();
@@ -235,20 +291,40 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
 
     }
 
+    int position;
+    ArrayList<String> strings;
     Handler handler = new Handler(){
-        public void handlerMessage(Message msg){
-            int what = msg.what;
-            if (what == 200){
-                ImagegetterShow.MessageSpan ms = (ImagegetterShow.MessageSpan) msg.obj;
-                Object[] spans = (Object[]) ms.getObj();
-                for (Object span : spans){
-                    if (span instanceof ImageSpan){
-                        Log.d("ImagegetterShow", "点击了图片");
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+                int what = msg.what;
+                if (what == 200){
+                     position = 1;
+                    ImagegetterShow.MessageSpan ms = (ImagegetterShow.MessageSpan) msg.obj;
+                    Object[] spans = (Object[]) ms.getObj();
+                    for (Object span : spans){
+                        if (span instanceof ImageSpan){
+                            for (int i = 0; i <strings.size(); i++) {
+                                if (((ImageSpan)span).getSource().equals(strings.get(i))){
+                                    position = i;
+                                }
+                            }
+                        }
                     }
+                    setPopupWindow(strings,position);
+
                 }
             }
-        }
     };
+
+//    public void onWindowFocusChanged(boolean hasFocus){
+//        super.onWindowFocusChanged(hasFocus);
+//        if (hasFocus){
+//            searchLayoutTop = reLayout.getBottom();
+//        }
+//    }
+
+
 
 
 
@@ -267,16 +343,73 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
                 descriptionTv.setMaxLines(3);
                 extpandBtn.setVisibility(View.VISIBLE);
                 recoverBtn.setVisibility(View.GONE);
-
                 break;
             case R.id.activity_details_image_getter:
-
+                setPopupWindow(strings,position);
+                Log.d("DetailsActivity", "hahah");
                 break;
         }
     }
 
-    
+    public void setPopupWindow(final ArrayList<String> strings , final int position){
+        Log.d("DetailsActivity", "position:" + position);
+//        inflater = (LayoutInflater) getSystemService(DetailsActivity.LAYOUT_INFLATER_SERVICE);
+        View view = LayoutInflater.from(DetailsActivity.this).inflate(R.layout.activity_detalis_popup,null);
+        PopupWindow popupWindow = new PopupWindow(view, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        popupWindow.setContentView(view);
+        pager = (ViewPager) view.findViewById(R.id.details_popup);
+        recyclerViewPop = (RecyclerView) view.findViewById(R.id.details_recycler);
+
+
+        recyclerPopAdapter = new RecyclerPopAdapter(MyApp.getContext());
+        LinearLayoutManager manager = new LinearLayoutManager(MyApp.getContext());
+        manager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        recyclerViewPop.setLayoutManager(manager);
+        recyclerViewPop.setAdapter(recyclerPopAdapter);
+        recyclerPopAdapter.setIndex(strings.size());
+
+        pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                recyclerPopAdapter.setCount(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+        view.setBackgroundColor(Color.WHITE);
+        view.setFocusable(true);
+        ColorDrawable drawable = new ColorDrawable(0xff000000);
+        view.setBackgroundDrawable(drawable);
+        PopupWindowAdapter adapter = new PopupWindowAdapter(getApplicationContext());
+        adapter.setStrings(strings);
+        pager.setAdapter(adapter);
+        pager.setCurrentItem(position,false);
+        View rootView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.activity_detalis,null);
+        popupWindow.showAtLocation(rootView, Gravity.BOTTOM,0,0);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void getString(ImageStrings imageStrings){
+          strings = imageStrings.getStrings();
+        Log.d("DetailsActivity", "strings:" + strings);
+        Log.d("DetailsActivity", "str1111111111111ings.size():" + strings.size());
+    }
+
+    @Override
+    protected void onDestroy() {
+        EventBus.getDefault().unregister(this);
+        super.onDestroy();
+    }
 }
+
 //ArrayList是一个数组的形式存储的 而LinkedList是以链表的形式存储的
 //查找数据时ArrayList的效率比较高 LinkedList则添加和删除的效率比较高
 //队列 fifo 线性 存储元素
