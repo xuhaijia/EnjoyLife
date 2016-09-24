@@ -106,35 +106,23 @@ public class HeadlinesFragment extends BaseFragment {
                         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                                if (i != 0) {
 
-                                    if ("photoset".equals(heanLineBean.getT1348647909107().get(i).getSkipType())) {
-                                        //图片
-                                        String head = UrlValues.NEWS_FRONT;
-                                        String Pos = i + "";
-                                        String a = heanLineBean.getT1348647909107().get(i).getSkipID();
-                                        String setid = a.substring(9, a.length());
-                                        String cannilt = a.substring(4, 8);
-                                        String photoUrl = head + Pos + UrlValues.NEWS_between + setid + UrlValues.NEWS_BEHIND + cannilt;
-
-                                        url = photoUrl;
-                                    } else {
-                                        //如果是文字 的话
-                                        url = heanLineBean.getT1348647909107().get(i).getUrl_3w();
-
-                                    }
-
-                                } else if (i == 0) {
-
-                                    //头饰图
+                                if ("photoset".equals(heanLineBean.getT1348647909107().get(i).getSkipType())) {
+                                    //图片
                                     String head = UrlValues.NEWS_FRONT;
                                     String Pos = i + "";
                                     String a = heanLineBean.getT1348647909107().get(i).getSkipID();
                                     String setid = a.substring(9, a.length());
                                     String cannilt = a.substring(4, 8);
                                     String photoUrl = head + Pos + UrlValues.NEWS_between + setid + UrlValues.NEWS_BEHIND + cannilt;
+
                                     url = photoUrl;
+                                } else {
+                                    //如果是文字 的话
+                                    url = heanLineBean.getT1348647909107().get(i).getUrl_3w();
+
                                 }
+
                                 Intent intent = new Intent(getContext(), HeadLinesContentActivity.class);
                                 intent.putExtra("headline", url);
                                 startActivity(intent);
@@ -183,6 +171,7 @@ public class HeadlinesFragment extends BaseFragment {
         });
 
     }
+
     @Override
     protected void initData() {
 
@@ -198,7 +187,7 @@ public class HeadlinesFragment extends BaseFragment {
                 commonAdapter = new CommonAdapter<HeanLineBean.T1348647909107Bean>(arrayList, mContext, R.layout.item_news_headline) {
                     @Override
                     public void setData(final HeanLineBean.T1348647909107Bean t1348647909107Bean
-                            , CommonViewHolder viewHolder , int position) {
+                            , CommonViewHolder viewHolder, int position) {
                         viewHolder.setText(R.id.item_news_headline_tv, t1348647909107Bean.getTitle());
                         viewHolder.setImage(R.id.item_news_headline_img, t1348647909107Bean.getImgsrc(), getContext());
                         viewHolder.setText(R.id.item_news_headline_source, t1348647909107Bean.getSource());

@@ -8,6 +8,8 @@ import android.view.View;
 
 import com.lanou.xuhaijia.enjoylife.R;
 
+import cn.bmob.v3.Bmob;
+
 
 /**
  * Created by 徐海佳 on 16/8/31.
@@ -19,6 +21,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bmob.initialize(this, "ff261edc10ca4a638d4f5a53c4130e65");
 
         mNetTool = new NetTool();
         if (setLayout() != 0) {

@@ -1,6 +1,7 @@
 package com.lanou.xuhaijia.enjoylife.news.sport;
 
 import android.content.Intent;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,14 +9,17 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.lanou.xuhaijia.enjoylife.R;
 import com.lanou.xuhaijia.enjoylife.base.BaseFragment;
 import com.lanou.xuhaijia.enjoylife.base.NetTool;
 import com.lanou.xuhaijia.enjoylife.base.UrlValues;
+import com.lanou.xuhaijia.enjoylife.news.MySwipeRefreshLayout;
 import com.lanou.xuhaijia.enjoylife.news.headline.HeadLinesContentActivity;
 import com.lanou.xuhaijia.enjoylife.news.headline.HeanLineBean;
+import com.lanou.xuhaijia.enjoylife.news.recreation.RecreationBean;
 import com.lanou.xuhaijia.enjoylife.tools.CommonAdapter;
 import com.lanou.xuhaijia.enjoylife.tools.CommonViewHolder;
 
@@ -25,8 +29,11 @@ import java.util.ArrayList;
  * Created by 国冰冰 on 16/9/13.
  */
 public class SportsFragment extends BaseFragment {
+    private int mySize;
+    private MySwipeRefreshLayout mySwipeRefreshLayout;
     private ListView mListView;
     String url;
+    private CommonAdapter<SportsBean.T1348649079062Bean> commonAdapter;
 
     @Override
     protected int setLayout() {
@@ -36,7 +43,85 @@ public class SportsFragment extends BaseFragment {
     @Override
     protected void initView() {
         mListView = bindView(R.id.fragment_news_sport_lv);
+        mySwipeRefreshLayout = bindView(R.id.fragment_sport_swipe);
+        showHeadView();
+        initReli();
+        Load();
 
+    }
+    private void initReli() {
+        mySwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mListView.setAdapter(null);
+                mySwipeRefreshLayout.setRefreshing(false);
+                initData();
+            }
+        });
+    }
+
+    private void Load() {
+        mySwipeRefreshLayout.setOnLoadListener(new MySwipeRefreshLayout.OnLoadListener() {
+            @Override
+            public void onLoad() {
+                mySize++;
+                mNetTool.getData(UrlValues.NEWS_PE2 + (mySize * 20) + UrlValues.NEWS_HEADLINE_FRONT, SportsBean.class, new NetTool.NetInterface<SportsBean>() {
+                    @Override
+                    public void onSuccess(final SportsBean sportsBean) {
+                        Toast.makeText(mContext, "加载成功", Toast.LENGTH_SHORT).show();
+                        final ArrayList<SportsBean.T1348649079062Bean> arrayList = new ArrayList<SportsBean.T1348649079062Bean>();
+                        for (int i = 1; i < sportsBean.getT1348649079062().size(); i++) {
+                            arrayList.add(sportsBean.getT1348649079062().get(i));
+                        }
+                        commonAdapter = new CommonAdapter<SportsBean.T1348649079062Bean>(arrayList, getContext(), R.layout.item_news_sport) {
+                            @Override
+                            public void setData(SportsBean.T1348649079062Bean t1348649079062Bean, CommonViewHolder viewHolder
+                                    , int position) {
+                                viewHolder.setText(R.id.item_news_sport_tv, t1348649079062Bean.getTitle());
+                                viewHolder.setImage(R.id.item_news_sport_img, t1348649079062Bean.getImgsrc(), getContext());
+                                viewHolder.setText(R.id.item_news_sport_source, t1348649079062Bean.getSource());
+                                viewHolder.setText(R.id.item_news_sport_replycont, t1348649079062Bean.getReplyCount() + "人跟帖");
+                            }
+                        };
+                        mListView.setAdapter(commonAdapter);
+                        //item 点击事件
+                        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                                if ("photoset".equals(sportsBean.getT1348649079062().get(i).getSkipType())) {
+                                    //图片
+                                    String head = UrlValues.NEWS_FRONT;
+                                    String Pos = i + "";
+                                    String a = sportsBean.getT1348649079062().get(i).getSkipID();
+                                    String setid = a.substring(9, a.length());
+                                    String cannilt = a.substring(4, 8);
+                                    String photoUrl = head + Pos + UrlValues.NEWS_between + setid + UrlValues.NEWS_BEHIND + cannilt;
+
+                                    url = photoUrl;
+                                } else {
+                                    //如果是文字 的话
+                                    url = sportsBean.getT1348649079062().get(i).getUrl_3w();
+
+                                }
+
+                                Intent intent = new Intent(getContext(), HeadLinesContentActivity.class);
+                                intent.putExtra("headline", url);
+                                startActivity(intent);
+
+                            }
+                        });
+                        mySwipeRefreshLayout.setLoading(false);
+                    }
+
+                    @Override
+                    public void onError(String errorMsg) {
+
+                    }
+                });
+
+            }
+        });
     }
 
     @Override
@@ -44,12 +129,7 @@ public class SportsFragment extends BaseFragment {
         mNetTool.getData(UrlValues.NEWS_PE, SportsBean.class, new NetTool.NetInterface<SportsBean>() {
             @Override
             public void onSuccess(final SportsBean sportsBean) {
-                View view = LayoutInflater.from(getContext()).inflate(R.layout.news_headview, null);
-                TextView mTextView = (TextView) view.findViewById(R.id.news_headview_tv);
-                ImageView mImageView = (ImageView) view.findViewById(R.id.news_headview_img);
-                Glide.with(getContext()).load(sportsBean.getT1348649079062().get(0).getImgsrc()).into(mImageView);
-                mTextView.setText(sportsBean.getT1348649079062().get(0).getTitle());
-                mListView.addHeaderView(view);
+
                 ArrayList<SportsBean.T1348649079062Bean> beanArrayList = new ArrayList<SportsBean.T1348649079062Bean>();
                 for (int i = 1; i < sportsBean.getT1348649079062().size(); i++) {
                     beanArrayList.add(sportsBean.getT1348649079062().get(i));
@@ -61,7 +141,6 @@ public class SportsFragment extends BaseFragment {
 
                             if ("photoset".equals(sportsBean.getT1348649079062().get(i).getSkipType())) {
 
-                                Log.e("HeadlinesFragment", "图片  1");
                                 String head = UrlValues.NEWS_FRONT;
                                 String Pos = i + "";
                                 Log.d("HeadlinesFragment", sportsBean.getT1348649079062().get(i).getSkipID() + "拼接");
@@ -72,8 +151,6 @@ public class SportsFragment extends BaseFragment {
 
                                 url = photoUrl;
                             } else {
-                                Log.d("HeadlinesFragment", "文字" + "2");
-                                Log.d("HeadlinesFragment", sportsBean.getT1348649079062().get(i).getUrl() + "网址");
                                 url = sportsBean.getT1348649079062().get(i).getUrl_3w();
 
                             }
@@ -95,7 +172,7 @@ public class SportsFragment extends BaseFragment {
 
                     }
                 });
-                mListView.setAdapter(new CommonAdapter<SportsBean.T1348649079062Bean>(beanArrayList, getContext(), R.layout.item_news_sport) {
+                commonAdapter = new CommonAdapter<SportsBean.T1348649079062Bean>(beanArrayList, getContext(), R.layout.item_news_sport) {
                     @Override
                     public void setData(SportsBean.T1348649079062Bean t1348649079062Bean, CommonViewHolder viewHolder
                             , int position) {
@@ -104,7 +181,8 @@ public class SportsFragment extends BaseFragment {
                         viewHolder.setText(R.id.item_news_sport_source, t1348649079062Bean.getSource());
                         viewHolder.setText(R.id.item_news_sport_replycont, t1348649079062Bean.getReplyCount() + "人跟帖");
                     }
-                });
+                };
+                mListView.setAdapter(commonAdapter);
             }
 
             @Override
@@ -112,5 +190,24 @@ public class SportsFragment extends BaseFragment {
 
             }
         });
+    }
+    private void showHeadView() {
+        mNetTool.getData(UrlValues.NEWS_PE, SportsBean.class, new NetTool.NetInterface<SportsBean>() {
+            @Override
+            public void onSuccess(SportsBean sportsBean) {
+                View view = LayoutInflater.from(getContext()).inflate(R.layout.news_headview, null);
+                TextView mTextView = (TextView) view.findViewById(R.id.news_headview_tv);
+                ImageView mImageView = (ImageView) view.findViewById(R.id.news_headview_img);
+                Glide.with(getContext()).load(sportsBean.getT1348649079062().get(0).getImgsrc()).into(mImageView);
+                mTextView.setText(sportsBean.getT1348649079062().get(0).getTitle());
+                mListView.addHeaderView(view);
+            }
+
+            @Override
+            public void onError(String errorMsg) {
+
+            }
+        });
+
     }
 }

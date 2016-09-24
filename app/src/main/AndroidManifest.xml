@@ -50,6 +50,13 @@
 
         <!--国冰冰 -->
         <activity android:name=".news.headline.HeadLinesContentActivity" />
+        <!--收藏页-->
+        <activity android:name=".myself.MyCollectActivity"/>
+        <!--登录-->
+        <activity android:name=".myself.LoginActivity"/>
+        <activity android:name=".myself.RegisterActivity"/>
+
+
         <!--小青的Activity-->
         <activity android:name=".travel.search.TravelSearchAty" />
         <activity android:name=".travel.selectcity.CitySelectAty" />

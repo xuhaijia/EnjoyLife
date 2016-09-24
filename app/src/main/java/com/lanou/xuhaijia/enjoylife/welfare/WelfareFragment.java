@@ -6,7 +6,6 @@ import android.support.v4.app.ActivityOptionsCompat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
 import com.lanou.xuhaijia.enjoylife.R;
 import com.lanou.xuhaijia.enjoylife.base.BaseFragment;
 import com.lanou.xuhaijia.enjoylife.base.NetTool;

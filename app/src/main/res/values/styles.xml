@@ -51,4 +51,12 @@
         <item name="android:maxHeight">16dp</item>
     </style>
 
+
+
+
+    <!-- 国冰冰. -->
+    <style name="Widget_MyGiftView">
+        <!-- Customize your theme here. -->
+    </style>
+
 </resources>
