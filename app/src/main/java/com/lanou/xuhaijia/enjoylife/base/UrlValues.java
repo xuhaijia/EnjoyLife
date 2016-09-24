@@ -39,6 +39,7 @@ public final class UrlValues {
     public static final String NEWS_HEADLINE = "http://c.3g.163.com/nc/article/headline/T1348647909107/0-20.html";
     public static final String NEWS_HEADLINE2 = "http://c.3g.163.com/nc/article/headline/T1348647909107/";
     public static final String NEWS_HEADLINE_FRONT = "-20.html";
+    public static final String NEWS_PE2 = "http://c.3g.163.com/nc/article/list/T1348649079062/";
     public static final String NEWS_PE = "http://c.3g.163.com/nc/article/list/T1348649079062/0-40.html";
     public static final String NEWS_RECREATION = "http://c.3g.163.com/nc/article/list/T1348648517839/0-20.html";
     public static final String NEWS_RECREATION2 = "http://c.3g.163.com/nc/article/list/T1348648517839/";

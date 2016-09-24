@@ -5,21 +5,27 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lanou.xuhaijia.enjoylife.R;
 import com.lanou.xuhaijia.enjoylife.base.BaseActivity;
 import com.lanou.xuhaijia.enjoylife.music.MusicFragment;
 import com.lanou.xuhaijia.enjoylife.music.playnotify.PlayService;
+import com.lanou.xuhaijia.enjoylife.myself.MyBmobUser;
 import com.lanou.xuhaijia.enjoylife.myself.MyselfFragment;
 import com.lanou.xuhaijia.enjoylife.news.NewsFragment;
 import com.lanou.xuhaijia.enjoylife.picture.picture.PictureFragment;
 import com.lanou.xuhaijia.enjoylife.travel.travlesfragment.TravelFragment;
 import com.lanou.xuhaijia.enjoylife.welfare.WelfareFragment;
 
+import cn.bmob.v3.BmobUser;
+
 public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
 
 
     public TextView lineTv;
+    private MyBmobUser myBmobUser;
+    private BmobUser bmobUser;
 
     @Override
     protected int setLayout() {
@@ -58,7 +64,14 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                 fragmentTransaction.replace(R.id.activity_main_fl  , new PictureFragment());
                 break;
             case R.id.activity_main_welfare_rb:
-                fragmentTransaction.replace(R.id.activity_main_fl  , new WelfareFragment());
+                myBmobUser = BmobUser.getCurrentUser(MyBmobUser.class);
+                bmobUser = BmobUser.getCurrentUser();
+                if (bmobUser != null){
+                    fragmentTransaction.replace(R.id.activity_main_fl  , new WelfareFragment());
+
+                }else {
+                    Toast.makeText(this, "快去登录 享受EnjoyLife用户专有福利吧", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.activity_main_myself_rb:
                 fragmentTransaction.replace(R.id.activity_main_fl  , new MyselfFragment());

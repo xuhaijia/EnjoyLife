@@ -2,6 +2,7 @@ package com.lanou.xuhaijia.enjoylife.welfare;
 
 import android.support.v4.app.Fragment;
 
+import com.lanou.xuhaijia.enjoylife.R;
 import com.lanou.xuhaijia.enjoylife.base.BaseFragment;
 
 /**

@@ -66,13 +66,12 @@ public class RecreationFragment extends BaseFragment {
             @Override
             public void onLoad() {
                 mySize++;
-                Log.e("HeadlinesFragment", "her === === ");
                 mNetTool.getData(UrlValues.NEWS_RECREATION2 + (mySize * 20) + UrlValues.NEWS_HEADLINE_FRONT, RecreationBean.class, new NetTool.NetInterface<RecreationBean>() {
                     @Override
                     public void onSuccess(final RecreationBean recreationBean) {
                         Toast.makeText(mContext, "加载成功", Toast.LENGTH_SHORT).show();
                         final ArrayList<RecreationBean.T1348648517839Bean> arrayList = new ArrayList<RecreationBean.T1348648517839Bean>();
-                        for (int i = 0; i < recreationBean.getT1348648517839().size(); i++) {
+                        for (int i = 1; i < recreationBean.getT1348648517839().size(); i++) {
                             arrayList.add(recreationBean.getT1348648517839().get(i));
                         }
                         commonAdapter = new CommonAdapter<RecreationBean.T1348648517839Bean>(arrayList, mContext, R.layout.item_news_headline) {
@@ -90,10 +89,8 @@ public class RecreationFragment extends BaseFragment {
                         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                                if (i != 0) {
 
                                     if ("photoset".equals(recreationBean.getT1348648517839().get(i).getSkipType())) {
-
                                         //图片
                                         String head = UrlValues.NEWS_FRONT;
                                         String Pos = i + "";
@@ -101,25 +98,11 @@ public class RecreationFragment extends BaseFragment {
                                         String setid = a.substring(9, a.length());
                                         String cannilt = a.substring(4, 8);
                                         String photoUrl = head + Pos + UrlValues.NEWS_between + setid + UrlValues.NEWS_BEHIND + cannilt;
-
                                         url = photoUrl;
                                     } else {
                                         //如果是文字 的话
                                         url = recreationBean.getT1348648517839().get(i).getUrl_3w();
-
                                     }
-
-                                } else if (i == 0) {
-
-                                    //头饰图
-                                    String head = UrlValues.NEWS_FRONT;
-                                    String Pos = i + "";
-                                    String a = recreationBean.getT1348648517839().get(i).getSkipID();
-                                    String setid = a.substring(9, a.length());
-                                    String cannilt = a.substring(4, 8);
-                                    String photoUrl = head + Pos + UrlValues.NEWS_between + setid + UrlValues.NEWS_BEHIND + cannilt;
-                                    url = photoUrl;
-                                }
                                 Intent intent = new Intent(getContext(), HeadLinesContentActivity.class);
                                 intent.putExtra("headline", url);
                                 startActivity(intent);
@@ -228,9 +211,9 @@ public class RecreationFragment extends BaseFragment {
             }
         });
     }
-
     private void MyHeadLineView() {
         mNetTool.getData(UrlValues.NEWS_RECREATION, RecreationBean.class, new NetTool.NetInterface<RecreationBean>() {
+
             @Override
             public void onSuccess(RecreationBean recreationBean) {
                 View view = LayoutInflater.from(getContext()).inflate(R.layout.news_headview, null);

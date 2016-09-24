@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import cn.bmob.v3.Bmob;
+
 /**
  * Created by 徐海佳 on 16/9/12.
  */
@@ -22,6 +24,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         mNetTool = new NetTool();
     }
 
@@ -34,6 +37,7 @@ public abstract class BaseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Bmob.initialize(getContext(), "ff261edc10ca4a638d4f5a53c4130e65");
         if (setLayout() != 0) {
             //设置了布局,就绑定指定布局
             return inflater.inflate(setLayout(), container, false);
