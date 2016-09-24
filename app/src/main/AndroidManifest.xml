@@ -48,6 +48,9 @@
         <service android:name=".music.playnotify.PlayService"/>
 
 
+        <service android:name=".music.playnotify.PlayService" />
+
+
         <!--国冰冰 -->
         <activity android:name=".news.headline.HeadLinesContentActivity" />
         <!--收藏页-->
@@ -60,7 +63,10 @@
         <!--小青的Activity-->
         <activity android:name=".travel.search.TravelSearchAty" />
         <activity android:name=".travel.selectcity.CitySelectAty" />
-        <activity android:name=".travel.airmap.AriPlanAty"/>
+        <activity android:name=".travel.airmap.AriPlanAty" />
+        <activity android:name=".travel.food.FoodAty" />
+        <activity android:name=".travel.attractions.listattraction.AttractionListAty" />
+        <activity android:name=".travel.hotel.HotelAty" />
 
 
         <!--静雯的Activity-->

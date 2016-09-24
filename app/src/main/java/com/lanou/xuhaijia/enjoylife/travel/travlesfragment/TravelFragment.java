@@ -20,8 +20,11 @@ import com.lanou.xuhaijia.enjoylife.base.BaseFragment;
 import com.lanou.xuhaijia.enjoylife.base.NetTool;
 import com.lanou.xuhaijia.enjoylife.base.UrlValues;
 import com.lanou.xuhaijia.enjoylife.tools.Blur;
+import com.lanou.xuhaijia.enjoylife.travel.airmap.AirPlanBus;
 import com.lanou.xuhaijia.enjoylife.travel.airmap.AriPlanAty;
 import com.lanou.xuhaijia.enjoylife.travel.attractions.AttractionsAty;
+import com.lanou.xuhaijia.enjoylife.travel.food.FoodAty;
+import com.lanou.xuhaijia.enjoylife.travel.hotel.HotelAty;
 import com.lanou.xuhaijia.enjoylife.travel.search.TravelSearchAty;
 import com.lanou.xuhaijia.enjoylife.travel.selectcity.CountrySelectAty;
 import com.wevey.selector.dialog.DialogOnClickListener;
@@ -67,6 +70,11 @@ public class TravelFragment extends BaseFragment implements View.OnClickListener
     protected void initView() {
 
 
+        ImageView ivFood = bindView(R.id.travel_fragment_imager_food);
+        ivFood.setOnClickListener(this);
+        ImageView ivHotel = bindView(R.id.travel_fragment_imager_hotel);
+        ivHotel.setOnClickListener(this);
+
         ImageView ivAriPlan = bindView(R.id.travel_fragment_imager_airplane);
         ivAriPlan.setOnClickListener(this);
 
@@ -110,6 +118,7 @@ public class TravelFragment extends BaseFragment implements View.OnClickListener
         } else {
             urlImager = UrlValues.TRAVEL_IMGER_HEAD + urlId;
         }
+
         mNetTool.getData(urlImager, TravelFragmentBean.class, new NetTool.NetInterface<TravelFragmentBean>() {
             @Override
             public void onSuccess(TravelFragmentBean travelFragmentBean) {
@@ -137,6 +146,26 @@ public class TravelFragment extends BaseFragment implements View.OnClickListener
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+
+            case R.id.travel_fragment_imager_hotel:
+
+                Intent intentHotel = new Intent(getActivity(), HotelAty.class);
+
+                intentHotel.putExtra("hotel", urlId);
+
+                startActivity(intentHotel);
+
+
+                break;
+
+
+            case R.id.travel_fragment_imager_food:
+                Intent intentFood = new Intent(getActivity(), FoodAty.class);
+                intentFood.putExtra("foodId", urlId);
+                startActivity(intentFood);
+
+                break;
+
 
             case R.id.travel_fragment_imager_airplane:
                 Toast.makeText(mContext, "点击", Toast.LENGTH_SHORT).show();
@@ -223,8 +252,54 @@ public class TravelFragment extends BaseFragment implements View.OnClickListener
         EventBus.getDefault().unregister(getActivity());
     }
 
+
+    //地图传下来的网址
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void getData(TravelEventBus travelEventBus) {
+    public void getMapData(AirPlanBus airPlanBus) {
+
+        double lat = airPlanBus.getLan();
+        double lon = airPlanBus.getLon();
+
+        urlImager = UrlValues.TRAVEL_MAP_LOCATION_HEAD + lat + "&lng=" + lon;
+
+
+        mNetTool.getData(urlImager, TravelFragmentBean.class, new NetTool.NetInterface<TravelFragmentBean>() {
+            @Override
+            public void onSuccess(TravelFragmentBean travelFragmentBean) {
+                //   Glide.with(mContext).load(travelFragmentBean.getPlace().getCover()).into(ivBackGround);
+
+                if (travelFragmentBean.getPlace() != null) {
+
+
+                    MyAsyncTask myAsyncTask = new MyAsyncTask();
+                    myAsyncTask.execute(travelFragmentBean.getPlace().getCover());
+                    tvCH.setText(travelFragmentBean.getPlace().getName_cn());
+                    tvEnglish.setText(travelFragmentBean.getPlace().getName());
+                    urlId = travelFragmentBean.getPlace().getId();
+
+
+                    //通过数据持久化储存id
+                    SharedPreferences.Editor editor = shared.edit();
+                    editor.putString("id", urlId);
+                    editor.apply();
+                } else {
+                    Toast.makeText(mContext, "暂无数据", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onError(String errorMsg) {
+
+            }
+        });
+
+
+    }
+
+
+    //选择城市传下来的id拼接网址EvenBus
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void getData(final TravelEventBus travelEventBus) {
         urlId = travelEventBus.getUrlId();
         Log.d("TravelFragment", urlId);
 
@@ -246,6 +321,7 @@ public class TravelFragment extends BaseFragment implements View.OnClickListener
                 myAsyncTask.execute(travelFragmentBean.getPlace().getCover());
                 tvCH.setText(travelFragmentBean.getPlace().getName_cn());
                 tvEnglish.setText(travelFragmentBean.getPlace().getName());
+
 
             }
 

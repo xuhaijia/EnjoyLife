@@ -25,20 +25,27 @@ package com.lanou.xuhaijia.enjoylife.travel.airmap;/*
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.Toast;
 
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapPoi;
 import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.model.LatLng;
 import com.lanou.xuhaijia.enjoylife.R;
 import com.lanou.xuhaijia.enjoylife.base.BaseActivity;
 
+import org.greenrobot.eventbus.EventBus;
 
-public class AriPlanAty extends BaseActivity implements CompoundButton.OnCheckedChangeListener {
-    public static final String TAG = "TAG_AriPlanAty";
+
+public class AriPlanAty extends BaseActivity implements CompoundButton.OnCheckedChangeListener, BaiduMap.OnMapClickListener {
 
 
     private BaiduMap baiduMap;
@@ -77,6 +84,9 @@ public class AriPlanAty extends BaseActivity implements CompoundButton.OnChecked
         option.setScanSpan(1000);
         locationClient.setLocOption(option);
         locationClient.start();
+
+        //设置百度地图点击事件
+        baiduMap.setOnMapClickListener(this);
 
 
     }
@@ -126,5 +136,36 @@ public class AriPlanAty extends BaseActivity implements CompoundButton.OnChecked
 
         }
 
+    }
+
+
+    //百度地图的监听事件
+    @Override
+    public void onMapClick(LatLng latLng) {
+
+
+        double lat = latLng.latitude;
+        double lon = latLng.longitude;
+
+
+        Log.d("AriPlanAty", "lat:" + lat);
+        Log.d("AriPlanAty", "lon:" + lon);
+
+
+        AirPlanBus airPlanBus = new AirPlanBus();
+
+        airPlanBus.setLan(lat);
+        airPlanBus.setLon(lon);
+
+
+        EventBus.getDefault().post(airPlanBus);
+
+        finish();
+
+    }
+
+    @Override
+    public boolean onMapPoiClick(MapPoi mapPoi) {
+        return false;
     }
 }

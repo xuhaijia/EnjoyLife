@@ -26,19 +26,20 @@ package com.lanou.xuhaijia.enjoylife.travel.attractions;/*
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewDebug;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.lanou.xuhaijia.enjoylife.R;
 import com.lanou.xuhaijia.enjoylife.base.BaseActivity;
 import com.lanou.xuhaijia.enjoylife.base.NetTool;
 import com.lanou.xuhaijia.enjoylife.base.UrlValues;
 import com.lanou.xuhaijia.enjoylife.tools.CommonAdapter;
 import com.lanou.xuhaijia.enjoylife.tools.CommonViewHolder;
+import com.lanou.xuhaijia.enjoylife.travel.attractions.listattraction.AttractionListAty;
 
 public class AttractionsAty extends BaseActivity implements View.OnClickListener {
     private ListView lvAttractionAty;
@@ -69,7 +70,7 @@ public class AttractionsAty extends BaseActivity implements View.OnClickListener
     protected void initData() {
         Intent intents = getIntent();
 
-        String id = intents.getStringExtra("urlId");
+        final String id = intents.getStringExtra("urlId");
         //  Log.d("AttractionsAty", id);
 
         if (id == null) {
@@ -82,9 +83,11 @@ public class AttractionsAty extends BaseActivity implements View.OnClickListener
         }
         mNetTool.getData(urlAttract, AttractionAtyBean.class, new NetTool.NetInterface<AttractionAtyBean>() {
             @Override
-            public void onSuccess(AttractionAtyBean attractionAtyBean) {
+            public void onSuccess(final AttractionAtyBean attractionAtyBean) {
 
                 lvAttractionAty.setAdapter(new CommonAdapter<AttractionAtyBean.ListBean>(attractionAtyBean.getList(), AttractionsAty.this, R.layout.item_travel_attractions_listview) {
+
+
                     @Override
                     public void setData(AttractionAtyBean.ListBean listBean
                             , CommonViewHolder viewHolder, int position) {
@@ -96,6 +99,7 @@ public class AttractionsAty extends BaseActivity implements View.OnClickListener
                             String name = listBean.getReview().getAuthor();
                             String content = listBean.getReview().getComment();
                             String nameAndContent = name + ":" + content;
+
 
                             //评论的文章作者
                             rlForName.setVisibility(View.VISIBLE);
@@ -118,6 +122,30 @@ public class AttractionsAty extends BaseActivity implements View.OnClickListener
                         String pointAndComment = point + "分" + "/" + comment + "点评";
                         viewHolder.setText(R.id.item_travel_attentions_listview_textview_point, pointAndComment);
                         viewHolder.setImage(R.id.item_travel_attentions_listview_imager, listBean.getCover(), AttractionsAty.this);
+
+                    }
+                });
+
+
+                lvAttractionAty.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        Toast.makeText(AttractionsAty.this, "我被点击" + i, Toast.LENGTH_SHORT).show();
+                        String idUrl = attractionAtyBean.getList().get(i).getId();
+
+                        Log.d("AttractionsAty", idUrl);
+
+                        if (idUrl != null) {
+                            Intent intentList = new Intent(AttractionsAty.this, AttractionListAty.class);
+                            intentList.putExtra("urlId", idUrl);
+
+                            startActivity(intentList);
+                        } else {
+
+                            Toast.makeText(AttractionsAty.this, "小编偷懒了,请稍后再试", Toast.LENGTH_SHORT).show();
+
+                        }
+
 
                     }
                 });
