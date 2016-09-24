@@ -74,7 +74,7 @@ public class CitySelectAty extends BaseActivity {
 
         Log.d("CitySelectAty", id);
 
-        final String urlCity = UrlValues.TRAVEL_CITY_SELECT_HEAD + id + UrlValues.TRAVEL_CITY_FOOD;
+         String urlCity = UrlValues.TRAVEL_CITY_SELECT_HEAD + id + UrlValues.TRAVEL_CITY_FOOD;
 
         Log.d("CitySelectAty", urlCity);
 

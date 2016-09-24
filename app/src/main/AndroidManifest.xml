@@ -40,10 +40,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".music.hotmusiciandetails.HotMusicianActivity"/>
-        <activity android:name=".music.songsin.SongsInActivity"/>
-        <activity android:name=".music.photoin.PhotoInActivity"/>
-        <service android:name=".music.playnotify.PlayService"/>
+        <activity android:name=".music.hotmusiciandetails.HotMusicianActivity" />
+        <activity android:name=".music.songsin.SongsInActivity" />
+        <activity android:name=".music.photoin.PhotoInActivity" />
+
+        <service android:name=".music.playnotify.PlayService" />
 
         <service android:name=".music.playnotify.PlayService" />
 
@@ -52,7 +53,10 @@
         <!--小青的Activity-->
         <activity android:name=".travel.search.TravelSearchAty" />
         <activity android:name=".travel.selectcity.CitySelectAty" />
-        <activity android:name=".travel.airmap.AriPlanAty"/>
+        <activity android:name=".travel.airmap.AriPlanAty" />
+        <activity android:name=".travel.food.FoodAty" />
+        <activity android:name=".travel.attractions.listattraction.AttractionListAty" />
+        <activity android:name=".travel.hotel.HotelAty" />
 
 
         <!--静雯的Activity-->

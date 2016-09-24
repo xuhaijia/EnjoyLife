@@ -55,6 +55,20 @@ public final class UrlValues {
     //首页的前缀
     public static final String TRAVEL_IMGER_HEAD = "http://www.koubeilvxing.com/placeinfo?lang=zh&placeId=";
 
+    public static final String TRAVEL_ITEM_ATTRACTION = "http://www.koubeilvxing.com/iteminfo?lang=zh&module=attraction&recordId=";
+
+
+    //餐馆的初始化
+    public static final String TRAVEL_FOOD_INITALIZE = "http://www.koubeilvxing.com/search?lang=zh&lat=0.000000&lng=0.000000&module=restaurant&page=1&placeId=32556&rows=10";
+    //餐馆前缀
+    public static final String TRAVEL_FOOD_HEAD = "http://www.koubeilvxing.com/search?lang=zh&lat=0.000000&lng=0.000000&module=restaurant&page=1&placeId=";
+    //酒店前缀
+    public static final String TRAVEL_HOTEL_HEAD = "http://www.koubeilvxing.com/search?lang=zh&lat=0.000000&lng=0.000000&module=hotel&page=1&placeId=";
+
+    //加载酒店的前缀
+    public static final String TRAVEL_HOTEL_LOAD_HEAD = "http://www.koubeilvxing.com/search?lang=zh&lat=0.000000&lng=0.000000&module=hotel&page=";
+    //加载酒店的中间段
+    public static final String TRAVEL_HOTEL_LOAD_CENTER = "&placeId=";
 
     //景点的初始化
     public static final String TRAVEL_ATTRACTIONS_INITALIZE = "http://www.koubeilvxing.com/search?lang=zh&lat=0.000000&lng=0.000000&module=attraction&page=1&placeId=32556&rows=10";
@@ -68,6 +82,11 @@ public final class UrlValues {
     public static final String TRAVEL_CITY_SELECT_HEAD = "http://www.koubeilvxing.com/places?countryId=";
     //选择城市的后缀
     public static final String TRAVEL_CITY_FOOD = "&lang=zh&page=1&rows=10";
+    //地图的初始化定位
+    public static final String TRAVEL_MAP_INITALIZE_LOCATION = "http://www.koubeilvxing.com/location_to_place?lang=zh&lat=22.269819&lng=114.159195";
+    //地图定位前缀
+    public static final String TRAVEL_MAP_LOCATION_HEAD = "http://www.koubeilvxing.com/location_to_place?lang=zh&lat=";
+
 
     // 画报
     public static final String PICTURE_ALL_URL = "http://design.zuimeia.com/api/v1/articles/daily/simple/?app_version=2.2.4&device_id=086b6e6707d0ef6f3656d1a3621894b23c350107&device_name=iPhone&package_name=com.zuimeia.ZUIRanking&page=1&page_size=20&platform=iphone&resolution=%7B750%2C%201334%7D&system_version=9.3.3";

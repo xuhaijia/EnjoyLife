@@ -1,4 +1,4 @@
-package com.lanou.xuhaijia.enjoylife.travel.attractions.listattraction;/*
+package com.lanou.xuhaijia.enjoylife.travel.airmap;/*
                    _ooOoo_
                   o8888888o
                   88" . "88
@@ -20,27 +20,28 @@ package com.lanou.xuhaijia.enjoylife.travel.attractions.listattraction;/*
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
             佛祖保佑       永无BUG
 /**
- * Created by 常久青 on 16/9/18.
+ * Created by 常久青 on 16/9/22.
  */
 
-import com.lanou.xuhaijia.enjoylife.R;
-import com.lanou.xuhaijia.enjoylife.base.BaseActivity;
+public class AirPlanBus {
+    public static final String TAG = "TAG_AirPlanBus";
 
-public class LIstAttractionAty extends BaseActivity {
-    public static final String TAG = "TAG_LIstAttractionAty";
+    double lon ;
+    double lan ;
 
-    @Override
-    protected int setLayout() {
-        return R.layout.activity_travel_attraction_list;
+    public double getLon() {
+        return lon;
     }
 
-    @Override
-    protected void initView() {
-
+    public void setLon(double lon) {
+        this.lon = lon;
     }
 
-    @Override
-    protected void initData() {
+    public double getLan() {
+        return lan;
+    }
 
+    public void setLan(double lan) {
+        this.lan = lan;
     }
 }

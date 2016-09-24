@@ -3,15 +3,15 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_orange_dark"
+    android:background="@mipmap/travel_back_ground"
 
     >
 
     <ImageView
         android:id="@+id/travel_fragment_imager_background"
-        android:scaleType="fitXY"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:scaleType="fitXY" />
 
 
     <LinearLayout
@@ -59,7 +59,8 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_toRightOf="@+id/travel_fragment_imager_search"
-                    android:text="搜索国家, 城市, 景点,酒店等 " />
+                    android:text="搜索国家, 城市, 景点,酒店等 "
+                    android:textColor="@android:color/white" />
 
             </RelativeLayout>
 
@@ -84,6 +85,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="25dp"
             android:text="城市"
+            android:textColor="@android:color/white"
             android:textSize="30sp" />
 
         <TextView
@@ -93,6 +95,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
             android:text="city"
+            android:textColor="@android:color/white"
             android:textSize="20sp" />
 
 
@@ -112,12 +115,14 @@
                 />
 
             <ImageView
+                android:id="@+id/travel_fragment_imager_food"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@mipmap/travel_food" />
 
             <ImageView
+                android:id="@+id/travel_fragment_imager_hotel"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -138,6 +143,7 @@
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="景点"
+                android:textColor="@android:color/white"
                 android:textSize="15sp" />
 
             <TextView
@@ -146,6 +152,7 @@
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="餐馆"
+                android:textColor="@android:color/white"
                 android:textSize="15sp" />
 
             <TextView
@@ -154,6 +161,7 @@
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="酒店"
+                android:textColor="@android:color/white"
                 android:textSize="15sp" />
 
 
