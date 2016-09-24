@@ -3,7 +3,16 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/activity_photoin_title"
+            android:textColor="#ffffff"
+            android:background="#000000"
+            android:gravity="center"
+            android:textSize="17dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"/>
         <android.support.v7.widget.RecyclerView
+            android:layout_below="@+id/activity_photoin_title"
             android:id="@+id/activity_photoin_rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent">

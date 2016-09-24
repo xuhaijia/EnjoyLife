@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">EnjoyLife</string>
     <string name="load">加载</string>
+    <string name="pull_to_refresh"></string>
+    <string name="release_to_refresh">释放立即刷新</string>
+    <string name="refreshing">美女已打包发出</string>
+    <string name="refresh_succeed">刷新成功</string>
+    <string name="refresh_fail">刷新失败</string>
+    <string name="pullup_to_load">来看更多美女呀!</string>
+    <string name="release_to_load">快松手,美女要来啦</string>
+    <string name="loading">要注意身体,你懂得!!</string>
+    <string name="load_fail">美女被强盗劫走了!!!</string>
+    <string name="save_meizi" translatable="false">小主好眼力,快收了她</string>
 </resources>

@@ -61,4 +61,6 @@ public abstract class RecycleViewAdapter<T> extends RecyclerView.Adapter<CommonV
         return beanList == null ? 0 : beanList.size();
     }
     public abstract void setData(T t,CommonViewHolder viewHolder);
+
+
 }

@@ -1,18 +1,19 @@
 package com.lanou.xuhaijia.enjoylife.tools;
 
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 
 /**
- * Created by recker on 16/5/11.
+ * Created by 徐海佳 on 16/9/23.
  */
 public class ZoomOutPageTransformer implements ViewPager.PageTransformer  {
 
 
-    private static final float MIN_SCALE = 0.9f;
-    private static final float MIN_ALPHA = 0.3f;
+    private static final float MIN_SCALE = 0.6f;
+    private static final float MIN_ALPHA = 0.7f;
 
-    private static float defaultScale = 0.9f;
+    private static float defaultScale = 0.8f;
 
     public void transformPage(View view, float position) {
         int pageWidth = view.getWidth();
@@ -23,6 +24,7 @@ public class ZoomOutPageTransformer implements ViewPager.PageTransformer  {
             view.setAlpha(0);
             view.setScaleX(defaultScale);
             view.setScaleY(defaultScale);
+
         } else if (position <= 1) { // [-1,1]
             // Modify the default slide transition to shrink the page as well
             float scaleFactor = Math.max(MIN_SCALE, 1 - Math.abs(position));
@@ -49,6 +51,22 @@ public class ZoomOutPageTransformer implements ViewPager.PageTransformer  {
             view.setScaleX(defaultScale);
             view.setScaleY(defaultScale);
         }
+
+        /**
+         * 在 transformPage 方法中, 会传递两个参数,
+         且 该View  对应 当前的 position
+
+         从注释中可以看到,
+         position 有一下几个区间:
+         [-∞ , -1)  :
+         表示左边 的View 且已经看不到了
+         [-1 ,   0]  :
+         表示左边的 View ,且可以看见
+         ( 0 ,   1]  :
+         表示右边的VIew , 且可以看见了
+         ( 1 , -∞)  :
+         表示右边的 View 且已经看不见了
+         */
     }
 
 }

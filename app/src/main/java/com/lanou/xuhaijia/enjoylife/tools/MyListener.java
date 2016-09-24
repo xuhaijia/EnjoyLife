@@ -3,19 +3,14 @@ package com.lanou.xuhaijia.enjoylife.tools;
 import android.os.Handler;
 import android.os.Message;
 
-import xuhaijia.lanou3g.autohome.base.BaseFragment;
-import xuhaijia.lanou3g.autohome.recommend.newest.NewestFragment;
+import com.lanou.xuhaijia.enjoylife.welfare.WelfareFragment;
 
 public class MyListener implements PullToRefreshLayout.OnRefreshListener {
-    NewestFragment newestFragment;
-    BaseFragment baseFragment;
 
-    public MyListener(BaseFragment baseFragment) {
-        this.baseFragment = baseFragment;
-    }
+    WelfareFragment welfareFragment;
 
-    public void setNewestFragment(NewestFragment newestFragment) {
-        this.newestFragment = newestFragment;
+    public MyListener(WelfareFragment welfareFragment) {
+        this.welfareFragment = welfareFragment;
     }
 
     @Override
@@ -28,7 +23,7 @@ public class MyListener implements PullToRefreshLayout.OnRefreshListener {
                 pullToRefreshLayout.refreshFinish(PullToRefreshLayout.SUCCEED);
             }
         }.sendEmptyMessageDelayed(0, 1000);
-        baseFragment.refresh();
+        welfareFragment.refresh();
     }
 
     @Override
@@ -41,7 +36,8 @@ public class MyListener implements PullToRefreshLayout.OnRefreshListener {
                 pullToRefreshLayout.loadmoreFinish(PullToRefreshLayout.SUCCEED);
             }
         }.sendEmptyMessageDelayed(0, 1000);
-        baseFragment.load();
+        welfareFragment.loadMore();
+
     }
 
 

@@ -29,7 +29,7 @@
     <application
         android:name=".base.MyApp"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/life_is_beauty"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -43,9 +43,10 @@
         <activity android:name=".music.hotmusiciandetails.HotMusicianActivity"/>
         <activity android:name=".music.songsin.SongsInActivity"/>
         <activity android:name=".music.photoin.PhotoInActivity"/>
+        <activity android:name=".welfare.WelfareActivity"/>
+        <activity android:name=".music.photoin.BigPicActivity"/>
         <service android:name=".music.playnotify.PlayService"/>
 
-        <service android:name=".music.playnotify.PlayService" />
 
         <!--国冰冰 -->
         <activity android:name=".news.headline.HeadLinesContentActivity" />

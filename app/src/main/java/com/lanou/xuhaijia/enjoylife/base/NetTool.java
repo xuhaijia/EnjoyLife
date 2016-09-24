@@ -45,7 +45,7 @@ public class NetTool {
                 final Gson gson =  new Gson();
                 //
                 String data = response.body().string();
-                if (data.startsWith("{\"")) {
+                if (data.startsWith("{")) {
                     t = gson.fromJson(data, clazz);
                 } else {
                     int start = data.indexOf("{\"");
@@ -60,6 +60,29 @@ public class NetTool {
                 });
             }
         });
+    }
+
+    public <T> void getBitmap(final String url , final int height , final int width , final GetBitMap getBitMap) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    final Bitmap bitmap = Glide.with(MyApp.getContext()).load(url).asBitmap().centerCrop().into(width,height).get();
+                    mHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            getBitMap.getBitMap(bitmap);
+                        }
+                    }) ;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }).start();
+
     }
 
     public void getImage(String source, GetBitMap getBitMap) throws ExecutionException, InterruptedException {
@@ -109,7 +132,6 @@ public class NetTool {
             getBitMap.getBitMap(bitmap);
         }
     }
-
 
 
     // 网络请求的接口,有成功方法, 有失败方法

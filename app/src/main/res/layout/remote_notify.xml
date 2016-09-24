@@ -7,7 +7,9 @@
     <ImageView
         android:layout_marginLeft="5dp"
         android:id="@+id/remote_notify_icon"
-        android:src="@mipmap/enjoy_life"
+        android:src="@mipmap/life_is_beauty"
+        android:scaleType="fitXY"
+        android:padding="5dp"
         android:layout_width="60dp"
         android:layout_height="60dp"/>
 

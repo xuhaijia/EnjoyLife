@@ -17,11 +17,12 @@ public class Musician {
     private String style;
     private String member;
     private String careCount;
+    private String userName;
 
 
-    @Generated(hash = 2054817506)
+    @Generated(hash = 676416125)
     public Musician(Long id, String name, String musicianId, String icon,
-            String style, String member, String careCount) {
+            String style, String member, String careCount, String userName) {
         this.id = id;
         this.name = name;
         this.musicianId = musicianId;
@@ -29,6 +30,7 @@ public class Musician {
         this.style = style;
         this.member = member;
         this.careCount = careCount;
+        this.userName = userName;
     }
 
     @Generated(hash = 413182955)
@@ -89,7 +91,16 @@ public class Musician {
     }
 
     public void setMember(String member) {
+
         this.member = member;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }
 

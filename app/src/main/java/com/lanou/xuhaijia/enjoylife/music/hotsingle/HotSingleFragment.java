@@ -45,10 +45,9 @@ public class HotSingleFragment extends BaseFragment {
     private Dialog mLoginingDlg;
     private ImageView play;
     private PlayEvent playEvent;
-    public static String TIME_FORMAT = "mm:ss";
     private String sec;
-    private String sec1;
     private PopupWindow window;
+    private boolean isShow = false;
 
     @Override
     protected int setLayout() {
@@ -63,12 +62,19 @@ public class HotSingleFragment extends BaseFragment {
     @Override
     protected void initData() {
         initLoginingDlg();
-        showLoginingDlg();
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (!isShow) {
+            showLoginingDlg();
+        }
         mNetTool.getData(UrlValues.MUSIC_HOT_SINGLE, HotSingleBean.class, new NetTool.NetInterface<HotSingleBean>() {
             @Override
             public void onSuccess(final HotSingleBean hotSingleBean) {
-
-
+                isShow = true;
                 hotSingleLv.setAdapter(new CommonAdapter<HotSingleBean.SongsBean>(hotSingleBean.getSongs()
                         , mContext, R.layout.item_hotsingle) {
                     @Override
@@ -114,7 +120,6 @@ public class HotSingleFragment extends BaseFragment {
             }
         });
     }
-
 
     private void showPopUp(View v) {
         LinearLayout layout = new LinearLayout(getContext());
@@ -205,13 +210,13 @@ public class HotSingleFragment extends BaseFragment {
     private void initLoginingDlg() {
         mLoginingDlg = new Dialog(mContext, R.style.loginingDlg);
         LoadingLineView loadingLineView = new LoadingLineView(mContext);
+        mLoginingDlg.setContentView(loadingLineView);
         RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF,
                 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         rotateAnimation.setDuration(3000);
         rotateAnimation.setRepeatCount(-1);
         rotateAnimation.setRepeatMode(Animation.RESTART);
         loadingLineView.startAnimation(rotateAnimation);
-        mLoginingDlg.setContentView(loadingLineView);
 
     }
 

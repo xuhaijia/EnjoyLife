@@ -25,6 +25,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter{
         this.beanList = beanList;
         this.convertViewId = convertViewId;
         mLayoutInflater =LayoutInflater.from(context);
+        notifyDataSetChanged();
     }
 
 

@@ -69,13 +69,20 @@
 
         <ImageView
             android:id="@+id/activity_hotmusician_collection"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="50dp"
-            android:src="@mipmap/care_white"
-            android:visibility="invisible"/>
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="30dp"
+            android:src="@mipmap/care_white"/>
+        <ImageView
+            android:id="@+id/activity_hotmusician_share"
+            android:src="@mipmap/music_share"
+            android:layout_below="@+id/activity_hotmusician_collection"
+            android:layout_alignLeft="@+id/activity_hotmusician_collection"
+            android:layout_marginTop="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
 
 
     </RelativeLayout>

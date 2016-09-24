@@ -106,7 +106,6 @@ public class CitySelectAty extends BaseActivity {
                                 String urlId = placesBean.getId();
 
                                 TravelEventBus travelEventBus = new TravelEventBus();
-
                                 travelEventBus.setUrlId(urlId);
                                 EventBus.getDefault().post(travelEventBus);
 

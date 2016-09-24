@@ -6,6 +6,7 @@
     <ImageView
         android:padding="1dp"
         android:id="@+id/item_photoin_iv"
+        android:scaleType="centerCrop"
         android:layout_width="120dp"
         android:layout_height="120dp"/>
 </LinearLayout>

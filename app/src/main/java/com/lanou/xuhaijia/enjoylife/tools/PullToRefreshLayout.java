@@ -1,13 +1,11 @@
 package com.lanou.xuhaijia.enjoylife.tools;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +15,12 @@ import android.view.animation.RotateAnimation;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.lanou.xuhaijia.enjoylife.R;
 
-import xuhaijia.lanou3g.autohome.R;
+import java.util.Timer;
+import java.util.TimerTask;
+
+
 
 /**
  * 自定义的布局，用来管理三个子控件，其中一个是下拉头，一个是包含内容的pullableView（可以是实现Pullable接口的的任何View），
@@ -100,6 +102,8 @@ public class PullToRefreshLayout extends RelativeLayout {
 
     // 实现了Pullable接口的View
     private View pullableView;
+
+
     // 过滤多点触碰
     private int mEvents;
     // 这两个变量用来控制pull的方向，如果不加控制，当情况满足可上拉又可下拉时没法下拉
@@ -211,15 +215,15 @@ public class PullToRefreshLayout extends RelativeLayout {
             case SUCCEED:
                 // 刷新成功
                 refreshStateImageView.setVisibility(View.VISIBLE);
-                refreshStateTextView.setText(R.string.refresh_succeed);
+                refreshStateTextView.setText("美女已送达,请小主签收");
                 refreshStateImageView
-                        .setBackgroundResource(R.mipmap.refresh_succeed);
+                        .setBackgroundResource(R.drawable.refresh_success);
                 break;
             case FAIL:
             default:
                 // 刷新失败
                 refreshStateImageView.setVisibility(View.VISIBLE);
-                refreshStateTextView.setText(R.string.refresh_fail);
+                refreshStateTextView.setText("美女在来的路上被强盗劫走了.");
                 refreshStateImageView
                         .setBackgroundResource(R.mipmap.refresh_failed);
                 break;
@@ -251,8 +255,8 @@ public class PullToRefreshLayout extends RelativeLayout {
             case SUCCEED:
                 // 加载成功
                 loadStateImageView.setVisibility(View.VISIBLE);
-                loadStateTextView.setText(R.string.load_succeed);
-                loadStateImageView.setBackgroundResource(R.mipmap.load_succeed);
+                loadStateTextView.setText(R.string.loading);
+                loadStateImageView.setBackgroundResource(R.drawable.refresh_success);
                 break;
             case FAIL:
             default:
@@ -294,7 +298,7 @@ public class PullToRefreshLayout extends RelativeLayout {
                 break;
             case RELEASE_TO_REFRESH:
                 // 释放刷新状态
-                refreshStateTextView.setText(R.string.release_to_refresh);
+                refreshStateTextView.setText("想看美女么!赶快松手");
                 pullView.startAnimation(rotateAnimation);
                 break;
             case REFRESHING:
@@ -516,12 +520,14 @@ public class PullToRefreshLayout extends RelativeLayout {
                 .findViewById(R.id.state_tv);
         refreshingView = refreshView.findViewById(R.id.refreshing_icon);
         refreshStateImageView = refreshView.findViewById(R.id.state_iv);
+        refreshStateImageView.setBackgroundResource(R.drawable.refresh_success);
         // 初始化上拉布局
         pullUpView = loadmoreView.findViewById(R.id.pullup_icon);
         loadStateTextView = (TextView) loadmoreView
                 .findViewById(R.id.loadstate_tv);
         loadingView = loadmoreView.findViewById(R.id.loading_icon);
         loadStateImageView = loadmoreView.findViewById(R.id.loadstate_iv);
+        loadStateImageView.setBackgroundResource(R.drawable.refresh_success);
     }
 
     @Override
@@ -542,9 +548,12 @@ public class PullToRefreshLayout extends RelativeLayout {
         refreshView.layout(0,
                 (int) (pullDownY + pullUpY) - refreshView.getMeasuredHeight(),
                 refreshView.getMeasuredWidth(), (int) (pullDownY + pullUpY));
+
         pullableView.layout(0, (int) (pullDownY + pullUpY),
                 pullableView.getMeasuredWidth(), (int) (pullDownY + pullUpY)
                         + pullableView.getMeasuredHeight());
+
+
         loadmoreView.layout(0,
                 (int) (pullDownY + pullUpY) + pullableView.getMeasuredHeight(),
                 loadmoreView.getMeasuredWidth(),

@@ -2,6 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="wrap_content">
+    <ImageView
+        android:layout_margin="5dp"
+        android:scaleType="centerCrop"
+        android:id="@+id/item_welfare_iv"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"/>
 
 </LinearLayout>
