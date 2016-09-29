@@ -1,15 +1,17 @@
-package com.lanou.xuhaijia.enjoylife.news.beautyarticle;
+package com.lanou.xuhaijia.enjoylife.myself;
+
+import android.support.v4.app.Fragment;
 
 import com.lanou.xuhaijia.enjoylife.R;
 import com.lanou.xuhaijia.enjoylife.base.BaseFragment;
 
 /**
- * Created by 国冰冰 on 16/9/13.
+ * Created by 国冰冰 on 16/9/28.
  */
-public class BeautyArticleFragment extends BaseFragment {
+public class CollectMusican extends BaseFragment {
     @Override
     protected int setLayout() {
-        return R.layout.fragment_beautyartic;
+        return R.layout.fragment_collect_musican;
     }
 
     @Override

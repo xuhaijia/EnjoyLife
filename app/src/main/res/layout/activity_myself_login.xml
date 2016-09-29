@@ -3,16 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-   >
 
-    <TextView
+    >
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="80dp"
         android:layout_gravity="center"
-        android:layout_marginTop="150dp"
-        android:text="Enjoy Life"
-        android:textSize="30sp" />
+        android:layout_marginTop="50dp"
+        android:background="@mipmap/ic_icon_my" />
 
     <LinearLayout
         android:layout_width="230dp"
@@ -34,10 +33,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="3dp"
-            android:singleLine="true"
             android:layout_marginTop="10dp"
             android:background="@null"
-            android:hint="输入用户名" />
+            android:hint="输入用户名"
+            android:singleLine="true" />
     </LinearLayout>
 
     <LinearLayout
@@ -62,28 +61,19 @@
             android:layout_marginLeft="9dp"
             android:layout_marginTop="10dp"
             android:background="@null"
-            android:singleLine="true"
             android:hint="输入密码"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:singleLine="true" />
     </LinearLayout>
-    <LinearLayout
-        android:id="@+id/activity_login_ing"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical"
-        android:layout_gravity="center"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:background="#00e079">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        android:textSize="20sp"
-        android:text="登录"
-        />
 
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/activity_login_my"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@mipmap/login_my_a"
+        android:orientation="vertical" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -99,6 +89,7 @@
             android:text="注册一个"
             android:textColor="#1aa8ea"
             android:textSize="15sp" />
+
         <TextView
             android:id="@+id/activity_login"
             android:layout_width="wrap_content"
@@ -106,7 +97,13 @@
             android:layout_toLeftOf="@id/activity_login_register"
             android:text="还没账号? "
             android:textSize="15sp" />
-    </RelativeLayout>
 
+    </RelativeLayout>
+    <ImageView
+        android:layout_gravity="center_horizontal"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@mipmap/ic_1_a"
+        />
 
 </LinearLayout>

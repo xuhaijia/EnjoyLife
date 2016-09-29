@@ -1,15 +1,12 @@
 package com.lanou.xuhaijia.enjoylife.news.headline;
 
-import android.animation.ObjectAnimator;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
-import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -25,7 +22,6 @@ import com.lanou.xuhaijia.enjoylife.news.MySwipeRefreshLayout;
 import com.lanou.xuhaijia.enjoylife.tools.CommonAdapter;
 import com.lanou.xuhaijia.enjoylife.tools.CommonViewHolder;
 
-import java.sql.Date;
 import java.util.ArrayList;
 
 /**
@@ -43,7 +39,7 @@ public class HeadlinesFragment extends BaseFragment {
 
     @Override
     protected int setLayout() {
-        return R.layout.fragment_headlines;
+        return R.layout.fragment_news_headlines;
     }
 
     @Override
@@ -153,15 +149,16 @@ public class HeadlinesFragment extends BaseFragment {
     //头饰图
     private void myHeadView() {
         mNetTool.getData(UrlValues.NEWS_HEADLINE, HeanLineBean.class, new NetTool.NetInterface<HeanLineBean>() {
-
             @Override
             public void onSuccess(HeanLineBean heanLineBean) {
                 headView = LayoutInflater.from(getContext()).inflate(R.layout.news_headview, null);
                 ImageView mImageView = (ImageView) headView.findViewById(R.id.news_headview_img);
                 TextView mTextView = (TextView) headView.findViewById(R.id.news_headview_tv);
-                mTextView.setText(heanLineBean.getT1348647909107().get(0).getTitle());
-                Glide.with(getContext()).load(heanLineBean.getT1348647909107().get(0).getImgsrc()).into(mImageView);
-                mListView.addHeaderView(headView);
+                if (heanLineBean != null) {
+                    mTextView.setText(heanLineBean.getT1348647909107().get(0).getTitle());
+                    Glide.with(getContext()).load(heanLineBean.getT1348647909107().get(0).getImgsrc()).into(mImageView);
+                    mListView.addHeaderView(headView);
+                }
             }
 
             @Override

@@ -70,6 +70,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                     fragmentTransaction.replace(R.id.activity_main_fl  , new WelfareFragment());
 
                 }else {
+
                     Toast.makeText(this, "快去登录 享受EnjoyLife用户专有福利吧", Toast.LENGTH_SHORT).show();
                 }
                 break;

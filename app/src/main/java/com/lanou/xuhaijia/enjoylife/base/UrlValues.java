@@ -48,6 +48,7 @@ public final class UrlValues {
     public static final String NEWS_FRONT = "http://3g.163.com/touch/photoview.html?channel=ent&child=all&qd=pc_adaptation&offset=";
     public static final String NEWS_between = "&setid=";
     public static final String NEWS_BEHIND = "&channelid=";
+    public static final String NEWS_DELICACY_FOOD = "http://api.meishi.cc/v5/index5.php?format=json";
 
 
     // 旅行
