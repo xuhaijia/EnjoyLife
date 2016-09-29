@@ -26,6 +26,8 @@ package com.lanou.xuhaijia.enjoylife.travel.airmap;/*
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Toast;
@@ -37,7 +39,10 @@ import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.MapPoi;
+import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.lanou.xuhaijia.enjoylife.R;
 import com.lanou.xuhaijia.enjoylife.base.BaseActivity;
@@ -45,13 +50,14 @@ import com.lanou.xuhaijia.enjoylife.base.BaseActivity;
 import org.greenrobot.eventbus.EventBus;
 
 
-public class AriPlanAty extends BaseActivity implements CompoundButton.OnCheckedChangeListener, BaiduMap.OnMapClickListener {
+public class AriPlanAty extends BaseActivity implements CompoundButton.OnCheckedChangeListener, BaiduMap.OnMapClickListener, View.OnClickListener {
 
 
     private BaiduMap baiduMap;
     private LocationClient locationClient;
     private MapView mapView;
 
+    private boolean isFirstLoc = true;
 
     @Override
     protected int setLayout() {
@@ -67,6 +73,10 @@ public class AriPlanAty extends BaseActivity implements CompoundButton.OnChecked
         cbMap.setOnCheckedChangeListener(this);
 
 
+        Button btnMyLocation = bindView(R.id.activity_air_plan_map_btn_location);
+        btnMyLocation.setOnClickListener(this);
+
+
         mapView = bindView(R.id.activity_air_plan_map_mapview);
 
 
@@ -77,6 +87,7 @@ public class AriPlanAty extends BaseActivity implements CompoundButton.OnChecked
         //baiduMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
 
         locationClient = new LocationClient(this);
+
 
         LocationClientOption option = new LocationClientOption();
         option.setOpenGps(true);
@@ -167,5 +178,59 @@ public class AriPlanAty extends BaseActivity implements CompoundButton.OnChecked
     @Override
     public boolean onMapPoiClick(MapPoi mapPoi) {
         return false;
+    }
+
+
+    @Override
+    public void onClick(View view) {
+
+
+        locationClient = new LocationClient(this);
+
+        LocationClientOption option = new LocationClientOption();
+        option.setOpenGps(true);
+        option.setCoorType("bd09ll");
+        option.setScanSpan(1000);
+        locationClient.setLocOption(option);
+        locationClient.start();
+
+
+        MyLocationListenner myListener = new MyLocationListenner();
+        locationClient.registerLocationListener(myListener);
+    }
+
+    private class MyLocationListenner implements BDLocationListener {
+        @Override
+        public void onReceiveLocation(BDLocation bdLocation) {
+
+            if (bdLocation == null || mapView == null) {
+
+                return;
+
+            }
+
+            if (isFirstLoc) {
+                isFirstLoc = false;
+
+                MyLocationData locationData = new MyLocationData.Builder()
+                        .accuracy(bdLocation.getRadius())
+                        .direction(100).latitude(bdLocation.getLatitude())
+                        .longitude(bdLocation.getLongitude()).build();
+                baiduMap.setMyLocationData(locationData);
+
+
+                LatLng ll = new LatLng(bdLocation.getLatitude(), bdLocation.getLongitude());
+                MapStatus.Builder builder = new MapStatus.Builder();
+                builder.target(ll).zoom(18.0f);
+                baiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+
+                locationClient.stop();
+                isFirstLoc = true;
+            }
+
+
+        }
+
+
     }
 }

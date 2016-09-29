@@ -39,13 +39,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/activity_country_select_textview_hotCiy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:text="热门城市" />
+
 
             <ListView
                 android:id="@+id/activity_city_select_listview"

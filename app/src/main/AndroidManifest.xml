@@ -40,12 +40,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".music.hotmusiciandetails.HotMusicianActivity"/>
-        <activity android:name=".music.songsin.SongsInActivity"/>
-        <activity android:name=".music.photoin.PhotoInActivity"/>
-        <activity android:name=".welfare.WelfareActivity"/>
-        <activity android:name=".music.photoin.BigPicActivity"/>
-        <service android:name=".music.playnotify.PlayService"/>
+        <activity android:name=".music.hotmusiciandetails.HotMusicianActivity" />
+        <activity android:name=".music.songsin.SongsInActivity" />
+        <activity android:name=".music.photoin.PhotoInActivity" />
+        <activity android:name=".welfare.WelfareActivity" />
+        <activity android:name=".music.photoin.BigPicActivity" />
+
+        <service android:name=".music.playnotify.PlayService" />
 
 
         <service android:name=".music.playnotify.PlayService" />
@@ -54,10 +55,10 @@
         <!--国冰冰 -->
         <activity android:name=".news.headline.HeadLinesContentActivity" />
         <!--收藏页-->
-        <activity android:name=".myself.MyCollectActivity"/>
+        <activity android:name=".myself.MyCollectActivity" />
         <!--登录-->
-        <activity android:name=".myself.LoginActivity"/>
-        <activity android:name=".myself.RegisterActivity"/>
+        <activity android:name=".myself.LoginActivity" />
+        <activity android:name=".myself.RegisterActivity" />
 
 
         <!--小青的Activity-->
@@ -67,7 +68,8 @@
         <activity android:name=".travel.food.FoodAty" />
         <activity android:name=".travel.attractions.listattraction.AttractionListAty" />
         <activity android:name=".travel.hotel.HotelAty" />
-
+        <activity android:name=".travel.food.foodlist.FoodListAty" />
+        <activity android:name=".travel.hotel.hotellsit.HotelListAty"/>
 
         <!--静雯的Activity-->
         <activity android:name=".picture.details.DetailsActivity" />
@@ -81,7 +83,7 @@
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote"></service>
+            android:process=":remote" />
 
     </application>
 

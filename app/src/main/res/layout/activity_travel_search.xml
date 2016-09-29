@@ -12,7 +12,7 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="30dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/travel_shap_title_search">
@@ -31,8 +31,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="50dp"
+
+                android:layout_marginRight="40dp"
                 android:layout_toRightOf="@+id/activity_travel_search_imager_search"
                 android:background="@null"
                 android:hint="搜索国家, 城市, 景点,酒店等 "
@@ -53,6 +53,18 @@
 
 
     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:background="@android:color/darker_gray" />
+
+    <ListView
+        android:id="@+id/activity_travel_search_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp" />
 
 
 </LinearLayout>

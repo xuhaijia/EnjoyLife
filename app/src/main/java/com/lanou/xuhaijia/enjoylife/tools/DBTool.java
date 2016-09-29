@@ -9,6 +9,8 @@ import com.lanou.xuhaijia.enjoylife.base.MyApp;
 import com.lanou.xuhaijia.enjoylife.music.hotmusiciandetails.DaoMaster;
 import com.lanou.xuhaijia.enjoylife.music.hotmusiciandetails.DaoSession;
 import com.lanou.xuhaijia.enjoylife.music.hotmusiciandetails.MusicianDao;
+import com.lanou.xuhaijia.enjoylife.travel.collection.CollectionAttractBean;
+import com.lanou.xuhaijia.enjoylife.travel.collection.CollectionAttractBeanDao;
 
 import org.greenrobot.greendao.AbstractDao;
 import org.greenrobot.greendao.query.QueryBuilder;
@@ -165,6 +167,55 @@ public class DBTool {
         });
 
     }
+
+    //小青景点的查询
+    public <T>void queryAttration(final Class obj, final String conditionFir, final String conditionSec, final QueryComplete<T> queryComplete){
+
+
+        threadPool.execute(new Runnable() {
+            @Override
+            public void run() {
+                final QueryBuilder queryBuilder = daoSession.getDao(obj).queryBuilder();
+                //多条件查询
+                queryBuilder.where(queryBuilder.and(CollectionAttractBeanDao.Properties.NameUser.eq(conditionFir),CollectionAttractBeanDao.Properties.UrlAtt.eq(conditionSec)));
+
+                final List attraction = queryBuilder.list();
+
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        queryComplete.onCompleted((T)attraction);
+
+                    }
+                });
+
+
+            }
+        });
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // 查询所有数据
     public <T> void queryAllData(final Class obj, final QueryComplete<T> queryComplete) {

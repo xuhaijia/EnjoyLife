@@ -130,7 +130,6 @@ public class AttractionsAty extends BaseActivity implements View.OnClickListener
                 lvAttractionAty.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Toast.makeText(AttractionsAty.this, "我被点击" + i, Toast.LENGTH_SHORT).show();
                         String idUrl = attractionAtyBean.getList().get(i).getId();
 
                         Log.d("AttractionsAty", idUrl);

@@ -14,12 +14,26 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/activity_travel_attraction_list_imager"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:scaleType="fitXY"
-                android:layout_height="200dp"
-                android:background="@android:color/holo_blue_bright" />
+                android:layout_height="200dp">
+
+                <ImageView
+                    android:id="@+id/activity_travel_attraction_list_imager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/holo_blue_bright"
+                    android:scaleType="fitXY" />
+
+                <ImageView
+                    android:id="@+id/activity_travel_attraction_collect_imager"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/travel_collection_attraction_after" />
+
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/activity_travel_attraction_list_text_title"
@@ -27,9 +41,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                android:textColor="@android:color/black"
-
                 android:text="香港海洋公园"
+
+                android:textColor="@android:color/black"
                 android:textSize="20sp" />
 
             <TextView
@@ -38,9 +52,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                android:textColor="@android:color/black"
-
                 android:text="HongKong"
+
+                android:textColor="@android:color/black"
                 android:textSize="17sp" />
 
 
@@ -49,9 +63,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:textColor="@android:color/black"
-
                 android:text="简介"
+
+                android:textColor="@android:color/black"
                 android:textSize="20sp" />
 
             <TextView
@@ -60,9 +74,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_marginTop="10dp"
-                android:textSize="15sp"
+                android:text="简介内容"
                 android:textColor="@android:color/black"
-                android:text="简介内容" />
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -76,9 +90,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:textColor="@android:color/black"
+                android:text="香港港岛南区黄竹坑"
 
-                android:text="香港港岛南区黄竹坑" />
+                android:textColor="@android:color/black" />
 
 
             <TextView
@@ -93,9 +107,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:textColor="@android:color/black"
+                android:text="22路车"
 
-                android:text="22路车" />
+                android:textColor="@android:color/black" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -109,9 +123,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:textColor="@android:color/black"
+                android:text="城市..."
 
-                android:text="城市..." />
+                android:textColor="@android:color/black" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -125,9 +139,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:textColor="@android:color/black"
+                android:text="12346"
 
-                android:text="12346" />
+                android:textColor="@android:color/black" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -141,9 +155,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:textColor="@android:color/black"
+                android:text="2013年1月5日"
 
-                android:text="2013年1月5日" />
+                android:textColor="@android:color/black" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -157,9 +171,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:textColor="@android:color/black"
+                android:text="建议5-7小时"
 
-                android:text="建议5-7小时" />
+                android:textColor="@android:color/black" />
         </LinearLayout>
 
 

@@ -1,5 +1,6 @@
 package com.lanou.xuhaijia.enjoylife.travel.travlesfragment;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 
@@ -11,6 +12,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,13 +22,16 @@ import com.lanou.xuhaijia.enjoylife.base.BaseFragment;
 import com.lanou.xuhaijia.enjoylife.base.NetTool;
 import com.lanou.xuhaijia.enjoylife.base.UrlValues;
 import com.lanou.xuhaijia.enjoylife.tools.Blur;
+import com.lanou.xuhaijia.enjoylife.tools.Rotate3dAnimation;
 import com.lanou.xuhaijia.enjoylife.travel.airmap.AirPlanBus;
 import com.lanou.xuhaijia.enjoylife.travel.airmap.AriPlanAty;
 import com.lanou.xuhaijia.enjoylife.travel.attractions.AttractionsAty;
 import com.lanou.xuhaijia.enjoylife.travel.food.FoodAty;
 import com.lanou.xuhaijia.enjoylife.travel.hotel.HotelAty;
+import com.lanou.xuhaijia.enjoylife.lib.CoolAnimView;
 import com.lanou.xuhaijia.enjoylife.travel.search.TravelSearchAty;
 import com.lanou.xuhaijia.enjoylife.travel.selectcity.CountrySelectAty;
+
 import com.wevey.selector.dialog.DialogOnClickListener;
 import com.wevey.selector.dialog.NormalAlertDialog;
 
@@ -54,6 +59,12 @@ public class TravelFragment extends BaseFragment implements View.OnClickListener
 
     private String urlImager;
     private SharedPreferences shared;
+    private LinearLayout lltCityName;
+    private float mCenterX;
+    private float mCenterY;
+    private Rotate3dAnimation outAnimation;
+    private Rotate3dAnimation inAnimation;
+    private AlertDialog dialogLoading;
 
 
     public TravelFragment() {
@@ -70,6 +81,7 @@ public class TravelFragment extends BaseFragment implements View.OnClickListener
     protected void initView() {
 
 
+        lltCityName = bindView(R.id.travel_ftagment_linelayout_textview_city_name_and_english);
         ImageView ivFood = bindView(R.id.travel_fragment_imager_food);
         ivFood.setOnClickListener(this);
         ImageView ivHotel = bindView(R.id.travel_fragment_imager_hotel);
@@ -102,11 +114,39 @@ public class TravelFragment extends BaseFragment implements View.OnClickListener
         ImageView ivAttractions = bindView(R.id.travel_fragment_imager_attractions);
         ivAttractions.setOnClickListener(this);
 
+        //设置地名的动画
+        mCenterX = getActivity().getWindowManager().getDefaultDisplay().getWidth() / 2;
+        mCenterY = getActivity().getWindowManager().getDefaultDisplay().getHeight() / 2;
+
 
     }
 
     @Override
     protected void initData() {
+
+        outAnimation = new Rotate3dAnimation(0, 90, mCenterX, mCenterY);
+        outAnimation.setDuration(500);
+        outAnimation.setFillAfter(true);
+
+
+        inAnimation = new Rotate3dAnimation(270, 360, mCenterX, mCenterY);
+        inAnimation.setDuration(500);
+        inAnimation.setFillAfter(true);
+
+
+
+
+        CoolAnimView coolAnimView = new CoolAnimView(mContext);
+        RelativeLayout layout = new RelativeLayout(mContext);
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.addRule(RelativeLayout.CENTER_IN_PARENT);
+        layout.addView(coolAnimView, params);
+
+        dialogLoading = new AlertDialog.Builder(mContext, R.style.Translucent_NoTitle)
+                .setView(layout)
+                .create();
+
+        dialogLoading.show();
 
         Log.d("TravelFragment", "我执行了1");
         //数据持久化取数据
@@ -122,6 +162,20 @@ public class TravelFragment extends BaseFragment implements View.OnClickListener
         mNetTool.getData(urlImager, TravelFragmentBean.class, new NetTool.NetInterface<TravelFragmentBean>() {
             @Override
             public void onSuccess(TravelFragmentBean travelFragmentBean) {
+
+
+
+
+
+                if (travelFragmentBean != null) {
+                    dialogLoading.dismiss();
+
+
+                } else {
+                    dialogLoading.show();
+                }
+
+
 //                Glide.with(mContext).load(travelFragmentBean.getPlace().getCover()).into(ivBackGround);
 
                 MyAsyncTask myAsyncTask = new MyAsyncTask();
@@ -186,13 +240,11 @@ public class TravelFragment extends BaseFragment implements View.OnClickListener
                 break;
             case R.id.travel_fragment_imager_position:
 
-
-                Toast.makeText(mContext, "我点击了", Toast.LENGTH_SHORT).show();
                 dialog = new NormalAlertDialog.Builder(mContext)
                         .setHeight(0.35f)
                         .setWidth(0.8f)
                         .setTitleVisible(true)
-                        .setTitleText("口碑旅行是你超聪明的出境有助手")
+                        .setTitleText("小青旅行是你处境旅行最有用的助手")
                         .setTitleTextColor(R.color.black_light)
                         .setContentText("请选择一个您最想去的境外城市!")
                         .setContentTextColor(R.color.black_light)
@@ -277,6 +329,9 @@ public class TravelFragment extends BaseFragment implements View.OnClickListener
                     tvEnglish.setText(travelFragmentBean.getPlace().getName());
                     urlId = travelFragmentBean.getPlace().getId();
 
+                    lltCityName.startAnimation(outAnimation);
+                    lltCityName.startAnimation(inAnimation);
+
 
                     //通过数据持久化储存id
                     SharedPreferences.Editor editor = shared.edit();
@@ -321,6 +376,10 @@ public class TravelFragment extends BaseFragment implements View.OnClickListener
                 myAsyncTask.execute(travelFragmentBean.getPlace().getCover());
                 tvCH.setText(travelFragmentBean.getPlace().getName_cn());
                 tvEnglish.setText(travelFragmentBean.getPlace().getName());
+
+
+                lltCityName.startAnimation(outAnimation);
+                lltCityName.startAnimation(inAnimation);
 
 
             }

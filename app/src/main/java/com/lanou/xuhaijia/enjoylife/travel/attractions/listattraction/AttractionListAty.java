@@ -25,6 +25,9 @@ package com.lanou.xuhaijia.enjoylife.travel.attractions.listattraction;/*
 
 import android.content.Intent;
 import android.util.Log;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,7 +36,16 @@ import com.lanou.xuhaijia.enjoylife.R;
 import com.lanou.xuhaijia.enjoylife.base.BaseActivity;
 import com.lanou.xuhaijia.enjoylife.base.NetTool;
 import com.lanou.xuhaijia.enjoylife.base.UrlValues;
+import com.lanou.xuhaijia.enjoylife.myself.LoginActivity;
+import com.lanou.xuhaijia.enjoylife.tools.DBTool;
 import com.lanou.xuhaijia.enjoylife.travel.attractions.AttractionAtyBean;
+import com.lanou.xuhaijia.enjoylife.travel.attractions.AttractionsAty;
+import com.lanou.xuhaijia.enjoylife.travel.collection.CollectionAttractBean;
+
+import java.util.List;
+
+import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobUser;
 
 public class AttractionListAty extends BaseActivity {
 
@@ -48,6 +60,11 @@ public class AttractionListAty extends BaseActivity {
     private TextView tvPhone;
     private TextView tvOpen;
     private TextView tvTime;
+    private ImageView ivCollect;
+    private BmobUser bmobUser;
+    private String urlAttractItem;
+    private String username;
+    private CollectionAttractBean collectionAttractBean;
 
     @Override
     protected int setLayout() {
@@ -56,6 +73,7 @@ public class AttractionListAty extends BaseActivity {
 
     @Override
     protected void initView() {
+
 
         //最大的图
         ivHead = bindView(R.id.activity_travel_attraction_list_imager);
@@ -69,6 +87,10 @@ public class AttractionListAty extends BaseActivity {
         tvOpen = bindView(R.id.activity_travel_attraction_list_text_open);
         tvTime = bindView(R.id.activity_travel_attraction_list_text_play_time);
 
+
+        ivCollect = bindView(R.id.activity_travel_attraction_collect_imager);
+
+
     }
 
     @Override
@@ -78,12 +100,12 @@ public class AttractionListAty extends BaseActivity {
         String id = intentList.getStringExtra("urlId");
         Log.d("AttractionListAty", id);
 
-        String urlAttractItem = UrlValues.TRAVEL_ITEM_ATTRACTION + id;
+        urlAttractItem = UrlValues.TRAVEL_ITEM_ATTRACTION + id;
         Log.d("AttractionListAty", urlAttractItem);
 
         mNetTool.getData(urlAttractItem, AttractionListAtyBean.class, new NetTool.NetInterface<AttractionListAtyBean>() {
             @Override
-            public void onSuccess(AttractionListAtyBean attractionListAtyBean) {
+            public void onSuccess(final AttractionListAtyBean attractionListAtyBean) {
                 String tt = attractionListAtyBean.getItem().getName_cn();
                 Log.d("AttractionListAty", tt);
                 //  Glide.with(mContext).load(travelFragmentBean.getPlace().getCover()).into(ivBackGround)
@@ -99,6 +121,79 @@ public class AttractionListAty extends BaseActivity {
                 tvOpen.setText(attractionListAtyBean.getItem().getOpening_time_cn());
                 tvTime.setText(attractionListAtyBean.getItem().getDuration_cn());
 
+                bmobUser = BmobUser.getCurrentUser();
+                if (bmobUser != null) {
+                    //获取用户名
+                    username = bmobUser.getUsername();
+
+                    //为星星记录颜色,当coll为0 表示为收藏反之
+                    DBTool.getInstance().queryAttration(CollectionAttractBean.class, username, urlAttractItem, new DBTool.QueryComplete<List<CollectionAttractBean>>() {
+                        @Override
+                        public void onCompleted(List<CollectionAttractBean> coll) {
+
+                            if (coll.size() == 0) {
+                                ivCollect.setImageResource(R.mipmap.travel_collection_attraction_after);
+
+                            } else {
+
+
+                                ivCollect.setImageResource(R.mipmap.travel_collection_attraction_first);
+
+                            }
+
+
+                        }
+                    });
+
+                    ivCollect.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+
+                            collectionAttractBean = new CollectionAttractBean();
+
+
+                            DBTool.getInstance().queryAttration(CollectionAttractBean.class, username, urlAttractItem, new DBTool.QueryComplete<List<CollectionAttractBean>>() {
+
+                                @Override
+                                public void onCompleted(List<CollectionAttractBean> collection) {
+                                    if (collection.size() == 0) {
+                                        Log.d("AttractionListAty", "为收藏过");
+
+                                        Log.d("AttractionListAty", "collection.size():" + collection.size());
+                                        collectionAttractBean.setUrlAtt(urlAttractItem);
+                                        collectionAttractBean.setNameCN(attractionListAtyBean.getItem().getName_cn());
+                                        collectionAttractBean.setUrlPic(attractionListAtyBean.getItem().getCover());
+                                        collectionAttractBean.setNameUser(username);
+                                        DBTool.getInstance().insertData(collectionAttractBean);
+                                        Log.d("AttractionListAty", collectionAttractBean.getNameUser());
+                                        Log.d("AttractionListAty", collectionAttractBean.getUrlPic());
+
+                                        ivCollect.setImageResource(R.mipmap.travel_collection_attraction_first);
+
+                                    } else {
+                                        Log.d("AttractionListAty", "collection.size():" + collection.size());
+                                        Log.d("AttractionListAty", "收藏过");
+                                        DBTool.getInstance().deleteData(collection.get(0));
+                                        ivCollect.setImageResource(R.mipmap.travel_collection_attraction_after);
+
+
+                                    }
+                                }
+                            });
+                        }
+
+
+                    });
+
+
+                } else {
+                    Intent intent = new Intent(AttractionListAty.this, LoginActivity.class);
+                    startActivityForResult(intent, 11);
+
+                }
+
+
             }
 
             @Override
@@ -108,4 +203,14 @@ public class AttractionListAty extends BaseActivity {
         });
 
     }
+
+    @Override
+    public void startActivityForResult(Intent intent, int requestCode) {
+        super.startActivityForResult(intent, requestCode);
+        if (requestCode == 11) {
+            finish();
+
+        }
+    }
 }
+
