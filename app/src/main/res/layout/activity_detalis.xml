@@ -338,55 +338,43 @@
         android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:clickable="true"
             android:id="@+id/activity_details_photo"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="15dp"
             android:src="@mipmap/mm" />
 
         <EditText
             android:id="@+id/activity_details_say"
-            android:layout_width="150dp"
+            android:layout_width="200dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="15dp"
             android:background="#e4e3e3"
             android:hint="说点什么吧"
             android:textSize="13dp" />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:src="@mipmap/duihua" />
-
-        <TextView
-            android:id="@+id/activity_details_number_two"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="11" />
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:src="@mipmap/xin" />
-
-        <TextView
             android:id="@+id/activity_details_like"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="11" />
+            android:clickable="true"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:src="@mipmap/xin"/>
+
+
 
         <ImageView
+            android:clickable="true"
             android:id="@+id/activity_details_more"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="15dp"
             android:src="@mipmap/diandian" />
 
     </LinearLayout>

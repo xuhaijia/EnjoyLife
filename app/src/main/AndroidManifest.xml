@@ -70,6 +70,8 @@
 
 
         <!--静雯的Activity-->
+        <activity android:name=".picture.author.AuthorActivity"/>
+        <activity android:name=".picture.comment.CommentActivity"/>
         <activity android:name=".picture.details.DetailsActivity" />
         <activity android:name=".travel.selectcity.CountrySelectAty" />
         <activity android:name=".travel.attractions.AttractionsAty" />

@@ -9,6 +9,7 @@ import com.lanou.xuhaijia.enjoylife.base.MyApp;
 import com.lanou.xuhaijia.enjoylife.music.hotmusiciandetails.DaoMaster;
 import com.lanou.xuhaijia.enjoylife.music.hotmusiciandetails.DaoSession;
 import com.lanou.xuhaijia.enjoylife.music.hotmusiciandetails.MusicianDao;
+import com.lanou.xuhaijia.enjoylife.picture.details.PictureCollectBeanDao;
 
 import org.greenrobot.greendao.AbstractDao;
 import org.greenrobot.greendao.query.QueryBuilder;
@@ -165,6 +166,27 @@ public class DBTool {
         });
 
     }
+
+    public <T> void queryPictureBy(final Class obj , final  String userName , final String id ,
+                                   final QueryComplete<T> queryComplete){
+        threadPool.execute(new Runnable() {
+            @Override
+            public void run() {
+                QueryBuilder queryBuilder = daoSession.getDao(obj).queryBuilder();
+                queryBuilder.where(queryBuilder.and(PictureCollectBeanDao.Properties.ThreadId.eq(id),
+                        PictureCollectBeanDao.Properties.Name.eq(userName)));
+                final List personList = queryBuilder.list();
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                       queryComplete.onCompleted((T) personList);
+                    }
+                });
+            }
+        });
+    }
+
+
 
     // 查询所有数据
     public <T> void queryAllData(final Class obj, final QueryComplete<T> queryComplete) {

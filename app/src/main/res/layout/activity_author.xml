@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <com.lanou.xuhaijia.enjoylife.picture.author.CarouselView
+        android:id="@+id/activity_author_carousel_view"
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+    </com.lanou.xuhaijia.enjoylife.picture.author.CarouselView>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/activity_author_photo"
+        civ_border_color="#dedede"
+        civ_border_width="2dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-23dp"
+        android:src="@mipmap/mm" />
+
+    <TextView
+        android:id="@+id/activity_author_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="1111111111"
+        android:textColor="#080808"
+        android:textSize="15dp" />
+
+
+    <TextView
+        android:id="@+id/activity_author_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="标题"
+        android:textColor="#898585"
+        android:textSize="12dp" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="#000000"
+        android:gravity="center"
+        android:text="+ 关注"
+        android:textColor="#ffffff"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/activity_author_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:maxLines="3"
+        android:text="1111111111111111" />
+
+    <Button
+        android:id="@+id/activity_author_expand"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#ffffff"
+        android:text="展开"
+        android:textColor="#6cec1b" />
+
+    <Button
+        android:id="@+id/activity_author_recover"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#ffffff"
+        android:text="收回"
+        android:textColor="#6cec1b" />
+
+</LinearLayout>
+
+
+
