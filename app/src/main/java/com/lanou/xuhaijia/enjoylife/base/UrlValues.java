@@ -95,9 +95,11 @@ public final class UrlValues {
     public static final String PICTURE_ALL_URL = "http://design.zuimeia.com/api/v1/articles/daily/simple/?app_version=2.2.4&device_id=086b6e6707d0ef6f3656d1a3621894b23c350107&device_name=iPhone&package_name=com.zuimeia.ZUIRanking&page=1&page_size=20&platform=iphone&resolution=%7B750%2C%201334%7D&system_version=9.3.3";
     public static final String PIVTURE_DETAILS_STAER_URL = "http://design.zuimeia.com/api/v1/article/";
     public static final String PIVTURE_DETAILS_END_URL = "/?app_version=2.2.4&device_id=086b6e6707d0ef6f3656d1a3621894b23c350107&device_name=iPhone&package_name=com.zuimeia.ZUIRanking&platform=iphone&resolution=%7B750%2C%201334%7D&system_version=9.3.3";
-
-    // 福利
+    public static final String COMMENT_START_URL = "http://design.zuimeia.com/api/v1/comments/article/";
+    public static final String COMMENT_END_UEL = "/?page=1&page_size=30&device_id=865854022447456&platform=android&lang=zh&appVersion=1.1.8_2&appVersionCode=10182&systemVersion=19&countryCode=CN&user_id=54464&token=4fa-2487b999a84eb839f176&package_name=com.zuiapps.zuiworld";
     public static final String WELFARE_ALL_URL = "http://gank.io/api/data/福利/20/1";
     public static final String WELFARE_START_URL = "http://gank.io/api/data/福利/";
     public static final String WELFARE_END_URL = "/1";
+    public static final String AUTHOR_WHEEL_STAER = "http://design.zuimeia.com/api/v1/designer/";
+    public static final String AUTHOE_WHEEL_END = "/?device_id=865854022447456&platform=android&lang=zh&appVersion=1.1.8_2&appVersionCode=10182&systemVersion=19&countryCode=CN&user_id=54464&token=4fa-2487b999a84eb839f176&package_name=com.zuiapps.zuiworld";
 }
