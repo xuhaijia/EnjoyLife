@@ -16,9 +16,13 @@ import com.lanou.xuhaijia.enjoylife.R;
 import com.lanou.xuhaijia.enjoylife.base.BaseActivity;
 import com.lanou.xuhaijia.enjoylife.base.NetTool;
 import com.lanou.xuhaijia.enjoylife.base.UrlValues;
+import com.lanou.xuhaijia.enjoylife.myself.LoginActivity;
 import com.lanou.xuhaijia.enjoylife.tools.DBTool;
 
 import java.io.File;
+import java.util.List;
+
+import cn.bmob.v3.BmobUser;
 
 /**
  * Created by 徐海佳 on 16/9/17.
@@ -36,6 +40,8 @@ public class HotMusicianActivity extends BaseActivity implements RadioGroup.OnCh
     private ImageView collectionIV;
     private ImageView shareIv;
     private HotMusicianActivityBean bean;
+    private BmobUser bmobUser;
+    private Musician musician;
 
     @Override
     protected int setLayout() {
@@ -61,11 +67,42 @@ public class HotMusicianActivity extends BaseActivity implements RadioGroup.OnCh
         RadioGroup radioGroup = bindView(R.id.activity_hotmusician_rg);
         radioGroup.setOnCheckedChangeListener(this);
         radioGroup.check(R.id.activity_hotmusician_songs);
+
     }
 
     @Override
     protected void initData() {
+        bmobUser = BmobUser.getCurrentUser();
+        musician = new Musician();
+        if (bmobUser != null) {
+            DBTool.getInstance().queryMusicianBy(musician.getClass(), bmobUser.getUsername(), id, new DBTool.QueryComplete<List<Musician>>() {
+                @Override
+                public void onCompleted(List<Musician> musicien) {
+                    if (musicien.size() == 0) {
+                        Log.d("HotMusicianActivity", "未收藏过");
+                        collectionIV.setImageResource(R.mipmap.care_white);
+                    } else {
+                        Log.d("HotMusicianActivity", "收藏过了");
+                        collectionIV.setImageResource(R.mipmap.care_red);
+                        titleTv.setText(musicien.get(0).getName());
+                        nameTv.setText(musicien.get(0).getName());
+                        styleTv.setText(musicien.get(0).getStyle());
+                        memberTv.setText(musicien.get(0).getMember());
+                        careTv.setText(musicien.get(0).getCareCount() + "人关注");
+                        Glide.with(HotMusicianActivity.this).load(musicien.get(0).getIcon()).into(iconIv);
+                    }
+                    getNetData();
+                }
 
+            });
+        } else {
+            getNetData();
+        }
+
+
+    }
+
+    private void getNetData() {
         mNetTool.getData(UrlValues.MUSIC_CARE_ACTIVITY_START + id + UrlValues.MUSIC_CARE_ACTIVITY_END
                 , HotMusicianActivityBean.class, new NetTool.NetInterface<HotMusicianActivityBean>() {
                     @Override
@@ -127,10 +164,45 @@ public class HotMusicianActivity extends BaseActivity implements RadioGroup.OnCh
 
     }
 
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.activity_hotmusician_collection:
+                if (bmobUser != null) {
+                    Log.d("HotMusicianActivity", "查询数据库");
+                    DBTool.getInstance().queryMusicianBy(musician.getClass(), bmobUser.getUsername(), id, new DBTool.QueryComplete<List<Musician>>() {
+                        @Override
+                        public void onCompleted(List<Musician> musicien) {
+                            Musician musician = new Musician();
+                            if (musicien.size() == 0) {
+                                collectionIV.setImageResource(R.mipmap.care_red);
+                                musician.setCareCount(bean.getFollower() + "");
+                                musician.setIcon(bean.getPicture());
+                                musician.setMember(bean.getMember());
+                                musician.setStyle(bean.getStyle());
+                                musician.setUserName(bmobUser.getUsername());
+                                musician.setMusicianId(id);
+                                musician.setName(bean.getName());
+                                DBTool.getInstance().insertData(musician);
+                                Log.d("HotMusicianActivity", "加入收藏");
+
+                            } else {
+                                collectionIV.setImageResource(R.mipmap.care_white);
+                                DBTool.getInstance().deleteData(musicien.get(0));
+                                Log.d("HotMusicianActivity", "删除收藏");
+                            }
+                        }
+
+
+                    });
+
+                } else {
+                    Intent intent = new Intent(HotMusicianActivity.this , LoginActivity.class);
+                    startActivity(intent);
+                }
+
+
                 break;
             case R.id.activity_hotmusician_share:
                 shareMsg("选择分享", "Share", "分享" + bean.getName() + "这位歌手");

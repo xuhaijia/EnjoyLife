@@ -54,12 +54,6 @@ public class WelfareFragment extends BaseFragment  {
                     public void onSuccess(final WelfareBean welfareBean) {
                         welfareAdapter.setWelfareBean(welfareBean);
                         pLv.setAdapter(welfareAdapter);
-                        pLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                            }
-                        });
                     }
 
                     @Override

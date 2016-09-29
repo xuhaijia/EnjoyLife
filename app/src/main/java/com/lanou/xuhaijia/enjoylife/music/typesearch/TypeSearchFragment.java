@@ -1,6 +1,7 @@
 package com.lanou.xuhaijia.enjoylife.music.typesearch;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -49,7 +50,6 @@ public class TypeSearchFragment extends BaseFragment implements View.OnClickList
     @Override
     protected void initData() {
         mNetTool.getData(UrlValues.MUSIC_TYPE_SEARCH, TypeSearchBean.class, new NetTool.NetInterface<TypeSearchBean>() {
-
             @Override
             public void onSuccess(TypeSearchBean typeSearchBean) {
                 arrayList = new ArrayList<>();
@@ -117,20 +117,22 @@ public class TypeSearchFragment extends BaseFragment implements View.OnClickList
                             , TypeSearchBean.class, new NetTool.NetInterface<TypeSearchBean>() {
                                 @Override
                                 public void onSuccess(final TypeSearchBean typeSearchBean) {
+                                    if (typeSearchBean.getArtists().size() != 0 ) {
                                     lvSearch.setAdapter(new CommonAdapter<TypeSearchBean.ArtistsBean>(typeSearchBean.getArtists() ,mContext ,R.layout.item_hotmusician) {
                                         @Override
                                         public void setData(TypeSearchBean.ArtistsBean artistsBean
                                                 , CommonViewHolder viewHolder, int position) {
-                                            if (typeSearchBean.getArtists() != null ) {
+
                                                 viewHolder.setText(R.id.item_hotmusician_name, artistsBean.getName());
                                                 viewHolder.setText(R.id.item_hotmusician_style, artistsBean.getStyle());
                                                 viewHolder.setText(R.id.item_hotmusician_care, artistsBean.getFollower() + "人关注");
                                                 viewHolder.setImage(R.id.item_hotmusician_icon, artistsBean.getPicture(), mContext);
-                                            } else {
-                                                Toast.makeText(mContext, "暂无该类搜索", Toast.LENGTH_SHORT).show();
-                                            }
+
                                         }
                                     });
+                                    } else {
+                                        Toast.makeText(getContext(), "暂无该类搜索", Toast.LENGTH_SHORT).show();
+                                    }
                                     lvSearchItemClick(typeSearchBean);
                                 }
 

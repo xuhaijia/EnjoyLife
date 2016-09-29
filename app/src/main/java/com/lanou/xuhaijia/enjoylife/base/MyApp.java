@@ -12,9 +12,11 @@ package com.lanou.xuhaijia.enjoylife.base;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 
 import com.baidu.mapapi.SDKInitializer;
+import com.lanou.xuhaijia.enjoylife.music.playnotify.PlayService;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -34,6 +36,8 @@ public class MyApp extends Application {
         super.onCreate();
         mContext = this;
         SDKInitializer.initialize(this);
+        Intent play = new Intent(mContext, PlayService.class);
+        startService(play);
 
     }
 

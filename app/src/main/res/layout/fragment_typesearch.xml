@@ -16,6 +16,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:maxLength="27"
             android:background="@drawable/oval_shape"
             android:layout_width="match_parent"
             android:layout_height="30dp"/>

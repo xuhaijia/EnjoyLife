@@ -70,6 +70,8 @@ public class WelfareAdapter extends BaseAdapter {
         viewHolder.iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                
+                viewHolder.iv.clearAnimation();
                 Intent intent = new Intent(mContext , WelfareActivity.class);
                 intent.putExtra("url" , welfareBean.getResults().get(i).getUrl());
                 ActivityOptionsCompat options = ActivityOptionsCompat

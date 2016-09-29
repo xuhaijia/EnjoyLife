@@ -1,8 +1,10 @@
 package com.lanou.xuhaijia.enjoylife.activity;
 
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +28,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     public TextView lineTv;
     private MyBmobUser myBmobUser;
     private BmobUser bmobUser;
+    private boolean isSure;
 
     @Override
     protected int setLayout() {
@@ -42,8 +45,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
     @Override
     protected void initData() {
-        Intent play = new Intent(MainActivity.this , PlayService.class);
-        startService(play);
+
     }
 
     @Override
@@ -52,33 +54,64 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         switch (i) {
             case R.id.activity_main_music_rb:
-                fragmentTransaction.replace(R.id.activity_main_fl , new MusicFragment());
+                fragmentTransaction.replace(R.id.activity_main_fl, new MusicFragment());
                 break;
             case R.id.activity_main_travel_rb:
-                fragmentTransaction.replace(R.id.activity_main_fl  , new TravelFragment());
+                fragmentTransaction.replace(R.id.activity_main_fl, new TravelFragment());
                 break;
             case R.id.activity_main_news_rb:
-                fragmentTransaction.replace(R.id.activity_main_fl  , new NewsFragment());
+                fragmentTransaction.replace(R.id.activity_main_fl, new NewsFragment());
                 break;
             case R.id.activity_main_picture_rb:
-                fragmentTransaction.replace(R.id.activity_main_fl  , new PictureFragment());
+                fragmentTransaction.replace(R.id.activity_main_fl, new PictureFragment());
                 break;
             case R.id.activity_main_welfare_rb:
                 myBmobUser = BmobUser.getCurrentUser(MyBmobUser.class);
                 bmobUser = BmobUser.getCurrentUser();
-                if (bmobUser != null){
-                    fragmentTransaction.replace(R.id.activity_main_fl  , new WelfareFragment());
+                if (bmobUser != null) {
+                    fragmentTransaction.replace(R.id.activity_main_fl, new WelfareFragment());
 
-                }else {
+                } else {
                     Toast.makeText(this, "快去登录 享受EnjoyLife用户专有福利吧", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.activity_main_myself_rb:
-                fragmentTransaction.replace(R.id.activity_main_fl  , new MyselfFragment());
+                fragmentTransaction.replace(R.id.activity_main_fl, new MyselfFragment());
                 break;
             default:
                 break;
         }
         fragmentTransaction.commit();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isSure = false;
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (isSure) {
+                return super.onKeyDown(keyCode, event);
+            } else {
+                Toast.makeText(this, "再按一次拒绝享受生活", Toast.LENGTH_LONG).show();
+                isSure = true;
+                CountDownTimer countDownTimer = new CountDownTimer(7000, 1000) {
+                    @Override
+                    public void onTick(long l) {
+
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        isSure = false;
+                    }
+                }.start();
+                return true;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

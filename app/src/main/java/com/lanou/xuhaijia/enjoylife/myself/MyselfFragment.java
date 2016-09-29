@@ -211,6 +211,7 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
                                 Bitmap blurBitmap = Blur.apply(mContext, bitmap ,7);
                                 background.setImageBitmap(blurBitmap);
                             }else {
+                                Log.d("MyselfFragment", e.getMessage());
                                 Toast.makeText(mContext, "头像上传失败", Toast.LENGTH_SHORT).show();
                             }
                         }

@@ -146,14 +146,14 @@ public class DBTool {
      * @param <T>
      */
     public <T> void queryMusicianBy(
-            final Class obj, final String conditionFir, final String conditionSec, final QueryComplete<T> queryComplete) {
+            final Class obj, final String userName, final String musicianId , final QueryComplete<T> queryComplete) {
         threadPool.execute(new Runnable() {
             @Override
             public void run() {
                 QueryBuilder queryBuilder = daoSession.getDao(obj).queryBuilder();
                 // 多条件查询
-                queryBuilder.where(queryBuilder.and(MusicianDao.Properties.Name.eq(conditionFir),
-                        MusicianDao.Properties.MusicianId.eq(conditionSec)));
+                queryBuilder.where(queryBuilder.and(MusicianDao.Properties.UserName.eq(userName),
+                        MusicianDao.Properties.MusicianId.eq(musicianId)));
                 final List personList = queryBuilder.list();
                 mHandler.post(new Runnable() {
                     @Override

@@ -85,6 +85,13 @@ public class PlayService extends Service {
         filter.addAction(close);
         filter.addAction(next);
         registerReceiver(mReceiver, filter);
+        EventBus.getDefault().post(true);
+    }
+
+    // 可以获取intent的方式之一.
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        return super.onStartCommand(intent, flags, startId);
     }
 
     @Override
@@ -156,7 +163,7 @@ public class PlayService extends Service {
         // builder 可用链式 写法 因为返回值都是this;
         builder.setSmallIcon(R.mipmap.enjoy_life);
         // 设置点击Notification之后, 通知消失
-        builder.setAutoCancel(true);
+        builder.setAutoCancel(false);
         // 为Notification设置点击事件
         PendingIntent intent = getPendingIntent();
         builder.setContentIntent(intent);
@@ -181,10 +188,11 @@ public class PlayService extends Service {
         return remoteViews;
     }
 
+
     public PendingIntent getPendingIntent() {
         Intent intent = new Intent(this, MainActivity.class);
         PendingIntent pending = PendingIntent.getActivity
-                (this, 100, intent, PendingIntent.FLAG_ONE_SHOT);
+                (this, 100, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         return pending;
     }
 
