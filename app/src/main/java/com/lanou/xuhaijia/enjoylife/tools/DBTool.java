@@ -10,6 +10,9 @@ import com.lanou.xuhaijia.enjoylife.music.hotmusiciandetails.DaoMaster;
 import com.lanou.xuhaijia.enjoylife.music.hotmusiciandetails.DaoSession;
 import com.lanou.xuhaijia.enjoylife.music.hotmusiciandetails.MusicianDao;
 import com.lanou.xuhaijia.enjoylife.picture.details.PictureCollectBeanDao;
+import com.lanou.xuhaijia.enjoylife.travel.collection.CollectionAttractBean;
+import com.lanou.xuhaijia.enjoylife.travel.collection.CollectionAttractBeanDao;
+
 
 import org.greenrobot.greendao.AbstractDao;
 import org.greenrobot.greendao.query.QueryBuilder;
@@ -97,8 +100,6 @@ public class DBTool {
     }
 
 
-
-
     // 更新数据
     public <T> void updateData(final T t) {
         threadPool.execute(new Runnable() {
@@ -114,8 +115,7 @@ public class DBTool {
     // "where name = ?" , "张三"
 
     /**
-     *
-     * @param obj  查询哪个表 person.getClass()
+     * @param obj           查询哪个表 person.getClass()
      * @param condition
      * @param result
      * @param queryComplete
@@ -139,15 +139,9 @@ public class DBTool {
     // 查询Person根据条件
     // 必须知道表名 唯一需要单独根据自己表写
     // 为了多条件查询用
-    /**
-     * @param obj
-     * @param conditionFir  条件一 记得改前面的 Name 改成对应的自己列
-     * @param conditionSec  条件二
-     * @param queryComplete
-     * @param <T>
-     */
+
     public <T> void queryMusicianBy(
-            final Class obj, final String userName, final String musicianId , final QueryComplete<T> queryComplete) {
+            final Class obj, final String userName, final String musicianId, final QueryComplete<T> queryComplete) {
         threadPool.execute(new Runnable() {
             @Override
             public void run() {
@@ -167,8 +161,9 @@ public class DBTool {
 
     }
 
-    public <T> void queryPictureBy(final Class obj , final  String userName , final String id ,
-                                   final QueryComplete<T> queryComplete){
+
+    public <T> void queryPictureBy(final Class obj, final String userName, final String id,
+                                   final QueryComplete<T> queryComplete) {
         threadPool.execute(new Runnable() {
             @Override
             public void run() {
@@ -179,11 +174,39 @@ public class DBTool {
                 mHandler.post(new Runnable() {
                     @Override
                     public void run() {
-                       queryComplete.onCompleted((T) personList);
+                        queryComplete.onCompleted((T) personList);
                     }
                 });
             }
         });
+        //小青景点的查询
+    }
+    
+    public <T> void queryAttration(final Class obj, final String conditionFir, final String conditionSec, final QueryComplete<T> queryComplete) {
+
+
+        threadPool.execute(new Runnable() {
+            @Override
+            public void run() {
+                final QueryBuilder queryBuilder = daoSession.getDao(obj).queryBuilder();
+                //多条件查询
+                queryBuilder.where(queryBuilder.and(CollectionAttractBeanDao.Properties.NameUser.eq(conditionFir), CollectionAttractBeanDao.Properties.UrlAtt.eq(conditionSec)));
+
+                final List attraction = queryBuilder.list();
+
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        queryComplete.onCompleted((T) attraction);
+
+                    }
+                });
+
+
+            }
+        });
+
+
     }
 
 

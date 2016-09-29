@@ -62,13 +62,22 @@ public final class UrlValues {
     public static final String TRAVEL_ITEM_ATTRACTION = "http://www.koubeilvxing.com/iteminfo?lang=zh&module=attraction&recordId=";
 
 
+    //搜索前缀
+    public static final String TRAVEL_SEARCH_HEAD = "http://www.koubeilvxing.com/suggest_all?kw=";
+    //搜索后缀
+    public static final String TRAVEL_SEARCH_FOOT = "&lang=zh";
+    //餐馆详情
+    //1215071
+    public static final String TRAVEL_RESTAURAANT_HEAD = "http://www.koubeilvxing.com/iteminfo?lang=zh&module=restaurant&recordId=";
     //餐馆的初始化
     public static final String TRAVEL_FOOD_INITALIZE = "http://www.koubeilvxing.com/search?lang=zh&lat=0.000000&lng=0.000000&module=restaurant&page=1&placeId=32556&rows=10";
     //餐馆前缀
     public static final String TRAVEL_FOOD_HEAD = "http://www.koubeilvxing.com/search?lang=zh&lat=0.000000&lng=0.000000&module=restaurant&page=1&placeId=";
+
+    //酒店详情  276001
+    public static final String TRAVEL_HOTEL_LIST_HEAD = "http://www.koubeilvxing.com/iteminfo?lang=zh&module=hotel&recordId=";
     //酒店前缀
     public static final String TRAVEL_HOTEL_HEAD = "http://www.koubeilvxing.com/search?lang=zh&lat=0.000000&lng=0.000000&module=hotel&page=1&placeId=";
-
     //加载酒店的前缀
     public static final String TRAVEL_HOTEL_LOAD_HEAD = "http://www.koubeilvxing.com/search?lang=zh&lat=0.000000&lng=0.000000&module=hotel&page=";
     //加载酒店的中间段

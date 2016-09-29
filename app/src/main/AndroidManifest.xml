@@ -45,12 +45,13 @@
                 <data android:pathPrefix="/7" android:host="www.enjoylife.com" android:scheme="http"/>
             </intent-filter>
         </activity>
-        <activity android:name=".music.hotmusiciandetails.HotMusicianActivity"/>
-        <activity android:name=".music.songsin.SongsInActivity"/>
-        <activity android:name=".music.photoin.PhotoInActivity"/>
-        <activity android:name=".welfare.WelfareActivity"/>
-        <activity android:name=".music.photoin.BigPicActivity"/>
-        <service android:name=".music.playnotify.PlayService"/>
+        <activity android:name=".music.hotmusiciandetails.HotMusicianActivity" />
+        <activity android:name=".music.songsin.SongsInActivity" />
+        <activity android:name=".music.photoin.PhotoInActivity" />
+        <activity android:name=".welfare.WelfareActivity" />
+        <activity android:name=".music.photoin.BigPicActivity" />
+
+        <service android:name=".music.playnotify.PlayService" />
 
 
         <service android:name=".music.playnotify.PlayService" />
@@ -63,6 +64,7 @@
         <activity android:name=".myself.RegisterActivity"/>
         <activity android:name=".myself.UserSendActivty"/>
 
+
         <!--小青的Activity-->
         <activity android:name=".travel.search.TravelSearchAty" />
         <activity android:name=".travel.selectcity.CitySelectAty" />
@@ -70,7 +72,8 @@
         <activity android:name=".travel.food.FoodAty" />
         <activity android:name=".travel.attractions.listattraction.AttractionListAty" />
         <activity android:name=".travel.hotel.HotelAty" />
-
+        <activity android:name=".travel.food.foodlist.FoodListAty" />
+        <activity android:name=".travel.hotel.hotellsit.HotelListAty"/>
 
         <!--静雯的Activity-->
         <activity android:name=".picture.author.AuthorActivity"/>
@@ -86,7 +89,7 @@
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote"></service>
+            android:process=":remote" />
 
     </application>
 

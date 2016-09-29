@@ -40,8 +40,9 @@ import com.lanou.xuhaijia.enjoylife.base.UrlValues;
 import com.lanou.xuhaijia.enjoylife.tools.CommonAdapter;
 import com.lanou.xuhaijia.enjoylife.tools.CommonViewHolder;
 import com.lanou.xuhaijia.enjoylife.travel.attractions.AttractionAtyBean;
+import com.lanou.xuhaijia.enjoylife.travel.food.foodlist.FoodListAty;
 
-public class FoodAty extends BaseActivity  {
+public class FoodAty extends BaseActivity {
 
     private ListView lvFood;
     private String urlFood;
@@ -54,8 +55,6 @@ public class FoodAty extends BaseActivity  {
     @Override
     protected void initView() {
         lvFood = bindView(R.id.activity_travel_food_listview);
-
-
 
 
     }
@@ -73,13 +72,14 @@ public class FoodAty extends BaseActivity  {
         } else {
 
             urlFood = UrlValues.TRAVEL_FOOD_HEAD + urlId + UrlValues.TRAVEL_ATTRACTIONS_FOOD;
+            Log.d("FoodAty", urlFood);
 
 
         }
 
         mNetTool.getData(urlFood, AttractionAtyBean.class, new NetTool.NetInterface<AttractionAtyBean>() {
             @Override
-            public void onSuccess(AttractionAtyBean attractionAtyBean) {
+            public void onSuccess(final AttractionAtyBean attractionAtyBean) {
                 lvFood.setAdapter(new CommonAdapter<AttractionAtyBean.ListBean>(attractionAtyBean.getList(), FoodAty.this, R.layout.item_travel_attractions_listview) {
                     @Override
                     public void setData(AttractionAtyBean.ListBean listBean, CommonViewHolder viewHolder, int position) {
@@ -130,8 +130,14 @@ public class FoodAty extends BaseActivity  {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                        Toast.makeText(FoodAty.this, "我被点击" + i, Toast.LENGTH_SHORT).show();
-                        Log.d("FoodAty", "我点击了" + i);
+
+
+
+                        Intent intentItem = new Intent(FoodAty.this, FoodListAty.class);
+                        intentItem.putExtra("urlId", attractionAtyBean.getList().get(i).getId());
+
+                        startActivity(intentItem);
+
 
                     }
                 });
@@ -145,8 +151,8 @@ public class FoodAty extends BaseActivity  {
         });
 
 
-
     }
+
 
 
 }

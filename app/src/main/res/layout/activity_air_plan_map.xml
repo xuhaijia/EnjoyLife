@@ -13,8 +13,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:textSize="18sp"
-            android:text="假设我在这里" />
+            android:text="假设我在这里"
+            android:textSize="18sp" />
 
 
     </RelativeLayout>
@@ -38,6 +38,15 @@
             android:background="@drawable/selector_travel_map"
             android:button="@null"
             android:checked="false" />
+
+
+        <Button
+            android:id="@+id/activity_air_plan_map_btn_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+
+            android:text="我的位置" />
     </RelativeLayout>
 
 </LinearLayout>

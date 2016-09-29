@@ -34,6 +34,7 @@ import com.lanou.xuhaijia.enjoylife.R;
 import com.lanou.xuhaijia.enjoylife.base.BaseActivity;
 import com.lanou.xuhaijia.enjoylife.base.NetTool;
 import com.lanou.xuhaijia.enjoylife.base.UrlValues;
+import com.lanou.xuhaijia.enjoylife.travel.hotel.hotellsit.HotelListAty;
 import com.lanou.xuhaijia.enjoylife.travel.travelhoteltools.CardAdapter;
 import com.lanou.xuhaijia.enjoylife.travel.travelhoteltools.SwipeFlingAdapterView;
 
@@ -46,6 +47,13 @@ public class HotelAty extends BaseActivity implements View.OnClickListener {
     private CardAdapter cardAdapter;
     List<HotelAtyBean.ListBean> list;
     private String idHotel;
+
+
+
+
+
+
+
 
 
     @Override
@@ -66,11 +74,21 @@ public class HotelAty extends BaseActivity implements View.OnClickListener {
         ivRiget.setOnClickListener(this);
 
 
+
+
+
+
+
+
+
+
+
+
     }
 
     @Override
     protected void initData() {
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         idHotel = intent.getStringExtra("hotel");
         String urlHotel = UrlValues.TRAVEL_HOTEL_HEAD + idHotel + UrlValues.TRAVEL_ATTRACTIONS_FOOD;
 
@@ -145,7 +163,15 @@ public class HotelAty extends BaseActivity implements View.OnClickListener {
                     public void onItemClicked(int itemPosition, Object dataObject) {
 
 
-                        Toast.makeText(HotelAty.this, "点击", Toast.LENGTH_SHORT).show();
+
+
+                        Intent intentList = new Intent(HotelAty.this,HotelListAty.class);
+
+                        intentList.putExtra("urlId",hotelAtyBean.getList().get(itemPosition).getId());
+
+                        Log.d("HotelAty", hotelAtyBean.getList().get(itemPosition).getId());
+
+                        startActivity(intentList);
 
 
 

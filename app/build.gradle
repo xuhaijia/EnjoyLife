@@ -71,5 +71,11 @@ dependencies {
     compile files('libs/okhttp-3.3.1.jar')
     compile files('libs/okio-1.7.0.jar')
     compile files('libs/rxandroid-1.2.0.jar')
-    compile files('libs/rxjava-1.1.6.jar')
+  //  compile files('libs/rxjava-1.1.6.jar')
+
+//RX JAVA 小青
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.1.8'
+
+
 }

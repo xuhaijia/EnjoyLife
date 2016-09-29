@@ -50,7 +50,6 @@ public class CountrySelectAty extends BaseActivity implements View.OnClickListen
     private RecycleViewAdapter recycleViewAdapter;
     private ListView lvCity;
     private RecyclerView rvCity;
-    private TextView tvHotCity;
 
     @Override
     protected int setLayout() {
@@ -62,9 +61,6 @@ public class CountrySelectAty extends BaseActivity implements View.OnClickListen
 
         ImageView ivBack = bindView(R.id.activity_city_select_title_imager_back);
         ivBack.setOnClickListener(this);
-
-
-        tvHotCity = bindView(R.id.activity_country_select_textview_hotCiy);
 
 
 
@@ -80,7 +76,6 @@ public class CountrySelectAty extends BaseActivity implements View.OnClickListen
 
     @Override
     protected void initData() {
-
         mNetTool.getData(UrlValues.TRAVEL_CITY_SELECT, CountrySelectAtyBean.class, new NetTool.NetInterface<CountrySelectAtyBean>() {
 
 
@@ -88,6 +83,7 @@ public class CountrySelectAty extends BaseActivity implements View.OnClickListen
             public void onSuccess(final CountrySelectAtyBean citySelectAtyBean) {
 
 
+                //listview
                 lvCity.setAdapter(new CommonAdapter<CountrySelectAtyBean.ContinentsBean>(citySelectAtyBean.getContinents(), CountrySelectAty.this, R.layout.item_country_select_aty) {
                     @Override
                     public void setData(CountrySelectAtyBean.ContinentsBean continentsBean
@@ -98,6 +94,7 @@ public class CountrySelectAty extends BaseActivity implements View.OnClickListen
 
                     }
                 });
+
 
                 rvCity.setAdapter(new RecycleViewAdapter<CountrySelectAtyBean.ContinentsBean.CountrysBean>(citySelectAtyBean.getContinents().get(0).getCountrys(), CountrySelectAty.this, R.layout.item_country_select_recycle_aty) {
 
@@ -142,6 +139,7 @@ public class CountrySelectAty extends BaseActivity implements View.OnClickListen
                                         citySelectAtyBean.getContinents().get(i).getCountrys(), CountrySelectAty.this, R.layout.item_country_select_recycle_aty) {
                                     @Override
                                     public void setData(final CountrySelectAtyBean.ContinentsBean.CountrysBean countrysBean, CommonViewHolder viewHolder) {
+                                        Log.d("CountrySelectAty", "我执行了2");
                                         viewHolder.setText(R.id.item_city_select_recycle_aty_textview_cn, countrysBean.getName_cn());
                                         viewHolder.setText(R.id.item_city_select_recycle_aty_textview_english, countrysBean.getName());
                                         viewHolder.setImage(R.id.item_city_select_recycle_aty_imager, countrysBean.getCover(), CountrySelectAty.this);
@@ -170,27 +168,31 @@ public class CountrySelectAty extends BaseActivity implements View.OnClickListen
                 });
 
 
-                RecycleViewAdapter<CountrySelectAtyBean.RecommendplacesBean> adapter =
-                        new RecycleViewAdapter<CountrySelectAtyBean.RecommendplacesBean>(citySelectAtyBean.getRecommendplaces(), CountrySelectAty.this, R.layout.item_country_select_recycle_aty) {
+                //写在外面的recyclerView 让它直接就可以点击
+
+                RecycleViewAdapter<CountrySelectAtyBean.ContinentsBean.CountrysBean> adapter =
+                        new RecycleViewAdapter<CountrySelectAtyBean.ContinentsBean.CountrysBean>(
+                                citySelectAtyBean.getContinents().get(0).getCountrys(), CountrySelectAty.this, R.layout.item_country_select_recycle_aty) {
                             @Override
-                            public void setData(final CountrySelectAtyBean.RecommendplacesBean recommendplacesBean, CommonViewHolder viewHolder) {
-                                viewHolder.setText(R.id.item_city_select_recycle_aty_textview_cn, recommendplacesBean.getName_cn());
-                                viewHolder.setText(R.id.item_city_select_recycle_aty_textview_english, recommendplacesBean.getName());
-                                viewHolder.setImage(R.id.item_city_select_recycle_aty_imager, recommendplacesBean.getCover(), CountrySelectAty.this);
+                            public void setData(final CountrySelectAtyBean.ContinentsBean.CountrysBean countrysBean, CommonViewHolder viewHolder) {
+                                Log.d("CountrySelectAty", "我执行了2");
+                                viewHolder.setText(R.id.item_city_select_recycle_aty_textview_cn, countrysBean.getName_cn());
+                                viewHolder.setText(R.id.item_city_select_recycle_aty_textview_english, countrysBean.getName());
+                                viewHolder.setImage(R.id.item_city_select_recycle_aty_imager, countrysBean.getCover(), CountrySelectAty.this);
                                 //整体的item添加点击事件
                                 viewHolder.itemView.setOnClickListener(new MyClickListener(viewHolder.getLayoutPosition()) {
                                     @Override
                                     public void onClick(View view) {
                                         Toast.makeText(CountrySelectAty.this, "pos:" + pos, Toast.LENGTH_SHORT).show();
 
-                                        String id = recommendplacesBean.getId();
-                                        TravelEventBus travelEventBus = new TravelEventBus();
+                                        String id = countrysBean.getId();
+                                        String country = countrysBean.getName_cn();
+                                        Intent intentCity = new Intent(CountrySelectAty.this, CitySelectAty.class);
 
-                                        travelEventBus.setUrlId(id);
-                                        EventBus.getDefault().post(travelEventBus);
+                                        intentCity.putExtra("id", id);
+                                        intentCity.putExtra("country", country);
 
-
-                                        finish();
+                                        startActivityForResult(intentCity, 101);
 
 
                                     }
@@ -200,54 +202,16 @@ public class CountrySelectAty extends BaseActivity implements View.OnClickListen
                 rvCity.setAdapter(adapter);
 
 
+        }
 
-                tvHotCity.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+        @Override
+        public void onError (String errorMsg){
 
-
-                        RecycleViewAdapter<CountrySelectAtyBean.RecommendplacesBean> adapter =
-                                new RecycleViewAdapter<CountrySelectAtyBean.RecommendplacesBean>(citySelectAtyBean.getRecommendplaces(), CountrySelectAty.this, R.layout.item_country_select_recycle_aty) {
-                                    @Override
-                                    public void setData(final CountrySelectAtyBean.RecommendplacesBean recommendplacesBean, CommonViewHolder viewHolder) {
-                                        viewHolder.setText(R.id.item_city_select_recycle_aty_textview_cn, recommendplacesBean.getName_cn());
-                                        viewHolder.setText(R.id.item_city_select_recycle_aty_textview_english, recommendplacesBean.getName());
-                                        viewHolder.setImage(R.id.item_city_select_recycle_aty_imager, recommendplacesBean.getCover(), CountrySelectAty.this);
-                                        //整体的item添加点击事件
-                                        viewHolder.itemView.setOnClickListener(new MyClickListener(viewHolder.getLayoutPosition()) {
-                                            @Override
-                                            public void onClick(View view) {
-                                                Toast.makeText(CountrySelectAty.this, "pos:" + pos, Toast.LENGTH_SHORT).show();
-
-                                                String id = recommendplacesBean.getId();
-                                                TravelEventBus travelEventBus = new TravelEventBus();
-
-                                                travelEventBus.setUrlId(id);
-                                                EventBus.getDefault().post(travelEventBus);
-
-
-                                                finish();
-
-
-                                            }
-                                        });
-                                    }
-                                };
-                        rvCity.setAdapter(adapter);
-
-
-                    }
-                });
-
-
-            }
-
-            @Override
-            public void onError(String errorMsg) {
-
-            }
-        });
+        }
     }
+
+    );
+}
 
     @Override
     public void onClick(View v) {
@@ -260,21 +224,21 @@ public class CountrySelectAty extends BaseActivity implements View.OnClickListen
                 break;
 
 
-
         }
     }
 
-    abstract class MyClickListener implements View.OnClickListener {
-        protected int pos;
+abstract class MyClickListener implements View.OnClickListener {
+    protected int pos;
 
-        public MyClickListener(int pos) {
-            this.pos = pos;
-        }
-
-        public int getPos() {
-            return pos;
-        }
+    public MyClickListener(int pos) {
+        this.pos = pos;
     }
+
+    public int getPos() {
+        return pos;
+    }
+
+}
 
     @Override
     public void startActivityForResult(Intent intent, int requestCode) {

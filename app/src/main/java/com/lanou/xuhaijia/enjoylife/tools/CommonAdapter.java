@@ -10,6 +10,8 @@ import com.lanou.xuhaijia.enjoylife.base.NetTool;
 import com.lanou.xuhaijia.enjoylife.picture.details.DetailsBean;
 import com.lanou.xuhaijia.enjoylife.travel.attractions.AttractionAtyBean;
 import com.lanou.xuhaijia.enjoylife.travel.food.FoodAty;
+import com.lanou.xuhaijia.enjoylife.travel.search.TravelSearchAty;
+import com.lanou.xuhaijia.enjoylife.travel.search.TravelSearchAtyBean;
 
 import java.util.ArrayList;
 import java.util.List;
