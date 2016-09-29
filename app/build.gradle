@@ -58,6 +58,7 @@ dependencies {
 //    compile 'com.squareup.okhttp3:okhttp:3.4.1'
 //    compile 'com.google.code.gson:gson:2.7'
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'jp.wasabeef:glide-transformations:2.0.0'//Glide图形显示 _ 国冰冰
     compile 'com.redbooth:SlidingDeck:1.0.0'
     compile project(':libs')
     compile 'com.android.support:design:24.2.0'

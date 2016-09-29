@@ -58,12 +58,10 @@
 
         <!--国冰冰 -->
         <activity android:name=".news.headline.HeadLinesContentActivity" />
-        <!--收藏页-->
-        <activity android:name=".myself.MyCollectActivity"/>
-        <!--登录-->
-        <activity android:name=".myself.LoginActivity"/>
+        <activity android:name=".myself.MyCollectActivity" /><!--收藏页-->
+        <activity android:name=".myself.LoginActivity"/><!--登录-->
         <activity android:name=".myself.RegisterActivity"/>
-
+        <activity android:name=".myself.UserSendActivty"/>
 
         <!--小青的Activity-->
         <activity android:name=".travel.search.TravelSearchAty" />

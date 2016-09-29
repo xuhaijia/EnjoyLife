@@ -7,7 +7,7 @@ import android.support.design.widget.TabLayout;
 
 import com.lanou.xuhaijia.enjoylife.R;
 import com.lanou.xuhaijia.enjoylife.base.BaseFragment;
-import com.lanou.xuhaijia.enjoylife.news.beautyarticle.BeautyArticleFragment;
+import com.lanou.xuhaijia.enjoylife.news.beautyarticle.DelicacyFoodFragment;
 import com.lanou.xuhaijia.enjoylife.news.headline.HeadlinesFragment;
 import com.lanou.xuhaijia.enjoylife.news.sport.SportsFragment;
 import com.lanou.xuhaijia.enjoylife.news.recreation.RecreationFragment;
@@ -36,7 +36,7 @@ public class NewsFragment extends BaseFragment {
         fragmentArrayList.add(new HeadlinesFragment());//头条
         fragmentArrayList.add(new SportsFragment());//体育
         fragmentArrayList.add(new RecreationFragment());//娱乐
-        fragmentArrayList.add(new BeautyArticleFragment());//文章
+        fragmentArrayList.add(new DelicacyFoodFragment());//文章
         newsMainAdapter.setFreagments(fragmentArrayList);
         viewPager.setAdapter(newsMainAdapter);
         tabLayout.setupWithViewPager(viewPager);

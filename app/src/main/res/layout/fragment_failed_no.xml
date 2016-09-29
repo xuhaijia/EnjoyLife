@@ -7,7 +7,8 @@
     <RelativeLayout
         android:id="@+id/fragment_suddeed_background"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
+        android:background="#e9f1f6"
         android:orientation="vertical">
 
         <de.hdodenhof.circleimageview.CircleImageView

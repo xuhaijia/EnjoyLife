@@ -39,9 +39,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MyselfFragment extends BaseFragment implements View.OnClickListener {
     private ImageView background;
     private FrameLayout frameLayout;
+    private LinearLayout set;
     private BmobUser bmobUser;
     private CircleImageView myPhoto;
-    private TextView outLogin;
     private Bitmap bitmap;
     private TextView userName;
     private LinearLayout myCollect;
@@ -58,10 +58,11 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
 
     @Override
     protected void initView() {
+        set = bindView(R.id.fragment_myself_set);
+        set.setOnClickListener(this);
         frameLayout = bindView(R.id.fragment_replace_id);
         myCollect = bindView(R.id.fragment_myself_collect);
         myCollect.setOnClickListener(this);
-
         succeedView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_succeed,null);
         failedView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_failed_no,null);
         myPhoto = (CircleImageView) succeedView.findViewById(R.id.fragment_myself_myphoto_1);
@@ -71,8 +72,6 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
         photoLogin = (CircleImageView) failedView.findViewById(R.id.fragment_myself_myphoto_2);
         myPhoto.setOnClickListener(this);
         login.setOnClickListener(this);
-
-
 
     }
 
@@ -92,7 +91,6 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
                 myPhoto.setImageBitmap(myBmobUser.getIcon());
                 Bitmap blurBitmap = Blur.apply(mContext,myBmobUser.getIcon(),7);
                 background.setImageBitmap(blurBitmap);
-
             }
         }else {
             //没登录
@@ -123,6 +121,10 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
             case R.id.fragment_myself_outlogin:
                 showOutDailog();
                 break;
+            case R.id.fragment_myself_set:
+                Intent intentUser = new Intent(getContext(),UserSendActivty.class);
+                startActivity(intentUser);
+                break;
         }
     }
 
@@ -132,32 +134,7 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
         View view = View.inflate(getContext(), R.layout.myself_dialog_show, null);
         TextView cream = (TextView) view.findViewById(R.id.cream);
         TextView bendixiangce = (TextView) view.findViewById(R.id.bendi);
-        TextView textView = (TextView) view.findViewById(R.id.fragment_myself_outlogin);
 
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new AlertDialog.Builder(getContext()).setTitle("是否退出当前账号?  无法享受用户福利哦!")
-                        .setIcon(android.R.drawable.ic_dialog_info)
-                        .setPositiveButton("是,我不要享受", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                frameLayout.removeAllViews();
-                                frameLayout.addView(failedView);
-                                BmobUser.logOut();
-                                BmobUser current = BmobUser.getCurrentUser();
-                                dialogPhoto.dismiss();
-                            }
-                        })
-                        .setNegativeButton("我还有点舍不得", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogPhoto.dismiss();
-                                Toast.makeText(mContext, "亲爱的用户谢谢您的支持哦", Toast.LENGTH_SHORT).show();
-                            }
-                        }).show();
-            }
-        });
         // 在相册中选取
         bendixiangce.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -208,7 +185,7 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
                             if (e == null){
                                 Toast.makeText(mContext, "头像上传成功", Toast.LENGTH_SHORT).show();
                                 myPhoto.setImageBitmap(bitmap);
-                                Bitmap blurBitmap = Blur.apply(mContext, bitmap ,7);
+                                Bitmap blurBitmap = Blur.apply(mContext, bitmap ,5);
                                 background.setImageBitmap(blurBitmap);
                             }else {
                                 Log.d("MyselfFragment", e.getMessage());

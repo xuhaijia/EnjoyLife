@@ -42,15 +42,25 @@ public class NetTool {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                final Gson gson =  new Gson();
+                final Gson gson = new Gson();
                 //
+
                 String data = response.body().string();
-                if (data.startsWith("{")) {
+               if(response.code()!=200){
+                   mHandler.post(new Runnable() {
+                       @Override
+                       public void run() {
+                            netInterface.onError("asdf");
+                       }
+                   });
+                   return;
+               }
+                if (data.startsWith("{") || data.startsWith("{\"T")) {
                     t = gson.fromJson(data, clazz);
                 } else {
                     int start = data.indexOf("{\"");
                     int end = data.indexOf(");");
-                    t = gson.fromJson(data.substring(start , end) , clazz);
+                    t = gson.fromJson(data.substring(start, end), clazz);
                 }
                 mHandler.post(new Runnable() {
                     @Override
@@ -62,18 +72,18 @@ public class NetTool {
         });
     }
 
-    public <T> void getBitmap(final String url , final int height , final int width , final GetBitMap getBitMap) {
+    public <T> void getBitmap(final String url, final int height, final int width, final GetBitMap getBitMap) {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    final Bitmap bitmap = Glide.with(MyApp.getContext()).load(url).asBitmap().centerCrop().into(width,height).get();
+                    final Bitmap bitmap = Glide.with(MyApp.getContext()).load(url).asBitmap().centerCrop().into(width, height).get();
                     mHandler.post(new Runnable() {
                         @Override
                         public void run() {
                             getBitMap.getBitMap(bitmap);
                         }
-                    }) ;
+                    });
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } catch (ExecutionException e) {
@@ -93,29 +103,30 @@ public class NetTool {
     }
 
 
-
-    public interface GetBitMap{
+    public interface GetBitMap {
         void getBitMap(Bitmap bitmap);
     }
 
 
-    private class MyAsyncTask extends AsyncTask<String,Integer,Bitmap> {
+    private class MyAsyncTask extends AsyncTask<String, Integer, Bitmap> {
         GetBitMap getBitMap;
+
         public MyAsyncTask(GetBitMap getBitMap) {
             this.getBitMap = getBitMap;
 
         }
+
         @Override
         protected Bitmap doInBackground(String... params) {
             String source = params[0];
             int wStart = source.indexOf("_");
             int wEnd = source.indexOf("x");
             int hENd = source.indexOf(".jpeg");
-            int w = Integer.parseInt(source.substring(wStart + 1 , wEnd));
-            int h = Integer.parseInt(source.substring(wEnd+ 1,hENd));
+            int w = Integer.parseInt(source.substring(wStart + 1, wEnd));
+            int h = Integer.parseInt(source.substring(wEnd + 1, hENd));
             Bitmap bitmap = null;
             try {
-                bitmap = Glide.with(MyApp.getContext()).load(source).asBitmap().centerCrop().into(w,h).get();
+                bitmap = Glide.with(MyApp.getContext()).load(source).asBitmap().centerCrop().into(w, h).get();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (ExecutionException e) {

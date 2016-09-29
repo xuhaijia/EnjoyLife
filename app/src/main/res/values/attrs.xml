@@ -8,4 +8,8 @@
     <declare-styleable name="CustomTheme">
         <attr name="gifViewStyle" format="reference" />
     </declare-styleable>
+    <declare-styleable name="app">
+        <attr name="bottomDragVisibleHeight" format="dimension" />
+        <attr name="bototmExtraIndicatorHeight" format="dimension" />
+    </declare-styleable>
 </resources>
