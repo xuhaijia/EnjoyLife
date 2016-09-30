@@ -72,8 +72,6 @@ public class FoodAty extends BaseActivity {
         } else {
 
             urlFood = UrlValues.TRAVEL_FOOD_HEAD + urlId + UrlValues.TRAVEL_ATTRACTIONS_FOOD;
-            Log.d("FoodAty", urlFood);
-
 
         }
 

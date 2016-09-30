@@ -49,13 +49,6 @@ public class HotelAty extends BaseActivity implements View.OnClickListener {
     private String idHotel;
 
 
-
-
-
-
-
-
-
     @Override
     protected int setLayout() {
         return R.layout.activity_travel_hotel;
@@ -74,16 +67,6 @@ public class HotelAty extends BaseActivity implements View.OnClickListener {
         ivRiget.setOnClickListener(this);
 
 
-
-
-
-
-
-
-
-
-
-
     }
 
     @Override
@@ -92,18 +75,11 @@ public class HotelAty extends BaseActivity implements View.OnClickListener {
         idHotel = intent.getStringExtra("hotel");
         String urlHotel = UrlValues.TRAVEL_HOTEL_HEAD + idHotel + UrlValues.TRAVEL_ATTRACTIONS_FOOD;
 
-
-        Log.d("HotelAty", idHotel);
-        Log.d("HotelAty", urlHotel);
-
         mNetTool.getData(urlHotel, HotelAtyBean.class, new NetTool.NetInterface<HotelAtyBean>() {
 
 
             @Override
             public void onSuccess(final HotelAtyBean hotelAtyBean) {
-
-
-                Log.d("HotelAty", "hotelAtyBean:" + hotelAtyBean);
 
                 hoteSwipe.setAdapter(cardAdapter);
                 cardAdapter.setHotelAtyBean(hotelAtyBean);
@@ -168,8 +144,6 @@ public class HotelAty extends BaseActivity implements View.OnClickListener {
                         Intent intentList = new Intent(HotelAty.this,HotelListAty.class);
 
                         intentList.putExtra("urlId",hotelAtyBean.getList().get(itemPosition).getId());
-
-                        Log.d("HotelAty", hotelAtyBean.getList().get(itemPosition).getId());
 
                         startActivity(intentList);
 

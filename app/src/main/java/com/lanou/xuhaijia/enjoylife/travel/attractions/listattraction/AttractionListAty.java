@@ -98,16 +98,12 @@ public class AttractionListAty extends BaseActivity {
 
         Intent intentList = getIntent();
         String id = intentList.getStringExtra("urlId");
-        Log.d("AttractionListAty", id);
-
         urlAttractItem = UrlValues.TRAVEL_ITEM_ATTRACTION + id;
-        Log.d("AttractionListAty", urlAttractItem);
 
         mNetTool.getData(urlAttractItem, AttractionListAtyBean.class, new NetTool.NetInterface<AttractionListAtyBean>() {
             @Override
             public void onSuccess(final AttractionListAtyBean attractionListAtyBean) {
                 String tt = attractionListAtyBean.getItem().getName_cn();
-                Log.d("AttractionListAty", tt);
                 //  Glide.with(mContext).load(travelFragmentBean.getPlace().getCover()).into(ivBackGround)
                 Glide.with(AttractionListAty.this).load(attractionListAtyBean.getItem().getCover()).into(ivHead);
 
@@ -158,22 +154,15 @@ public class AttractionListAty extends BaseActivity {
                                 @Override
                                 public void onCompleted(List<CollectionAttractBean> collection) {
                                     if (collection.size() == 0) {
-                                        Log.d("AttractionListAty", "为收藏过");
-
-                                        Log.d("AttractionListAty", "collection.size():" + collection.size());
                                         collectionAttractBean.setUrlAtt(urlAttractItem);
                                         collectionAttractBean.setNameCN(attractionListAtyBean.getItem().getName_cn());
                                         collectionAttractBean.setUrlPic(attractionListAtyBean.getItem().getCover());
                                         collectionAttractBean.setNameUser(username);
                                         DBTool.getInstance().insertData(collectionAttractBean);
-                                        Log.d("AttractionListAty", collectionAttractBean.getNameUser());
-                                        Log.d("AttractionListAty", collectionAttractBean.getUrlPic());
 
                                         ivCollect.setImageResource(R.mipmap.travel_collection_attraction_first);
 
                                     } else {
-                                        Log.d("AttractionListAty", "collection.size():" + collection.size());
-                                        Log.d("AttractionListAty", "收藏过");
                                         DBTool.getInstance().deleteData(collection.get(0));
                                         ivCollect.setImageResource(R.mipmap.travel_collection_attraction_after);
 

@@ -139,7 +139,6 @@ public class CountrySelectAty extends BaseActivity implements View.OnClickListen
                                         citySelectAtyBean.getContinents().get(i).getCountrys(), CountrySelectAty.this, R.layout.item_country_select_recycle_aty) {
                                     @Override
                                     public void setData(final CountrySelectAtyBean.ContinentsBean.CountrysBean countrysBean, CommonViewHolder viewHolder) {
-                                        Log.d("CountrySelectAty", "我执行了2");
                                         viewHolder.setText(R.id.item_city_select_recycle_aty_textview_cn, countrysBean.getName_cn());
                                         viewHolder.setText(R.id.item_city_select_recycle_aty_textview_english, countrysBean.getName());
                                         viewHolder.setImage(R.id.item_city_select_recycle_aty_imager, countrysBean.getCover(), CountrySelectAty.this);
@@ -175,7 +174,6 @@ public class CountrySelectAty extends BaseActivity implements View.OnClickListen
                                 citySelectAtyBean.getContinents().get(0).getCountrys(), CountrySelectAty.this, R.layout.item_country_select_recycle_aty) {
                             @Override
                             public void setData(final CountrySelectAtyBean.ContinentsBean.CountrysBean countrysBean, CommonViewHolder viewHolder) {
-                                Log.d("CountrySelectAty", "我执行了2");
                                 viewHolder.setText(R.id.item_city_select_recycle_aty_textview_cn, countrysBean.getName_cn());
                                 viewHolder.setText(R.id.item_city_select_recycle_aty_textview_english, countrysBean.getName());
                                 viewHolder.setImage(R.id.item_city_select_recycle_aty_imager, countrysBean.getCover(), CountrySelectAty.this);
@@ -245,8 +243,6 @@ abstract class MyClickListener implements View.OnClickListener {
         super.startActivityForResult(intent, requestCode);
 
         if (requestCode == 101) {
-
-            Log.d("CountrySelectAty", "我执行了");
             finish();
 
 

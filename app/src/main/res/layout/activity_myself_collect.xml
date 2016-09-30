@@ -4,49 +4,54 @@
     android:layout_height="match_parent">
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_height="40dp"
         android:text="我的收藏"
-        android:textSize="30sp"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:background="#000000"
         android:gravity="center"/>
     <RadioGroup
+        android:background="#30a1a1a1"
         android:id="@+id/fragment_myself_collectss"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_height="30dp"
         android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/fragment_myself_musician_collect"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
             android:button="@null"
             android:gravity="center"
-            android:text="收藏音乐人" />
+            android:textColor="@drawable/selector_font"
+            android:text="音乐" />
 
         <RadioButton
             android:id="@+id/fragment_myself_classic_collect"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
             android:button="@null"
             android:gravity="center"
-            android:text="经典" />
+            android:textColor="@drawable/selector_font"
+            android:text="景点" />
 
         <RadioButton
             android:id="@+id/fragment_myself_content_collect"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
             android:button="@null"
+            android:textColor="@drawable/selector_font"
             android:gravity="center"
-            android:text="收藏文章" />
+            android:text="美文" />
     </RadioGroup>
 
     <FrameLayout
         android:id="@+id/fragment_myself_collectlist"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"></FrameLayout>
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </FrameLayout>
 </LinearLayout>

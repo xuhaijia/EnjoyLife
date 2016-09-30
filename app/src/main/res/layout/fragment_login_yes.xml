@@ -69,7 +69,7 @@
             android:id="@+id/fragment_myself_outlogin"
             android:layout_width="150dp"
             android:layout_height="40dp"
-            android:layout_below="@id/a_1"
+            android:layout_below="@+id/a_1"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"

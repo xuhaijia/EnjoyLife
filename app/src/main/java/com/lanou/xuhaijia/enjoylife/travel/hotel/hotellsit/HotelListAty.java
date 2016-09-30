@@ -79,11 +79,8 @@ public class HotelListAty extends BaseActivity{
         Intent intentList = getIntent();
 
         String urlIds = intentList.getStringExtra("urlId");
-        Log.d("HotelListAty", urlIds);
-
 
         String urlHotel = UrlValues.TRAVEL_HOTEL_LIST_HEAD + urlIds ;
-        Log.d("QQQQQQQQQQQQQQ", urlHotel);
 
 
         mNetTool.getData(urlHotel, HotelListAtyBean.class, new NetTool.NetInterface<HotelListAtyBean>() {
@@ -97,8 +94,6 @@ public class HotelListAty extends BaseActivity{
                 tvContext.setText(hotelListAtyBean.getItem().getInfo_cn());
                 tvPHone.setText(hotelListAtyBean.getItem().getContact());
                 tvStat.setText(hotelListAtyBean.getItem().getStar()+"星级酒店");
-
-
 
 
 

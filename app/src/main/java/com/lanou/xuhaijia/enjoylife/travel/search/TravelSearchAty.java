@@ -64,8 +64,6 @@ public class TravelSearchAty extends BaseActivity implements View.OnClickListene
     @Override
     protected int setLayout() {
         return R.layout.activity_travel_search;
-
-
     }
 
     @Override
@@ -88,7 +86,6 @@ public class TravelSearchAty extends BaseActivity implements View.OnClickListene
         Observable.create(new EditTextObservable(etSearch)).debounce(500, TimeUnit.MILLISECONDS).flatMap(new Func1<String, Observable<RXSearch>>() {
             @Override
             public Observable<RXSearch> call(String s) {
-                Log.d("TravelSearchAty", "1走到了");
 
                 //这是被观察者 设置数据的
                 RXSearch rxSearch = new RXSearch();
@@ -103,13 +100,9 @@ public class TravelSearchAty extends BaseActivity implements View.OnClickListene
                 .subscribe(new Action1<RXSearch>() {
                     @Override
                     public void call(RXSearch rxSearch) {
-                        Log.d("TravelSearchAty", "走到了2");
                         search = rxSearch.getResult();
-
-
                         //以上是RXJava获取  EditText 的内容
                         urlSearch = UrlValues.TRAVEL_SEARCH_HEAD + search + UrlValues.TRAVEL_SEARCH_FOOT;
-                        Log.d("TravelSearchAty", urlSearch);
                         mNetTool.getData(urlSearch, TravelSearchAtyBean.class, new NetTool.NetInterface<TravelSearchAtyBean>() {
                             @Override
                             public void onSuccess(final TravelSearchAtyBean travelSearchAtyBean) {

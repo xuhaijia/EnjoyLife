@@ -123,7 +123,6 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
     private String titleSub;
     private String userName;
     private PictureCollectBean pictureCollectBean;
-    private DBTool dbTool;
 
     @Override
     protected int setLayout() {
@@ -188,6 +187,7 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
         contentHv.setOnClickListener(this);
         say.setOnClickListener(this);
         lookBtn.setOnClickListener(this);
+        lookTv.setOnClickListener(this);
         moreIv.setOnClickListener(this);
         enjoyBtn.setOnClickListener(this);
         likeIv.setOnClickListener(this);
@@ -206,10 +206,13 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
         MyBmobUser myBmobUser = MyBmobUser.getCurrentUser(MyBmobUser.class);
         if (myBmobUser != null) {
             userName = myBmobUser.getUsername();
-
             Bitmap bitmap = myBmobUser.getIcon();
-            photoCiv.setImageBitmap(bitmap);
+            if (bitmap != null) {
+                photoCiv.setImageBitmap(bitmap);
+            } else {
+                photoCiv.setImageResource(R.mipmap.mm);
 
+            }
             DBTool.getInstance().queryPictureBy(PictureCollectBean.class, userName, urlAdd, new DBTool.QueryComplete<List<PictureCollectBean>>() {
                 @Override
                 public void onCompleted(List<PictureCollectBean> pictureCollectBeen) {
@@ -221,8 +224,6 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
                 }
             });
 
-        } else {
-            photoCiv.setImageResource(R.mipmap.mm);
         }
 
         scrollView.setOnScrollListener(new DetailsScrollView.OnScrollListener() {
@@ -280,11 +281,7 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
                     Glide.with(MyApp.getContext()).load(detailsBean.getData().getDesigners().get(0).getAvatar_url()).into(nameUrlCiv);
 
                 }
-                MyBmobUser myBmobUser = MyBmobUser.getCurrentUser(MyBmobUser.class);
-                if (myBmobUser != null) {
-                    Bitmap bitmap = myBmobUser.getIcon();
-                    photoCiv.setImageBitmap(bitmap);
-                }
+
 
                 title = detailsBean.getData().getTitle();
                 avatarUrl = detailsBean.getData().getAuthor().getAvatar_url();
@@ -302,7 +299,8 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
 
                 GridLayoutManager manager = new GridLayoutManager(MyApp.getContext(), 1);
                 recyclerViewTwo.setLayoutManager(manager);
-                recyclerViewTwo.setAdapter(new RecycleViewAdapter<DetailsBean.DataBean.CommentsBean>(detailsBean.getData().getComments(), DetailsActivity.this, R.layout.detalis_list_item) {
+                recyclerViewTwo.setAdapter(new RecycleViewAdapter<DetailsBean.DataBean.CommentsBean>(detailsBean.getData().getComments()
+                        , DetailsActivity.this, R.layout.detalis_list_item) {
 
                     @Override
                     public void setData(DetailsBean.DataBean.CommentsBean commentsBean, CommonViewHolder viewHolder) {
@@ -404,7 +402,6 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.activity_details_image_getter:
                 setPopupWindow(strings, position);
-                Log.d("DetailsActivity", "hahah");
                 break;
             case R.id.activity_details_more:
                 Intent intent = new Intent(Intent.ACTION_SEND);
@@ -424,26 +421,24 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.activity_details_like:
 
-                BmobUser myBmobUser = BmobUser.getCurrentUser();
+                final BmobUser myBmobUser = BmobUser.getCurrentUser();
                 if (myBmobUser != null) {
-                    dbTool = DBTool.getInstance();
-
-                    dbTool.queryPictureBy(PictureCollectBean.class, userName, urlAdd, new DBTool.QueryComplete<List<PictureCollectBean>>() {
+                    DBTool.getInstance().queryPictureBy(PictureCollectBean.class, myBmobUser.getUsername(), urlAdd, new DBTool.QueryComplete<List<PictureCollectBean>>() {
 
                         @Override
                         public void onCompleted(List<PictureCollectBean> collectBeen) {
                             if (collectBeen.size() == 0) {
+                                likeIv.setImageResource(R.mipmap.redheart);
                                 pictureCollectBean.setThreadId(urlAdd);
-                                pictureCollectBean.setName(userName);
+                                pictureCollectBean.setName(myBmobUser.getUsername());
                                 pictureCollectBean.setTitle(title);
                                 pictureCollectBean.setIconUrl(avatarUrl);
                                 pictureCollectBean.setContent(titleSub);
-                                dbTool.insertData(pictureCollectBean);
-                                likeIv.setImageResource(R.mipmap.redheart);
+                                DBTool.getInstance().insertData(pictureCollectBean);
                                 Toast.makeText(DetailsActivity.this, "收藏成功", Toast.LENGTH_SHORT).show();
                             } else {
                                 likeIv.setImageResource(R.mipmap.xin);
-                                dbTool.deleteData(collectBeen.get(0));
+                                DBTool.getInstance().deleteData(collectBeen.get(0));
                                 Toast.makeText(DetailsActivity.this, "取消收藏成功", Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -458,8 +453,13 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.activity_details_btn_look:
                 Intent author = new Intent(this, AuthorActivity.class);
-                author.putExtra("ID",(urlAdd));
+                author.putExtra("ID", (urlAdd));
                 startActivity(author);
+                break;
+            case R.id.activity_details_look:
+                Intent allLook = new Intent(DetailsActivity.this, CommentActivity.class);
+                allLook.putExtra("ID", urlAdd);
+                startActivity(allLook);
                 break;
         }
     }

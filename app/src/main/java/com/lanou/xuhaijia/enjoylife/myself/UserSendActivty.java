@@ -73,13 +73,12 @@ public class UserSendActivty extends BaseActivity implements View.OnClickListene
             sendUserName.setText(bmobUser.getUsername());
             if (myBmobUser.getIcon() != null) {
                 imageView.setImageBitmap(myBmobUser.getIcon());
-                Bitmap blurBitmap = Blur.apply(this, myBmobUser.getIcon(), 7);
-                backgroud.setImageBitmap(blurBitmap);
+//                Bitmap blurBitmap = Blur.apply(this, myBmobUser.getIcon(), 7);
+//                backgroud.setImageBitmap(blurBitmap);
             }
         } else {
             frameLayout.removeAllViews();
             frameLayout.addView(loginNo);
-            Log.d("UserSendActivty", "未获取到用户信息");
         }
     }
 

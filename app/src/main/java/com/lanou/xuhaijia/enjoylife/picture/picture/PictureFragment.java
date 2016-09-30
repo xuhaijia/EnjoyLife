@@ -53,17 +53,6 @@ public class PictureFragment extends BaseFragment {
     protected void initData() {
         overview.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
 
-//        IntentFilter filter = new IntentFilter();
-//        filter.addAction(Intent.ACTION_SCREEN_OFF);
-//        filter.addAction(SearchManager.INTENT_GLOBAL_SEARCH_ACTIVITY_CHANGED);
-
-//        try {
-//            Utilities.setShadowProperty("ambientRatio", String.valueOf(1.5f));
-//        } catch (IllegalAccessException e) {
-//            e.printStackTrace();
-//        } catch (InvocationTargetException e) {
-//            e.printStackTrace();
-//        }
     }
 
     @Override

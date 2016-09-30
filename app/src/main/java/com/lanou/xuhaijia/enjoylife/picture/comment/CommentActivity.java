@@ -81,7 +81,7 @@ public class CommentActivity extends BaseActivity {
                                 if (commentBean != null) {
                                     viewHolder.setText(R.id.comment_list_item_username, commentsBean.getAuthor().getUsername());
                                     viewHolder.setText(R.id.comment_list_item_content, commentsBean.getContent());
-                                    mFormat = new SimpleDateFormat("MM-DD");
+                                    mFormat = new SimpleDateFormat("MM-dd");
                                     //获取系统时间
                                     Long now = System.currentTimeMillis();
                                     long time = now - Long.valueOf(commentsBean.getCreated_at());
@@ -95,7 +95,7 @@ public class CommentActivity extends BaseActivity {
                                         String d = String.valueOf((int) time / 1000 / 60 / 60 / 24);
                                         viewHolder.setText(R.id.comment_list_item_create, d + "天前");
                                     } else {
-                                        String data = mFormat.format(Long.valueOf(time));
+                                        String data = mFormat.format(Long.valueOf(commentsBean.getCreated_at()));
                                         viewHolder.setText(R.id.comment_list_item_create, data);
                                     }
                                     viewHolder.setImage(R.id.comment_list_item_avatar_url, commentsBean.getAuthor().getAvatar_url(), CommentActivity.this);

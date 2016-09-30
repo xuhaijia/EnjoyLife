@@ -33,6 +33,8 @@ public class SportsFragment extends BaseFragment {
     private ListView mListView;
     String url;
     private CommonAdapter<SportsBean.T1348649079062Bean> commonAdapter;
+    private TextView mTextView;
+    private ImageView mImageView;
 
     @Override
     protected int setLayout() {
@@ -43,6 +45,9 @@ public class SportsFragment extends BaseFragment {
     protected void initView() {
         mListView = bindView(R.id.fragment_news_sport_lv);
         mySwipeRefreshLayout = bindView(R.id.fragment_sport_swipe);
+        view = LayoutInflater.from(getContext()).inflate(R.layout.news_headview, null);
+        mTextView = (TextView) view.findViewById(R.id.news_headview_tv);
+        mImageView = (ImageView) view.findViewById(R.id.news_headview_img);
         showHeadView();
         initReli();
         Load();
@@ -69,8 +74,6 @@ public class SportsFragment extends BaseFragment {
                     public void onSuccess(final SportsBean sportsBean) {
 
                         mListView.removeHeaderView(view);
-
-                        Toast.makeText(mContext, "加载成功", Toast.LENGTH_SHORT).show();
                         final ArrayList<SportsBean.T1348649079062Bean> arrayList = new ArrayList<SportsBean.T1348649079062Bean>();
                         for (int i = 0; i < sportsBean.getT1348649079062().size(); i++) {
                             arrayList.add(sportsBean.getT1348649079062().get(i));
@@ -196,9 +199,6 @@ public class SportsFragment extends BaseFragment {
         mNetTool.getData(UrlValues.NEWS_PE, SportsBean.class, new NetTool.NetInterface<SportsBean>() {
             @Override
             public void onSuccess(SportsBean sportsBean) {
-                view = LayoutInflater.from(getContext()).inflate(R.layout.news_headview, null);
-                TextView mTextView = (TextView) view.findViewById(R.id.news_headview_tv);
-                ImageView mImageView = (ImageView) view.findViewById(R.id.news_headview_img);
                 if (sportsBean != null ) {
                     Glide.with(getContext()).load(sportsBean.getT1348649079062().get(0).getImgsrc()).into(mImageView);
                     mTextView.setText(sportsBean.getT1348649079062().get(0).getTitle());

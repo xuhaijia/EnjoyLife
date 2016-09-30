@@ -78,11 +78,9 @@ public class HeadlinesFragment extends BaseFragment {
             public void onLoad() {
                 mListView.removeHeaderView(headView);
                 mySize++;
-                Log.e("HeadlinesFragment", "her === === ");
                 mNetTool.getData(UrlValues.NEWS_HEADLINE2 + (mySize * 20) + UrlValues.NEWS_HEADLINE_FRONT, HeanLineBean.class, new NetTool.NetInterface<HeanLineBean>() {
                     @Override
                     public void onSuccess(final HeanLineBean heanLineBean) {
-                        Toast.makeText(mContext, "加载成功", Toast.LENGTH_SHORT).show();
                         final ArrayList<HeanLineBean.T1348647909107Bean> arrayList = new ArrayList<HeanLineBean.T1348647909107Bean>();
                         for (int i = 0; i < heanLineBean.getT1348647909107().size(); i++) {
                             arrayList.add(heanLineBean.getT1348647909107().get(i));
@@ -102,7 +100,6 @@ public class HeadlinesFragment extends BaseFragment {
                         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
                                 if ("photoset".equals(heanLineBean.getT1348647909107().get(i).getSkipType())) {
                                     //图片
                                     String head = UrlValues.NEWS_FRONT;
@@ -125,7 +122,6 @@ public class HeadlinesFragment extends BaseFragment {
 
                             }
                         });
-                        Log.e("HeadlinesFragment", "her");
                         mySwipeRefreshLayout.setLoading(false);
                     }
 

@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#342cc2"
     android:id="@+id/fragment_picture_item_layout">
 
     <LinearLayout
@@ -24,7 +23,7 @@
             <View
                 android:layout_width="25dp"
                 android:layout_height="1dp"
-                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginTop="25dp"
                 android:background="#979494" />
 
@@ -32,14 +31,11 @@
                 android:id="@+id/fragment_picture_item_sign"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:layout_marginTop="18dp"
-                android:text="1111111111"
                 android:textColor="#979494"
                 android:textSize="12dp" />
 
             <View
-
                 android:layout_width="25dp"
                 android:layout_height="1dp"
                 android:layout_marginLeft="10dp"
@@ -54,7 +50,6 @@
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:gravity="center"
-            android:text="标题"
             android:textColor="#000000"
             android:textSize="17dp" />
 
@@ -65,7 +60,6 @@
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:gravity="center"
-            android:text="小标题"
             android:textColor="#979494"
             android:textSize="12dp" />
 
@@ -73,8 +67,7 @@
             android:id="@+id/fragment_picture_item_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="25dp"
-            android:src="@mipmap/mm"/>
+            android:layout_margin="25dp"/>
     </LinearLayout>
 
     <de.hdodenhof.circleimageview.CircleImageView

@@ -79,10 +79,8 @@ public class HotMusicianActivity extends BaseActivity implements RadioGroup.OnCh
                 @Override
                 public void onCompleted(List<Musician> musicien) {
                     if (musicien.size() == 0) {
-                        Log.d("HotMusicianActivity", "未收藏过");
                         collectionIV.setImageResource(R.mipmap.care_white);
                     } else {
-                        Log.d("HotMusicianActivity", "收藏过了");
                         collectionIV.setImageResource(R.mipmap.care_red);
                         titleTv.setText(musicien.get(0).getName());
                         nameTv.setText(musicien.get(0).getName());
@@ -170,7 +168,6 @@ public class HotMusicianActivity extends BaseActivity implements RadioGroup.OnCh
         switch (view.getId()) {
             case R.id.activity_hotmusician_collection:
                 if (bmobUser != null) {
-                    Log.d("HotMusicianActivity", "查询数据库");
                     DBTool.getInstance().queryMusicianBy(musician.getClass(), bmobUser.getUsername(), id, new DBTool.QueryComplete<List<Musician>>() {
                         @Override
                         public void onCompleted(List<Musician> musicien) {
@@ -185,12 +182,10 @@ public class HotMusicianActivity extends BaseActivity implements RadioGroup.OnCh
                                 musician.setMusicianId(id);
                                 musician.setName(bean.getName());
                                 DBTool.getInstance().insertData(musician);
-                                Log.d("HotMusicianActivity", "加入收藏");
 
                             } else {
                                 collectionIV.setImageResource(R.mipmap.care_white);
                                 DBTool.getInstance().deleteData(musicien.get(0));
-                                Log.d("HotMusicianActivity", "删除收藏");
                             }
                         }
 

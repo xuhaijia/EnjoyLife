@@ -159,10 +159,6 @@ public class AriPlanAty extends BaseActivity implements CompoundButton.OnChecked
         double lon = latLng.longitude;
 
 
-        Log.d("AriPlanAty", "lat:" + lat);
-        Log.d("AriPlanAty", "lon:" + lon);
-
-
         AirPlanBus airPlanBus = new AirPlanBus();
 
         airPlanBus.setLan(lat);

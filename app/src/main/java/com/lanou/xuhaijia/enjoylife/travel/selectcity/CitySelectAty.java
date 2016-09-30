@@ -72,12 +72,7 @@ public class CitySelectAty extends BaseActivity {
 
         tvTilte.setText(country);
 
-        Log.d("CitySelectAty", id);
-
-         String urlCity = UrlValues.TRAVEL_CITY_SELECT_HEAD + id + UrlValues.TRAVEL_CITY_FOOD;
-
-        Log.d("CitySelectAty", urlCity);
-
+        String urlCity = UrlValues.TRAVEL_CITY_SELECT_HEAD + id + UrlValues.TRAVEL_CITY_FOOD;
 
         mNetTool.getData(urlCity, CitySelectAtyBean.class, new NetTool.NetInterface<CitySelectAtyBean>() {
             @Override

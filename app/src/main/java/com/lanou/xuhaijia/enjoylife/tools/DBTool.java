@@ -181,7 +181,7 @@ public class DBTool {
         });
         //小青景点的查询
     }
-    
+
     public <T> void queryAttration(final Class obj, final String conditionFir, final String conditionSec, final QueryComplete<T> queryComplete) {
 
 

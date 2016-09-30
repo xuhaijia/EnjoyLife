@@ -148,7 +148,6 @@ public class TravelFragment extends BaseFragment implements View.OnClickListener
 
         dialogLoading.show();
 
-        Log.d("TravelFragment", "我执行了1");
         //数据持久化取数据
         urlId = shared.getString("id", "32556");
 
@@ -356,7 +355,6 @@ public class TravelFragment extends BaseFragment implements View.OnClickListener
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void getData(final TravelEventBus travelEventBus) {
         urlId = travelEventBus.getUrlId();
-        Log.d("TravelFragment", urlId);
 
 
         //通过数据持久化储存id
@@ -366,8 +364,6 @@ public class TravelFragment extends BaseFragment implements View.OnClickListener
 
         urlImager = UrlValues.TRAVEL_IMGER_HEAD + urlId;
 
-        Log.d("TravelFragment", urlImager);
-        Log.d("TravelFragment", "我执行2");
         mNetTool.getData(urlImager, TravelFragmentBean.class, new NetTool.NetInterface<TravelFragmentBean>() {
             @Override
             public void onSuccess(TravelFragmentBean travelFragmentBean) {
@@ -403,8 +399,6 @@ public class TravelFragment extends BaseFragment implements View.OnClickListener
         @Override
         protected Bitmap doInBackground(String... strings) {
             String picUrl = strings[0];
-
-            Log.d("MyAsyncTask", picUrl);
 
             try {
                 URL urlPic = new URL(picUrl);

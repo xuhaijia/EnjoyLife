@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
 
     <com.lanou.xuhaijia.enjoylife.picture.details.DetailsScrollView
@@ -23,9 +23,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="标题"
                 android:textColor="#000000"
-                android:textSize="20dp" />
+                android:textSize="20dp"/>
 
             <TextView
                 android:id="@+id/activity_details_sub_title"
@@ -34,9 +33,8 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="标题"
                 android:textColor="#737272"
-                android:textSize="15dp" />
+                android:textSize="15dp"/>
 
             <ImageView
                 android:id="@+id/activity_details_image_url"
@@ -44,7 +42,7 @@
                 android:layout_height="300dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:src="@mipmap/mm" />
+                />
 
             <RelativeLayout
                 android:layout_width="300dp"
@@ -67,9 +65,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="25dp"
                         android:gravity="center"
-                        android:text="1111111111"
                         android:textColor="#080808"
-                        android:textSize="15dp" />
+                        android:textSize="15dp"/>
 
 
                     <TextView
@@ -78,9 +75,8 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="3dp"
                         android:gravity="center"
-                        android:text="作者"
                         android:textColor="#898585"
-                        android:textSize="12dp" />
+                        android:textSize="12dp"/>
 
                     <TextView
                         android:id="@+id/activity_details_sign"
@@ -89,9 +85,8 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
                         android:gravity="center"
-                        android:text="小标题"
                         android:textColor="#545454"
-                        android:textSize="14dp" />
+                        android:textSize="14dp"/>
 
                 </LinearLayout>
 
@@ -101,9 +96,8 @@
                     android:layout_height="40dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
-                    android:src="@mipmap/mm"
                     app:civ_border_color="#dedede"
-                    app:civ_border_width="2dp" />
+                    app:civ_border_width="2dp"/>
             </RelativeLayout>
 
             <com.lanou.xuhaijia.enjoylife.picture.imagegetter.HtmlTextView
@@ -111,7 +105,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="10dp"/>
 
 
             <View
@@ -119,7 +113,7 @@
                 android:layout_height="1dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:background="#000000" />
+                android:background="#000000"/>
 
             <TextView
                 android:layout_width="300dp"
@@ -128,7 +122,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:text="成为最美作者"
-                android:textColor="#000000" />
+                android:textColor="#000000"/>
 
             <TextView
                 android:layout_width="300dp"
@@ -136,7 +130,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:text="有你自己的独特品牌?"
-                android:textColor="#515050" />
+                android:textColor="#515050"/>
 
             <TextView
                 android:layout_width="300dp"
@@ -144,7 +138,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="1dp"
                 android:text="希望分享给大家,找到品味相投的伙伴?"
-                android:textColor="#515050" />
+                android:textColor="#515050"/>
 
             <TextView
                 android:layout_width="300dp"
@@ -152,7 +146,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="1dp"
                 android:text="这里就是你的发布台?"
-                android:textColor="#515050" />
+                android:textColor="#515050"/>
 
             <Button
                 android:id="@+id/activity_details_btn_apply"
@@ -162,7 +156,7 @@
                 android:layout_marginTop="20dp"
                 android:background="#000000"
                 android:text="申请成为作者"
-                android:textColor="#ffffff" />
+                android:textColor="#ffffff"/>
 
             <Button
                 android:id="@+id/activity_details_btn_enjoy"
@@ -172,7 +166,7 @@
                 android:layout_marginTop="20dp"
                 android:background="#000000"
                 android:text="分享这篇文章"
-                android:textColor="#ffffff" />
+                android:textColor="#ffffff"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -181,7 +175,7 @@
                 android:background="#000000"
                 android:gravity="center"
                 android:text="设计师 and 作品"
-                android:textColor="#ffffff" />
+                android:textColor="#ffffff"/>
 
             <LinearLayout
                 android:layout_width="300dp"
@@ -197,9 +191,8 @@
                     android:layout_height="40dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
-                    android:src="@mipmap/mm"
                     app:civ_border_color="#dedede"
-                    app:civ_border_width="2dp" />
+                    app:civ_border_width="2dp"/>
 
                 <TextView
                     android:id="@+id/activity_details_name_two"
@@ -209,7 +202,7 @@
                     android:gravity="center"
                     android:text="1111111111"
                     android:textColor="#080808"
-                    android:textSize="15dp" />
+                    android:textSize="15dp"/>
 
 
                 <TextView
@@ -222,7 +215,7 @@
                     android:gravity="center"
                     android:text="标题"
                     android:textColor="#898585"
-                    android:textSize="12dp" />
+                    android:textSize="12dp"/>
 
                 <Button
                     android:id="@+id/activity_details_concern"
@@ -234,7 +227,7 @@
                     android:gravity="center"
                     android:text="+ 关注"
                     android:textColor="#ffffff"
-                    android:textSize="14dp" />
+                    android:textSize="14dp"/>
 
                 <TextView
                     android:id="@+id/activity_details_description"
@@ -242,7 +235,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:maxLines="3"
-                    android:text="1111111111111111" />
+                    />
 
                 <Button
                     android:id="@+id/activity_details_btn_expand"
@@ -250,7 +243,7 @@
                     android:layout_height="30dp"
                     android:background="#ffffff"
                     android:text="展开"
-                    android:textColor="#6cec1b" />
+                    android:textColor="#6cec1b"/>
 
                 <Button
                     android:id="@+id/activity_details_btn_recover"
@@ -258,7 +251,7 @@
                     android:layout_height="30dp"
                     android:background="#ffffff"
                     android:text="收回"
-                    android:textColor="#6cec1b" />
+                    android:textColor="#6cec1b"/>
             </LinearLayout>
 
             <android.support.v7.widget.RecyclerView
@@ -281,7 +274,7 @@
                     android:layout_marginTop="10dp"
                     android:background="#ffffff"
                     android:text="查看所有商品"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"/>
 
                 <TextView
                     android:id="@+id/activity_details_pinglun"
@@ -292,7 +285,7 @@
                     android:layout_marginLeft="10dp"
                     android:text="评论"
                     android:textColor="#ffffff"
-                    android:textSize="15dp" />
+                    android:textSize="15dp"/>
 
                 <TextView
                     android:id="@+id/activity_details_number"
@@ -301,15 +294,16 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="10dp"
                     android:layout_toRightOf="@+id/activity_details_pinglun"
-                    android:text="11"
-                    android:textColor="#ffffff" />
+                    android:textColor="#ffffff"/>
             </RelativeLayout>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/activity_details_recycler_view_two"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/activity_details_pinglun"></android.support.v7.widget.RecyclerView>
+                android:layout_below="@+id/activity_details_pinglun">
+
+            </android.support.v7.widget.RecyclerView>
 
             <TextView
                 android:id="@+id/activity_details_look"
@@ -319,32 +313,32 @@
                 android:layout_margin="15dp"
                 android:text="查看全部评论"
                 android:textColor="#000000"
-                android:textSize="18dp" />
+                android:textSize="18dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="#000000" />
+                android:background="#000000"/>
 
         </LinearLayout>
 
     </com.lanou.xuhaijia.enjoylife.picture.details.DetailsScrollView>
 
     <LinearLayout
-        android:background="#ffffff"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
+        android:background="#ffffff"
         android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:clickable="true"
             android:id="@+id/activity_details_photo"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_marginLeft="15dp"
-            android:src="@mipmap/mm" />
+            android:clickable="true"
+            />
 
         <EditText
             android:id="@+id/activity_details_say"
@@ -354,28 +348,26 @@
             android:layout_marginLeft="15dp"
             android:background="#e4e3e3"
             android:hint="说点什么吧"
-            android:textSize="13dp" />
+            android:textSize="13dp"/>
 
 
         <ImageView
             android:id="@+id/activity_details_like"
-            android:clickable="true"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_marginLeft="15dp"
+            android:clickable="true"
             android:src="@mipmap/xin"/>
 
-
-
         <ImageView
-            android:clickable="true"
             android:id="@+id/activity_details_more"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_marginLeft="15dp"
-            android:src="@mipmap/diandian" />
+            android:clickable="true"
+            android:src="@mipmap/diandian"/>
 
     </LinearLayout>
 
@@ -391,7 +383,7 @@
             android:layout_height="40dp"
             android:layout_margin="15dp"
             android:alpha="0.6"
-            android:src="@mipmap/unknown" />
+            android:src="@mipmap/unknown"/>
 
         <ImageView
             android:id="@+id/activity_details_ellipse"
@@ -400,7 +392,7 @@
             android:layout_alignParentRight="true"
             android:layout_margin="15dp"
             android:alpha="0.5"
-            android:src="@drawable/shape_ellipse" />
+            android:src="@drawable/shape_ellipse"/>
 
         <TextView
             android:id="@+id/activity_details_name"
@@ -409,9 +401,8 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="55dp"
             android:layout_marginTop="20dp"
-            android:text="12333333"
             android:textColor="#ffffff"
-            android:textSize="10dp" />
+            android:textSize="10dp"/>
 
         <TextView
             android:id="@+id/activity_details_city"
@@ -420,9 +411,8 @@
             android:layout_alignParentRight="true"
             android:layout_below="@id/activity_details_name"
             android:layout_marginRight="55dp"
-            android:text="纽约"
             android:textColor="#ffffff"
-            android:textSize="10dp" />
+            android:textSize="10dp"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/activity_details_name_url"
@@ -431,7 +421,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="19dp"
             android:layout_marginTop="20dp"
-            android:src="@mipmap/mm" />
+            android:src="@mipmap/mm"/>
 
     </RelativeLayout>
 

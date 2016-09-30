@@ -78,11 +78,8 @@ public class FoodListAty extends BaseActivity {
         Intent intent = getIntent();
 
         String urlId = intent.getStringExtra("urlId");
-        Log.d("ffffffffffff", urlId);
 
         String urlFoodList = UrlValues.TRAVEL_RESTAURAANT_HEAD + urlId;
-        Log.d("FoodListAty", urlFoodList);
-
 
         mNetTool.getData(urlFoodList, FoodListAtyBean.class, new NetTool.NetInterface<FoodListAtyBean>() {
             @Override
