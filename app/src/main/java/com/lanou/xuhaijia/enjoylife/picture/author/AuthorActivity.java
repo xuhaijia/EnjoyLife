@@ -62,6 +62,7 @@ public class AuthorActivity extends BaseActivity {
         mNetTool.getData(url, AuthorBean.class, new NetTool.NetInterface<AuthorBean>() {
             @Override
             public void onSuccess(AuthorBean authorBean) {
+
                 carouselView.setPicUrls(authorBean.getData().getIntroduce_images());
                 carouselView.start(authorBean.getData().getIntroduce_images());
             }
