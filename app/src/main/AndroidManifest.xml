@@ -76,6 +76,7 @@
         <activity android:name=".travel.selectcity.CountrySelectAty" />
         <activity android:name=".travel.attractions.AttractionsAty" />
 
+
         <!--小青的地图-->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"

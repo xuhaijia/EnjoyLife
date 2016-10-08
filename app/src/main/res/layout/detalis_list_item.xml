@@ -33,7 +33,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:textColor="#000000"
-                    android:textSize="18dp"/>
+                    android:textSize="15dp"/>
 
                 <TextView
                     android:id="@+id/details_list_item_create"
@@ -43,7 +43,7 @@
                     android:layout_marginTop="10dp"
                     android:gravity="right"
                     android:textColor="#737171"
-                    android:textSize="18dp"
+                    android:textSize="13dp"
                     />
             </LinearLayout>
 
@@ -54,7 +54,7 @@
                 android:layout_marginTop="3dp"
                 android:text=""
                 android:textColor="#737171"
-                android:textSize="15dp"/>
+                android:textSize="13dp"/>
 
             <TextView
                 android:id="@+id/details_list_item_content"
@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:textColor="#050505"
-                android:textSize="18dp"/>
+                android:textSize="13dp"/>
         </LinearLayout>
 
     </LinearLayout>
