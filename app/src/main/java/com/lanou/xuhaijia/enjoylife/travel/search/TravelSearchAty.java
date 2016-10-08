@@ -132,6 +132,8 @@ public class TravelSearchAty extends BaseActivity implements View.OnClickListene
                                             TravelEventBus travelEventBus = new TravelEventBus();
                                             travelEventBus.setUrlId(id);
 
+                                            Log.d("TravelSearchAty79979", id);
+
                                             EventBus.getDefault().post(travelEventBus);
                                             finish();
 

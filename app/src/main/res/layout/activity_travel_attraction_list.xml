@@ -22,15 +22,14 @@
                     android:id="@+id/activity_travel_attraction_list_imager"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@android:color/holo_blue_bright"
                     android:scaleType="fitXY" />
 
                 <ImageView
                     android:id="@+id/activity_travel_attraction_collect_imager"
                     android:layout_alignParentRight="true"
                     android:layout_margin="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@mipmap/travel_collection_attraction_after" />
 
             </RelativeLayout>
@@ -41,8 +40,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                android:text="香港海洋公园"
-
                 android:textColor="@android:color/black"
                 android:textSize="20sp" />
 
@@ -52,8 +49,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                android:text="HongKong"
-
                 android:textColor="@android:color/black"
                 android:textSize="17sp" />
 
@@ -64,7 +59,6 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:text="简介"
-
                 android:textColor="@android:color/black"
                 android:textSize="20sp" />
 
@@ -74,7 +68,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_marginTop="10dp"
-                android:text="简介内容"
                 android:textColor="@android:color/black"
                 android:textSize="15sp" />
 
@@ -90,8 +83,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:text="香港港岛南区黄竹坑"
-
                 android:textColor="@android:color/black" />
 
 
@@ -107,8 +98,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:text="22路车"
-
                 android:textColor="@android:color/black" />
 
             <TextView
@@ -123,8 +112,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:text="城市..."
-
                 android:textColor="@android:color/black" />
 
             <TextView
@@ -139,8 +126,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:text="12346"
-
                 android:textColor="@android:color/black" />
 
             <TextView
@@ -155,8 +140,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:text="2013年1月5日"
-
                 android:textColor="@android:color/black" />
 
             <TextView
@@ -171,8 +154,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:text="建议5-7小时"
-
                 android:textColor="@android:color/black" />
         </LinearLayout>
 

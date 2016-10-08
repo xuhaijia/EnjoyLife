@@ -134,8 +134,6 @@ public class TravelFragment extends BaseFragment implements View.OnClickListener
         inAnimation.setFillAfter(true);
 
 
-
-
         CoolAnimView coolAnimView = new CoolAnimView(mContext);
         RelativeLayout layout = new RelativeLayout(mContext);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -156,14 +154,12 @@ public class TravelFragment extends BaseFragment implements View.OnClickListener
 
         } else {
             urlImager = UrlValues.TRAVEL_IMGER_HEAD + urlId;
+            Log.d("TravelFragment", urlImager);
         }
 
         mNetTool.getData(urlImager, TravelFragmentBean.class, new NetTool.NetInterface<TravelFragmentBean>() {
             @Override
             public void onSuccess(TravelFragmentBean travelFragmentBean) {
-
-
-
 
 
                 if (travelFragmentBean != null) {
@@ -176,11 +172,8 @@ public class TravelFragment extends BaseFragment implements View.OnClickListener
 
 
 //                Glide.with(mContext).load(travelFragmentBean.getPlace().getCover()).into(ivBackGround);
-
                 MyAsyncTask myAsyncTask = new MyAsyncTask();
                 myAsyncTask.execute(travelFragmentBean.getPlace().getCover());
-
-
                 tvCH.setText(travelFragmentBean.getPlace().getName_cn());
                 tvEnglish.setText(travelFragmentBean.getPlace().getName());
 
@@ -368,10 +361,17 @@ public class TravelFragment extends BaseFragment implements View.OnClickListener
             @Override
             public void onSuccess(TravelFragmentBean travelFragmentBean) {
                 //   Glide.with(mContext).load(travelFragmentBean.getPlace().getCover()).into(ivBackGround);
-                MyAsyncTask myAsyncTask = new MyAsyncTask();
-                myAsyncTask.execute(travelFragmentBean.getPlace().getCover());
-                tvCH.setText(travelFragmentBean.getPlace().getName_cn());
-                tvEnglish.setText(travelFragmentBean.getPlace().getName());
+                if (travelFragmentBean.getPlace().getCover().equals("")) {
+
+                    return;
+
+                } else {
+                    MyAsyncTask myAsyncTask = new MyAsyncTask();
+                    myAsyncTask.execute(travelFragmentBean.getPlace().getCover());
+
+                    tvCH.setText(travelFragmentBean.getPlace().getName_cn());
+                    tvEnglish.setText(travelFragmentBean.getPlace().getName());
+                }
 
 
                 lltCityName.startAnimation(outAnimation);
@@ -423,7 +423,7 @@ public class TravelFragment extends BaseFragment implements View.OnClickListener
                 }
             }
 
-            Bitmap bitmapOut = Blur.apply(mContext, bitmap, 8);
+            Bitmap bitmapOut = Blur.apply(mContext, bitmap, 3);
             return bitmapOut;
         }
 

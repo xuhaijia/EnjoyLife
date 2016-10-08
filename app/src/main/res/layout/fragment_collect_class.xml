@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<TextView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/travel_collect_fragmentt_linelayout"
+    android:orientation="vertical">
+
+
+
+<com.lanou.xuhaijia.enjoylife.myself.pullrefreshxiaoqing.SwipeRefreshLayout
+    android:id="@+id/travel_collect_fragment_swipe"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="经典"/>
+    android:layout_height="wrap_content">
+
+    <ListView
+        android:id="@+id/travel_collect_fragmentt_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+</com.lanou.xuhaijia.enjoylife.myself.pullrefreshxiaoqing.SwipeRefreshLayout>
+
+
+
+
+
 </LinearLayout>
