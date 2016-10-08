@@ -15,6 +15,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/line"
         android:orientation="vertical">
 
@@ -68,4 +69,5 @@
                 android:text="拍照" />
         </LinearLayout>
     </LinearLayout>
+
 </LinearLayout>

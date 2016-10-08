@@ -1,4 +1,4 @@
-package com.lanou.xuhaijia.enjoylife.news.beautyarticle;
+package com.lanou.xuhaijia.enjoylife.news.delicecyfood;
 
 import java.util.List;
 

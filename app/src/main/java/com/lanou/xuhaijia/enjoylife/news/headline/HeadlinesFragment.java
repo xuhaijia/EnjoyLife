@@ -55,7 +55,6 @@ public class HeadlinesFragment extends BaseFragment {
         AnimationDrawable animationDrawable = (AnimationDrawable) imageView.getBackground();
         animationDrawable.start();
         progressDialog.setContentView(view);
-        myHeadView();
         initReli();
         Load();
     }
@@ -76,7 +75,6 @@ public class HeadlinesFragment extends BaseFragment {
         mySwipeRefreshLayout.setOnLoadListener(new MySwipeRefreshLayout.OnLoadListener() {
             @Override
             public void onLoad() {
-                mListView.removeHeaderView(headView);
                 mySize++;
                 mNetTool.getData(UrlValues.NEWS_HEADLINE2 + (mySize * 20) + UrlValues.NEWS_HEADLINE_FRONT, HeanLineBean.class, new NetTool.NetInterface<HeanLineBean>() {
                     @Override
@@ -95,6 +93,7 @@ public class HeadlinesFragment extends BaseFragment {
                                 viewHolder.setText(R.id.item_news_headline_replycont, t1348647909107Bean.getReplyCount() + "人跟帖");
                             }
                         };
+                        Toast.makeText(mContext, "加载成功", Toast.LENGTH_SHORT).show();
                         mListView.setAdapter(commonAdapter);
                         //item 点击事件
                         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -142,28 +141,7 @@ public class HeadlinesFragment extends BaseFragment {
         }
     }
 
-    //头饰图
-    private void myHeadView() {
-        mNetTool.getData(UrlValues.NEWS_HEADLINE, HeanLineBean.class, new NetTool.NetInterface<HeanLineBean>() {
-            @Override
-            public void onSuccess(HeanLineBean heanLineBean) {
-                headView = LayoutInflater.from(getContext()).inflate(R.layout.news_headview, null);
-                ImageView mImageView = (ImageView) headView.findViewById(R.id.news_headview_img);
-                TextView mTextView = (TextView) headView.findViewById(R.id.news_headview_tv);
-                if (heanLineBean != null) {
-                    mTextView.setText(heanLineBean.getT1348647909107().get(0).getTitle());
-                    Glide.with(getContext()).load(heanLineBean.getT1348647909107().get(0).getImgsrc()).into(mImageView);
-                    mListView.addHeaderView(headView);
-                }
-            }
 
-            @Override
-            public void onError(String errorMsg) {
-
-            }
-        });
-
-    }
 
     @Override
     protected void initData() {
@@ -174,7 +152,7 @@ public class HeadlinesFragment extends BaseFragment {
                 dismissDialog();
                 mySwipeRefreshLayout.setRefreshing(false);
                 final ArrayList<HeanLineBean.T1348647909107Bean> arrayList = new ArrayList<HeanLineBean.T1348647909107Bean>();
-                for (int i = 1; i < heanLineBean.getT1348647909107().size(); i++) {
+                for (int i = 0; i < heanLineBean.getT1348647909107().size(); i++) {
                     arrayList.add(heanLineBean.getT1348647909107().get(i));
                 }
                 commonAdapter = new CommonAdapter<HeanLineBean.T1348647909107Bean>(arrayList, mContext, R.layout.item_news_headline) {
@@ -188,8 +166,6 @@ public class HeadlinesFragment extends BaseFragment {
                     }
                 };
                 mListView.setAdapter(commonAdapter);
-
-
                 //item 点击事件
                 mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override

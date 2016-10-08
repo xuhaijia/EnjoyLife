@@ -23,9 +23,8 @@ public class NewsMainAdapter extends FragmentPagerAdapter {
         arraylist.add("精选");
         arraylist.add("体育");
         arraylist.add("娱乐");
-        arraylist.add("休息区...");
+        arraylist.add("美食");
     }
-
     @Override
     public int getCount() {
         return freagments == null ? 0 : freagments.size();
