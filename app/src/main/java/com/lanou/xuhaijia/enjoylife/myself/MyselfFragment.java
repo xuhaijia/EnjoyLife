@@ -1,11 +1,9 @@
 package com.lanou.xuhaijia.enjoylife.myself;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -15,20 +13,18 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lanou.xuhaijia.enjoylife.R;
 import com.lanou.xuhaijia.enjoylife.base.BaseFragment;
+import com.lanou.xuhaijia.enjoylife.base.NetTool;
+import com.lanou.xuhaijia.enjoylife.myself.mugglereply.MuggleReplyAty;
 import com.lanou.xuhaijia.enjoylife.tools.Blur;
 
 import java.io.File;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
 
 import cn.bmob.v3.BmobUser;
-import cn.bmob.v3.datatype.BatchResult;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UpdateListener;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -48,8 +44,11 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
     private MyBmobUser myBmobUser;
     private TextView login;
     private CircleImageView photoLogin;
+    private String url = "http://open.iciba.com/dsapi/";
     private View succeedView;
     private View failedView;
+    private LinearLayout muggleReply;
+    private TextView dayEnglish;
 
     @Override
     protected int setLayout() {
@@ -62,6 +61,9 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
         set.setOnClickListener(this);
         frameLayout = bindView(R.id.fragment_replace_id);
         myCollect = bindView(R.id.fragment_myself_collect);
+        muggleReply = bindView(R.id.fragment_myself_reply);
+        dayEnglish = bindView(R.id.fragment_myself_dayenglish);
+        muggleReply.setOnClickListener(this);
         myCollect.setOnClickListener(this);
         succeedView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_succeed,null);
         failedView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_failed_no,null);
@@ -87,9 +89,11 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
             userName.setText(bmobUser.getUsername());
             if (myBmobUser.getIcon() == null){
                 myPhoto.setImageResource(R.mipmap.ic_myself_userphoto);
+                background.setVisibility(View.GONE);
             }else {
                 myPhoto.setImageBitmap(myBmobUser.getIcon());
-                Bitmap blurBitmap = Blur.apply(mContext,myBmobUser.getIcon(),7);
+                Bitmap blurBitmap = Blur.apply(mContext,myBmobUser.getIcon(),3);
+                background.setVisibility(View.VISIBLE);
                 background.setImageBitmap(blurBitmap);
             }
         }else {
@@ -101,6 +105,22 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
 
     @Override
     protected void initData() {
+        mNetTool.getData(url, DayEnglishBean.class, new NetTool.NetInterface<DayEnglishBean>() {
+            @Override
+            public void onSuccess(DayEnglishBean dayEnglishBean) {
+                dayEnglish.setText(dayEnglishBean.getContent() + "\n \n " + dayEnglishBean.getNote());
+            }
+
+            @Override
+            public void onError(String errorMsg) {
+
+            }
+        });
+
+
+
+
+
 
     }
 
@@ -115,8 +135,13 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
                 startActivity(loginIntent);
                 break;
             case R.id.fragment_myself_collect:
-                Intent intent = new Intent(getContext(),MyCollectActivity.class);
-                startActivity(intent);
+                if (myBmobUser != null) {
+                    Intent intent = new Intent(getContext(), MyCollectActivity.class);
+                    startActivity(intent);
+                } else {
+                    Intent intentLogin = new Intent(getContext() , LoginActivity.class);
+                    startActivity(intentLogin);
+                }
                 break;
             case R.id.fragment_myself_outlogin:
                 showOutDailog();
@@ -125,8 +150,18 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
                 Intent intentUser = new Intent(getContext(),UserSendActivty.class);
                 startActivity(intentUser);
                 break;
+            case R.id.fragment_myself_reply:
+                if(myBmobUser != null) {
+                    Intent replyIntent = new Intent(getContext(), MuggleReplyAty.class);
+                    startActivity(replyIntent);
+                } else {
+                    Intent intentLogin = new Intent(getContext() , LoginActivity.class);
+                    startActivity(intentLogin);
+                }
+                break;
         }
     }
+
 
     private void showSetUserPhoto() {
         AlertDialog.Builder builder =  new AlertDialog.Builder(getContext());
@@ -164,6 +199,9 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        try {
+
+
         switch (requestCode){
             case 1:
                 cropPhoto(data.getData());
@@ -185,7 +223,8 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
                             if (e == null){
                                 Toast.makeText(mContext, "头像上传成功", Toast.LENGTH_SHORT).show();
                                 myPhoto.setImageBitmap(bitmap);
-                                Bitmap blurBitmap = Blur.apply(mContext, bitmap ,5);
+                                Bitmap blurBitmap = Blur.apply(mContext, bitmap ,3);
+                                background.setVisibility(View.VISIBLE);
                                 background.setImageBitmap(blurBitmap);
                             }else {
                                 Log.d("MyselfFragment", e.getMessage());
@@ -197,6 +236,9 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
                 break;
         }
         super.onActivityResult(requestCode, resultCode, data);
+        } catch (NullPointerException n) {
+
+        }
     }
 
     public void cropPhoto(Uri uri) {

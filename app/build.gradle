@@ -55,10 +55,7 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.2.0'
-//    compile 'com.squareup.okhttp3:okhttp:3.4.1'
-//    compile 'com.google.code.gson:gson:2.7'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-//    compile 'jp.wasabeef:glide-transformations:2.0.0'  //Glide图形显示 _ 国冰冰
     compile 'com.redbooth:SlidingDeck:1.0.0'
     compile project(':libs')
     compile 'com.android.support:design:24.2.0'
@@ -71,10 +68,6 @@ dependencies {
     compile files('libs/okhttp-3.3.1.jar')
     compile files('libs/okio-1.7.0.jar')
     compile files('libs/rxandroid-1.2.0.jar')
-//    compile files('libs/rxjava-1.1.6.jar')
-
-//RX JAVA 小青
-//    compile 'io.reactivex:rxandroid:1.2.1'
     compile 'io.reactivex:rxjava:1.1.8'
 
 

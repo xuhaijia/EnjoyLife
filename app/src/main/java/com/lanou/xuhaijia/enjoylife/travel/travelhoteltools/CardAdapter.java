@@ -52,6 +52,7 @@ public class CardAdapter extends BaseAdapter {
         if (convertView == null) {
             LayoutInflater inflater = LayoutInflater.from(mContext);
 
+
             convertView = inflater.inflate(R.layout.item, parent, false);
             holder = new ViewHolder();
             holder.mCardImageView = (ImageView) convertView.findViewById(R.id.helloText);

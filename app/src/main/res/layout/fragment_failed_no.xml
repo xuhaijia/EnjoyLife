@@ -7,8 +7,7 @@
     <RelativeLayout
         android:id="@+id/fragment_suddeed_background"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="#e9f1f6"
+        android:layout_height="250dp"
         android:orientation="vertical">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -16,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="70dp"
             android:src="@mipmap/ic_myself_loginphoto" />
 
         <LinearLayout
@@ -26,13 +25,13 @@
             android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/line">
+           >
             <TextView
                 android:id="@+id/fragment_login_denglu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
-                android:textColor="#1f79e6"
+                android:textColor="#1f2ce6"
                 android:text="立即登录"/>
         </LinearLayout>
         <TextView

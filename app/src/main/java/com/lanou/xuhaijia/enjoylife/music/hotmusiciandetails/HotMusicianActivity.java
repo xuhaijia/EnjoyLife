@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.lanou.xuhaijia.enjoylife.R;
@@ -22,7 +23,12 @@ import com.lanou.xuhaijia.enjoylife.tools.DBTool;
 import java.io.File;
 import java.util.List;
 
+import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.SaveListener;
+import cn.bmob.v3.listener.UpdateListener;
 
 /**
  * Created by 徐海佳 on 16/9/17.
@@ -72,6 +78,13 @@ public class HotMusicianActivity extends BaseActivity implements RadioGroup.OnCh
 
     @Override
     protected void initData() {
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         bmobUser = BmobUser.getCurrentUser();
         musician = new Musician();
         if (bmobUser != null) {
@@ -96,8 +109,6 @@ public class HotMusicianActivity extends BaseActivity implements RadioGroup.OnCh
         } else {
             getNetData();
         }
-
-
     }
 
     private void getNetData() {
@@ -171,7 +182,7 @@ public class HotMusicianActivity extends BaseActivity implements RadioGroup.OnCh
                     DBTool.getInstance().queryMusicianBy(musician.getClass(), bmobUser.getUsername(), id, new DBTool.QueryComplete<List<Musician>>() {
                         @Override
                         public void onCompleted(List<Musician> musicien) {
-                            Musician musician = new Musician();
+                           musician =   new Musician();
                             if (musicien.size() == 0) {
                                 collectionIV.setImageResource(R.mipmap.care_red);
                                 musician.setCareCount(bean.getFollower() + "");
@@ -181,11 +192,46 @@ public class HotMusicianActivity extends BaseActivity implements RadioGroup.OnCh
                                 musician.setUserName(bmobUser.getUsername());
                                 musician.setMusicianId(id);
                                 musician.setName(bean.getName());
+                                musician.setTime(System.currentTimeMillis());
                                 DBTool.getInstance().insertData(musician);
-
+                                musician.save(new SaveListener<String>() {
+                                    @Override
+                                    public void done(String s, BmobException e) {
+                                        if (e == null) {
+                                            Toast.makeText(HotMusicianActivity.this, "存入云端成功", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            Toast.makeText(HotMusicianActivity.this, "存入云端失败请检查网络", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
                             } else {
                                 collectionIV.setImageResource(R.mipmap.care_white);
                                 DBTool.getInstance().deleteData(musicien.get(0));
+                                BmobQuery<Musician> query = new BmobQuery<Musician>();
+                                query.addWhereEqualTo("userName" , bmobUser.getUsername());
+                                query.setLimit(50);
+                                query.findObjects(new FindListener<Musician>() {
+                                    @Override
+                                    public void done(List<Musician> list, BmobException e) {
+                                        if (e == null) {
+                                            for (int i = 0; i < list.size() ; i++) {
+                                                if (list.get(i).getMusicianId().equals(id)) {
+                                                    Musician mMusician = new Musician();
+                                                    mMusician.setObjectId(list.get(i).getObjectId());
+                                                    mMusician.delete(new UpdateListener() {
+                                                        @Override
+                                                        public void done(BmobException e) {
+                                                            if (e == null) {
+                                                                Log.d("HotMusicianActivity", "删除云端成功");
+                                                            }
+
+                                                        }
+                                                    });
+                                                }
+                                            }
+                                        }
+                                    }
+                                });
                             }
                         }
 

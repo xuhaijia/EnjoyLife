@@ -9,7 +9,6 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
-
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- 这个权限用于访问GPS定位-->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -40,9 +39,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
 
-                <category android:name="android.intent.category.BROWSABLE"/>
-
-                <data android:pathPrefix="/7" android:host="www.enjoylife.com" android:scheme="http"/>
             </intent-filter>
         </activity>
         <activity android:name=".music.hotmusiciandetails.HotMusicianActivity" />
@@ -50,12 +46,9 @@
         <activity android:name=".music.photoin.PhotoInActivity" />
         <activity android:name=".welfare.WelfareActivity" />
         <activity android:name=".music.photoin.BigPicActivity" />
-
         <service android:name=".music.playnotify.PlayService" />
-
-
-        <service android:name=".music.playnotify.PlayService" />
-
+        <activity android:name=".myself.mugglereply.MuggleReplyAty"/>
+        <activity android:name=".myself.mugglereply.WebViewAty"/>
 
         <!--国冰冰 -->
         <activity android:name=".news.headline.HeadLinesContentActivity" />
@@ -90,7 +83,6 @@
             android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote" />
-
     </application>
 
 </manifest>

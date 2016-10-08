@@ -8,22 +8,22 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         android:orientation="vertical">
 
         <ImageView
             android:scaleType="fitXY"
             android:id="@+id/fragment_suddeed_background"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="match_parent"
             />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/fragment_myself_myphoto_1"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
             android:src="@mipmap/ic_myself_loginphoto" />
 
         <TextView

@@ -47,19 +47,11 @@ public class HotSingleFragment extends BaseFragment {
     private MyListView hotSingleLv;
     private Dialog mLoginingDlg;
     private ImageView play;
-    private PlayEvent playEvent;
-    private String sec;
-    private PopupWindow window;
     private boolean isShow = false;
     private HotSingleBean beanForService;
     private int posForService;
     private boolean isRestart = false;
-    private ImageView playOrStopIv;
-    private ImageView nextIv;
-    private ImageView iconIv;
-    private TextView songsNameTv;
-    private String time;
-    private long timeL;
+
 
     @Override
     protected int setLayout() {
@@ -180,13 +172,6 @@ public class HotSingleFragment extends BaseFragment {
             mLoginingDlg.dismiss();
     }
 
-    private long stringToLong(String time) {
-        long minute = Long.parseLong(time.substring(0, 1));
-        long a = minute * 60 * 1000;
-        long second = Long.parseLong(time.substring(2, time.length()));
-        long b = second * 1000;
-        return a + b;
-    }
 
     /**
      * 判断某个服务是否正在运行的方法

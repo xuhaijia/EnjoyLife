@@ -47,13 +47,11 @@ public class UserSendActivty extends BaseActivity implements View.OnClickListene
         loginYes = LayoutInflater.from(this).inflate(R.layout.fragment_login_yes, null);
         loginNo = LayoutInflater.from(this).inflate(R.layout.fragment_login_no, null);
         imageView = (CircleImageView) loginYes.findViewById(R.id.activity_user_photo);
-        backgroud = (ImageView) loginYes.findViewById(R.id.backgroud_yes);
-        back = (ImageView) loginYes.findViewById(R.id.fragment_login_yes_back);
         sendUserName = (TextView) loginYes.findViewById(R.id.activity_user_name);
         linearLayout = (LinearLayout) loginYes.findViewById(R.id.fragment_myself_outlogin);
         InternetImg = (ImageView) loginNo.findViewById(R.id.fragment_login_on_img);
         linearLayout.setOnClickListener(this);
-        back.setOnClickListener(this);
+
     }
 
     @Override
@@ -85,9 +83,6 @@ public class UserSendActivty extends BaseActivity implements View.OnClickListene
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.fragment_login_yes_back:
-                finish();
-                break;
             case R.id.fragment_myself_outlogin:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("是否退出当前账号?  无法享受用户福利哦!")
