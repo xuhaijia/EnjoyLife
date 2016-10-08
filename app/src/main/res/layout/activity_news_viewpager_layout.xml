@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--
+    anr  程序无响应
+    message 消息的封装
+    messageQueue 消息队列
+    hander 消息的传递者和实现者
+    looper 消息发动机制
+    AMS (activitymessageservice)
+    threadlocal 不是一个线程,是一个线程内部的数据存储类,通过它可以在指定的线程中存储数据
+    -->
+  <android.support.v4.view.ViewPager
+      android:id="@+id/fragment_news_delicecyfood_viewpager"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+    <RelativeLayout
+        android:id="@+id/nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp150"
+         >
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/dp120"
+            android:layout_height="@dimen/dp120"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp40"
+            android:background="@drawable/bg_circle"
+            android:src="@mipmap/btn_icon_back" />
+
+        <ImageView
+            android:id="@+id/iv_share"
+            android:layout_width="@dimen/dp120"
+            android:layout_height="@dimen/dp120"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp40"
+            android:background="@drawable/bg_circle"
+            android:scaleType="centerInside"
+            />
+
+    </RelativeLayout>
+</RelativeLayout>

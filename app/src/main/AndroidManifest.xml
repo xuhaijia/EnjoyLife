@@ -40,9 +40,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
 
-                <category android:name="android.intent.category.BROWSABLE"/>
-
-                <data android:pathPrefix="/7" android:host="www.enjoylife.com" android:scheme="http"/>
             </intent-filter>
         </activity>
         <activity android:name=".music.hotmusiciandetails.HotMusicianActivity" />
@@ -63,6 +60,7 @@
         <activity android:name=".myself.LoginActivity"/><!--登录-->
         <activity android:name=".myself.RegisterActivity"/>
         <activity android:name=".myself.UserSendActivty"/>
+        <activity android:name=".news.delicecyfood.DeliciousFoodActivity"/>
 
 
         <!--小青的Activity-->
