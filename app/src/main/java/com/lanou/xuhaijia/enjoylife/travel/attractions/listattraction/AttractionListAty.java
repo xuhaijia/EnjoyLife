@@ -69,6 +69,9 @@ public class AttractionListAty extends BaseActivity {
     @Override
     protected int setLayout() {
         return R.layout.activity_travel_attraction_list;
+
+
+
     }
 
     @Override
@@ -98,7 +101,19 @@ public class AttractionListAty extends BaseActivity {
 
         Intent intentList = getIntent();
         String id = intentList.getStringExtra("urlId");
-        urlAttractItem = UrlValues.TRAVEL_ITEM_ATTRACTION + id;
+        String urlAtt = intentList.getStringExtra("urlAtt");
+
+
+        if (id == null) {
+
+            urlAttractItem = urlAtt;
+
+
+        } else {
+            urlAttractItem = UrlValues.TRAVEL_ITEM_ATTRACTION + id;
+
+        }
+
 
         mNetTool.getData(urlAttractItem, AttractionListAtyBean.class, new NetTool.NetInterface<AttractionListAtyBean>() {
             @Override
@@ -130,6 +145,7 @@ public class AttractionListAty extends BaseActivity {
                             if (coll.size() == 0) {
                                 ivCollect.setImageResource(R.mipmap.travel_collection_attraction_after);
 
+
                             } else {
 
 
@@ -140,10 +156,15 @@ public class AttractionListAty extends BaseActivity {
 
                         }
                     });
+                }
 
-                    ivCollect.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
+
+                ivCollect.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+
+                        if (bmobUser != null) {
 
 
                             collectionAttractBean = new CollectionAttractBean();
@@ -162,6 +183,7 @@ public class AttractionListAty extends BaseActivity {
 
                                         ivCollect.setImageResource(R.mipmap.travel_collection_attraction_first);
 
+
                                     } else {
                                         DBTool.getInstance().deleteData(collection.get(0));
                                         ivCollect.setImageResource(R.mipmap.travel_collection_attraction_after);
@@ -170,26 +192,28 @@ public class AttractionListAty extends BaseActivity {
                                     }
                                 }
                             });
+                        } else {
+                            Intent intent = new Intent(AttractionListAty.this, LoginActivity.class);
+                            startActivityForResult(intent, 11);
+
+
                         }
-
-
-                    });
-
-
-                } else {
-                    Intent intent = new Intent(AttractionListAty.this, LoginActivity.class);
-                    startActivityForResult(intent, 11);
-
-                }
+                    }
+                });
 
 
             }
+
 
             @Override
             public void onError(String errorMsg) {
 
+
             }
+
+
         });
+
 
     }
 
@@ -201,5 +225,6 @@ public class AttractionListAty extends BaseActivity {
 
         }
     }
-}
 
+
+}

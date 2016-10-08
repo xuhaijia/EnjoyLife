@@ -40,9 +40,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
 
-                <category android:name="android.intent.category.BROWSABLE"/>
 
-                <data android:pathPrefix="/7" android:host="www.enjoylife.com" android:scheme="http"/>
             </intent-filter>
         </activity>
         <activity android:name=".music.hotmusiciandetails.HotMusicianActivity" />
