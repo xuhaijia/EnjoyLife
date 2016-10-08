@@ -1,8 +1,11 @@
 package com.lanou.xuhaijia.enjoylife.picture.details;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
 import android.os.Message;
@@ -13,6 +16,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.style.ImageSpan;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -39,6 +43,7 @@ import com.lanou.xuhaijia.enjoylife.picture.imagegetter.HtmlTextView;
 import com.lanou.xuhaijia.enjoylife.tools.CommonViewHolder;
 import com.lanou.xuhaijia.enjoylife.tools.DBTool;
 import com.lanou.xuhaijia.enjoylife.tools.RecycleViewAdapter;
+import com.mingle.widget.LoadingView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -123,6 +128,9 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
     private String titleSub;
     private String userName;
     private PictureCollectBean pictureCollectBean;
+    private PopupWindow popupWindow;
+
+
 
     @Override
     protected int setLayout() {
@@ -171,6 +179,7 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
 
         scrollView = bindView(R.id.details_scroll_view);
         reLayout = bindView(R.id.details_relative_scroll);
+
 
 
     }
@@ -336,7 +345,8 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
                 GridLayoutManager layoutManager = new GridLayoutManager(MyApp.getContext(), 2);
                 recyclerView.setLayoutManager(layoutManager);
 
-                recyclerView.setAdapter(new RecycleViewAdapter<DetailsBean.DataBean.ReferProductsBean>(detailsBean.getData().getRefer_products(), DetailsActivity.this, R.layout.details_receyler_item) {
+                recyclerView.setAdapter(new RecycleViewAdapter<DetailsBean.DataBean.ReferProductsBean>(detailsBean.getData().getRefer_products(),
+                        DetailsActivity.this, R.layout.details_receyler_item) {
                     @Override
                     public void setData(DetailsBean.DataBean.ReferProductsBean referProductsBean, CommonViewHolder viewHolder) {
                         viewHolder.setImage(R.id.details_receyler_iv, referProductsBean.getCover_images().get(0), DetailsActivity.this);
@@ -373,17 +383,10 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
                         }
                     }
                 }
-                setPopupWindow(strings, position);
             }
         }
     };
 
-    //    public void onWindowFocusChanged(boolean hasFocus){
-//        super.onWindowFocusChanged(hasFocus);
-//        if (hasFocus){
-//            searchLayoutTop = reLayout.getBottom();
-//        }
-//    }
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -466,7 +469,7 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
 
     public void setPopupWindow(final ArrayList<String> strings, final int position) {
         View view = LayoutInflater.from(DetailsActivity.this).inflate(R.layout.activity_detalis_popup, null);
-        PopupWindow popupWindow = new PopupWindow(view, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        popupWindow = new PopupWindow(view, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
         popupWindow.setContentView(view);
         pager = (ViewPager) view.findViewById(R.id.details_popup);
         recyclerViewPop = (RecyclerView) view.findViewById(R.id.details_recycler);
@@ -503,6 +506,23 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
         pager.setCurrentItem(position, false);
         View rootView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.activity_detalis, null);
         popupWindow.showAtLocation(rootView, Gravity.BOTTOM, 0, 0);
+//        popupWindow.dismiss();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK){
+
+            if (popupWindow != null && popupWindow.isShowing()){
+
+                popupWindow.dismiss();
+                return true;
+            } else {
+
+                return super.onKeyDown(keyCode, event);
+            }
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -516,6 +536,8 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
         EventBus.getDefault().unregister(this);
         super.onDestroy();
     }
+
+
 }
 
 //ArrayList是一个数组的形式存储的时间复杂度O(1) 而LinkedList是以链表的形式存储的 时间复杂度O(n)

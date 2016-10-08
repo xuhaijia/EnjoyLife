@@ -40,9 +40,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
 
-                <category android:name="android.intent.category.BROWSABLE"/>
 
-                <data android:pathPrefix="/7" android:host="www.enjoylife.com" android:scheme="http"/>
             </intent-filter>
         </activity>
         <activity android:name=".music.hotmusiciandetails.HotMusicianActivity" />
@@ -81,6 +79,7 @@
         <activity android:name=".picture.details.DetailsActivity" />
         <activity android:name=".travel.selectcity.CountrySelectAty" />
         <activity android:name=".travel.attractions.AttractionsAty" />
+
 
         <!--小青的地图-->
         <meta-data

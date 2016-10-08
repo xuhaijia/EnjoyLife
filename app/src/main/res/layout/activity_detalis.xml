@@ -200,7 +200,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:gravity="center"
-                    android:text="1111111111"
                     android:textColor="#080808"
                     android:textSize="15dp"/>
 

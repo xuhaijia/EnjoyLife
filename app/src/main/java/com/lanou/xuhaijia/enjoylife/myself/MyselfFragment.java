@@ -1,6 +1,7 @@
 package com.lanou.xuhaijia.enjoylife.myself;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -179,6 +180,15 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
                 MyBmobUser myBmobUsers = new BmobUser().getCurrentUser(MyBmobUser.class);
                 if (myBmobUsers != null){
                     myBmobUsers.setIcon(bitmap);
+                    final ProgressDialog progressDialog = new ProgressDialog(getContext());
+                    progressDialog.setCancelable(true);
+                    progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                    progressDialog.show();
+
+                    View view = LayoutInflater.from(mContext).inflate(R.layout.activity_progress,null);
+                    progressDialog.setContentView(view);
+
+
                     myBmobUsers.update(new UpdateListener() {
                         @Override
                         public void done(BmobException e) {
@@ -187,9 +197,11 @@ public class MyselfFragment extends BaseFragment implements View.OnClickListener
                                 myPhoto.setImageBitmap(bitmap);
                                 Bitmap blurBitmap = Blur.apply(mContext, bitmap ,5);
                                 background.setImageBitmap(blurBitmap);
+                                progressDialog.dismiss();
                             }else {
                                 Log.d("MyselfFragment", e.getMessage());
                                 Toast.makeText(mContext, "头像上传失败", Toast.LENGTH_SHORT).show();
+                                progressDialog.dismiss();
                             }
                         }
                     });

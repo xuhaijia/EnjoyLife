@@ -72,6 +72,7 @@ public class CommentActivity extends BaseActivity {
 
         mNetTool.getData(UrlValues.COMMENT_START_URL + urlAdd + UrlValues.COMMENT_END_UEL,
                 CommentBean.class, new NetTool.NetInterface<CommentBean>() {
+
                     @Override
                     public void onSuccess(final CommentBean commentBean) {
 
